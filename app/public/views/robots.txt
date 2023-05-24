@@ -1,0 +1,10 @@
+# Grupo 1
+User-agent: Googlebot
+Disallow: /lib/
+Disallow: /include/
+
+# Grupo 2
+User-agent: Googlebot-Image
+Disallow: /
+
+Sitemap: https://www.tasatoday.pro/sitemap.xml
