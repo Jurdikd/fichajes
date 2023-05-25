@@ -26,15 +26,15 @@ if (PUERTO === "80" || PUERTO === "443") {
 if ($dbSet === true) {
     #  datos de base de datos online
     define('NOMBRE_SERVIDOR', 'localhost'); #nombre
-    define('NOMBRE_USUARIO', 'u839792224_instarapids'); #usuario
-    define('PASSWORD', 'OK1~f0Bu7&m'); #clave
-    define('NOMBRE_BD', 'u839792224_instarapids'); #nombre de la base de datos
+    define('NOMBRE_USUARIO', ''); #usuario
+    define('PASSWORD', ''); #clave
+    define('NOMBRE_BD', ''); #nombre de la base de datos
 } else {
     # SI ESTA CORRIENDO LA PRUEBA LOCAL...
     define('NOMBRE_SERVIDOR', 'localhost'); #nombre
     define('NOMBRE_USUARIO', 'root'); #usuario
     define('PASSWORD', ''); #clave
-    define('NOMBRE_BD', 'instarapids'); #nombre de la base de datos
+    define('NOMBRE_BD', 'fichajes_fedeav'); #nombre de la base de datos
 }
 // Variables para hora y zona horaria
 define('PAIS_ZONA_HORARIA', 'America/Caracas'); #pais - zona horaria
@@ -56,27 +56,14 @@ define("VISTA", SERVIDOR . "/");
 
 //VISTAS PRINCIPALES
 define("RUTA_GENERAL", VISTA);
-define("RUTA_DONATE", VISTA . "donates");
-define("RUTA_CUSTOM", VISTA . "custom");
-define("RUTA_PRUBS", VISTA . "prubs");
-define("RUTA_PRINCIPAL", VISTA . "principal");
+define("RUTA_START", VISTA . "start");
 define("RUTA_LOGIN_GENERAL", VISTA . "login");
 define("RUTA_REGISTER", VISTA . "register");
 define("RUTA_LOGOUT_GENERAL", VISTA . "logout");
-#api
-define("RUTA_API", VISTA . "api");
-define("RUTA_RATES", VISTA . "rates");
-define("RUTA_RATE", VISTA . "rate");
-#Area de deliverys
-define("RUTA_DELIVERYS", VISTA . "deliverys");
-define("RUTA_DELIVERY", VISTA . "delivery");
-#Area de diplomados
-define("RUTA_DIPLOMADOS", VISTA . "diplomados");
-define("RUTA_DIPLOMADO", VISTA . "diplomado");
-#AREA DE ALIADOS
-define("RUTA_ALIADOS_INSTITUCIONALES", VISTA . "aliados-institucionales");
-define("RUTA_ALIADOS_PEDAGOGICOS", VISTA . "aliados-pedagogicos");
-define("RUTA_RESPONSABILDIAD_SOCIAL", VISTA . "responsabilidad-social");
+
+#VISTA DE PRUEBA
+define("RUTA_PRUBS", VISTA . "prubs");
+
 #VERIFICACION
 define("RUTA_VERIFICACION", VISTA . "verificacion");
 
