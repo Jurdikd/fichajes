@@ -10,8 +10,18 @@
 
 <style>
 .filterFichaje {
-    filter: grayscale(100%) hue-rotate(60deg);
-    /* color: #f32545;*/
+    filter: sepia(1) saturate(5) hue-rotate(179deg);
+    /* grayscale(100%) color: #f32545;*/
+}
+
+.filterFichaje2 {
+    filter: sepia(1) saturate(5) hue-rotate(-50deg);
+    /* grayscale(100%) color: #f32545;*/
+}
+
+.filterFichaje3 {
+    filter: sepia(1) saturate(5) hue-rotate(20deg);
+    /* grayscale(100%) color: #f32545;*/
 }
 </style>
 
@@ -21,7 +31,10 @@
         <img class="img-fluid" src="<?php echo RUTA_IMG; ?>users/prub.JPG" alt="" srcset="" width="200" height="200">
         <img class="img-fluid filterFichaje" src="<?php echo RUTA_IMG; ?>users/prub.JPG" alt="" srcset="" width="200"
             height="200">
-        <br>
+        <img class="img-fluid filterFichaje2" src="<?php echo RUTA_IMG; ?>users/prub.JPG" alt="" srcset="" width="200"
+            height="200">
+        <img class="img-fluid filterFichaje3" src="<?php echo RUTA_IMG; ?>users/prub.JPG" alt="" srcset="" width="200"
+            height="200">
         <img class="img-fluid" id="myImage" src="<?php echo RUTA_IMG; ?>users/prub.JPG" alt="Imagen" width="200"
             height="200">
         <input id="colorPicker" type="color">
@@ -35,7 +48,9 @@
     document.getElementById('colorPicker').addEventListener('input', function() {
         var color = this.value;
         var image = document.getElementById('myImage');
-        var filter = 'grayscale(1) sepia(1) saturate(1000%) hue-rotate(' + colorToHueRotation(color) + 'deg)';
+        console.log(color, colorToHueRotation(color))
+        var filter = 'sepia(1) saturate(5) hue-rotate(' + colorToHueRotation(color) +
+            'deg)';
         image.style.filter = filter;
     });
 
