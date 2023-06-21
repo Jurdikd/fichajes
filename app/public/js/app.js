@@ -3,7 +3,6 @@ import { loadingTerror } from "./loadingTerror.js"; // This is while the page it
 
 // Load page
 document.addEventListener("DOMContentLoaded", async () => {
-
 	// Loader message
 	await loadingTerror.message(document.getElementById("msgPreloader"));
 
@@ -25,12 +24,8 @@ window.addEventListener("offline", () => {
 	console.log("Sin conexión");
 });
 
-
 let originalTitle = document.title;
-let newTitle =
-	lang.t("app.components.tittles.page_return", "¡🖖🏼No te vayas vuelve!") +
-	" | " +
-	originalTitle;
+let newTitle = "¡🖖🏼No te vayas vuelve!" + " | " + originalTitle;
 
 window.addEventListener("blur", () => {
 	document.title = newTitle;

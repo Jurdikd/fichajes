@@ -60,6 +60,14 @@ define("RUTA_START", VISTA . "start");
 define("RUTA_LOGIN_GENERAL", VISTA . "login");
 define("RUTA_REGISTER", VISTA . "register");
 define("RUTA_LOGOUT_GENERAL", VISTA . "logout");
+define("RUTA_HELP", VISTA . "help");
+
+//VISTAS FICHAJES
+define("RUTA_CREATE_FICHAJE", VISTA . "create-fichaje");
+define("RUTA_SHOW_FICHAJES", VISTA . "show-fichajes");
+
+//VISTA DISCIPLINAS
+define("RUTA_DISCIPLINAS", VISTA . "disciplines");
 
 #VISTA DE PRUEBA
 define("RUTA_PRUBS", VISTA . "prubs");

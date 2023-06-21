@@ -32,6 +32,20 @@ $router->register('/', 'app/public/views/start.php');
 // Ruta de Login
 $router->register('/login', 'app/public/views/login.php');
 
+//----------------------------------------------------------------------------//
+
+//RUTAS SECUNDARIAS:
+
+// Ruta de CREAR FICHAJE
+$router->register('/create-fichaje', 'app/public/views/fichajes/create-fichaje.php');
+
+// Ruta de VER FICHAJES
+$router->register('/show-fichajes', 'app/public/views/fichajes/show-fichajes.php');
+
+// Ruta de VER DISCIPLINAS
+$router->register('/disciplines', 'app/public/views/disciplines/disciplines.php');
+
+//----------------------------------------------------------------------------//
 // Ruta de help
 $router->register('/help', 'app/public/views/help/help.php');
 
