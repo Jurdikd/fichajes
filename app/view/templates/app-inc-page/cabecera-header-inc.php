@@ -14,7 +14,8 @@
         <meta HTTP-EQUIV=" REFRESH" content="0; url=javascript-no-activo">
     </noscript>
     <meta name="author" content="TasaTodayPro" />
-    <meta id="meta_descripton" name=" description" content="TasaTodayPro es un sito para revisar las tasas y precios de diferentes divisas y criotomonedas como objetivo pricipal enfocado a venezuela solo como información y ayuda lo que se haga con la información es meramente resposabilidad de él o los usuarios que la utilicen">
+    <meta id="meta_descripton" name=" description"
+        content="TasaTodayPro es un sito para revisar las tasas y precios de diferentes divisas y criotomonedas como objetivo pricipal enfocado a venezuela solo como información y ayuda lo que se haga con la información es meramente resposabilidad de él o los usuarios que la utilicen">
     <?php
     if (!isset($titulo) || empty($titulo)) {
         $titulo = NOMBRE_PRINCIPAL;
@@ -42,12 +43,6 @@
     <link href="<?php echo RUTA_CSS ?>plugins/slimselect/slimselect.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo RUTA_CSS ?>style.css">
 
-    <!--link rel="stylesheet" href="<?php #echo RUTA_CSS 
-                                    ?>login.css"-->
-    <?php if (PUERTO === "80" || PUERTO === "443") {
-        # mostramos analiticas
-        include_once "libs/analitycs.google.php";
-    } ?>
 
 
 </head>
@@ -63,7 +58,3 @@
     <!-- Page Content -->
 
     <div class="content-page pt-2">
-        <!-- Menu -->
-        <?php
-        include_once "app/view/templates/components/menu/menu.comp.php"; ?>
-        <!-- End menu -->

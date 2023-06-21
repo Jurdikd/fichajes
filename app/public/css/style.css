@@ -37,7 +37,8 @@
 .preloader {
 	width: 70px;
 	height: 70px;
-	border-top: 7px solid rgba(187,238,63,1);
+	border-top: 7px solid rgb(238, 235, 63);
+	border-left: 7px solid rgb(238, 63, 63);;
 	border-bottom: 7px solid rgba(23,157,255);
 	border-radius: 100%;
 	position: absolute;

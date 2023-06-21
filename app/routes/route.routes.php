@@ -12,9 +12,6 @@ $router = new Router();
 // Ruta de error 404
 $router->registerNotFound('app/public/views/404.php');
 
-// Ruta de inicio
-$router->register('/', 'app/public/views/start.php');
-
 // Ruta de sin js
 $router->register('/javascript-no-activo', 'app/public/views/sin-js.php');
 
@@ -24,9 +21,16 @@ $router->register('/robots.txt', 'app/public/views/robots.txt');
 // Ruta de sitemap.xml
 $router->register('/sitemap.xml', 'app/public/views/sitemap.xml.php');
 
+
 //----------------------------------------------------------------------------//
 
 //RUTAS PRINCIPALES:
+
+// Ruta de inicio
+$router->register('/', 'app/public/views/start.php');
+
+// Ruta de Login
+$router->register('/login', 'app/public/views/login.php');
 
 // Ruta de help
 $router->register('/help', 'app/public/views/help/help.php');

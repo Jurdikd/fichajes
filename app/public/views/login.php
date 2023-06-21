@@ -62,13 +62,6 @@ include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
             <div class="segmented-control__color"></div>
         </div>
 
-
-
-
-
-
-
-
     </div>
 </div>
 <?php
