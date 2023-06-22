@@ -4,7 +4,7 @@
             <div class="col-md-6 mx-auto">
                 <p class="text-center mt-2" data-i18n="app.components.footer.copyrigth">© 2023 - TODOS LOS
                     DERECHOS
-                    RESERVADOS - LUCUAS CALDERÓN
+                    RESERVADOS - LUCAS CALDERÓN
                 </p>
             </div>
         </div>
