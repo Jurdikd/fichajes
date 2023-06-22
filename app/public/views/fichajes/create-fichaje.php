@@ -208,7 +208,11 @@ body {
                                     <option value="voleibol">Voleibol</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Registrar</button>
+
+                            <div class="mb-3">
+                                <label for="imagen" class="form-label">Imagen</label>
+                                <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+                            </div> <button type="submit" class="btn btn-primary">Registrar</button>
                         </div>
                     </form>
                 </div>
@@ -222,7 +226,7 @@ body {
                         ATLETA
                         <span class="fas fa-star text-ficha-discipline"></span>
                     </h5>
-                    <img class="card-img-top card-img-cover rounded filterFichaje2 "
+                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2"
                         src="<?php echo RUTA_IMG; ?>users/prub.JPG" alt="" srcset="" width="300" height="300"
                         loading="lazy">
                     <div class="container-fluid mt-3">
@@ -395,8 +399,9 @@ body {
 </div>
 <?php
 include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
-
+<script src=" <?php echo RUTA_JS; ?>plugins/terrorimg/terrorimg.js"></script>
 <script src=" <?php echo RUTA_JS; ?>views/create-fichaje.js"></script>
+
 <script>
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
 const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))

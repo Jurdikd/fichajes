@@ -58,3 +58,23 @@ function rellenarFicha(event) {
 		console.log("edad:", edad);
 	}
 }
+// Obtener referencia al input de imagen y la etiqueta img de vista previa
+const imagenInput = document.getElementById('imagen');
+const previewImg = document.getElementById('preview');
+
+// Escuchar el evento change del input de imagen
+imagenInput.addEventListener('change', () => {
+    // Obtener la imagen seleccionada
+    const imagenSeleccionada = imagenInput.files[0];
+
+    // Crear un objeto FileReader para leer la imagen
+    const reader = new FileReader();
+
+    // Cuando la imagen se cargue, mostrarla en la vista previa
+    reader.onload = function(e) {
+        previewImg.setAttribute('src', e.target.result);
+    };
+
+    // Leer la imagen como una URL de datos
+    reader.readAsDataURL(imagenSeleccionada);
+});
