@@ -16,10 +16,10 @@
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
                     <li><a href="<?php echo RUTA_GENERAL; ?>">Fichajes FEDEAV</a></li>
                     <li><a
-                            href="mailto:contact@tasatoday.pro?Subject=<?php echo RUTA_GENERAL; ?>%20Interesado%20en%20el%20servicio."><i
+                            href="mailto:contact@fichajefedeav.org?Subject=<?php echo RUTA_GENERAL; ?>%20Interesado%20en%20el%20servicio."><i
                                 class="fa fa-envelope"></i>contact@fichajefedeav.org</a></li>
                     <li><a href="https://www.instagram.com/fedeavoficial" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-instagram"></i>@tasatodaypro</a></a></li>
+                                class="fab fa-instagram"></i>@fedeavoficial</a></a></li>
                 </ul>
             </div>
         </div>
