@@ -1,5 +1,5 @@
 <!-- Menu -->
-<nav id="navbar" class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+<nav id="navbar" class="navbar navbar-expand-lg sticky-top navbar-light bg-light">
     <div class=" container-fluid mx-3">
         <a class="navbar-brand" href="<?php echo RUTA_GENERAL; ?>" dir="ltr">
             <img src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="Logo" width="30" height="24"

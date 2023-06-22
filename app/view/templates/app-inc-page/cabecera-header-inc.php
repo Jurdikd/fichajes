@@ -57,4 +57,4 @@
     <!-- End preloader -->
     <!-- Page Content -->
 
-    <div class="content-page pt-2">
+    <div class="content-page">
