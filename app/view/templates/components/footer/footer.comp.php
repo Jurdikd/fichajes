@@ -10,7 +10,8 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <p data-i18n="app.components.footer.description">XL JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIADOS DE ABOGADOS DE VENEZUELA</p>
+                <p data-i18n="app.components.footer.description">XL JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE
+                    ABOGADOS DE VENEZUELA MERIDA 2023</p>
             </div>
             <div class="col-md-6">
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
