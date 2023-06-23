@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <p class="text-center mt-2" data-i18n="app.components.footer.copyrigth">© 2023 - TODOS LOS
+                <p class="text-center mt-2">© 2023 - TODOS LOS
                     DERECHOS
                     RESERVADOS - LUCAS CALDERÓN
                 </p>
@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <p data-i18n="app.components.footer.description">XL JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE
+                <p>XL JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE
                     ABOGADOS DE VENEZUELA MERIDA 2023</p>
             </div>
             <div class="col-md-6">
