@@ -15,9 +15,24 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
 
     // verificamos si get es correcto y esta inciada y no vacia
     if (!empty($get) && SERVIDOR == $origin) {
-        #guardamos la variable rates
-        $data = $get['ficha'];
-        $respuesta = $data;
+        #guardamos la variable ficha
+        $ficha = $get['ficha'];
+
+        // Desglosar los datos del array "ficha"
+        $primerNombre = $ficha['primer-nombre'];
+        $segundoNombre = $ficha['segundo-nombre'];
+        $primerApellido = $ficha['primer-apellido'];
+        $segundoApellido = $ficha['segundo-apellido'];
+        $fechaNacimiento = $ficha['fecha-nacimiento'];
+        $sexo = $ficha['sexo'];
+        $cedula = $ficha['cedula'];
+        $fedeav = $ficha['fedeav'];
+        $inpreAbogado = $ficha['inpre-abogado'];
+        $telefono = $ficha['telefono'];
+        $imagen = $ficha['imagen'];
+        $delegacion = $ficha['delegacion'];
+        $disciplinas = $ficha['disciplinas'];
+        $respuesta = true;
     } else {
         $respuesta = array('error' => array(
             'message' => array(

@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {});
 const SERVER = window.location.origin;
 const RUTA_IMG = SERVER + "/app/public/img/";
+
+// Obtener formulario
 const form_register = document.getElementById("form_register_user");
 
 // Obtener todos los campos de entrada del formulario
@@ -246,7 +248,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		event.preventDefault();
 		if (validarFormulario()) {
 			// El formulario es válido, puedes realizar las acciones necesarias aquí
-			console.log("Formulario válido:", form);
+			//console.log("Formulario válido:", form);
 
 			enviarFormulario(form);
 			// form.submit(); // Descomenta esta línea para enviar el formulario
@@ -320,5 +322,24 @@ document.addEventListener("DOMContentLoaded", function () {
 		//console.log(dataForm);
 		let url = "../../app/ajax/users.ajax.php";
 		const solicitud = await terrorFetch.fetch("POST", url, { ficha: dataForm }, true);
+		if (solicitud === true) {
+			console.log("Ficha registrada correctamente");
+			const alert = terroralert.swal(
+				alertPosition,
+				"success",
+				"Ficha registrada correctamente",
+				5000,
+				1050
+			);
+		} else {
+			console.log("Error al cargar los datos de ficha:", solicitud);
+			const alert = terroralert.swal(
+				alertPosition,
+				"error",
+				"Error al cargar los datos de ficha",
+				5000,
+				1050
+			);
+		}
 	};
 });
