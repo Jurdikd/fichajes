@@ -31,6 +31,8 @@ $router->register('/', 'app/public/views/start.php');
 
 // Ruta de Login
 $router->register('/login', 'app/public/views/login.php');
+// Ruta de Login
+$router->register('/logout', 'app/public/views/logout.php');
 
 //----------------------------------------------------------------------------//
 

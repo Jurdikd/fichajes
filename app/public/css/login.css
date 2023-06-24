@@ -98,6 +98,11 @@ body {
   background-color: #217093;
 }
 
+.submit-btn.disabled {
+  background-color: #DDD;
+  cursor: not-allowed;
+}
+
 @keyframes floatAnimation {
   0% {
     transform: translateY(0);
@@ -116,8 +121,4 @@ body {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.submit-btn-spinner {
-  animation: spinAnimation 1s infinite linear;
 }

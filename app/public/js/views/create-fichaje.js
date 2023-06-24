@@ -225,8 +225,7 @@ actualizarBotones();
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /** validacion de formulario */
-// Crear una instancia de la clase TerrorFetch
-const terrorFetch = new TerrorFetch();
+
 document.addEventListener("DOMContentLoaded", function () {
 	const form = document.getElementById("form_register_user");
 	const campos = {
