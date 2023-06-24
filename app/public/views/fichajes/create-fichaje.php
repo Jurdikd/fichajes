@@ -257,31 +257,8 @@ body {
                                 <p class="text-ficha-discipline">DISCIPLINAS:</p>
 
                             </div>
-                            <div class="col-6 mt-3 ps-0 pe-0">
-                                <button class="btn p-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="custom-tooltip" data-bs-title="Tiro">
-                                    <img class="img-fluid shadow-discipline"
-                                        src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tiro.svg"
-                                        alt="tiro" srcset="" width="30" loading="lazy">
-                                </button>
-                                <button class="btn p-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="custom-tooltip" data-bs-title="Dominó">
-                                    <img class="img-fluid shadow-discipline"
-                                        src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg"
-                                        alt="Dominó" srcset="" width="30" loading="lazy">
-                                </button>
-                                <button class="btn p-0 rounded-circle" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="custom-tooltip" data-bs-title="Ajedrez">
-                                    <img class="img-fluid shadow-discipline"
-                                        src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg"
-                                        alt="Ajedrez" srcset="" width="30" loading="lazy">
-                                </button>
-                                <button class="btn btn-secondary __ficha-btn-plus rounded-circle text-ficha-list"
-                                    type="button" data-bs-target="#collapseDiscipline" aria-expanded="false"
-                                    aria-controls="collapseDiscipline" data-bs-toggle="tooltip" data-bs-placement="top"
-                                    data-bs-custom-class="custom-tooltip" data-bs-title="Ver más">
-                                    <i class="fas fa-plus"></i>
-                                </button>
+                            <div id="discpliplines-show" class="col-6 mt-3 ps-0 pe-0">
+
 
                             </div>
 
@@ -291,97 +268,7 @@ body {
                             </div>
                             <div class="col-12 p-0">
                                 <div class="text-center collapse p-1 pt-0" id="collapseDiscipline">
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Softball">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg"
-                                            alt="Softball" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Billar">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg"
-                                            alt="Billar" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Maraton">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg"
-                                            alt="Maraton" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Softball">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg"
-                                            alt="Softball" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Billar">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg"
-                                            alt="Billar" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Maraton">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg"
-                                            alt="Maraton" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Softball">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg"
-                                            alt="Softball" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Billar">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg"
-                                            alt="Billar" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Maraton">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg"
-                                            alt="Maraton" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Softball">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg"
-                                            alt="Softball" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Billar">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg"
-                                            alt="Billar" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Maraton">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg"
-                                            alt="Maraton" srcset="" width="30" loading="lazy">
-                                    </button>
-                                    <button class="btn p-1 rounded-circle" data-bs-toggle="tooltip"
-                                        data-bs-placement="top" data-bs-custom-class="custom-tooltip"
-                                        data-bs-title="Maraton">
-                                        <img class="img-fluid shadow-discipline"
-                                            src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg"
-                                            alt="Maraton" srcset="" width="30" loading="lazy">
-                                    </button>
+
                                 </div>
                             </div>
                             <hr class="__ficha-hr">
@@ -425,9 +312,6 @@ document.addEventListener("DOMContentLoaded", function() {
             collapse.toggle();
         });
     });
-});
-new SlimSelect({
-    select: '#disciplinas'
 });
 </script>
 <?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>
