@@ -88,7 +88,7 @@ imagenInput.addEventListener("change", function () {
 const selectDisciplines = document.getElementById("disciplinas");
 
 // Crear una instancia de SlimSelect
-let slim = new SlimSelect({
+let selectDisipline = new SlimSelect({
 	select: selectDisciplines,
 	selected: false,
 	settings: {
@@ -104,7 +104,7 @@ let slim = new SlimSelect({
 // Función para actualizar los botones y el collapse
 function actualizarBotones() {
 	// Obtener los valores seleccionados
-	const selectedValues = slim.getSelected();
+	const selectedValues = selectDisipline.getSelected();
 
 	// Obtener referencia al contenedor donde se mostrarán los botones principales y el botón "Ver más"
 	const disponiblesContainer = document.getElementById("discpliplines-show");
@@ -156,7 +156,7 @@ selectDisciplines.addEventListener("change", function () {
 	actualizarBotones();
 
 	// Imprimir los valores seleccionados en la consola
-	console.log(slim.getSelected());
+	console.log(selectDisipline.getSelected());
 });
 
 // Función para crear un botón de disciplina
@@ -244,7 +244,9 @@ document.addEventListener("DOMContentLoaded", function () {
 		event.preventDefault();
 		if (validarFormulario()) {
 			// El formulario es válido, puedes realizar las acciones necesarias aquí
-			console.log("Formulario válido");
+			console.log("Formulario válido:", form);
+
+			enviarFormulario(form);
 			// form.submit(); // Descomenta esta línea para enviar el formulario
 		} else {
 			console.log("Formulario inválido");
@@ -295,4 +297,23 @@ document.addEventListener("DOMContentLoaded", function () {
 		input.classList.remove("is-invalid");
 		input.classList.add("is-valid");
 	}
+	const enviarFormulario = async (form) => {
+		const imagenU = await terrorIMG.obtenerIMG(imagenInput);
+		const dataForm = {
+			"primer-nombre": form.querySelector("#primer-nombre").value,
+			"segundo-nombre": form.querySelector("#segundo-nombre").value,
+			"primer-apellido": form.querySelector("#primer-apellido").value,
+			"segundo-apellido": form.querySelector("#segundo-apellido").value,
+			"fecha-nacimiento": form.querySelector("#fecha-nacimiento").value,
+			sexo: form.querySelector("#sexo").value,
+			cedula: form.querySelector("#cedula").value,
+			fedeav: form.querySelector("#fedeav").value,
+			"inpre-abogado": form.querySelector("#inpre-abogado").value,
+			telefono: form.querySelector("#telefono").value,
+			imagen: imagenU,
+			delegacion: form.querySelector("#delegacion").value,
+			disciplinas: selectDisipline.getSelected(),
+		};
+		console.log(dataForm);
+	};
 });
