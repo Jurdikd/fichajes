@@ -8,7 +8,6 @@
 <script src="<?php echo RUTA_JS; ?>bootstrap.min.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/slimselect/slimselect.min.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/lz-string/lz-string.min.js"></script>
-<script src="<?php echo RUTA_JS; ?>plugins/terrorlang/terrorlang.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/shortcodeterror/shortcodeterror.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/conexionterror/conexionterror.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/alertify/alertify.min.js"></script>
