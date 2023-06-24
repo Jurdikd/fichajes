@@ -47,7 +47,7 @@ function rellenarFicha(event) {
 		//userFicha.querySelector(fieldSelector).textContent = value;
 		const fieldElement = userFicha.querySelector(fieldSelector);
 
-		console.log(`Campo '${name}' cambiado. Nuevo valor: ${value}`);
+		//console.log(`Campo '${name}' cambiado. Nuevo valor: ${value}`);
 		if (name === "fecha-nacimiento") {
 			const fechaNac = new Date(value);
 			const fechaActual = new Date();
@@ -64,10 +64,10 @@ function rellenarFicha(event) {
 			}
 
 			fieldElement.textContent = edad + " AÑOS";
+			//console.log("edad:", edad);
 		} else {
 			fieldElement.textContent = value;
 		}
-		console.log("edad:", edad);
 	}
 }
 
@@ -218,3 +218,81 @@ function crearBotonVerMas(valores) {
 
 // Actualizar los botones al cargar la página
 actualizarBotones();
+/////////////////////////////////////////////////////////////////////////////////////////
+
+/** validacion de formulario */
+
+document.addEventListener("DOMContentLoaded", function () {
+	const form = document.getElementById("form_register_user");
+	const campos = {
+		"primer-nombre": false,
+		"segundo-nombre": true,
+		"primer-apellido": false,
+		"segundo-apellido": true,
+		"fecha-nacimiento": false,
+		sexo: false,
+		cedula: false,
+		fedeav: false,
+		"inpre-abogado": false,
+		telefono: false,
+		imagen: false,
+		delegacion: true,
+		disciplinas: false,
+	};
+
+	form.addEventListener("submit", function (event) {
+		event.preventDefault();
+		if (validarFormulario()) {
+			// El formulario es válido, puedes realizar las acciones necesarias aquí
+			console.log("Formulario válido");
+			// form.submit(); // Descomenta esta línea para enviar el formulario
+		} else {
+			console.log("Formulario inválido");
+		}
+	});
+
+	function validarFormulario() {
+		let formValido = true;
+
+		for (const campo in campos) {
+			if (campos.hasOwnProperty(campo)) {
+				const valor = document.getElementById(campo).value.trim();
+
+				if (campos[campo]) {
+					// No se realiza validación para campos opcionales
+					continue;
+				}
+
+				if (valor === "") {
+					marcarCampoInvalido(campo);
+					formValido = false;
+				} else {
+					marcarCampoValido(campo);
+				}
+			}
+		}
+
+		// Validar campo de disciplinas
+		const disciplinas = document.getElementById("disciplinas");
+		if (disciplinas.value.length === 0) {
+			marcarCampoInvalido("disciplinas");
+			formValido = false;
+		} else {
+			marcarCampoValido("disciplinas");
+		}
+
+		return formValido;
+	}
+
+	function marcarCampoInvalido(campo) {
+		const input = document.getElementById(campo);
+		input.classList.add("is-invalid");
+		input.classList.remove("is-valid");
+	}
+
+	function marcarCampoValido(campo) {
+		const input = document.getElementById(campo);
+		input.classList.remove("is-invalid");
+		input.classList.add("is-valid");
+	}
+});

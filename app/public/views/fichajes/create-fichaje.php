@@ -123,40 +123,40 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                     <form role="form" id="form_register_user">
                         <div class="row">
                             <div class="col-lg-3">
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="primer-nombre" class="form-label">Primer Nombre</label>
-                                    <input type="text" class="form-control" id="primer-nombre" name="primer-nombre" required>
+                                    <input type="text" class="form-control" id="primer-nombre" name="primer-nombre">
                                 </div>
                             </div>
 
                             <div class="col-lg-3">
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="segundo-nombre" class="form-label">Segundo Nombre</label>
                                     <input type="text" class="form-control" id="segundo-nombre" name="segundo-nombre">
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="primer-apellido" class="form-label">Primer Apellido</label>
-                                    <input type="text" class="form-control" id="primer-apellido" name="primer-apellido" required>
+                                    <input type="text" class="form-control" id="primer-apellido" name="primer-apellido">
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="segundo-apellido" class="form-label">Segundo Apellido</label>
                                     <input type="text" class="form-control" id="segundo-apellido" name="segundo-apellido">
                                 </div>
                             </div>
                             <div class="col-lg-3">
-                                <div class="form-group">
+                                <div class="form-group mb-3">
                                     <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento" required>
+                                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group">
                                     <label for="sexo" class="form-label">Sexo</label>
-                                    <select class="form-select" id="sexo" name="sexo" required>
+                                    <select class="form-select" id="sexo" name="sexo">
                                         <option value="">Seleccione una opción</option>
                                         <option value="MASCULINO">MASCULINO</option>
                                         <option value="FEMENINO">FEMENINO</option>
@@ -166,7 +166,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="cedula" class="form-label">Cédula Venezolana</label>
-                                    <input type="text" class="form-control" id="cedula" name="cedula" required>
+                                    <input type="text" class="form-control" id="cedula" name="cedula">
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -184,7 +184,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="telefono" class="form-label">Teléfono</label>
-                                    <input type="text" class="form-control" id="telefono" name="telefono" required>
+                                    <input type="text" class="form-control" id="telefono" name="telefono">
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -201,7 +201,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             </div>
                             <div class="mb-3">
                                 <label for="disciplinas" class="form-label">Disciplinas</label>
-                                <select multiple class="form-control" id="disciplinas" name="disciplinas[]" required>
+                                <select multiple class="form-control" id="disciplinas" name="disciplinas[]">
                                     <option value="ajedrez">Ajedrez</option>
                                     <option value="baloncesto">Baloncesto</option>
                                     <option value="billar">Billar</option>
