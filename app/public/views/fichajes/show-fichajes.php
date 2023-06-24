@@ -1,4 +1,8 @@
 <?php
+if (!ControlSesion::sesion_iniciada()) {
+    Redireccion::redirigir(RUTA_LOGIN_GENERAL);
+    #Si el usuario tiene una sesion activa se redirige a inicio
+}
 $titulo = "Ver Fichajes";
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 include_once "app/view/templates/components/menu/menu.comp.php"; ?>
