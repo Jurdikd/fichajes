@@ -42,9 +42,6 @@
     <!-- Slim-select-->
     <link href="<?php echo RUTA_CSS ?>plugins/slimselect/slimselect.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo RUTA_CSS ?>style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
-    <link rel="stylesheet" href="<?php echo RUTA_CSS ?>login.css">
 
 
 

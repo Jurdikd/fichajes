@@ -1,6 +1,7 @@
 <?php
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 ?>
+<link rel="stylesheet" href="<?php echo RUTA_CSS ?>login.css">
 
 <div class="container mt-5">
     <div class="row">
