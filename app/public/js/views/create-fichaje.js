@@ -73,6 +73,7 @@ function rellenarFicha(event) {
 
 // Crear una instancia de la clase TerrorIMG
 const terrorIMG = new TerrorIMG();
+
 // Obtener referencia al input de imagen y la etiqueta img de vista previa
 const imagenInput = document.getElementById("imagen");
 const previewImg = document.getElementById("preview");
@@ -156,7 +157,7 @@ selectDisciplines.addEventListener("change", function () {
 	actualizarBotones();
 
 	// Imprimir los valores seleccionados en la consola
-	console.log(selectDisipline.getSelected());
+	//console.log(selectDisipline.getSelected());
 });
 
 // Función para crear un botón de disciplina
@@ -221,7 +222,8 @@ actualizarBotones();
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /** validacion de formulario */
-
+// Crear una instancia de la clase TerrorFetch
+const terrorFetch = new TerrorFetch();
 document.addEventListener("DOMContentLoaded", function () {
 	const form = document.getElementById("form_register_user");
 	const campos = {
@@ -314,6 +316,9 @@ document.addEventListener("DOMContentLoaded", function () {
 			delegacion: form.querySelector("#delegacion").value,
 			disciplinas: selectDisipline.getSelected(),
 		};
-		console.log(dataForm);
+
+		//console.log(dataForm);
+		let url = "../../app/ajax/users.ajax.php";
+		const solicitud = await terrorFetch.fetch("POST", url, { ficha: dataForm }, true);
 	};
 });
