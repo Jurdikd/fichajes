@@ -11,6 +11,16 @@ inputFields.forEach((input) => {
 	input.addEventListener("change", rellenarFicha);
 	input.addEventListener("keyup", rellenarFicha);
 });
+// Obtén una lista de todos los elementos de entrada de texto en el formulario
+const inputFieldsText = document.querySelectorAll("input[type='text']");
+
+// Agrega un controlador de eventos a cada campo de entrada
+inputFieldsText.forEach((input) => {
+	input.addEventListener("input", function () {
+		// Convierte el texto del campo de entrada a mayúsculas
+		this.value = this.value.toUpperCase();
+	});
+});
 
 // Función para manejar los cambios en los campos de entrada
 function rellenarFicha(event) {
