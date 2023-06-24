@@ -29,7 +29,7 @@ login.addEventListener("submit", function (event) {
 		const alert = terroralert.swal(
 			alertPosition,
 			"success",
-			"Incion de seción correcto redireccionando...",
+			"Incio de sesión correcto redireccionando...",
 			7000,
 			1050
 		);
