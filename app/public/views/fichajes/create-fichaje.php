@@ -220,7 +220,13 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <option value="voleibol">Voleibol</option>
                                 </select>
                             </div>
+                            <div class="col-6">
+
+                                <button type="button" class="btn btn-warning mb-3" id="resetButton">Resetear
+                                    formulario</button>
+                            </div>
                             <button type="submit" class="btn btn-primary">Registrar</button>
+
                         </div>
                     </form>
                 </div>

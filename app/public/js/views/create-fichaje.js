@@ -101,6 +101,7 @@ let selectDisipline = new SlimSelect({
 		placeholder: "Seleccionar disciplinas",
 		placeholderText: "Seleccionar disciplinas",
 		searchHighlight: false,
+		closeOnSelect: false,
 	},
 });
 
@@ -328,9 +329,13 @@ document.addEventListener("DOMContentLoaded", function () {
 				alertPosition,
 				"success",
 				"Ficha registrada correctamente",
-				5000,
+				7000,
 				1050
 			);
+			if (alert) {
+				location.reload(true);
+				form.reset();
+			}
 		} else {
 			console.log("Error al cargar los datos de ficha:", solicitud);
 			const alert = terroralert.swal(
@@ -342,4 +347,10 @@ document.addEventListener("DOMContentLoaded", function () {
 			);
 		}
 	};
+	// Código para el botón de reset
+	const resetButton = document.getElementById("resetButton");
+
+	resetButton.addEventListener("click", function () {
+		form.reset();
+	});
 });
