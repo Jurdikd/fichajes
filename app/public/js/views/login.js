@@ -53,7 +53,7 @@ login.addEventListener("submit", async (event) => {
 			// Habilitar el botón quitando el atributo "disabled"
 			submitBtn.removeAttribute("disabled");
 			// Mostrar error de sesión
-			console.log("Error al iniciar sesión");
+			console.log("Error al iniciar sesión", solicitud);
 			const alert = terroralert.swal(
 				alertPosition,
 				"error",

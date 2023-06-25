@@ -3,8 +3,11 @@ include_once "../config/config.inc.php";
 include_once "../../libs/FunctionTerror.libs.php";
 include_once "../../libs/UrlGetTerror.libs.php";
 include_once "../models/conexion.php";
+include_once "../models/RepositorioUsuarios.php";
+include_once '../libraries/classUsuario.php';
 include_once "../libraries/ClaseCrypt.php";
 include_once "../libraries/ControlSesion.php";
+
 #Definir variable para url de curl
 
 //Recibimos los datos por json
@@ -16,15 +19,36 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
 
     // verificamos si get es correcto y esta inciada y no vacia
     if (!empty($get) && SERVIDOR == $origin) {
-        #guardamos la variable ficha
+        #guardamos la variable login
         $login = $get['login'];
-
-        // Desglosar los datos del array "ficha"
+        // Desglosar los datos del array "login"
         $nombre_usuario = $login['username'];
-        $pa = $login['password'];
-        $id_usuario = 88;
-        ControlSesion::iniciar_sesion($id_usuario, $nombre_usuario);
-        $respuesta = true;
+        $password = $login['password'];
+        Conexion::abrir_conexion(); //Abrir la conexion
+        // buscamos usuario por usuario
+        $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
+        // veroficamos la clave 
+        $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
+        //verificamos si los datos de sesion son correctos
+        if (
+            $nombre_usuario === $usuario->obtener_usuario() &&
+            $clave === true
+        ) {
+            // DATOS DE SESION CORRECTOS SE INICIA SESION
+            ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
+            $respuesta = true;
+        } else {
+            $respuesta = array('error' => array(
+                'message' => array(
+                    'lang' => array(
+                        'en' =>
+                        "Error: Error from data",
+                        'es' =>
+                        "Error: Error de datos"
+                    )
+                ),
+            ));
+        }
     } else {
         $respuesta = array('error' => array(
             'message' => array(

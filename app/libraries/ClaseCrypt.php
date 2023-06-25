@@ -12,18 +12,18 @@ class Encriptrar
     {
         $pass = "";
         if (!empty($clave)) {
-            # Conprobamos si clave no esta vacia
-            $pass = crypt($clave, '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+            $salt = '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$';
+            $pass = crypt($clave, $salt);
         }
         return $pass;
     }
-    public static function Verificar_Crytp($clave, $clave2)
+
+    public static function Verificar_Crytp($clave, $claveEncriptada)
     {
-        $resultado =  false;
-        if (!empty($clave) && !empty($clave2)) {
-            # Conprobamos si clave no esta vacia
-            $clave = crypt($clave, '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
-            if ($clave == $clave2) {
+        $resultado = false;
+        if (!empty($clave) && !empty($claveEncriptada)) {
+            $passEncriptada = crypt($clave, $claveEncriptada);
+            if ($passEncriptada === $claveEncriptada) {
                 $resultado = true;
             }
         }
