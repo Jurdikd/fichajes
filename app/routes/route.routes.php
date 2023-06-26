@@ -44,8 +44,11 @@ $router->register('/create-fichaje', 'app/public/views/fichajes/create-fichaje.p
 // Ruta de VER FICHAJES
 $router->register('/show-fichajes', 'app/public/views/fichajes/show-fichajes.php');
 
-// Ruta de VER DISCIPLINAS
+// Ruta para VER DISCIPLINAS
 $router->register('/disciplines', 'app/public/views/disciplines/disciplines.php');
+
+// Ruta para VER DISCIPLINA
+$router->register('/discipline', 'app/public/views/disciplines/discipline.php');
 
 //----------------------------------------------------------------------------//
 // Ruta de help

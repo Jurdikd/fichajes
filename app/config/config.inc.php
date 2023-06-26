@@ -68,7 +68,7 @@ define("RUTA_SHOW_FICHAJES", VISTA . "show-fichajes");
 
 //VISTA DISCIPLINAS
 define("RUTA_DISCIPLINAS", VISTA . "disciplines");
-
+define("RUTA_DISCIPLINA", VISTA . "discipline");
 #VISTA DE PRUEBA
 define("RUTA_PRUBS", VISTA . "prubs");
 

@@ -15,7 +15,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
         <div class="col-lg-12">
             <div class="card mt-5 p-4">
                 <div class="card-header text-center">
-                    <h5 class="card-title">Fichas de usuarios</h5>
+                    <h5 class="card-title">FICHAJES</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive" style="max-width: 100%;">
