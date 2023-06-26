@@ -27,7 +27,7 @@ if ($dbSet === true) {
     #  datos de base de datos online
     define('NOMBRE_SERVIDOR', 'localhost'); #nombre
     define('NOMBRE_USUARIO', 'fichaje_fedeav'); #usuario
-    define('PASSWORD', 'fichaje_fedeav2204'); #clave
+    define('PASSWORD', 'Fichaje_fedeav2204'); #clave
     define('NOMBRE_BD', 'fichaje_fedeav'); #nombre de la base de datos
 } else {
     # SI ESTA CORRIENDO LA PRUEBA LOCAL...
