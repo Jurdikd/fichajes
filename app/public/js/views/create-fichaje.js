@@ -36,10 +36,8 @@ function rellenarFicha(event) {
 		"fecha-nacimiento": ".age",
 		sexo: ".sex",
 		cedula: ".cedula",
-		fedeav: ".fedeav",
 		inpre: ".inpre",
 		telefono: ".telephone",
-		delegacion: ".delegacion",
 	};
 
 	const userFicha = document.getElementById("userFicha");
@@ -86,7 +84,22 @@ imagenInput.addEventListener("change", function () {
 	terrorIMG.leer(this, previewImg);
 });
 //********************************************* */
-
+// Obtener referencia al elemento <select> usando su ID
+const selectDelegaciones = document.getElementById("delegacion");
+// Crear una instancia de SlimSelect
+let selectDelegacion = new SlimSelect({
+	select: selectDelegaciones,
+	selected: false,
+	settings: {
+		showSearch: true,
+		searchText: "No se encontraron resultados",
+		searchPlaceholder: "Buscar...",
+		placeholder: "Seleccionar degaciones",
+		placeholderText: "Seleccionar degaciones",
+		searchHighlight: false,
+		closeOnSelect: false,
+	},
+});
 // Obtener referencia al elemento <select> usando su ID
 const selectDisciplines = document.getElementById("disciplinas");
 
@@ -228,6 +241,12 @@ actualizarBotones();
 
 document.addEventListener("DOMContentLoaded", function () {
 	const form = document.getElementById("form_register_user");
+	let setDelegacion;
+	if (selectDelegaciones.type === "text") {
+		setDelegacion = true;
+	} else if (selectDelegaciones.type === "select-one") {
+		setDelegacion = false;
+	}
 	const campos = {
 		"primer-nombre": false,
 		"segundo-nombre": true,
@@ -236,11 +255,11 @@ document.addEventListener("DOMContentLoaded", function () {
 		"fecha-nacimiento": false,
 		sexo: false,
 		cedula: false,
-		fedeav: false,
+		correo: false,
 		"inpre-abogado": false,
 		telefono: false,
 		imagen: false,
-		delegacion: true,
+		delegacion: setDelegacion,
 		disciplinas: false,
 	};
 
@@ -303,6 +322,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 	const enviarFormulario = async (form) => {
 		const imagenU = await terrorIMG.obtenerIMG(imagenInput);
+		let delegacionSend;
+		console.log(setDelegacion);
+		if (setDelegacion) {
+			delegacionSend = form.querySelector("#delegacion").value;
+		} else {
+			delegacionSend = selectDelegacion.getSelected();
+		}
 		const dataForm = {
 			"primer-nombre": form.querySelector("#primer-nombre").value,
 			"segundo-nombre": form.querySelector("#segundo-nombre").value,
@@ -311,11 +337,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			"fecha-nacimiento": form.querySelector("#fecha-nacimiento").value,
 			sexo: form.querySelector("#sexo").value,
 			cedula: form.querySelector("#cedula").value,
-			fedeav: form.querySelector("#fedeav").value,
+			correo: form.querySelector("#correo").value,
 			"inpre-abogado": form.querySelector("#inpre-abogado").value,
 			telefono: form.querySelector("#telefono").value,
 			imagen: imagenU,
-			delegacion: form.querySelector("#delegacion").value,
+			delegacion: delegacionSend,
 			disciplinas: selectDisipline.getSelected(),
 		};
 
@@ -332,8 +358,8 @@ document.addEventListener("DOMContentLoaded", function () {
 				1050
 			);
 			if (alert) {
-				location.reload(true);
 				form.reset();
+				//location.reload(true);
 			}
 		} else {
 			console.log("Error al cargar los datos de ficha:", solicitud);

@@ -77,7 +77,7 @@ class ControlSesion
 
         $datos_sesion = array(
             'id' => $_SESSION['id_usuario'],
-            'nombre' => $_SESSION['nombre_usuario']
+            'usuario' => $_SESSION['nombre_usuario']
         );
         return $datos_sesion;
     }

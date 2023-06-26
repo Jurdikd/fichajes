@@ -26,7 +26,7 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
         $fechaNacimiento = $ficha['fecha-nacimiento'];
         $sexo = $ficha['sexo'];
         $cedula = $ficha['cedula'];
-        $fedeav = $ficha['fedeav'];
+        $correo = $ficha['correo'];
         $inpreAbogado = $ficha['inpre-abogado'];
         $telefono = $ficha['telefono'];
         $imagen = $ficha['imagen'];

@@ -510,7 +510,6 @@ class RepositorioUsuario
 
         if (isset($conexion)) {
             try {
-                include_once 'clases/ClaseUsuario.inc.php';
 
                 $sql = "SELECT * FROM usuarios 
                     INNER JOIN rol on usuarios.fk_rol = rol.id_rol
@@ -527,21 +526,39 @@ class RepositorioUsuario
                 $resultado = $sentencia->fetch();
 
                 if (!empty($resultado)) {
-                    $usuario = new Usuario(
+                    $usuario =  new Usuario(
                         $resultado['id_usuario'],
                         $resultado['nombre'],
-                        $resultado['apellidos'],
+                        $resultado['nombre2'],
+                        $resultado['apellido1'],
+                        $resultado['apellido2'],
+                        $resultado['cedula'],
+                        $resultado['id_sexo'],
+                        $resultado['iso_sexo'],
+                        $resultado['nombre_sexo'],
+                        $resultado['fecha_nacimiento'],
                         $resultado['usuario'],
-                        $resultado['clave'],
+                        stripslashes($resultado['clave']), #stripslashes PARA ESCAPAR BARRAS INVERTIDAS
                         $resultado['patron'],
+                        $resultado['codigo_empleado'],
+                        $resultado['celular'],
+                        $resultado['correo'],
+                        $resultado['id_estado_pais'],
+                        $resultado['estado_nom'],
+                        $resultado['fk_pais'],
+                        $resultado['nombre_pais'],
                         $resultado['fk_rol'],
                         $resultado['nombre_rol'],
+                        $resultado['codigo_rol'],
                         $resultado['fk_cargo'],
                         $resultado['nombre_cargo'],
+                        $resultado['codigo_cargo'],
                         $resultado['imagen'],
                         $resultado['fk_estatus'],
                         $resultado['nombre_estatus'],
-                        $resultado['ultimo_login']
+                        $resultado['ultimo_login'],
+                        $resultado['edicion_u'],
+                        $resultado['registro_u']
                     );
                 }
             } catch (PDOException $ex) {
@@ -558,13 +575,47 @@ class RepositorioUsuario
 
         if (isset($conexion)) {
             try {
-                include_once '../clases/ClaseUsuario.inc.php';
 
-                $sql = "SELECT * FROM usuarios 
-                    INNER JOIN rol on usuarios.fk_rol = rol.id_rol
-                    INNER JOIN cargo on usuarios.fk_cargo = cargo.id_cargo
-                    INNER JOIN estatus on usuarios.fk_estatus = estatus.id_estatus
-                     WHERE id_usuario = :id";
+                $sql = "SELECT usuarios.id_usuario,
+                usuarios.nombre,
+                usuarios.nombre2,
+                usuarios.apellido1,
+                usuarios.apellido2,
+                usuarios.cedula,
+                sexos.id_sexo,
+                sexos.iso_sexo,
+                sexos.nombre_sexo,
+                usuarios.fecha_nacimiento,
+                usuarios.usuario,
+                usuarios.clave,
+                usuarios.patron,
+                usuarios.codigo_empleado,
+                usuarios.celular,
+                usuarios.correo,
+                estados_paises.id_estado_pais,
+                estados_paises.estado_nom,
+                usuarios.fk_pais,
+                paises.nombre_pais,
+                usuarios.fk_rol,
+                rol.nombre_rol,
+                rol.codigo_rol,
+                usuarios.fk_cargo,
+                cargo.nombre_cargo,
+                cargo.codigo_cargo,
+                usuarios.imagen,
+                usuarios.fk_estatus,
+                estatus.nombre_estatus,
+                usuarios.ultimo_login,
+                usuarios.edicion_u,
+                usuarios.registro_u
+        FROM usuarios
+        INNER JOIN rol ON usuarios.fk_rol = rol.id_rol
+        INNER JOIN cargo ON usuarios.fk_cargo = cargo.id_cargo
+        INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo
+        INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
+        INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
+        INNER JOIN paises ON usuarios.fk_pais = paises.id_pais_origen
+        WHERE id_usuario = :id";
 
                 $sentencia = $conexion->prepare($sql);
 
@@ -575,21 +626,39 @@ class RepositorioUsuario
                 $resultado = $sentencia->fetch();
 
                 if (!empty($resultado)) {
-                    $usuario = new Usuario(
+                    $usuario =  new Usuario(
                         $resultado['id_usuario'],
                         $resultado['nombre'],
-                        $resultado['apellidos'],
+                        $resultado['nombre2'],
+                        $resultado['apellido1'],
+                        $resultado['apellido2'],
+                        $resultado['cedula'],
+                        $resultado['id_sexo'],
+                        $resultado['iso_sexo'],
+                        $resultado['nombre_sexo'],
+                        $resultado['fecha_nacimiento'],
                         $resultado['usuario'],
-                        $resultado['clave'],
+                        stripslashes($resultado['clave']), #stripslashes PARA ESCAPAR BARRAS INVERTIDAS
                         $resultado['patron'],
+                        $resultado['codigo_empleado'],
+                        $resultado['celular'],
+                        $resultado['correo'],
+                        $resultado['id_estado_pais'],
+                        $resultado['estado_nom'],
+                        $resultado['fk_pais'],
+                        $resultado['nombre_pais'],
                         $resultado['fk_rol'],
                         $resultado['nombre_rol'],
+                        $resultado['codigo_rol'],
                         $resultado['fk_cargo'],
                         $resultado['nombre_cargo'],
+                        $resultado['codigo_cargo'],
                         $resultado['imagen'],
                         $resultado['fk_estatus'],
                         $resultado['nombre_estatus'],
-                        $resultado['ultimo_login']
+                        $resultado['ultimo_login'],
+                        $resultado['edicion_u'],
+                        $resultado['registro_u']
                     );
                 }
             } catch (PDOException $ex) {
@@ -646,6 +715,81 @@ class RepositorioUsuario
                 foreach ($id as $nroid) {
                     $resultado = $nroid['id_usuario'];
                 }
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        return $resultado;
+    }
+    public static function obtener_rol_usuario($conexion, $usuario)
+    {
+        $resultado = false;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT usuarios.fk_rol,
+                rol.nombre_rol,
+                rol.codigo_rol 
+                FROM usuarios
+                INNER JOIN rol ON usuarios.fk_rol = rol.id_rol
+                INNER JOIN cargo ON usuarios.fk_cargo = cargo.id_cargo
+                WHERE usuario = :usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        return $resultado;
+    }
+    public static function obtener_cargo_usuario($conexion, $usuario)
+    {
+        $resultado = false;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT id_usuario FROM usuarios WHERE usuario = :usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+
+                $sentencia->execute();
+
+                $id = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($id as $nroid) {
+                    $resultado = $nroid['id_usuario'];
+                }
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        return $resultado;
+    }
+    public static function obtener_estado_usuario($conexion, $usuario)
+    {
+        $resultado = false;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT usuarios.fk_estado, 
+                estados_paises.estado_nom, 
+                estados_paises.fk_pais 
+                FROM usuarios 
+                INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais 
+                WHERE usuario = :usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+               
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }
