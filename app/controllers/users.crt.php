@@ -46,7 +46,7 @@ class UsersCrt
                 'correo' =>  $userData['correo'],
                 'fk_estado' =>  $delegacion,
                 'fk_rol' => 3,
-                'imagen' => $rutaimg
+                'imagen' => "app/" . $rutaimg
             );
             //Registrar usuario
             // guardar en base de datos

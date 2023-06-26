@@ -532,21 +532,7 @@ body {
             <div class="col-12">
                 <div class="card">
                     <div class="card-body">
-                        <div class="d-flex justify-content-end mb-3">
-                            <div class="dropdown">
-                                <button class="btn btn-secondary dropdown-toggle" type="button" id="exportMenu"
-                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                    Exportar
-                                </button>
-                                <ul class="dropdown-menu" aria-labelledby="exportMenu">
-                                    <li><a class="dropdown-item" href="#" id="copyButton">Copiar</a></li>
-                                    <li><a class="dropdown-item" href="#" id="csvButton">CSV</a></li>
-                                    <li><a class="dropdown-item" href="#" id="excelButton">Excel</a></li>
-                                    <li><a class="dropdown-item" href="#" id="pdfButton">PDF</a></li>
-                                    <li><a class="dropdown-item" href="#" id="printButton">Imprimir</a></li>
-                                </ul>
-                            </div>
-                        </div>
+
                         <table id="example-table" class="table table-striped" style="width:100%">
                             <thead>
                                 <tr>

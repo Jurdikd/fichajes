@@ -11,40 +11,43 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <link href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.bootstrap5.min.css" rel="stylesheet" />
 <link href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css" rel="stylesheet" />
 <div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-10 mx-auto">
-            <div class="card mt-5">
+    <div class="row p-2">
+        <div class="col-lg-10  mx-auto">
+            <div class="card mt-5 p-4">
                 <div class="card-header text-center">
-                    <h5 class="card-tittle">Fichas de usuarios</h5>
+                    <h5 class="card-title">Fichas de usuarios</h5>
                 </div>
                 <div class="card-body">
-                    <table id="tabla-fichajes" class="table table-striped table-bordered" style="width:100%">
-                        <thead>
-                            <tr>
-                                <th>imagen</th>
-                                <th>Nombres</th>
-                                <th>Apellidos</th>
-                                <th>Fecha de nacimiento</th>
-                                <th>Sexo</th>
-                                <th>Cédula</th>
-                                <th>FEDEAV</th>
-                                <th>INPRE</th>
-                                <th>Teléfono</th>
-                                <th>Delegación</th>
-                                <th>Disciplinas</th>
-                                <th>Acciones</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Aquí se llenarán dinámicamente los datos de los usuarios -->
-                        </tbody>
-                    </table>
-
+                    <div class="table-responsive" style="max-width: 100%;">
+                        <!-- Agrega el estilo max-width -->
+                        <table id="tabla-fichajes" class="table table-striped" style="width:80%;">
+                            <thead>
+                                <tr>
+                                    <th>imagen</th>
+                                    <th>Nombres</th>
+                                    <th>Apellidos</th>
+                                    <th>Fecha de nacimiento</th>
+                                    <th>Sexo</th>
+                                    <th>Cédula</th>
+                                    <th>FEDEAV</th>
+                                    <th>INPRE</th>
+                                    <th>Teléfono</th>
+                                    <th>Delegación</th>
+                                    <th>Disciplinas</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Aquí se llenarán dinámicamente los datos de los usuarios -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <?php
 include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>

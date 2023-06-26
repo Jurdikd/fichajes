@@ -62,11 +62,13 @@ class RepositorioUsuario
                 $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
                 usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
                 sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, 
-                estatus.id_estatus, usuarios.celular, usuarios.correo, usuarios.edicion_u, 
+                usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, 
+                usuarios.correo, usuarios.edicion_u, estados_paises.estado_nom,
                 usuarios.registro_u, usuarios.id_usuario 
                 FROM usuarios 
                 INNER JOIN sexos on usuarios.fk_sexo = sexos.id_sexo 
                 INNER JOIN estatus on usuarios.fk_estatus = estatus.id_estatus
+                INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
                 WHERE 1 
                     ORDER BY usuarios.registro_u DESC";
                 $sentencia = $conexion->prepare($sql);
