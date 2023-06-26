@@ -12,7 +12,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <link href="https://cdn.datatables.net/responsive/2.4.1/css/responsive.bootstrap5.min.css" rel="stylesheet" />
 <div class="container mt-5">
     <div class="row p-2">
-        <div class="col-lg-10  mx-auto">
+        <div class="col-lg-12">
             <div class="card mt-5 p-4">
                 <div class="card-header text-center">
                     <h5 class="card-title">Fichas de usuarios</h5>
@@ -20,7 +20,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                 <div class="card-body">
                     <div class="table-responsive" style="max-width: 100%;">
                         <!-- Agrega el estilo max-width -->
-                        <table id="tabla-fichajes" class="table table-striped" style="width:80%;">
+                        <table id="tabla-fichajes" class="table table-striped" style="width:90%">
                             <thead>
                                 <tr>
                                     <th>imagen</th>

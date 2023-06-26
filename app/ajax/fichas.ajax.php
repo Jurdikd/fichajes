@@ -26,39 +26,6 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
 
         $ficha = UsersCrt::GetFichas(Conexion::obtener_conexion(), $get);
 
-        $datos = array(
-            array(
-                'nombres' => 'Juan',
-                'apellidos' => 'Pérez',
-                'fechaNacimiento' => '1990-05-15',
-                'sexo' => 'Masculino',
-                'cedula' => '123456789',
-                'fedeav' => 'Sí',
-                'inpre' => 'No',
-                'telefono' => '555-1234',
-                'delegacion' => 'Caracas',
-                'disciplinas' => 'Fútbol, Tenis',
-                'id' => 1
-            ),
-            array(
-                'nombres' => 'María',
-                'apellidos' => 'López',
-                'fechaNacimiento' => '1985-10-25',
-                'sexo' => 'Femenino',
-                'cedula' => '987654321',
-                'fedeav' => 'Sí',
-                'inpre' => 'Sí',
-                'telefono' => '555-5678',
-                'delegacion' => 'Maracaibo',
-                'disciplinas' => 'Baloncesto, Natación',
-                'id' => 2
-            ),
-            // Agrega más elementos según sea necesario
-        );
-
-
-
-
         $respuesta = $ficha;
     } else {
         $respuesta = array('error' => array(

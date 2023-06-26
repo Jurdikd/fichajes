@@ -7,9 +7,9 @@ const table = $("#tabla-fichajes").DataTable({
 	buttons: [
 		{
 			extend: "excelHtml5",
-			title: "Reporte de fichajes",
+			title: "Reporte de fichajes | FEDEAV",
 			exportOptions: {
-				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8], // Exportar todas las columnas excepto la última (acciones)
+				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // Exportar todas las columnas excepto la última (acciones)
 				format: {
 					body: function (data, row, column, node) {
 						// Verificar si es la columna de la imagen
@@ -22,11 +22,10 @@ const table = $("#tabla-fichajes").DataTable({
 				},
 			},
 		},
-
 		{
 			extend: "print",
 			text: "Imprimir",
-			title: "Reporte de fichajes",
+			title: "Reporte de fichajes | FEDEAV",
 			exportOptions: {
 				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 				format: {
@@ -44,10 +43,10 @@ const table = $("#tabla-fichajes").DataTable({
 	responsive: true,
 	order: [],
 	lengthMenu: [
-		[7, 10, 20, 25, 50, -1],
-		[7, 10, 20, 25, 50, "Todos"],
+		[5, 10, 20, 50, -1], // Opciones de cantidad de registros a mostrar
+		[5, 10, 20, 50, "Todos"], // Texto de las opciones
 	],
-	iDisplayLength: 7,
+	iDisplayLength: -1, // Mostrar todos los registros
 });
 
 const showFichas = async () => {
