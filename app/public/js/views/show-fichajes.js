@@ -70,7 +70,7 @@ const showFichas = async () => {
 					`
                     <img class="img-fluid" src="${usuario.imagen}" alt="${
 						usuario.nombre + " " + usuario.apellido1
-					}" width="30" loading="lazy">
+					}" width="80" height="80" loading="lazy">
                     `,
 					usuario.nombre + " " + usuario.nombre2,
 					usuario.apellido1 + " " + usuario.apellido2,
