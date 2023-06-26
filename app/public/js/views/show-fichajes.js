@@ -4,7 +4,43 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 const table = $("#tabla-fichajes").DataTable({
 	dom: "Bfrtip",
-	buttons: ["copy", "csv", "excel", "pdf"],
+	buttons: [
+		{
+			extend: "excelHtml5",
+			title: "Reporte de fichajes",
+			exportOptions: {
+				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8], // Exportar todas las columnas excepto la última (acciones)
+				format: {
+					body: function (data, row, column, node) {
+						// Verificar si es la columna de la imagen
+						if (column === 0) {
+							// Retornar el contenido HTML de la imagen
+							return $(data).prop("outerHTML");
+						}
+						return data;
+					},
+				},
+			},
+		},
+
+		{
+			extend: "print",
+			text: "Imprimir",
+			title: "Reporte de fichajes",
+			exportOptions: {
+				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+				format: {
+					body: function (data, row, column, node) {
+						// Personalizar el contenido de la impresión
+						if (column === 0) {
+							return ""; // Dejar en blanco la primera columna (imagen)
+						}
+						return data;
+					},
+				},
+			},
+		},
+	],
 	responsive: true,
 	order: [],
 	lengthMenu: [
@@ -15,12 +51,9 @@ const table = $("#tabla-fichajes").DataTable({
 });
 
 const showFichas = async () => {
-	console.log("Inicio");
 	let url = "../../app/ajax/fichas.ajax.php";
 	const solicitud = await terrorFetch.fetch("POST", url, { ficha: "getfichas" }, true);
-	/**
-	 *
-	 */
+
 	if (solicitud) {
 		const datos = solicitud;
 
@@ -35,9 +68,9 @@ const showFichas = async () => {
 			tablaUsuarios.row
 				.add([
 					`
-					<img class="img-fluid"
-					src="${usuario.imagen}"
-					alt="${usuario.nombre + " " + usuario.apellido1}"" width="30" loading="lazy">
+                    <img class="img-fluid" src="${usuario.imagen}" alt="${
+						usuario.nombre + " " + usuario.apellido1
+					}" width="30" loading="lazy">
                     `,
 					usuario.nombre + " " + usuario.nombre2,
 					usuario.apellido1 + " " + usuario.apellido2,
@@ -49,8 +82,9 @@ const showFichas = async () => {
 					usuario.celular,
 					usuario.estado_nom,
 					usuario.estado_nom,
+					// Agregar aquí las disciplinas del usuario
 					`
-                        <button class="btn btn-primary btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editarUsuario(${usuario.id_usuario})">Editar</button>
+                    <button class="btn btn-primary btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editarUsuario(${usuario.id_usuario})">Editar</button>
                     `,
 				])
 				.draw();
