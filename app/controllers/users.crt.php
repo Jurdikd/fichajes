@@ -130,6 +130,11 @@ class UsersCrt
         }
         return $resultado;
     }
+    public static function GetFichas($conexion, $user)
+    {
+        $ficha = RepositorioUsuario::obtener_fichas_usuarios($conexion);
+        return $ficha;
+    }
     public static function GetRol($conexion, $user)
     {
         $getRol = RepositorioUsuario::obtener_rol_usuario($conexion, $user);

@@ -52,30 +52,24 @@ class RepositorioUsuario
 
         return $usuarios;
     }
-    public static function mostrar_usuarios_tablas($conexion, $igual, $usuario)
+    public static function obtener_fichas_usuarios($conexion)
     {
 
         $arrDatos = null;
         if (isset($conexion)) {
             try {
 
-                $sql = "SELECT  usuarios.imagen, usuarios.nombre, usuarios.nombre2,
-                    usuarios.apellidos, usuarios.cedula, sexos.nombre_sexo, usuarios.fecha_nacimiento,
-                    usuarios.usuario, usuarios.codigo_empleado, rol.nombre_rol, rol.codigo_rol, cargo.nombre_cargo,
-                    cargo.codigo_cargo,estatus.id_estatus,usuarios.celular, usuarios.celular2, usuarios.correo,
-                    usuarios.correo2, paises.nombre_pais, paises.iso, usuarios.ciudad, usuarios.ultimo_login, usuarios.edicion_u,
-                    usuarios.registro_u, usuarios.id_usuario 
-                          FROM usuarios 
-        
-                    INNER JOIN sexos on usuarios.fk_sexo = sexos.id_sexo
-                    INNER JOIN rol on usuarios.fk_rol = rol.id_rol 
-                    INNER JOIN cargo on usuarios.fk_cargo = cargo.id_cargo 
-                    INNER JOIN estatus on usuarios.fk_estatus = estatus.id_estatus
-                    INNER JOIN paises on usuarios.fk_pais = paises.id_pais_origen
-                    WHERE (usuarios.usuario != 'admin' AND usuarios.usuario != :usuario) AND usuarios.fk_estatus" . $igual . " 3 
+                $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
+                usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
+                sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, 
+                estatus.id_estatus, usuarios.celular, usuarios.correo, usuarios.edicion_u, 
+                usuarios.registro_u, usuarios.id_usuario 
+                FROM usuarios 
+                INNER JOIN sexos on usuarios.fk_sexo = sexos.id_sexo 
+                INNER JOIN estatus on usuarios.fk_estatus = estatus.id_estatus
+                WHERE 1 
                     ORDER BY usuarios.registro_u DESC";
                 $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(':usuario', $usuario, PDO::PARAM_STR);
                 $sentencia->execute();
                 $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $ex) {
