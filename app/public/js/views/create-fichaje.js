@@ -348,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		//console.log(dataForm);
 		let url = "../../app/ajax/users.ajax.php";
 		const solicitud = await terrorFetch.fetch("POST", url, { ficha: dataForm }, true);
-		if (solicitud === true) {
+		if (solicitud === 1) {
 			console.log("Ficha registrada correctamente");
 			const alert = terroralert.swal(
 				alertPosition,
@@ -359,8 +359,62 @@ document.addEventListener("DOMContentLoaded", function () {
 			);
 			if (alert) {
 				form.reset();
-				//location.reload(true);
+				location.reload(true);
 			}
+		} else if (solicitud === 2) {
+			console.log(
+				"Ficha insertada correctamente! pero ha habido un error al guardar las disciplinas!",
+				solicitud
+			);
+			const alert = terroralert.swal(
+				alertPosition,
+				"warning",
+				"Ficha insertada correctamente! pero ha habido un error al guardar las disciplinas!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 3) {
+			console.log(
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro!",
+				solicitud
+			);
+			const alert = terroralert.swal(
+				alertPosition,
+				"warning",
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 4) {
+			console.log(
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro y disciplinas!",
+				solicitud
+			);
+			const alert = terroralert.swal(
+				alertPosition,
+				"warning",
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro y disciplinas!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 5) {
+			console.log("¡Ha habido un error al insertar ficha!", solicitud);
+			const alert = terroralert.swal(
+				alertPosition,
+				"error",
+				"¡Ha habido un error al insertar ficha!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 6) {
+			console.log("Ficha ya existe", solicitud);
+			const alert = terroralert.swal(
+				alertPosition,
+				"error",
+				"¡Ficha ya existe!",
+				5000,
+				1050
+			);
 		} else {
 			console.log("Error al cargar los datos de ficha:", solicitud);
 			const alert = terroralert.swal(

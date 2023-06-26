@@ -167,8 +167,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <label for="sexo" class="form-label">Sexo</label>
                                     <select class="form-select" id="sexo" name="sexo">
                                         <option value="">Seleccione una opción</option>
-                                        <option value="MASCULINO">MASCULINO</option>
-                                        <option value="FEMENINO">FEMENINO</option>
+                                        <option value="1">FEMENINO</option>
+                                        <option value="2">MASCULINO</option>
                                     </select>
                                 </div>
                             </div>

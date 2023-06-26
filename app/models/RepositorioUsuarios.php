@@ -213,6 +213,43 @@ class RepositorioUsuario
 
         return $usuario_insertado;
     }
+    public static function registrar_usuario_ficha($conexion, $userDataRegister)
+    {
+
+        if (isset($conexion)) {
+            try {
+                $sql = "INSERT INTO usuarios(nombre, nombre2, apellido1, apellido2, cedula, 
+                fk_sexo, fecha_nacimiento, usuario, codigo_empleado, inpre_abogado, celular,
+                 correo, fk_estado, fk_rol, imagen) 
+                    VALUES(:nombre, :nombre2, :apellido1, :apellido2, :cedula, :fk_sexo, 
+                    :fecha_nacimiento, :usuario, :codigo_empleado, :inpre_abogado,
+                    :celular, :correo, :fk_estado, :fk_rol, :imagen)";
+
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->bindParam(':nombre', $userDataRegister['nombre'], PDO::PARAM_STR);
+                $sentencia->bindParam(':nombre2', $userDataRegister['nombre2'], PDO::PARAM_STR);
+                $sentencia->bindParam(':apellido1', $userDataRegister['apellido1'], PDO::PARAM_STR);
+                $sentencia->bindParam(':apellido2', $userDataRegister['apellido2'], PDO::PARAM_STR);
+                $sentencia->bindParam(':cedula', $userDataRegister['cedula'], PDO::PARAM_STR);
+                $sentencia->bindParam(':fk_sexo', $userDataRegister['fk_sexo'], PDO::PARAM_INT);
+                $sentencia->bindParam(':fecha_nacimiento', $userDataRegister['fecha_nacimiento'], PDO::PARAM_STR);
+                $sentencia->bindParam(':usuario', $userDataRegister['usuario'], PDO::PARAM_STR);
+                $sentencia->bindParam(':codigo_empleado', $userDataRegister['codigo_empleado'], PDO::PARAM_STR);
+                $sentencia->bindParam(':inpre_abogado', $userDataRegister['inpre_abogado'], PDO::PARAM_STR);
+                $sentencia->bindParam(':celular', $userDataRegister['celular'], PDO::PARAM_STR);
+                $sentencia->bindParam(':correo', $userDataRegister['correo'], PDO::PARAM_STR);
+                $sentencia->bindParam(':fk_estado', $userDataRegister['fk_estado'], PDO::PARAM_INT);
+                $sentencia->bindParam(':fk_rol', $userDataRegister['fk_rol'], PDO::PARAM_STR);
+                $sentencia->bindParam(':imagen', $userDataRegister['imagen'], PDO::PARAM_STR);
+
+                $usuario_insertado = $sentencia->execute();
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $usuario_insertado;
+    }
     public static function insertar_patron_usuario($conexion, $usuario, $patron)
     {
         $patron_insertado = "";
@@ -789,7 +826,6 @@ class RepositorioUsuario
                 $sentencia->execute();
 
                 $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
-               
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }

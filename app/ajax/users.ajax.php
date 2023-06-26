@@ -3,8 +3,14 @@ include_once "../config/config.inc.php";
 include_once "../../libs/FunctionTerror.libs.php";
 include_once "../../libs/UrlGetTerror.libs.php";
 include_once "../models/conexion.php";
-
-#Definir variable para url de curl
+include_once "../models/RepositorioUsuarios.php";
+include_once '../libraries/classUsuario.php';
+include_once "../models/RepositorioRegistroUsuarios.php";
+include_once "../models/RepositorioEstadosPaises.php";
+include_once "../models/RepositorioDisciplinasUsuarios.php";
+//controlers
+include_once "../controllers/users.crt.php"; #controlador usuarios
+include_once "../libraries/ControlSesion.php";
 
 //Recibimos los datos por json
 $get = UrlGetTerror::Getjson();
@@ -15,24 +21,13 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
 
     // verificamos si get es correcto y esta inciada y no vacia
     if (!empty($get) && SERVIDOR == $origin) {
+        Conexion::abrir_conexion();
         #guardamos la variable ficha
-        $ficha = $get['ficha'];
 
-        // Desglosar los datos del array "ficha"
-        $primerNombre = $ficha['primer-nombre'];
-        $segundoNombre = $ficha['segundo-nombre'];
-        $primerApellido = $ficha['primer-apellido'];
-        $segundoApellido = $ficha['segundo-apellido'];
-        $fechaNacimiento = $ficha['fecha-nacimiento'];
-        $sexo = $ficha['sexo'];
-        $cedula = $ficha['cedula'];
-        $correo = $ficha['correo'];
-        $inpreAbogado = $ficha['inpre-abogado'];
-        $telefono = $ficha['telefono'];
-        $imagen = $ficha['imagen'];
-        $delegacion = $ficha['delegacion'];
-        $disciplinas = $ficha['disciplinas'];
-        $respuesta = true;
+
+        $ficha = UsersCrt::register_user_fichaje(Conexion::obtener_conexion(), $get['ficha']);
+
+        $respuesta = $ficha;
     } else {
         $respuesta = array('error' => array(
             'message' => array(
