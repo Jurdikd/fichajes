@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", async () => {});
-const SERVER = window.location.origin;
-const RUTA_IMG = SERVER + "/app/public/img/";
+
 
 // Obtener formulario
 const form_register = document.getElementById("form_register_user");
