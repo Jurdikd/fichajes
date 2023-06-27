@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	showFichas();
 });
 
-const table = $("#tabla-fichajes").DataTable({
+const table = $("#tabla-usuarios").DataTable({
 	dom: "Bfrtip",
 	buttons: [
 		{
@@ -34,14 +34,14 @@ const table = $("#tabla-fichajes").DataTable({
 });
 
 const showFichas = async () => {
-	let url = "../../app/ajax/fichas.ajax.php";
-	const solicitud = await terrorFetch.fetch("POST", url, { ficha: "getfichas" }, true);
+	let url = "../../app/ajax/users.ajax.php";
+	const solicitud = await terrorFetch.fetch("POST", url, { user: "getusers" }, true);
 
 	if (solicitud) {
 		const datos = solicitud;
 
 		// Obtener referencia a la tabla
-		let tablaUsuarios = $("#tabla-fichajes").DataTable();
+		let tablaUsuarios = $("#tabla-usuarios").DataTable();
 
 		// Limpiar los datos existentes en la tabla
 		tablaUsuarios.clear().draw();
@@ -63,6 +63,8 @@ const showFichas = async () => {
 					usuario.codigo_empleado,
 					usuario.inpre_abogado,
 					usuario.celular,
+					usuario.correo,
+					usuario.nombre_rol,
 					usuario.estado_nom,
 					usuario.estado_nom,
 					// Agregar aquí las disciplinas del usuario

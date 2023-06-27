@@ -352,7 +352,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		const solicitud = await terrorFetch.fetch(
 			"POST",
 			url,
-			{ ficha: "registeruser", datauser: dataForm },
+			{ user: "registeruser", datauser: dataForm },
 			true
 		);
 		if (solicitud === 1) {

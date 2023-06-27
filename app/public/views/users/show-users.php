@@ -15,12 +15,12 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
         <div class="col-lg-12">
             <div class="card mt-5 p-4">
                 <div class="card-header text-center">
-                    <h5 class="card-title">FICHAJES</h5>
+                    <h5 class="card-title">USUARIOS</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive" style="max-width: 100%;">
                         <!-- Agrega el estilo max-width -->
-                        <table id="tabla-fichajes" class="table table-striped" style="width:90%">
+                        <table id="tabla-usuarios" class="table table-striped" style="width:90%">
                             <thead>
                                 <tr>
                                     <th>imagen</th>
@@ -67,5 +67,5 @@ include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
 <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.js"></script>
-<script src=" <?php echo RUTA_JS; ?>views/show-fichajes.js"></script>
+<script src=" <?php echo RUTA_JS; ?>views/users/show-users.js"></script>
 <?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>

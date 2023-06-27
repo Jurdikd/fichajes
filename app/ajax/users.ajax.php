@@ -22,12 +22,21 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
 
     // verificamos si get es correcto y esta inciada y no vacia
     if (!empty($get) && SERVIDOR == $origin) {
+        //abrimos conexion a la base de datos
         Conexion::abrir_conexion();
-        #guardamos la variable ficha
-        if ($get['ficha'] == "registeruser") {
-            $user = UsersCrt::register_user(Conexion::obtener_conexion(), $get['datauser']);
-            $respuesta = $user;
+
+        if ($get['user'] == "registeruser") {
+            //obtenemos los usuarios
+            $users = UsersCrt::register_user(Conexion::obtener_conexion(), $get['datauser']);
+            //devolvemos los usuarios
+            $respuesta = $users;
+        } else if ($get['user'] == "getusers") {
+            //obtenemos los usuarios
+            $users = UsersCrt::GetUsers(Conexion::obtener_conexion(), $get);
+            //devolvemos los usuarios
+            $respuesta = $users;
         } else {
+
             $respuesta = array('error' => array(
                 'message' => array(
                     'lang' => array(
