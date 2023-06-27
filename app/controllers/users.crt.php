@@ -132,8 +132,20 @@ class UsersCrt
     }
     public static function GetFichas($conexion, $user)
     {
-        $ficha = RepositorioUsuario::obtener_fichas_usuarios($conexion);
-        return $ficha;
+        $userLogin = ControlSesion::datos_sesion();
+        $rolUserLogin = UsersCrt::GetRol($conexion, $userLogin["usuario"]);
+        if ($rolUserLogin["id_rol"] == 1) {
+            # code...
+            $fichas = RepositorioUsuario::obtener_fichas_usuarios($conexion, $rolUserLogin["id_rol"]);
+        } else {
+            # code...
+            $id_estado = UsersCrt::GetEstado($conexion, $userLogin["usuario"]);
+
+            $fichas = RepositorioUsuario::obtener_fichas_usuarios($conexion, $rolUserLogin["id_rol"], $id_estado["id_estado"]);
+        }
+
+        // RepositorioUsuario::obtener_fichas_usuarios($conexion);
+        return $fichas;
     }
     public static function GetFichasDiciplinas($conexion, $get)
     {
@@ -148,7 +160,7 @@ class UsersCrt
             $estadoUserLogin = UsersCrt::GetEstado($conexion, $userLogin["usuario"]);
             $delegacion = $estadoUserLogin["id_estado"];
         }
-        $fichas = RepositorioUsuario::obtener_fichas_usuarios_por_estado($conexion, $delegacion, $get['disciplina']);
+        $fichas = RepositorioUsuario::obtener_fichas_usuarios_por_estado($conexion, $delegacion, $get['disciplina'], $get['sexo']);
         return $fichas;
     }
     public static function GetRol($conexion, $user)

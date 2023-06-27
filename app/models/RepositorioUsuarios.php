@@ -52,7 +52,7 @@ class RepositorioUsuario
 
         return $usuarios;
     }
-    public static function obtener_fichas_usuarios($conexion)
+    public static function obtener_fichas_usuarios2($conexion, $id_rol, $id_estado)
     {
 
         $arrDatos = null;
@@ -80,7 +80,54 @@ class RepositorioUsuario
         }
         return $arrDatos;
     }
-    public static function obtener_fichas_usuarios_por_estado($conexion, $id_estado, $name_short_disciplina)
+    public static function obtener_fichas_usuarios($conexion, $id_rol, $id_estado = null)
+    {
+        $arrDatos = null;
+        if (isset($conexion)) {
+            try {
+                if ($id_rol == 1) {
+                    $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
+                            usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
+                            sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, 
+                            usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, 
+                            usuarios.correo, usuarios.edicion_u, estados_paises.estado_nom,
+                            usuarios.registro_u, usuarios.id_usuario 
+                            FROM usuarios 
+                            INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo 
+                            INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
+                            INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
+                            ORDER BY usuarios.registro_u DESC";
+
+                    $sentencia = $conexion->prepare($sql);
+                    $sentencia->execute();
+                } else {
+                    $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
+                            usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
+                            sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, 
+                            usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, 
+                            usuarios.correo, usuarios.edicion_u, estados_paises.estado_nom,
+                            usuarios.registro_u, usuarios.id_usuario 
+                            FROM usuarios 
+                            INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo 
+                            INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
+                            INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
+                            WHERE usuarios.fk_estado = :id_estado
+                            ORDER BY usuarios.registro_u DESC";
+
+                    $sentencia = $conexion->prepare($sql);
+                    $sentencia->bindParam(':id_estado', $id_estado, PDO::PARAM_INT);
+                    $sentencia->execute();
+                }
+
+                $arrDatos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        return $arrDatos;
+    }
+
+    public static function obtener_fichas_usuarios_por_estado($conexion, $id_estado, $name_short_disciplina, $id_sexo)
     {
 
         $arrDatos = null;
@@ -114,10 +161,13 @@ class RepositorioUsuario
             JOIN registro_disciplinas_users ON usuarios.id_usuario = registro_disciplinas_users.fk_usuario
             JOIN disciplinas ON registro_disciplinas_users.fk_disciplina = disciplinas.id_disciplina
             WHERE
-                1 AND usuarios.fk_estado = :id_estado  AND disciplinas.name_short_disciplina = :name_short_disciplina;
+                1 AND usuarios.fk_estado = :id_estado  
+                AND disciplinas.name_short_disciplina = :name_short_disciplina
+                AND usuarios.fk_sexo = :id_sexo
                     ORDER BY usuarios.registro_u DESC";
                 $sentencia = $conexion->prepare($sql);
                 $sentencia->bindParam(':id_estado', $id_estado, PDO::PARAM_INT);
+                $sentencia->bindParam(':id_sexo', $id_sexo, PDO::PARAM_INT);
                 $sentencia->bindParam(':name_short_disciplina', $name_short_disciplina, PDO::PARAM_STR);
                 $sentencia->execute();
                 $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);

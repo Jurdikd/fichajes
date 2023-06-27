@@ -14,6 +14,21 @@ let selectDelegacion = new SlimSelect({
 		closeOnSelect: false,
 	},
 });
+const selectSexos = document.getElementById("sexo");
+// Crear una instancia de SlimSelect
+let selectSexo = new SlimSelect({
+	select: selectSexos,
+	selected: false,
+	settings: {
+		showSearch: true,
+		searchText: "No se encontraron resultados",
+		searchPlaceholder: "Buscar...",
+		placeholder: "Seleccionar sexo",
+		placeholderText: "Seleccionar sexo",
+		searchHighlight: false,
+		closeOnSelect: false,
+	},
+});
 document.addEventListener("DOMContentLoaded", async () => {
 	//CONVERTIR DATA DE IMAGEN
 	const tableDisciplinas = $("#tabla-disciplinas").DataTable({
@@ -47,15 +62,19 @@ document.addEventListener("DOMContentLoaded", async () => {
 		iDisplayLength: -1, // Mostrar todos los registros
 	});
 	// Agregar evento change al elemento <select>
-	selectDelegaciones.addEventListener("change", function () {
-		const selectedOption = selectDelegacion.getSelected()[0];
+	selectSexos.addEventListener("change", function () {
+		console.log(selectDelegaciones);
+		let selectedOptionDelegacion;
+		if (selectDelegaciones !== null) {
+			selectedOptionDelegacion = selectDelegacion.getSelected()[0];
+		}
 
-		console.log(selectedOption);
-		showFichas(selectedOption);
+		const selectedOptionSexo = selectSexo.getSelected()[0];
+		showFichas(selectedOptionDelegacion, selectedOptionSexo);
 	});
 });
 
-const showFichas = async (selectedOption) => {
+const showFichas = async (selectedOptionDelegacion, selectedOptionSexo) => {
 	let disciplina;
 	if (urlGetTerror.get("d") !== undefined) {
 		disciplina = urlGetTerror.get("d");
@@ -66,8 +85,9 @@ const showFichas = async (selectedOption) => {
 			url,
 			{
 				ficha: "getfichasdiscipline",
-				delegacion: selectedOption,
+				delegacion: selectedOptionDelegacion,
 				disciplina: disciplina,
+				sexo: selectedOptionSexo,
 			},
 			true
 		);
