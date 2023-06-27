@@ -257,6 +257,8 @@ document.addEventListener("DOMContentLoaded", function () {
 		"inpre-abogado": false,
 		telefono: false,
 		imagen: false,
+		rol: false,
+		clave: false,
 		delegacion: setDelegacion,
 		disciplinas: false,
 	};
@@ -339,16 +341,18 @@ document.addEventListener("DOMContentLoaded", function () {
 			"inpre-abogado": form.querySelector("#inpre-abogado").value,
 			telefono: form.querySelector("#telefono").value,
 			imagen: imagenU,
+			rol: form.querySelector("#rol").value,
+			clave: form.querySelector("#clave").value,
 			delegacion: delegacionSend,
 			disciplinas: selectDisipline.getSelected(),
 		};
 
 		//console.log(dataForm);
-		let url = "../../app/ajax/ficha.ajax.php";
+		let url = "../../app/ajax/users.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",
 			url,
-			{ ficha: "registerficha", dataficha: dataForm },
+			{ ficha: "registeruser", datauser: dataForm },
 			true
 		);
 		if (solicitud === 1) {

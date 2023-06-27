@@ -33,12 +33,12 @@
                         <i class="fas fa-users"></i> <span data-i18n="app.components.navbar.rates">Usuarios</span> <span class="badge bg-danger" data-i18n="app.components.navbar.badge.new">Nuevo</span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?php echo RUTA_CREATE_FICHAJE; ?>">
+                        <li><a class="dropdown-item" href="<?php echo RUTA_CREATE_USER; ?>">
                                 <i class="fas fa-user-plus"></i>
                                 <span data-i18n="app.components.navbar.create_rate">Crear usuario</span> <span class="badge bg-danger" data-i18n="app.components.navbar.badge.new">Nuevo</span>
                             </a>
                         </li>
-                        <li><a class="dropdown-item" href="#">
+                        <li><a class="dropdown-item" href="<?php echo RUTA_SHOW_USERS; ?>">
                                 <i class="fas fa-users"></i>
                                 <span data-i18n="app.components.navbar.see_rate">Ver Usuarios</span>
                             </a>

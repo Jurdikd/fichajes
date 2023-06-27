@@ -9,8 +9,9 @@ include_once "../models/RepositorioRegistroUsuarios.php";
 include_once "../models/RepositorioEstadosPaises.php";
 include_once "../models/RepositorioDisciplinasUsuarios.php";
 //controlers
-include_once "../controllers/users.crt.php"; #controlador usuarios
+include_once "../libraries/ClaseCrypt.php";
 include_once "../libraries/ControlSesion.php";
+include_once "../controllers/users.crt.php"; #controlador usuarios
 
 //Recibimos los datos por json
 $get = UrlGetTerror::Getjson();
@@ -23,11 +24,24 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
     if (!empty($get) && SERVIDOR == $origin) {
         Conexion::abrir_conexion();
         #guardamos la variable ficha
+        if ($get['ficha'] == "registeruser") {
+            $user = UsersCrt::register_user(Conexion::obtener_conexion(), $get['datauser']);
+            $respuesta = $user;
+        } else {
+            $respuesta = array('error' => array(
+                'message' => array(
+                    'lang' => array(
+                        'en' =>
+                        "Error: Error get",
+                        'es' =>
+                        "Error: Error de solicitud"
+                    )
+                ),
+            ));
+        }
 
+        //$user = UsersCrt::register_user_fichaje(Conexion::obtener_conexion(), $get['ficha']);
 
-        $ficha = UsersCrt::register_user_fichaje(Conexion::obtener_conexion(), $get['ficha']);
-
-        $respuesta = $ficha;
     } else {
         $respuesta = array('error' => array(
             'message' => array(

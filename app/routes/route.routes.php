@@ -49,6 +49,11 @@ $router->register('/disciplines', 'app/public/views/disciplines/disciplines.php'
 
 // Ruta para VER DISCIPLINA
 $router->register('/discipline', 'app/public/views/disciplines/discipline.php');
+// Ruta de CREAR USUARIOS
+$router->register('/create-user', 'app/public/views/users/create-user.php');
+
+// Ruta de VER USUARIOS
+$router->register('/show-users', 'app/public/views/users/show-users.php');
 
 //----------------------------------------------------------------------------//
 // Ruta de help

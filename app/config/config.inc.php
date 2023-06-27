@@ -65,7 +65,9 @@ define("RUTA_HELP", VISTA . "help");
 //VISTAS FICHAJES
 define("RUTA_CREATE_FICHAJE", VISTA . "create-fichaje");
 define("RUTA_SHOW_FICHAJES", VISTA . "show-fichajes");
-
+//VISTAS FICHAJES
+define("RUTA_CREATE_USER", VISTA . "create-user");
+define("RUTA_SHOW_USERS", VISTA . "show-users");
 //VISTA DISCIPLINAS
 define("RUTA_DISCIPLINAS", VISTA . "disciplines");
 define("RUTA_DISCIPLINA", VISTA . "discipline");
