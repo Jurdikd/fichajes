@@ -80,6 +80,53 @@ class RepositorioUsuario
         }
         return $arrDatos;
     }
+    public static function obtener_fichas_usuarios_por_estado($conexion, $id_estado, $name_short_disciplina)
+    {
+
+        $arrDatos = null;
+        if (isset($conexion)) {
+            try {
+
+                $sql = "SELECT
+                usuarios.imagen,
+                usuarios.nombre,
+                usuarios.nombre2,
+                usuarios.apellido1,
+                usuarios.apellido2,
+                usuarios.cedula,
+                sexos.nombre_sexo,
+                usuarios.fecha_nacimiento,
+                usuarios.codigo_empleado,
+                usuarios.inpre_abogado,
+                estatus.id_estatus,
+                usuarios.celular,
+                usuarios.correo,
+                disciplinas.name_disciplina,
+                usuarios.edicion_u,
+                estados_paises.estado_nom,
+                usuarios.registro_u,
+                usuarios.id_usuario
+            FROM
+                usuarios
+            INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo
+            INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
+            INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
+            JOIN registro_disciplinas_users ON usuarios.id_usuario = registro_disciplinas_users.fk_usuario
+            JOIN disciplinas ON registro_disciplinas_users.fk_disciplina = disciplinas.id_disciplina
+            WHERE
+                1 AND usuarios.fk_estado = :id_estado  AND disciplinas.name_short_disciplina = :name_short_disciplina;
+                    ORDER BY usuarios.registro_u DESC";
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->bindParam(':id_estado', $id_estado, PDO::PARAM_INT);
+                $sentencia->bindParam(':name_short_disciplina', $name_short_disciplina, PDO::PARAM_STR);
+                $sentencia->execute();
+                $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        return $arrDatos;
+    }
     public static function mostrar_usuarios_tutores($conexion, $cargo)
     {
 

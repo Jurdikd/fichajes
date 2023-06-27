@@ -30,7 +30,7 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
             $respuesta = $ficha;
         } else if ($get['ficha'] == "getfichasdiscipline") {
 
-            $ficha = UsersCrt::GetFichas(Conexion::obtener_conexion(), $get);
+            $ficha = UsersCrt::GetFichasDiciplinas(Conexion::obtener_conexion(), $get);
             $respuesta = $ficha;
         } else {
             $respuesta = array('error' => array(

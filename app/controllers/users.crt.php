@@ -135,10 +135,21 @@ class UsersCrt
         $ficha = RepositorioUsuario::obtener_fichas_usuarios($conexion);
         return $ficha;
     }
-    public static function GetFichasDiciplinas($conexion, $user)
+    public static function GetFichasDiciplinas($conexion, $get)
     {
-        $ficha = RepositorioUsuario::obtener_fichas_usuarios($conexion);
-        return $ficha;
+        $userLogin = ControlSesion::datos_sesion();
+        $rolUserLogin = UsersCrt::GetRol($conexion, $userLogin["usuario"]);
+        if ($rolUserLogin["id_rol"] == 1) {
+            # colocamos el estado que admin decida...
+
+            $estadoSelect = RepositorioEstadosPaises::obtener_estados_paises_por_id($conexion, $get['delegacion']);
+            $delegacion = $estadoSelect[0]["id_estado_pais"];
+        } else {
+            $estadoUserLogin = UsersCrt::GetEstado($conexion, $userLogin["usuario"]);
+            $delegacion = $estadoUserLogin["id_estado"];
+        }
+        $fichas = RepositorioUsuario::obtener_fichas_usuarios_por_estado($conexion, $delegacion, $get['disciplina']);
+        return $fichas;
     }
     public static function GetRol($conexion, $user)
     {

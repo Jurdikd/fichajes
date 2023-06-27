@@ -56,50 +56,59 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 const showFichas = async (selectedOption) => {
-	let url = "../../app/ajax/fichas.ajax.php";
-	const solicitud = await terrorFetch.fetch(
-		"POST",
-		url,
-		{ ficha: "getfichasdiscipline" },
-		true
-	);
+	let disciplina;
+	if (urlGetTerror.get("d") !== undefined) {
+		disciplina = urlGetTerror.get("d");
+		console.log(disciplina);
+		let url = "../../app/ajax/fichas.ajax.php";
+		const solicitud = await terrorFetch.fetch(
+			"POST",
+			url,
+			{
+				ficha: "getfichasdiscipline",
+				delegacion: selectedOption,
+				disciplina: disciplina,
+			},
+			true
+		);
 
-	if (solicitud) {
-		const datos = solicitud;
+		if (solicitud) {
+			const datos = solicitud;
 
-		// Obtener referencia a la tabla
-		let tablaUsuarios = $("#tabla-disciplinas").DataTable();
+			// Obtener referencia a la tabla
+			let tablaUsuarios = $("#tabla-disciplinas").DataTable();
 
-		// Limpiar los datos existentes en la tabla
-		tablaUsuarios.clear().draw();
+			// Limpiar los datos existentes en la tabla
+			tablaUsuarios.clear().draw();
 
-		// Llenar la tabla con los datos obtenidos
-		datos.forEach((usuario) => {
-			tablaUsuarios.row
-				.add([
-					`
+			// Llenar la tabla con los datos obtenidos
+			datos.forEach((usuario) => {
+				tablaUsuarios.row
+					.add([
+						`
                     <img class="img-fluid" src="${SERVER}/${usuario.imagen}" alt="${
-						usuario.nombre + " " + usuario.apellido1
-					}" width="80" height="80" loading="lazy">
+							usuario.nombre + " " + usuario.apellido1
+						}" width="80" height="80" loading="lazy">
                     `,
-					usuario.nombre + " " + usuario.nombre2,
-					usuario.apellido1 + " " + usuario.apellido2,
-					usuario.fecha_nacimiento,
-					usuario.nombre_sexo,
-					usuario.cedula,
-					usuario.codigo_empleado,
-					usuario.inpre_abogado,
-					usuario.celular,
-					usuario.estado_nom,
-					usuario.estado_nom,
-					// Agregar aquí las disciplinas del usuario
-					`
+						usuario.nombre + " " + usuario.nombre2,
+						usuario.apellido1 + " " + usuario.apellido2,
+						usuario.fecha_nacimiento,
+						usuario.nombre_sexo,
+						usuario.cedula,
+						usuario.codigo_empleado,
+						usuario.inpre_abogado,
+						usuario.celular,
+						usuario.estado_nom,
+						usuario.name_disciplina,
+						// Agregar aquí las disciplinas del usuario
+						`
                     <button class="btn btn-primary btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editarUsuario(${usuario.id_usuario})">Editar</button>
                     `,
-				])
-				.draw();
-		});
-	} else {
-		console.error("Ocurrió un error al obtener los datos de los usuarios.");
+					])
+					.draw();
+			});
+		} else {
+			console.error("Ocurrió un error al obtener los datos de los usuarios.");
+		}
 	}
 };
