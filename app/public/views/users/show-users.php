@@ -23,7 +23,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         <table id="tabla-usuarios" class="table table-striped" style="width:90%">
                             <thead>
                                 <tr>
-                                    <th>imagen</th>
+                                    <th>Imágen</th>
                                     <th>Nombres</th>
                                     <th>Apellidos</th>
                                     <th>Fecha de nacimiento</th>
@@ -36,6 +36,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <th>Rol</th>
                                     <th>Delegación</th>
                                     <th>Disciplinas</th>
+                                    <th>Edición</th>
+                                    <th>Registro</th>
                                     <th>Acciones</th>
                                 </tr>
                             </thead>
