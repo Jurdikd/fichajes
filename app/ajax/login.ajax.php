@@ -25,26 +25,41 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
         $nombre_usuario = $login['username'];
         $password = $login['password'];
         Conexion::abrir_conexion(); //Abrir la conexion
-        // buscamos usuario por usuario
-        $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
-        // veroficamos la clave 
-        $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
-        //verificamos si los datos de sesion son correctos
-        if (
-            $nombre_usuario === $usuario->obtener_usuario() &&
-            $clave === true
-        ) {
-            // DATOS DE SESION CORRECTOS SE INICIA SESION
-            ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
-            $respuesta = true;
+        //verificamos si existe el usuario
+        $usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
+        if ($usuarioExiste) {
+            # si usuario existe lo buscamos...
+
+            // buscamos usuario por usuario
+            $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
+            // veroficamos la clave 
+            $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
+            //verificamos si los datos de sesion son correctos
+            if ($clave) {
+                // DATOS DE SESION CORRECTOS SE INICIA SESION
+                ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
+                $respuesta = true;
+            } else {
+                $respuesta = array('error' => array(
+                    'message' => array(
+                        'lang' => array(
+                            'en' =>
+                            "Error: Error from data",
+                            'es' =>
+                            "Error: Error de datos"
+                        )
+                    ),
+                ));
+            }
         } else {
+            # si usuario no existe...
             $respuesta = array('error' => array(
                 'message' => array(
                     'lang' => array(
                         'en' =>
-                        "Error: Error from data",
+                        "Error: Error from user",
                         'es' =>
-                        "Error: Error de datos"
+                        "Error: Error de usuario"
                     )
                 ),
             ));
