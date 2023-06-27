@@ -461,7 +461,7 @@ class RepositorioUsuario
     }
     public static function usuario_existe($conexion, $usuario)
     {
-        $usuario_existe = true;
+        $usuario_existe = false;
 
         if (isset($conexion)) {
             try {
@@ -477,8 +477,6 @@ class RepositorioUsuario
 
                 if (count($resultado)) {
                     $usuario_existe = true;
-                } else {
-                    $usuario_existe = false;
                 }
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
