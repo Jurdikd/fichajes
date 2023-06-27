@@ -209,7 +209,7 @@ body {
                                     <label for="rol" class="form-label">Rol</label>
                                     <select class="form-select" id="rol" name="rol">
                                         <option value="">Seleccione una opción</option>
-                                        <option value="1">ADIM</option>
+                                        <option value="1">ADMIN</option>
                                         <option value="2">FICHADOR</option>
                                     </select>
                                 </div>
