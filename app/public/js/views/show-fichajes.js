@@ -6,25 +6,8 @@ const table = $("#tabla-fichajes").DataTable({
 	dom: "Bfrtip",
 	buttons: [
 		{
-			extend: "excelHtml5",
-			title: "Reporte de fichajes | FEDEAV",
-			exportOptions: {
-				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10], // Exportar todas las columnas excepto la última (acciones)
-				format: {
-					body: function (data, row, column, node) {
-						// Verificar si es la columna de la imagen
-						if (column === 0) {
-							// Retornar el contenido HTML de la imagen
-							return $(data).prop("outerHTML");
-						}
-						return data;
-					},
-				},
-			},
-		},
-		{
 			extend: "print",
-			text: "Imprimir",
+			text: "Imprimir PDF",
 			title: "Reporte de fichajes | FEDEAV",
 			exportOptions: {
 				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -32,7 +15,8 @@ const table = $("#tabla-fichajes").DataTable({
 					body: function (data, row, column, node) {
 						// Personalizar el contenido de la impresión
 						if (column === 0) {
-							return ""; // Dejar en blanco la primera columna (imagen)
+							const imageHTML = $(data).prop("outerHTML");
+							return imageHTML;
 						}
 						return data;
 					},

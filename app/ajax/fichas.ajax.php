@@ -24,9 +24,26 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
         Conexion::abrir_conexion();
         #guardamos la variable ficha
 
-        $ficha = UsersCrt::GetFichas(Conexion::obtener_conexion(), $get);
+        if ($get['ficha'] == "getfichas") {
 
-        $respuesta = $ficha;
+            $ficha = UsersCrt::GetFichas(Conexion::obtener_conexion(), $get);
+            $respuesta = $ficha;
+        } else if ($get['ficha'] == "getfichasdiscipline") {
+
+            $ficha = UsersCrt::GetFichas(Conexion::obtener_conexion(), $get);
+            $respuesta = $ficha;
+        } else {
+            $respuesta = array('error' => array(
+                'message' => array(
+                    'lang' => array(
+                        'en' =>
+                        "Error: Error get",
+                        'es' =>
+                        "Error: Error de solicitud"
+                    )
+                ),
+            ));
+        }
     } else {
         $respuesta = array('error' => array(
             'message' => array(
