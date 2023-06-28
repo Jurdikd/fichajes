@@ -29,7 +29,7 @@ const table = $("#tabla-usuarios").DataTable({
 				$(win.document.body).prepend(headerContent);
 			},
 			exportOptions: {
-				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15],
+				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
 				format: {
 					body: function (data, row, column, node) {
 						// Personalizar el contenido de la impresión
@@ -81,13 +81,26 @@ const showFichas = async () => {
 					usuario.cedula,
 					usuario.codigo_empleado,
 					usuario.inpre_abogado,
-					usuario.celular,
-					usuario.correo,
+					`
+                   Télefono:
+				   <br>
+				   ${usuario.celular}
+				   <br>
+				   Correo:
+				   <br>
+				   ${usuario.correo}
+                    `,
 					usuario.nombre_rol,
 					usuario.estado_nom,
 					usuario.estado_nom,
-					`${usuario.edicion_u == null ? "NO ACTUALIZADO" : usuario.edicion_u}`,
-					usuario.registro_u,
+					`Edición:
+					<br>
+					${usuario.edicion_u == null ? " No actualizado" : usuario.edicion_u}
+					<br>
+					Registro:
+					<br>
+					${usuario.registro_u}
+					`,
 					// Agregar aquí las disciplinas del usuario
 					`
                     <button class="btn btn-primary btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editarUsuario(${usuario.id_usuario})">Editar</button>

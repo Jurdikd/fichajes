@@ -31,12 +31,10 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <th>Cédula</th>
                                     <th>FEDEAV</th>
                                     <th>INPRE</th>
-                                    <th>Teléfono</th>
-                                    <th>Correo</th>
+                                    <th>Contacto</th>
                                     <th>Rol</th>
                                     <th>Delegación</th>
                                     <th>Disciplinas</th>
-                                    <th>Edición</th>
                                     <th>Registro</th>
                                     <th>Acciones</th>
                                 </tr>
