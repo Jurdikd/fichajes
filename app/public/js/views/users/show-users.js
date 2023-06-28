@@ -9,7 +9,7 @@ const table = $("#tabla-usuarios").DataTable({
 			extend: "print",
 			text: "Imprimir PDF",
 			title: "",
-			filename: "reporte_usuarios_fedeav", // Nombre del archivo
+			filename: "Reporte de USUARIOS | FEDEAV", // Nombre del archivo
 			customize: function (win) {
 				// Agrega estilos CSS personalizados al documento de impresión
 				$(win.document.head).append(
@@ -20,7 +20,7 @@ const table = $("#tabla-usuarios").DataTable({
 				const headerContent = `
 			<div class="header-content">
 			<h2>Federación Deportiva del Abogado de Venezuela XL Juegos Deportivos Nacionales Intercolegios de Abogados Merida 2023</h2>
-			  <img class="header-image" src="${RUTA_IMG}/logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80" loading="lazy">
+			  <img class="header-image" src="${RUTA_IMG}logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80" loading="lazy">
 			  <h2>Reporte de USUARIOS | FEDEAV</h2>
 			</div>
 		  `;
@@ -105,4 +105,3 @@ function editarUsuario(id) {
 	// Aquí puedes implementar la lógica para editar el usuario con el ID proporcionado
 	console.log("Editar usuario con ID:", id);
 }
-console.log(RUTA_IMG + "/logo/logo-fedeav.JPG");
