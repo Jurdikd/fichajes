@@ -19,7 +19,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                     <h5 class="card-title">USUARIOS | FEDEAV</h5>
                 </div>
                 <div class="card-body">
-                    <div style="max-width: 80%;">
+                    <div style="max-width: 82%;">
                         <!-- Agrega el estilo max-width -->
                         <table id="tabla-usuarios" class="table table-striped table-responsive" style="max-width: 80%">
                             <thead>
@@ -30,6 +30,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <th>Fecha de nacimiento:</th>
                                     <th>Sexo:</th>
                                     <th>Cédula:</th>
+                                    <th>Usuario:</th>
                                     <th>FEDEAV:</th>
                                     <th>INPRE:</th>
                                     <th>Contacto:</th>

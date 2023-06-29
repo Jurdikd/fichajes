@@ -1,16 +1,16 @@
 document.addEventListener("DOMContentLoaded", async () => {
 	showFichas();
 });
+//dom: '<"row"<"col-md-6 mb-1"l><"col-md-6"f><"col-md-6 text-md-end mt-1"B>>rtip',
 
 const tablaUsuarios = $("#tabla-usuarios").DataTable({
-	//dom: '<"row"<"col-md-6 mb-1"l><"col-md-6"f><"col-md-6 text-md-end mt-1"B>>rtip',
-	dom: lfBrtip,
+	dom: '<"mb-2"B><"mb-2"l>frtip',
 	buttons: [
 		{
 			extend: "print",
 			text: "Imprimir PDF",
 			title: "",
-			filename: "Reporte de USUARIOS | FEDEAV",
+			filename: "Reporte de USUARIOS - FEDEAV",
 			customize: function (win) {
 				// Agrega estilos CSS personalizados al documento de impresión
 				$(win.document.head).append(
@@ -33,7 +33,7 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 				$(win.document).prop("title", "Reporte de USUARIOS | FEDEAV");
 			},
 			exportOptions: {
-				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
 				format: {
 					body: function (data, row, column, node) {
 						// Personalizar el contenido de la impresión
@@ -45,12 +45,10 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 					},
 				},
 				// Opción para imprimir solamente las entradas mostradas
-				rows: function (idx, data, node) {
-					const api = this.api();
-					const pageLength = api.page.len();
-					const currentPage = api.page();
-					const displayedIndex = currentPage * pageLength + idx;
-					return api.page.info().recordsDisplay > displayedIndex;
+				rows: {
+					_: "current",
+					page: "current",
+					pageLength: "current",
 				},
 			},
 			init: function (api, node, config) {
@@ -75,7 +73,7 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 		sInfoFiltered: "(filtrado de _MAX_ entradas totales)",
 		sInfoPostFix: "",
 		sInfoThousands: ",",
-		sLengthMenu: "Mostrar _MENU_ entradas",
+		sLengthMenu: "Mostrar _MENU_ registros",
 		sLoadingRecords: "Cargando...",
 		sProcessing: "Procesando...",
 		sSearch: "Buscar:",
@@ -107,6 +105,7 @@ const showFichas = async () => {
 					usuario.fecha_nacimiento,
 					usuario.nombre_sexo,
 					usuario.cedula,
+					usuario.usuario,
 					usuario.codigo_empleado,
 					usuario.inpre_abogado,
 					`Télefono:<br>${usuario.celular}<br>Correo:<br>${usuario.correo}`,
@@ -116,7 +115,10 @@ const showFichas = async () => {
 					`Edición:<br>${
 						usuario.edicion_u == null ? "No actualizado" : usuario.edicion_u
 					}<br>Registro:<br>${usuario.registro_u}`,
-					`<button class="btn btn-primary btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editarUsuario(${usuario.id_usuario})">Editar</button>`,
+					`
+					<button class="btn btn-warning btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editUser(${usuario.id_usuario})">Editar</button>
+					<button class="btn btn-danger btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="deleteUser(${usuario.id_usuario})">Borrar</button>
+					`,
 				])
 				.draw();
 		});
@@ -125,6 +127,9 @@ const showFichas = async () => {
 	}
 };
 
-function editarUsuario(id) {
+function editUser(id) {
+	console.log("Editar usuario con ID:", id);
+}
+function deleteUser(id) {
 	console.log("Editar usuario con ID:", id);
 }

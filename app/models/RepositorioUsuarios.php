@@ -134,7 +134,7 @@ class RepositorioUsuario
                 if ($id_rol == 1) {
                     $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
                             usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
-                            sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, 
+                            sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.usuario, usuarios.codigo_empleado, 
                             usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, 
                             usuarios.correo, usuarios.edicion_u, estados_paises.estado_nom,
                             usuarios.registro_u, usuarios.id_usuario, rol.nombre_rol,
@@ -151,7 +151,7 @@ class RepositorioUsuario
                 } else {
                     $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
                             usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
-                            sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, 
+                            sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.usuario, usuarios.codigo_empleado, 
                             usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, 
                             usuarios.correo, usuarios.edicion_u, estados_paises.estado_nom,
                             usuarios.registro_u, usuarios.id_usuario, rol.nombre_rol,
