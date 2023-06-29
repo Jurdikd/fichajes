@@ -2,29 +2,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 	showFichas();
 });
 //dom: '<"row"<"col-md-6 mb-1"l><"col-md-6"f><"col-md-6 text-md-end mt-1"B>>rtip',
-const lenguajeDataTable = {
-	paginate: {
-		previous: '<i class="bi bi-chevron-left"></i> Anterior',
-		next: 'Siguiente <i class="bi bi-chevron-right"></i>',
-	},
-	sEmptyTable: "No se encontraron datos",
-	sInfo: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
-	sInfoEmpty: "Mostrando 0 a 0 de 0 entradas",
-	sInfoFiltered: "(filtrado de _MAX_ entradas totales)",
-	sInfoPostFix: "",
-	sInfoThousands: ",",
-	sLengthMenu: "Mostrar _MENU_ registros",
-	sLoadingRecords: "Cargando...",
-	sProcessing: "Procesando...",
-	sSearch: "Buscar:",
-	sZeroRecords: "No se encontraron registros coincidentes",
-	oAria: {
-		sSortAscending: ": activar para ordenar la columna de manera ascendente",
-		sSortDescending: ": activar para ordenar la columna de manera descendente",
-	},
-};
+console.log(configDataTable);
 const tablaUsuarios = $("#tabla-usuarios").DataTable({
-	dom: '<"mb-2"B><"mb-2"l>frtip',
+	dom: configDataTable.dom,
 	buttons: [
 		{
 			extend: "print",
@@ -85,12 +65,9 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 		},
 	],
 	responsive: true,
-	lengthMenu: [
-		[6, 12, 24, 48, 120, -1],
-		[6, 12, 24, 48, 120, "Todos"],
-	],
+	lengthMenu: configDataTable.lengthMenu,
 	order: [],
-	language: lenguajeDataTable,
+	language: configDataTable.language,
 });
 
 const showFichas = async () => {
