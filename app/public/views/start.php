@@ -9,7 +9,7 @@ include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 
 <div class="container">
-
+    <img class="img-fluid" src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="Logo fedeav" srcset="">
 </div>
 
 <?php
