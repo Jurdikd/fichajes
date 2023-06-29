@@ -36,7 +36,7 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 				$(win.document.head).append(
 					"<style>" +
 						".header-content { text-align: center; }" +
-						".watermark {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.05; }" +
+						".watermark {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.1; }" +
 						"</style>"
 				);
 
