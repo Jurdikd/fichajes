@@ -3,6 +3,13 @@ if (!ControlSesion::sesion_iniciada()) {
     Redireccion::redirigir(RUTA_LOGIN_GENERAL);
     #Si el usuario tiene una sesion activa se redirige a inicio
 }
+// Datos usuario en sesion
+$userLogin = ControlSesion::datos_sesion();
+$user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
+if ($user["id_rol"] !== "1" && $user["id_rol"] !== "4") {
+    // Código si el id_rol no es igual a 1 ni a 4
+    Redireccion::redirigir(RUTA_GENERAL);
+}
 
 $titulo = "Ver Fichajes";
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";

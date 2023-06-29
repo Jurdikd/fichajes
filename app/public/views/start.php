@@ -4,6 +4,11 @@ if (!ControlSesion::sesion_iniciada()) {
     Redireccion::redirigir(RUTA_LOGIN_GENERAL);
     #Si el usuario tiene una sesion activa se redirige a inicio
 }
+// Datos usuario en sesion
+$userLogin = ControlSesion::datos_sesion();
+
+$user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
+
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 
 include_once "app/view/templates/components/menu/menu.comp.php"; ?>
