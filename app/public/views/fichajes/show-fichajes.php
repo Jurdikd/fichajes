@@ -7,6 +7,10 @@ if (!ControlSesion::sesion_iniciada()) {
 $userLogin = ControlSesion::datos_sesion();
 
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
+if ($user["id_rol"] !== "1" && $user["id_rol"] !== "2" && $user["id_rol"] !== "4") {
+    # code...
+    Redireccion::redirigir(RUTA_GENERAL);
+}
 $titulo = "Ver Fichajes";
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 include_once "app/view/templates/components/menu/menu.comp.php"; ?>

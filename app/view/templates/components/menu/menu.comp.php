@@ -14,25 +14,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle nav-calculators" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="fas fa-exchange-alt"></i> <span data-i18n="app.components.navbar.calculators">Fichajes</span>
-                        <span class="badge bg-danger" data-i18n="app.components.navbar.badge.new">Nuevo</span>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="<?php echo RUTA_CREATE_FICHAJE; ?>">
-                                <i class="fas fa-plus-circle"></i>
-                                <span data-i18n="app.components.navbar.rate_calculator">Fichar</span>
-                                <span class="badge bg-danger" data-i18n="app.components.navbar.badge.new">Nuevo</span>
-                            </a>
-                        </li>
-                        <li><a class="dropdown-item" href="<?php echo RUTA_SHOW_FICHAJES; ?>">
-                                <i class="fas fa-list"></i>
-                                <span data-i18n="app.components.navbar.international_calculator">Ver Fichajes</span></a>
-                        </li>
-                    </ul>
-                </li>
                 <?php
+                // vista para fichajes
+                if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
+                    # si el usuario es administrador o alistador...
+
+                ?>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle nav-calculators" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-exchange-alt"></i> <span data-i18n="app.components.navbar.calculators">Fichajes</span>
+                            <span class="badge bg-danger" data-i18n="app.components.navbar.badge.new">Nuevo</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?php echo RUTA_CREATE_FICHAJE; ?>">
+                                    <i class="fas fa-plus-circle"></i>
+                                    <span data-i18n="app.components.navbar.rate_calculator">Fichar</span>
+                                    <span class="badge bg-danger" data-i18n="app.components.navbar.badge.new">Nuevo</span>
+                                </a>
+                            </li>
+                            <li><a class="dropdown-item" href="<?php echo RUTA_SHOW_FICHAJES; ?>">
+                                    <i class="fas fa-list"></i>
+                                    <span data-i18n="app.components.navbar.international_calculator">Ver Fichajes</span></a>
+                            </li>
+                        </ul>
+                    </li>
+                <?php
+                } # si el usuario no esta habilitado continua el menu
+                // vista para usuarios
                 if ($user["id_rol"] == 1 || $user["id_rol"] == 4) {
                     # si el usuario es administrador o alistador...
 

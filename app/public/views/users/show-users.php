@@ -8,6 +8,7 @@ $userLogin = ControlSesion::datos_sesion();
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
 if ($user["id_rol"] !== "1" && $user["id_rol"] !== "4") {
     // Código si el id_rol no es igual a 1 ni a 4
+
     Redireccion::redirigir(RUTA_GENERAL);
 }
 
