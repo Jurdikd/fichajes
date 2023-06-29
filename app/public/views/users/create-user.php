@@ -12,114 +12,114 @@ $titulo = "Crear Fichaje";
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
 
-body {
-    font-family: 'Noto Sans', sans-serif;
-}
+    body {
+        font-family: 'Noto Sans', sans-serif;
+    }
 
-.filterFichaje {
-    filter: sepia(1) saturate(3) contrast(70%) hue-rotate(179deg) brightness(1.25) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
-    /* grayscale(100%) color: #f32545; brightness(1.25) blur(0px)*/
-}
+    .filterFichaje {
+        filter: sepia(1) saturate(3) contrast(70%) hue-rotate(179deg) brightness(1.25) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
+        /* grayscale(100%) color: #f32545; brightness(1.25) blur(0px)*/
+    }
 
-.filterFichaje2 {
-    filter: sepia(1) saturate(5) contrast(70%) hue-rotate(-50deg) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
-    /* grayscale(100%) color: #f32545;*/
-}
+    .filterFichaje2 {
+        filter: sepia(1) saturate(5) contrast(70%) hue-rotate(-50deg) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
+        /* grayscale(100%) color: #f32545;*/
+    }
 
-.filterFichaje3 {
-    filter: sepia(1) saturate(5) contrast(70%) hue-rotate(20deg) brightness(1.25) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
-    /* grayscale(100%) color: #f32545;*/
-}
+    .filterFichaje3 {
+        filter: sepia(1) saturate(5) contrast(70%) hue-rotate(20deg) brightness(1.25) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
+        /* grayscale(100%) color: #f32545;*/
+    }
 
-.filterFichaje4 {
-    opacity: 0.5;
-    filter: sepia(1) saturate(7) contrast(70%) hue-rotate(16deg) brightness(1.25) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
-    /* grayscale(100%) color: #f32545;*/
-}
+    .filterFichaje4 {
+        opacity: 0.5;
+        filter: sepia(1) saturate(7) contrast(70%) hue-rotate(16deg) brightness(1.25) drop-shadow(-3px 4px 6px rgba(0, 0, 0, 0.7));
+        /* grayscale(100%) color: #f32545;*/
+    }
 
 
 
-.text-ficha-list {
-    font-size: 0.63em;
-}
+    .text-ficha-list {
+        font-size: 0.63em;
+    }
 
-.text-ficha-discipline {
-    font-size: 0.78em;
-}
+    .text-ficha-discipline {
+        font-size: 0.78em;
+    }
 
-.title-container {
-    border-left: 2px solid #910909;
-    padding-left: 4px;
+    .title-container {
+        border-left: 2px solid #910909;
+        padding-left: 4px;
 
-}
+    }
 
-.__ficha-hr {
-    border: none;
-    opacity: 1;
-    border-top: 2px solid #910909;
-    margin: 0.2rem 0;
-}
+    .__ficha-hr {
+        border: none;
+        opacity: 1;
+        border-top: 2px solid #910909;
+        margin: 0.2rem 0;
+    }
 
-.padding-0 {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-}
+    .padding-0 {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
 
-.shadow-ficha {
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
-}
+    .shadow-ficha {
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    }
 
-.shadow-discipline {
-    filter: drop-shadow(-3px 4px 2px rgba(0, 0, 0, 0.7));
-}
+    .shadow-discipline {
+        filter: drop-shadow(-3px 4px 2px rgba(0, 0, 0, 0.7));
+    }
 
-.text-tiro {
-    color: #910909;
-}
+    .text-tiro {
+        color: #910909;
+    }
 
-.borderColor {
-    border: none !important;
-}
+    .borderColor {
+        border: none !important;
+    }
 
-.card-img-cover {
-    object-fit: cover !important;
-    background-position: center !important;
-    -webkit-background-size: cover !important;
-    -moz-background-size: cover !important;
-    -o-background-size: cover !important;
-    background-size: cover !important;
-}
+    .card-img-cover {
+        object-fit: cover !important;
+        background-position: center !important;
+        -webkit-background-size: cover !important;
+        -moz-background-size: cover !important;
+        -o-background-size: cover !important;
+        background-size: cover !important;
+    }
 
-.__ficha-btn-plus {
-    padding: 0.2rem 0.3rem 0.2rem 0.3rem;
-    font-size: 0.4rem;
-}
+    .__ficha-btn-plus {
+        padding: 0.2rem 0.3rem 0.2rem 0.3rem;
+        font-size: 0.4rem;
+    }
 
-.i-stars {
-    position: relative;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml;utf8,<svg width='100%' height='100%' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M21.6389 10.627L26.75 25.6642H43.3055L29.9166 34.9628L35.0278 50L21.6389 40.7014L8.25 50L13.3611 34.9628L0 25.6642H16.5278L21.6389 10.627Z' fill='white'/><path fill-rule='evenodd' clip-rule='evenodd' d='M41.5045 8.11724L38.8817 0L36.259 8.11724H27.7778L34.634 13.1367L32.0113 21.254L38.8817 16.2345L45.7522 21.254L43.1295 13.1367L50 8.11724H41.5045ZM40.8589 8.34549L39.1765 2.86828L37.4942 8.34549H32.054L36.4519 11.7325L34.7695 17.2097L39.1765 13.8227L43.5835 17.2097L41.9012 11.7325L46.3082 8.34549H40.8589Z' fill='white'/></svg>");
-    mix-blend-mode: screen;
-    color: colora;
-}
+    .i-stars {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        background-image: url("data:image/svg+xml;utf8,<svg width='100%' height='100%' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M21.6389 10.627L26.75 25.6642H43.3055L29.9166 34.9628L35.0278 50L21.6389 40.7014L8.25 50L13.3611 34.9628L0 25.6642H16.5278L21.6389 10.627Z' fill='white'/><path fill-rule='evenodd' clip-rule='evenodd' d='M41.5045 8.11724L38.8817 0L36.259 8.11724H27.7778L34.634 13.1367L32.0113 21.254L38.8817 16.2345L45.7522 21.254L43.1295 13.1367L50 8.11724H41.5045ZM40.8589 8.34549L39.1765 2.86828L37.4942 8.34549H32.054L36.4519 11.7325L34.7695 17.2097L39.1765 13.8227L43.5835 17.2097L41.9012 11.7325L46.3082 8.34549H40.8589Z' fill='white'/></svg>");
+        mix-blend-mode: screen;
+        color: colora;
+    }
 
-/*
+    /*
 @media screen (max-width: 280px) {
     .__ficha-w {
         width: 20rem;
     }
 }*/
 
-/* Estilos para dispositivos con ancho de pantalla menor o igual a 280px */
-@media (max-width: 330px) {
-    .card {
-        width: 19.2rem;
+    /* Estilos para dispositivos con ancho de pantalla menor o igual a 280px */
+    @media (max-width: 330px) {
+        .card {
+            width: 19.2rem;
+        }
     }
-}
 </style>
 <div class="container">
     <div class="row mt-5 mb-5">
@@ -153,15 +153,13 @@ body {
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="segundo-apellido" class="form-label">Segundo Apellido</label>
-                                    <input type="text" class="form-control" id="segundo-apellido"
-                                        name="segundo-apellido">
+                                    <input type="text" class="form-control" id="segundo-apellido" name="segundo-apellido">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fecha-nacimiento"
-                                        name="fecha-nacimiento">
+                                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento">
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -295,9 +293,7 @@ body {
                         ATLETA
                         <span class="fas fa-star text-ficha-discipline"></span>
                     </h5>
-                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2"
-                        src="<?php echo RUTA_IMG; ?>users/prub.JPG" alt="" srcset="" width="300" height="300"
-                        loading="lazy">
+                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2" src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="" srcset="" width="300" height="300" loading="lazy">
                     <div class="container-fluid mt-3">
                         <div class="row">
                             <div class="col-7 ps-0">
@@ -334,8 +330,7 @@ body {
                             </div>
 
                             <div class="col-2 mt-2 pe-0">
-                                <img class="img-fluid rounded" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG"
-                                    alt="Logo fedeav" srcset="">
+                                <img class="img-fluid rounded" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="Logo fedeav" srcset="">
                             </div>
                             <div class="col-12 p-0">
                                 <div class="text-center collapse p-1 pt-0" id="collapseDiscipline">
@@ -362,28 +357,28 @@ include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
 <script src=" <?php echo RUTA_JS; ?>views/users/create-user.js"></script>
 
 <script>
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-document.addEventListener("DOMContentLoaded", function() {
-    // Inicializa los tooltips
-    [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
-    .forEach(el => new bootstrap.Tooltip(el));
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    document.addEventListener("DOMContentLoaded", function() {
+        // Inicializa los tooltips
+        [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
+        .forEach(el => new bootstrap.Tooltip(el));
 
-    // Selecciona todos los botones con la clase .__ficha-btn-plus
-    const collapseButtons = document.querySelectorAll('.__ficha-btn-plus');
+        // Selecciona todos los botones con la clase .__ficha-btn-plus
+        const collapseButtons = document.querySelectorAll('.__ficha-btn-plus');
 
-    // Recorre todos los botones y agrega el evento click
-    collapseButtons.forEach(collapseButton => {
-        const collapseTarget = document.querySelector(collapseButton.getAttribute(
-            'data-bs-target'));
-        const collapse = new bootstrap.Collapse(collapseTarget, {
-            toggle: false
-        });
+        // Recorre todos los botones y agrega el evento click
+        collapseButtons.forEach(collapseButton => {
+            const collapseTarget = document.querySelector(collapseButton.getAttribute(
+                'data-bs-target'));
+            const collapse = new bootstrap.Collapse(collapseTarget, {
+                toggle: false
+            });
 
-        collapseButton.addEventListener('click', () => {
-            collapse.toggle();
+            collapseButton.addEventListener('click', () => {
+                collapse.toggle();
+            });
         });
     });
-});
 </script>
 <?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>
