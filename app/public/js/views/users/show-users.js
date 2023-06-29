@@ -2,7 +2,27 @@ document.addEventListener("DOMContentLoaded", async () => {
 	showFichas();
 });
 //dom: '<"row"<"col-md-6 mb-1"l><"col-md-6"f><"col-md-6 text-md-end mt-1"B>>rtip',
-
+const lenguajeDataTable = {
+	paginate: {
+		previous: '<i class="bi bi-chevron-left"></i> Anterior',
+		next: 'Siguiente <i class="bi bi-chevron-right"></i>',
+	},
+	sEmptyTable: "No se encontraron datos",
+	sInfo: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
+	sInfoEmpty: "Mostrando 0 a 0 de 0 entradas",
+	sInfoFiltered: "(filtrado de _MAX_ entradas totales)",
+	sInfoPostFix: "",
+	sInfoThousands: ",",
+	sLengthMenu: "Mostrar _MENU_ registros",
+	sLoadingRecords: "Cargando...",
+	sProcessing: "Procesando...",
+	sSearch: "Buscar:",
+	sZeroRecords: "No se encontraron registros coincidentes",
+	oAria: {
+		sSortAscending: ": activar para ordenar la columna de manera ascendente",
+		sSortDescending: ": activar para ordenar la columna de manera descendente",
+	},
+};
 const tablaUsuarios = $("#tabla-usuarios").DataTable({
 	dom: '<"mb-2"B><"mb-2"l>frtip',
 	buttons: [
@@ -14,23 +34,31 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 			customize: function (win) {
 				// Agrega estilos CSS personalizados al documento de impresión
 				$(win.document.head).append(
-					"<style>.header-content { text-align: center; }</style>"
+					"<style>" +
+						".header-content { text-align: center; }" +
+						".watermark {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.05; }" +
+						"</style>"
 				);
 
 				// Crea el contenido de la cabecera con la imagen y el texto centrado
 				const headerContent = `
-			<div class="header-content">
-			  <h2>Federación Deportiva del Abogado de Venezuela XL Juegos Deportivos Nacionales Intercolegios de Abogados Merida 2023</h2>
-			  <img class="header-image" src="${RUTA_IMG}logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80" loading="lazy">
-			  <h2>Reporte de USUARIOS | FEDEAV</h2>
-			</div>
-		  `;
+					<div class="header-content">
+					  <h2>Federación Deportiva del Abogado de Venezuela XL Juegos Deportivos Nacionales Intercolegios de Abogados Merida 2023</h2>
+					  <img class="header-image" src="${RUTA_IMG}logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80" loading="lazy">
+					  <h2>Reporte de USUARIOS | FEDEAV</h2>
+					</div>
+				`;
 
 				// Agrega la cabecera al documento de impresión antes de la tabla
 				$(win.document.body).prepend(headerContent);
 
+				// Agrega la imagen de marca de agua
+				$(win.document.body).append(
+					`<img class="watermark" src="${RUTA_IMG}logo/logo-fedeav.png" alt="Marca de agua"  width="800" height="800" loading="lazy">`
+				);
+
 				// Cambia el título de la pestaña del navegador
-				$(win.document).prop("title", "Reporte de USUARIOS | FEDEAV");
+				$(win.document).prop("title", "Reporte de USUARIOS - FEDEAV");
 			},
 			exportOptions: {
 				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
@@ -52,7 +80,7 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 				},
 			},
 			init: function (api, node, config) {
-				$(node).removeClass("btn-secondary").addClass("btn-primary");
+				$(node).removeClass("btn-secondary").addClass("btn-danger");
 			},
 		},
 	],
@@ -62,27 +90,7 @@ const tablaUsuarios = $("#tabla-usuarios").DataTable({
 		[6, 12, 24, 48, 120, "Todos"],
 	],
 	order: [],
-	language: {
-		paginate: {
-			previous: '<i class="bi bi-chevron-left"></i> Anterior',
-			next: 'Siguiente <i class="bi bi-chevron-right"></i>',
-		},
-		sEmptyTable: "No se encontraron datos",
-		sInfo: "Mostrando _START_ a _END_ de _TOTAL_ entradas",
-		sInfoEmpty: "Mostrando 0 a 0 de 0 entradas",
-		sInfoFiltered: "(filtrado de _MAX_ entradas totales)",
-		sInfoPostFix: "",
-		sInfoThousands: ",",
-		sLengthMenu: "Mostrar _MENU_ registros",
-		sLoadingRecords: "Cargando...",
-		sProcessing: "Procesando...",
-		sSearch: "Buscar:",
-		sZeroRecords: "No se encontraron registros coincidentes",
-		oAria: {
-			sSortAscending: ": activar para ordenar la columna de manera ascendente",
-			sSortDescending: ": activar para ordenar la columna de manera descendente",
-		},
-	},
+	language: lenguajeDataTable,
 });
 
 const showFichas = async () => {
