@@ -344,7 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		};
 
 		//console.log(dataForm);
-		let url = "../../app/ajax/ficha.ajax.php";
+		let url = "../../app/ajax/fichas.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",
 			url,

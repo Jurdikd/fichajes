@@ -26,6 +26,7 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
 
         if ($get['ficha'] == "registerficha") {
             $ficha = UsersCrt::register_user_fichaje(Conexion::obtener_conexion(), $get['dataficha']);
+            $respuesta = $ficha;
         } else if ($get['ficha'] == "getfichas") {
 
             $ficha = UsersCrt::GetFichas(Conexion::obtener_conexion(), $get);
