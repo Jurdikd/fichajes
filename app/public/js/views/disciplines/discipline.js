@@ -29,51 +29,84 @@ let selectSexo = new SlimSelect({
 		closeOnSelect: false,
 	},
 });
-document.addEventListener("DOMContentLoaded", async () => {
-	//CONVERTIR DATA DE IMAGEN
-	const tableDisciplinas = $("#tabla-disciplinas").DataTable({
-		dom: "Bfrtip",
-		buttons: [
-			{
-				extend: "print",
-				text: "Imprimir PDF",
-				//title: "Reporte de fichajes por disciplina | FEDEAV",
-				exportOptions: {
-					columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-					format: {
-						body: function (data, row, column, node) {
-							// Personalizar el contenido de la impresión
-							if (column === 0) {
-								const imageHTML = $(data).prop("outerHTML");
-								return imageHTML;
-							}
-							return data;
-						},
+//CONVERTIR DATA DE IMAGEN
+const tableDisciplinas = $("#tabla-disciplinas").DataTable({
+	dom: "Bfrtip",
+	buttons: [
+		{
+			extend: "print",
+			text: "Imprimir PDF",
+			title: "",
+			filename: "Reporte de DISCIPLINAS - FEDEAV",
+			customize: function (win) {
+				// Agrega estilos CSS personalizados al documento de impresión
+				$(win.document.head).append(
+					"<style>" +
+						".header-content { text-align: center; }" +
+						".watermark {position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.1; }" +
+						"</style>"
+				);
+
+				// Crea el contenido de la cabecera con la imagen y el texto centrado
+				const headerContent = `
+					<div class="header-content">
+					  <h2>Federación Deportiva del Abogado de Venezuela XL Juegos Deportivos Nacionales Intercolegios de Abogados Merida 2023</h2>
+					  <img class="header-image" src="${RUTA_IMG}logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80">
+					  <h2>Reporte de DISCIPLINAS | FEDEAV</h2>
+					</div>
+				`;
+
+				// Agrega la cabecera al documento de impresión antes de la tabla
+				$(win.document.body).prepend(headerContent);
+
+				// Agrega la imagen de marca de agua
+				$(win.document.body).append(
+					`<img class="watermark" src="${RUTA_IMG}logo/logo-fedeav.png" alt="Marca de agua"  width="800" height="800">`
+				);
+
+				// Cambia el título de la pestaña del navegador
+				$(win.document).prop("title", "Reporte de DISCIPLINAS - FEDEAV");
+			},
+			exportOptions: {
+				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+				format: {
+					body: function (data, row, column, node) {
+						// Personalizar el contenido de la impresión
+						if (column === 0) {
+							const imageHTML = $(data).prop("outerHTML");
+							return imageHTML;
+						}
+						return data;
 					},
 				},
+				// Opción para imprimir solamente las entradas mostradas
+				rows: {
+					_: "current",
+					page: "current",
+					pageLength: "current",
+				},
 			},
-		],
-		responsive: true,
-		order: [],
-		lengthMenu: [
-			[5, 10, 20, 50, -1], // Opciones de cantidad de registros a mostrar
-			[5, 10, 20, 50, "Todos"], // Texto de las opciones
-		],
-		iDisplayLength: -1, // Mostrar todos los registros
-	});
-	// Agregar evento change al elemento <select>
-	selectSexos.addEventListener("change", function () {
-		console.log(selectDelegaciones);
-		let selectedOptionDelegacion;
-		if (selectDelegaciones !== null) {
-			selectedOptionDelegacion = selectDelegacion.getSelected()[0];
-		}
-
-		const selectedOptionSexo = selectSexo.getSelected()[0];
-		showFichas(selectedOptionDelegacion, selectedOptionSexo);
-	});
+			init: function (api, node, config) {
+				$(node).removeClass("btn-secondary").addClass("btn-danger");
+			},
+		},
+	],
+	responsive: true,
+	lengthMenu: configDataTable.lengthMenu,
+	order: [],
+	language: configDataTable.language,
 });
+// Agregar evento change al elemento <select>
+selectSexos.addEventListener("change", function () {
+	console.log(selectDelegaciones);
+	let selectedOptionDelegacion;
+	if (selectDelegaciones !== null) {
+		selectedOptionDelegacion = selectDelegacion.getSelected()[0];
+	}
 
+	const selectedOptionSexo = selectSexo.getSelected()[0];
+	showFichas(selectedOptionDelegacion, selectedOptionSexo);
+});
 const showFichas = async (selectedOptionDelegacion, selectedOptionSexo) => {
 	let disciplina;
 	if (urlGetTerror.get("d") !== undefined) {
@@ -95,15 +128,12 @@ const showFichas = async (selectedOptionDelegacion, selectedOptionSexo) => {
 		if (solicitud) {
 			const datos = solicitud;
 
-			// Obtener referencia a la tabla
-			let tablaUsuarios = $("#tabla-disciplinas").DataTable();
-
 			// Limpiar los datos existentes en la tabla
-			tablaUsuarios.clear().draw();
+			tableDisciplinas.clear().draw();
 
 			// Llenar la tabla con los datos obtenidos
 			datos.forEach((usuario) => {
-				tablaUsuarios.row
+				tableDisciplinas.row
 					.add([
 						`
                     <img class="img-fluid" src="${SERVER}/${usuario.imagen}" alt="${
@@ -120,10 +150,6 @@ const showFichas = async (selectedOptionDelegacion, selectedOptionSexo) => {
 						usuario.celular,
 						usuario.estado_nom,
 						usuario.name_disciplina,
-						// Agregar aquí las disciplinas del usuario
-						`
-                    <button class="btn btn-primary btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editarUsuario(${usuario.id_usuario})">Editar</button>
-                    `,
 					])
 					.draw();
 			});

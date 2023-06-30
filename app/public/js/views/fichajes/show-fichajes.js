@@ -23,7 +23,7 @@ const tablaFichajes = $("#tabla-fichajes").DataTable({
 				const headerContent = `
 					<div class="header-content">
 					  <h2>Federación Deportiva del Abogado de Venezuela XL Juegos Deportivos Nacionales Intercolegios de Abogados Merida 2023</h2>
-					  <img class="header-image" src="${RUTA_IMG}logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80" loading="lazy">
+					  <img class="header-image" src="${RUTA_IMG}logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80">
 					  <h2>Reporte de FICHAJES | FEDEAV</h2>
 					</div>
 				`;
