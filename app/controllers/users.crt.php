@@ -359,6 +359,114 @@ class UsersCrt
         );
         return $estado;
     }
+    public static function EditFicha($conexion, $userData)
+    {
+        # colocamos el estado que admin decida...
+
+
+        $usuario = RepositorioUsuario::obtener_usuario_de_usuario($conexion, $userData["id_usuario"]);
+
+
+        #guardar imagen
+        $imagen = $userData['imagen'];
+        $rutaimg = "public/img/users/" . $usuario . "/" . $usuario . ".jpg";
+        $userDataUpdate = array(
+            'id_usuario' => $userData["id_usuario"],
+            'nombre' => $userData['primer-nombre'],
+            'nombre2' => $userData['segundo-nombre'],
+            'apellido1' =>  $userData['primer-apellido'],
+            'apellido2' => $userData['segundo-apellido'],
+            'cedula' => $userData['cedula'],
+            'fk_sexo' => $userData['sexo'],
+            'fecha_nacimiento' => $userData['fecha-nacimiento'],
+            'celular' => $userData['telefono'],
+            'inpre_abogado' =>  $userData['inpre-abogado'],
+            'correo' =>  $userData['correo'],
+            'imagen' => "app/" . $rutaimg
+        );
+
+
+
+        $actualizacion = RepositorioUsuario::actualizar_ficha($conexion, $userDataUpdate);
+        if ($actualizacion) {
+
+
+            //borrar imagen anterior
+
+            $carpeta = "../public/img/users/" . $usuario;
+            $imgDelete = Libs::borrar_directorio($carpeta);
+            # guardamos la imagen...
+            //Creamos un objeto con todos los datos para guardar en la base de datos luego del registro
+            $base64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagen));
+            $carpeta = "../public/img/users/" . $usuario;
+            if (!file_exists($carpeta)) {
+                mkdir($carpeta, 0777, true);
+            }
+            //Guardamos la imagen si todo salio correcto
+            file_put_contents("../" . $rutaimg, $base64);
+            // borrar disciplinas
+            $deleteDisciplinas = RepositorioDisciplinasUsuarios::eliminar_disciplinas_usuario($conexion, $userData["id_usuario"]);
+            if ($deleteDisciplinas) {
+                # code...
+
+
+                //verificacion de disciplinas
+                $disciplinas = [
+                    "ajedrez",
+                    "baloncesto",
+                    "billar",
+                    "bolas_criollas",
+                    "boliche",
+                    "domino",
+                    "futbol_sala",
+                    "kickingball",
+                    "maraton",
+                    "natacion",
+                    "softball",
+                    "tenis_de_campo",
+                    "tenis_de_mesa",
+                    "tiro",
+                    "toros_coleados",
+                    "voleibol"
+                ];
+
+                $arrayACambiar = $userData["disciplinas"];
+                $nuevosIndices = [];
+                //numerar disciplinas 
+                foreach ($arrayACambiar as $elemento) {
+                    $indice = array_search($elemento, $disciplinas);
+                    if ($indice !== false) {
+                        $nuevosIndices[] = $indice + 1; // Sumar 1 para obtener el número correspondiente
+                    }
+                }
+                // Datos usuario en sesion
+                $userLogin = ControlSesion::datos_sesion();
+                //registro dinamico de disciplinas
+                $registrarDisciplinas = true;
+                foreach ($nuevosIndices as $disciplina) {
+                    $result = RepositorioDisciplinasUsuarios::insertar_disciplinas_usuario($conexion, $disciplina, $userData["id_usuario"], $userLogin["id"]);
+                    if (!$result) {
+                        $registrarDisciplinas = false;
+                        break; // Detener el bucle si ocurre algún error
+                    }
+                }
+                if ($registrarDisciplinas) {
+                    # si se registraron las disciplinas todo bien...
+                    $resultado = 1;
+                } else {
+                    # no se registraron las disciplinas...
+                    $resultado = 2;
+                }
+            } else {
+                # error al borrar disciplinas y actualizar...
+                $resultado = 3;
+            }
+        } else {
+            # error al borrar disciplinas y actualizar...
+            $resultado = 5;
+        }
+        return $resultado;
+    }
     public static function EditUser($conexion, $userData)
     {
         # colocamos el estado que admin decida...
@@ -460,8 +568,8 @@ class UsersCrt
                 //registro dinamico de disciplinas
                 $registrarDisciplinas = true;
                 foreach ($nuevosIndices as $disciplina) {
-                    $resultado = RepositorioDisciplinasUsuarios::insertar_disciplinas_usuario($conexion, $disciplina, $userData["id_usuario"], $userLogin["id"]);
-                    if (!$resultado) {
+                    $result = RepositorioDisciplinasUsuarios::insertar_disciplinas_usuario($conexion, $disciplina, $userData["id_usuario"], $userLogin["id"]);
+                    if (!$result) {
                         $registrarDisciplinas = false;
                         break; // Detener el bucle si ocurre algún error
                     }

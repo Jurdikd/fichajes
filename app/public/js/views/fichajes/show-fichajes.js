@@ -81,6 +81,7 @@ const showFichas = async () => {
 
 		// Llenar la tabla con los datos obtenidos
 		datos.forEach((usuario) => {
+			const disciplinas = usuario.disciplinas.join(", "); // Convertir el array de disciplinas en una cadena de texto
 			tablaFichajes.row
 				.add([
 					`
@@ -97,8 +98,8 @@ const showFichas = async () => {
 					usuario.inpre_abogado,
 					usuario.celular,
 					usuario.estado_nom,
-					usuario.estado_nom,
 					// Agregar aquí las disciplinas del usuario
+					disciplinas, // MOSTRAMOS DISCIPLINAS
 					`
 					<button class="btn btn-warning btn-editUser" data-name="${
 						usuario.nombre + usuario.apellido1
@@ -273,8 +274,6 @@ document.addEventListener("DOMContentLoaded", function () {
 		"inpre-abogado": false,
 		telefono: false,
 		imagen: true,
-		rol: false,
-		clave: true,
 		delegacion: setDelegacion,
 		disciplinas: false,
 	};
@@ -364,18 +363,15 @@ document.addEventListener("DOMContentLoaded", function () {
 			"inpre-abogado": form_editUser.querySelector("#inpre-abogado").value,
 			telefono: form_editUser.querySelector("#telefono").value,
 			imagen: imagenU,
-			rol: form_editUser.querySelector("#rol").value,
-			clave: form_editUser.querySelector("#clave").value,
-			delegacion: delegacionSend,
 			disciplinas: selectDisipline.getSelected(),
 		};
 
 		//console.log(dataForm);
-		let url = "../../app/ajax/users.ajax.php";
+		let url = "../../app/ajax/fichas.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",
 			url,
-			{ user: "editUser", datauser: dataForm },
+			{ ficha: "editFicha", dataFicha: dataForm },
 			true
 		);
 		if (solicitud === 1) {

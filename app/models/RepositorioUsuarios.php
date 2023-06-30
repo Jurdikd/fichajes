@@ -1238,6 +1238,55 @@ class RepositorioUsuario
         }
 
         return $actualizacion_correcta;
+    } public static function actualizar_ficha($conexion, $dataUsuario)
+    {
+        $actualizacion_correcta = false;
+
+        if (isset($conexion)) {
+            try {
+                $sql = "UPDATE
+                usuarios
+                SET
+                nombre = :nombre,
+                nombre2 = :nombre2,
+                apellido1 = :apellido1,
+                apellido2 = :apellido2,
+                cedula = :cedula,
+                fk_sexo = :fk_sexo,
+                fecha_nacimiento = :fecha_nacimiento,
+                inpre_abogado = :inpre_abogado,
+                celular = :celular,
+                correo = :correo,
+                imagen  = :imagen
+                WHERE id_usuario = :id_usuario";
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':id_usuario', $dataUsuario['id_usuario'], PDO::PARAM_INT);
+                $sentencia->bindParam(':nombre', $dataUsuario['nombre'], PDO::PARAM_STR);
+                $sentencia->bindParam(':nombre2', $dataUsuario['nombre2'], PDO::PARAM_STR);
+                $sentencia->bindParam(':apellido1', $dataUsuario['apellido1'], PDO::PARAM_STR);
+                $sentencia->bindParam(':apellido2', $dataUsuario['apellido2'], PDO::PARAM_STR);
+                $sentencia->bindParam(':cedula', $dataUsuario['cedula'], PDO::PARAM_STR);
+                $sentencia->bindParam(':fk_sexo', $dataUsuario['fk_sexo'], PDO::PARAM_INT);
+                $sentencia->bindParam(':fecha_nacimiento', $dataUsuario['fecha_nacimiento'], PDO::PARAM_STR);
+                $sentencia->bindParam(':inpre_abogado', $dataUsuario['inpre_abogado'], PDO::PARAM_STR);
+                $sentencia->bindParam(':celular', $dataUsuario['celular'], PDO::PARAM_STR);
+                $sentencia->bindParam(':correo', $dataUsuario['correo'], PDO::PARAM_STR);
+                $sentencia->bindParam(':imagen', $dataUsuario['imagen'], PDO::PARAM_STR);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->rowCount();
+
+                if ($resultado > 0) {
+                    $actualizacion_correcta = true;
+                }
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $actualizacion_correcta;
     }
     public static function eliminar_usuario($conexion, $id_usuario)
     {

@@ -5,6 +5,7 @@ include_once "../../libs/UrlGetTerror.libs.php";
 include_once "../models/conexion.php";
 include_once "../models/RepositorioUsuarios.php";
 include_once '../libraries/classUsuario.php';
+include_once '../middlewares/middlewares.php';
 include_once "../models/RepositorioRegistroUsuarios.php";
 include_once "../models/RepositorioEstadosPaises.php";
 include_once "../models/RepositorioDisciplinasUsuarios.php";
@@ -30,10 +31,12 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
         } else if ($get['ficha'] == "getfichas") {
 
             $ficha = UsersCrt::GetFichas(Conexion::obtener_conexion(), $get);
+
             $respuesta = $ficha;
-        } else if ($get['ficha'] == "editUser") {
-            $user = UsersCrt::EditUser(Conexion::obtener_conexion(), $get['dataficha']);
-            $respuesta = $user;
+        } else if ($get['ficha'] == "editFicha") {
+
+            $ficha = UsersCrt::EditFicha(Conexion::obtener_conexion(), $get['dataFicha']);
+            $respuesta = $ficha;
         } else if ($get['ficha'] == "getfichasdiscipline") {
 
             $ficha = UsersCrt::GetFichasDiciplinas(Conexion::obtener_conexion(), $get);
