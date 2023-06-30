@@ -68,10 +68,8 @@ function rellenarFicha(event) {
 		}
 	}
 }
-
 // Crear una instancia de la clase TerrorIMG
 const terrorIMG = new TerrorIMG();
-
 // Obtener referencia al input de imagen y la etiqueta img de vista previa
 const imagenInput = document.getElementById("imagen");
 const previewImg = document.getElementById("preview");
@@ -165,74 +163,6 @@ function actualizarBotones() {
 		});
 	}
 }
-
-// Agregar evento change al elemento <select>
-selectDisciplines.addEventListener("change", function () {
-	actualizarBotones();
-
-	// Imprimir los valores seleccionados en la consola
-	//console.log(selectDisipline.getSelected());
-});
-
-// Función para crear un botón de disciplina
-function crearBotonDisciplina(valor) {
-	const boton = document.createElement("button");
-	boton.classList.add("btn", "p-0", "rounded-circle", "d-2");
-	boton.setAttribute("data-bs-toggle", "tooltip");
-	boton.setAttribute("data-bs-placement", "top");
-	boton.setAttribute("data-bs-custom-class", "custom-tooltip");
-	boton.setAttribute("data-bs-title", valor);
-
-	// Crear elemento de imagen
-	const imagen = document.createElement("img");
-	imagen.classList.add("img-fluid", "shadow-discipline");
-	imagen.setAttribute(
-		"src",
-		RUTA_IMG + "icons/icons-discipline-rounded-solid/" + valor + ".svg"
-	);
-	imagen.setAttribute("alt", valor);
-	imagen.setAttribute("srcset", "");
-	imagen.setAttribute("width", "30");
-	imagen.setAttribute("loading", "lazy");
-
-	// Agregar la imagen al botón
-	boton.appendChild(imagen);
-
-	return boton;
-}
-
-// Función para crear el botón "Ver más" con los valores restantes
-function crearBotonVerMas(valores) {
-	const botonVerMas = document.createElement("button");
-	botonVerMas.classList.add(
-		"btn",
-		"btn-secondary",
-		"__ficha-btn-plus",
-		"rounded-circle",
-		"text-ficha-list"
-	);
-	botonVerMas.setAttribute("type", "button");
-	botonVerMas.setAttribute("data-bs-target", "#collapseDiscipline");
-	botonVerMas.setAttribute("aria-expanded", "false");
-	botonVerMas.setAttribute("aria-controls", "collapseDiscipline");
-	botonVerMas.setAttribute("data-bs-toggle", "collapse");
-	botonVerMas.setAttribute("data-bs-toggle", "tooltip");
-	botonVerMas.setAttribute("data-bs-placement", "top");
-	botonVerMas.setAttribute("data-bs-custom-class", "custom-tooltip");
-	botonVerMas.setAttribute("data-bs-title", "Ver más");
-
-	// Crear icono para el botón "Ver más"
-	const icono = document.createElement("i");
-	icono.classList.add("fas", "fa-plus");
-
-	// Agregar el icono al botón
-	botonVerMas.appendChild(icono);
-
-	return botonVerMas;
-}
-
-// Actualizar los botones al cargar la página
-actualizarBotones();
 /////////////////////////////////////////////////////////////////////////////////////////
 
 /** validacion de formulario */

@@ -30,4 +30,60 @@ class RepositorioDisciplinasUsuarios
         // Devolver false si ocurrió algún error
         return $resultado;
     }
+    public static function obtener_disciplinas_usuario($conexion, $id_usuario)
+    {
+        $resultado = null;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT
+                disciplinas.name_short_disciplina
+            FROM
+                registro_disciplinas_users
+            INNER JOIN disciplinas ON registro_disciplinas_users.fk_disciplina = disciplinas.id_disciplina
+            WHERE
+              fk_usuario = :fk_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':fk_usuario', $id_usuario, PDO::PARAM_INT);
+                $sentencia->execute();  // Ejecutar la consulta
+                $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+                // Extraer los valores sin las claves
+                $resultado = array_column($resultado, 'name_short_disciplina');
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        // Devolver false si ocurrió algún error
+        return $resultado;
+    }
+    public static function obtener_disciplinas_usuarios($conexion, $id_usuario)
+    {
+        $resultado = null;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT
+                disciplinas.name_disciplina
+            FROM
+                registro_disciplinas_users
+            INNER JOIN disciplinas ON registro_disciplinas_users.fk_disciplina = disciplinas.id_disciplina
+            WHERE
+              fk_usuario = :fk_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':fk_usuario', $id_usuario, PDO::PARAM_INT);
+                $sentencia->execute();  // Ejecutar la consulta
+                $resultado = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+
+                // Extraer los valores sin las claves
+                $resultado = array_column($resultado, 'name_disciplina');
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        // Devolver false si ocurrió algún error
+        return $resultado;
+    }
 }

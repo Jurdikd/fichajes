@@ -59,7 +59,185 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
         </div>
     </div>
 </div>
+<!-- Agrega el siguiente código HTML al lugar donde deseas mostrar la modal -->
 
+<!-- Modal Editar Usuario -->
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarUsuarioLabel">Editar Usuario</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form role="form" id="form_edit_user">
+                    <div class="row">
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="primer-nombre" class="form-label">Primer Nombre</label>
+                                <input type="text" class="form-control" id="primer-nombre" name="primer-nombre">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="segundo-nombre" class="form-label">Segundo Nombre</label>
+                                <input type="text" class="form-control" id="segundo-nombre" name="segundo-nombre">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="primer-apellido" class="form-label">Primer Apellido</label>
+                                <input type="text" class="form-control" id="primer-apellido" name="primer-apellido">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="segundo-apellido" class="form-label">Segundo Apellido</label>
+                                <input type="text" class="form-control" id="segundo-apellido" name="segundo-apellido">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
+                                <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group">
+                                <label for="sexo" class="form-label">Sexo</label>
+                                <select class="form-select" id="sexo" name="sexo">
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="1">FEMENINO</option>
+                                    <option value="2">MASCULINO</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="cedula" class="form-label">Cédula Venezolana</label>
+                                <input type="text" class="form-control" id="cedula" name="cedula">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="correo" class="form-label">CORREO</label>
+                                <input type="email" class="form-control" id="correo" name="correo">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="inpre-abogado" class="form-label">INPRE ABOGADO</label>
+                                <input type="text" class="form-control" id="inpre-abogado" name="inpre-abogado">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="telefono" class="form-label">Teléfono</label>
+                                <input type="text" class="form-control" id="telefono" name="telefono">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="imagen" class="form-label">Imagen</label>
+                                <input type="file" class="form-control" id="imagen" name="imagen" accept="image/*">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="rol" class="form-label">Rol</label>
+                                <select class="form-select" id="rol" name="rol">
+                                    <option value="">Seleccione una opción</option>
+                                    <option value="1">ADMIN</option>
+                                    <option value="2">FICHADOR</option>
+                                    <option value="4">ALISTADOR</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="delegacion" class="form-label">Delegación</label>
+
+                                <select class="form-control" id="delegacion" name="delegacion">
+                                    <option></option>
+                                    <option value="524">Amazonas</option>
+                                    <option value="537">Mérida</option>
+                                    <option value="538">Miranda</option>
+                                    <option value="539">Monagas</option>
+                                    <option value="540">Nueva Esparta</option>
+                                    <option value="541">Portuguesa</option>
+                                    <option value="542">Sucre</option>
+                                    <option value="543">Táchira</option>
+                                    <option value="544">Trujillo</option>
+                                    <option value="545">Vargas</option>
+                                    <option value="546">Yaracuy</option>
+                                    <option value="536">Lara</option>
+                                    <option value="535">Guárico</option>
+                                    <option value="525">Anzoátegui</option>
+                                    <option value="526">Apure</option>
+                                    <option value="527">Aragua</option>
+                                    <option value="528">Barinas</option>
+                                    <option value="529">Bolívar</option>
+                                    <option value="530">Carabobo</option>
+                                    <option value="531">Cojedes</option>
+                                    <option value="532">Delta Amacuro</option>
+                                    <option value="533">Distrito Capital</option>
+                                    <option value="534">Falcón</option>
+                                    <option value="547">Zulia</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <label for="clave" class="form-label">Clave</label>
+                                <input type="pass" class="form-control" id="clave" name="clave">
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group mb-3">
+                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80" loading="lazy">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="disciplinas" class="form-label">Disciplinas</label>
+                            <select multiple class="form-control" id="disciplinas" name="disciplinas[]">
+                                <option value="ajedrez">Ajedrez</option>
+                                <option value="baloncesto">Baloncesto</option>
+                                <option value="billar">Billar</option>
+                                <option value="bolas_criollas">Bolas Criollas</option>
+                                <option value="boliche">Boliche</option>
+                                <option value="domino">Domino</option>
+                                <option value="futbol_sala">Fútbol Sala</option>
+                                <option value="kickingball">Kickingball</option>
+                                <option value="maraton">Maratón</option>
+                                <option value="natacion">Natación</option>
+                                <option value="softball">Softball</option>
+                                <option value="tenis_de_campo">Tenis de Campo</option>
+                                <option value="tenis_de_mesa">Tenis de Mesa</option>
+                                <option value="tiro">Tiro</option>
+                                <option value="toros_coleados">Toros Coleados</option>
+                                <option value="voleibol">Voleibol</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+
+                            <button type="button" class="btn btn-warning mb-3" id="resetButton">Resetear
+                                formulario</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" id="btnGuardarCambios">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>
 
 <?php
 include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>

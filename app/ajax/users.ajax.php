@@ -36,6 +36,11 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
             $users = UsersCrt::GetUsers(Conexion::obtener_conexion(), $get);
             //devolvemos los usuarios
             $respuesta = $users;
+        } else if ($get['user'] == "getUser") {
+            //obtenemos los usuarios
+            $users = UsersCrt::GetUserEdit(Conexion::obtener_conexion(), $get);
+            //devolvemos los usuarios
+            $respuesta = $users;
         } else if ($get['user'] == "editUser") {
             $respuesta = true;
         } else if ($get['user'] == "deleteUser") {

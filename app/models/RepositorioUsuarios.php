@@ -131,7 +131,7 @@ class RepositorioUsuario
         $arrDatos = null;
         if (isset($conexion)) {
             try {
-                if ($id_rol == 1) {
+                if ($id_rol == 1 || $id_rol == 4) {
                     $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
                             usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
                             sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.usuario, usuarios.codigo_empleado, 
@@ -168,6 +168,37 @@ class RepositorioUsuario
                     $sentencia->bindParam(':id_estado', $id_estado, PDO::PARAM_INT);
                     $sentencia->execute();
                 }
+
+                $arrDatos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        return $arrDatos;
+    }
+    public static function obtener_usuario_por_id_simple($conexion, $id_usuario)
+    {
+        $arrDatos = null;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
+                            usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
+                            sexos.id_sexo, usuarios.fecha_nacimiento, usuarios.usuario, usuarios.codigo_empleado, 
+                            usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, 
+                            usuarios.correo, usuarios.edicion_u,estados_paises.id_estado_pais, estados_paises.estado_nom,
+                            usuarios.registro_u, usuarios.id_usuario, rol.nombre_rol,
+                            rol.id_rol
+                            FROM usuarios 
+                            INNER JOIN rol ON usuarios.fk_rol = rol.id_rol
+                            INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo 
+                            INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
+                            INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
+                            WHERE usuarios.id_usuario = :id_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+                $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+                $sentencia->execute();
+
 
                 $arrDatos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $ex) {

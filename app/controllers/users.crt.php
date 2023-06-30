@@ -272,6 +272,12 @@ class UsersCrt
 
             $fichas = RepositorioUsuario::obtener_fichas_usuarios($conexion, $rolUserLogin["id_rol"], $id_estado["id_estado"]);
         }
+        foreach ($fichas as &$usuario) {
+            // Obtener las disciplinas del usuario utilizando la función existente
+            $disciplinas = RepositorioDisciplinasUsuarios::obtener_disciplinas_usuario($conexion, $usuario['id_usuario']);
+            // Agregar el array de disciplinas al final del usuario
+            $usuario['disciplinas'] = $disciplinas;
+        }
 
         // RepositorioUsuario::obtener_fichas_usuarios($conexion);
         return $fichas;
@@ -280,18 +286,37 @@ class UsersCrt
     {
         $userLogin = ControlSesion::datos_sesion();
         $rolUserLogin = UsersCrt::GetRol($conexion, $userLogin["usuario"]);
-        if ($rolUserLogin["id_rol"] == 1) {
+        if ($rolUserLogin["id_rol"] == "1" && $rolUserLogin["id_rol"] == "4") {
             # code...
-            $fichas = RepositorioUsuario::obtener_usuarios($conexion, $rolUserLogin["id_rol"]);
+            $usersdb = RepositorioUsuario::obtener_usuarios($conexion, $rolUserLogin["id_rol"]);
         } else {
             # code...
             $id_estado = UsersCrt::GetEstado($conexion, $userLogin["usuario"]);
 
-            $fichas = RepositorioUsuario::obtener_usuarios($conexion, $rolUserLogin["id_rol"], $id_estado["id_estado"]);
+            $usersdb = RepositorioUsuario::obtener_usuarios($conexion, $rolUserLogin["id_rol"], $id_estado["id_estado"]);
+        }
+        foreach ($usersdb as &$usuario) {
+            // Obtener las disciplinas del usuario utilizando la función existente
+            $disciplinas = RepositorioDisciplinasUsuarios::obtener_disciplinas_usuario($conexion, $usuario['id_usuario']);
+            // Agregar el array de disciplinas al final del usuario
+            $usuario['disciplinas'] = $disciplinas;
         }
 
         // RepositorioUsuario::obtener_fichas_usuarios($conexion);
-        return $fichas;
+        return $usersdb;
+    }
+    public static function GetUserEdit($conexion, $user)
+    {
+        $userdb = RepositorioUsuario::obtener_usuario_por_id_simple($conexion, $user["id_user"]);
+
+        foreach ($userdb as &$usuario) {
+            // Obtener las disciplinas del usuario utilizando la función existente
+            $disciplinas = RepositorioDisciplinasUsuarios::obtener_disciplinas_usuario($conexion, $usuario['id_usuario']);
+            // Agregar el array de disciplinas al final del usuario
+            $usuario['disciplinas'] = $disciplinas;
+        }
+
+        return $userdb;
     }
     public static function GetFichasDiciplinas($conexion, $get)
     {

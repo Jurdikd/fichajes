@@ -14,6 +14,12 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user"></i>
+                        <span"><?php echo $userLogin["usuario"]; ?></span>
+                    </a>
+                </li>
                 <?php
                 // vista para fichajes
                 if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {

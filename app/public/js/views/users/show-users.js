@@ -79,6 +79,7 @@ const showFichas = async () => {
 		tablaUsuarios.clear().draw();
 
 		datos.forEach((usuario) => {
+			const disciplinas = usuario.disciplinas.join(", "); // Convertir el array de disciplinas en una cadena de texto
 			tablaUsuarios.row
 				.add([
 					`<img class="img-fluid" src="${usuario.imagen}" alt="${
@@ -95,7 +96,7 @@ const showFichas = async () => {
 					`Télefono:<br>${usuario.celular}<br>Correo:<br>${usuario.correo}`,
 					usuario.nombre_rol,
 					usuario.estado_nom,
-					usuario.estado_nom,
+					disciplinas, // MOSTRAMOS DISCIPLINAS
 					`Edición:<br>${
 						usuario.edicion_u == null ? "No actualizado" : usuario.edicion_u
 					}<br>Registro:<br>${usuario.registro_u}`,
@@ -179,23 +180,54 @@ const deleteUser = async (id_user) => {
 		}
 	}
 };
+// Obtener referencia al elemento <select> usando su ID
+const selectDelegaciones = document.getElementById("delegacion");
+// Crear una instancia de SlimSelect
+let selectDelegacion = new SlimSelect({
+	select: selectDelegaciones,
+	selected: false,
+	settings: {
+		showSearch: true,
+		searchText: "No se encontraron resultados",
+		searchPlaceholder: "Buscar...",
+		placeholder: "Seleccionar degaciones",
+		placeholderText: "Seleccionar degaciones",
+		searchHighlight: false,
+		closeOnSelect: false,
+	},
+});
+// Obtener referencia al elemento <select> usando su ID
+const selectDisciplines = document.getElementById("disciplinas");
 
+// Crear una instancia de SlimSelect
+let selectDisipline = new SlimSelect({
+	select: selectDisciplines,
+	selected: false,
+	settings: {
+		showSearch: true,
+		searchText: "No se encontraron resultados",
+		searchPlaceholder: "Buscar...",
+		placeholder: "Seleccionar disciplinas",
+		placeholderText: "Seleccionar disciplinas",
+		searchHighlight: false,
+		closeOnSelect: false,
+	},
+});
 // Obtén una referencia al contenedor de la tabla
 const actionsTablaUsuarios = document.getElementById("tabla-usuarios");
 // Agrega el evento de clic utilizando eventos delegados
-//Editamos usuario
+
 actionsTablaUsuarios.addEventListener("click", (event) => {
-	// Verifica si el elemento clicado tiene la clase "btn-borrar-usuario"
+	//Editamos usuario
+	// Verifica si el elemento clicado tiene la clase "btn-editUser"
 	if (event.target.classList.contains("btn-editUser")) {
 		const idUsuario = event.target.dataset.id;
 		const nameUsuario = event.target.dataset.name;
-		confirm("estas seguro que quieres editar este usuario?" + nameUsuario);
-		deleteUser(idUsuario);
+		//confirm("estas seguro que quieres editar este usuario?" + nameUsuario);
+		openEditarUsuarioModal(idUsuario);
 	}
-});
-//Borramos usuario
-actionsTablaUsuarios.addEventListener("click", (event) => {
-	// Verifica si el elemento clicado tiene la clase "btn-borrar-usuario"
+	//Borramos usuario
+	// Verifica si el elemento clicado tiene la clase "btn-deleteUser"
 	if (event.target.classList.contains("btn-deleteUser")) {
 		const idUsuario = event.target.dataset.id;
 		const nameUsuario = event.target.dataset.name;
@@ -203,4 +235,262 @@ actionsTablaUsuarios.addEventListener("click", (event) => {
 
 		deleteUser(idUsuario);
 	}
+});
+const openEditarUsuarioModal = async (idUsuario) => {
+	const url = "../../app/ajax/users.ajax.php";
+	const solicitud = await terrorFetch.fetch("POST", url, {
+		user: "getUser",
+		id_user: idUsuario,
+	});
+
+	if (solicitud) {
+		const usuario = solicitud[0];
+		//console.log(usuario);
+
+		// Rellena los campos de la modal con la información del usuario
+		document.getElementById("primer-nombre").value = usuario.nombre;
+		document.getElementById("segundo-nombre").value = usuario.nombre2;
+		document.getElementById("primer-apellido").value = usuario.apellido1;
+		document.getElementById("segundo-apellido").value = usuario.apellido2;
+		document.getElementById("cedula").value = usuario.cedula;
+		document.getElementById("sexo").value = usuario.id_sexo;
+		document.getElementById("fecha-nacimiento").value = usuario.fecha_nacimiento;
+		document.getElementById("correo").value = usuario.correo;
+		document.getElementById("inpre-abogado").value = usuario.inpre_abogado;
+		document.getElementById("telefono").value = usuario.celular;
+		document.getElementById("img-user").setAttribute("src", usuario.imagen);
+		document.getElementById("rol").value = usuario.id_rol;
+
+		selectDelegacion.setSelected(usuario.id_estado_pais);
+		selectDisipline.setSelected(usuario.disciplinas);
+
+		// Abre la modal
+		const modalEditarUsuario = new bootstrap.Modal(
+			document.getElementById("modalEditarUsuario")
+		);
+		modalEditarUsuario.show();
+	} else {
+		console.error("Ocurrió un error al obtener la información del usuario.");
+	}
+};
+// validar editor
+
+// Obtener formulario
+const form_editUser = document.getElementById("form_edit_user");
+// Crear una instancia de la clase TerrorIMG
+const terrorIMG = new TerrorIMG();
+// Obtener referencia al input de imagen y la etiqueta img de vista previa
+const imagenInput = document.getElementById("imagen");
+const previewImg = document.getElementById("img-user");
+
+// Agregar un event listener al elemento de entrada de archivo
+imagenInput.addEventListener("change", function () {
+	// Leer la imagen seleccionada y mostrarla en el elemento HTML
+	terrorIMG.leer(this, previewImg);
+});
+//********************************************* */
+
+/** validacion de formulario */
+
+document.addEventListener("DOMContentLoaded", function () {
+	let setDelegacion;
+	if (selectDelegaciones.type === "text") {
+		setDelegacion = true;
+	} else if (selectDelegaciones.type === "select-one") {
+		setDelegacion = false;
+	}
+	const campos = {
+		"primer-nombre": false,
+		"segundo-nombre": true,
+		"primer-apellido": false,
+		"segundo-apellido": true,
+		"fecha-nacimiento": false,
+		sexo: false,
+		cedula: false,
+		correo: false,
+		"inpre-abogado": false,
+		telefono: false,
+		imagen: true,
+		rol: false,
+		clave: true,
+		delegacion: setDelegacion,
+		disciplinas: false,
+	};
+
+	form_editUser.addEventListener("submit", function (event) {
+		event.preventDefault();
+		if (validarFormulario()) {
+			// El formulario es válido, puedes realizar las acciones necesarias aquí
+			//console.log("Formulario válido:", form_editUser);
+
+			enviarFormulario(form_editUser);
+			// form_editUser.submit(); // Descomenta esta línea para enviar el formulario
+		} else {
+			console.log("Formulario inválido");
+		}
+	});
+
+	function validarFormulario() {
+		let formValido = true;
+
+		for (const campo in campos) {
+			if (campos.hasOwnProperty(campo)) {
+				const valor = document.getElementById(campo).value.trim();
+
+				if (campos[campo]) {
+					// No se realiza validación para campos opcionales
+					continue;
+				}
+
+				if (valor === "") {
+					marcarCampoInvalido(campo);
+					formValido = false;
+				} else {
+					marcarCampoValido(campo);
+				}
+			}
+		}
+
+		// Validar campo de disciplinas
+		const disciplinas = document.getElementById("disciplinas");
+		if (disciplinas.value.length === 0) {
+			marcarCampoInvalido("disciplinas");
+			formValido = false;
+		} else {
+			marcarCampoValido("disciplinas");
+		}
+
+		return formValido;
+	}
+
+	function marcarCampoInvalido(campo) {
+		const input = document.getElementById(campo);
+		input.classList.add("is-invalid");
+		input.classList.remove("is-valid");
+	}
+
+	function marcarCampoValido(campo) {
+		const input = document.getElementById(campo);
+		input.classList.remove("is-invalid");
+		input.classList.add("is-valid");
+	}
+	const enviarFormulario = async (form_editUser) => {
+		const imagenU = await terrorIMG.obtenerIMG(imagenInput);
+		let delegacionSend;
+		console.log(setDelegacion);
+		if (setDelegacion) {
+			delegacionSend = form_editUser.querySelector("#delegacion").value;
+		} else {
+			delegacionSend = selectDelegacion.getSelected();
+		}
+		const dataForm = {
+			"primer-nombre": form_editUser.querySelector("#primer-nombre").value,
+			"segundo-nombre": form_editUser.querySelector("#segundo-nombre").value,
+			"primer-apellido": form_editUser.querySelector("#primer-apellido").value,
+			"segundo-apellido": form_editUser.querySelector("#segundo-apellido").value,
+			"fecha-nacimiento": form_editUser.querySelector("#fecha-nacimiento").value,
+			sexo: form_editUser.querySelector("#sexo").value,
+			cedula: form_editUser.querySelector("#cedula").value,
+			correo: form_editUser.querySelector("#correo").value,
+			"inpre-abogado": form_editUser.querySelector("#inpre-abogado").value,
+			telefono: form_editUser.querySelector("#telefono").value,
+			imagen: imagenU,
+			rol: form_editUser.querySelector("#rol").value,
+			clave: form_editUser.querySelector("#clave").value,
+			delegacion: delegacionSend,
+			disciplinas: selectDisipline.getSelected(),
+		};
+
+		//console.log(dataForm);
+		let url = "../../app/ajax/users.ajax.php";
+		const solicitud = await terrorFetch.fetch(
+			"POST",
+			url,
+			{ user: "registeruser", datauser: dataForm },
+			true
+		);
+		if (solicitud === 1) {
+			console.log("Ficha registrada correctamente");
+			const alert = terroralert.swal(
+				alertPosition,
+				"success",
+				"Ficha registrada correctamente",
+				7000,
+				1050
+			);
+			if (alert) {
+				form_editUser.reset();
+				location.reload(true);
+			}
+		} else if (solicitud === 2) {
+			console.log(
+				"Ficha insertada correctamente! pero ha habido un error al guardar las disciplinas!",
+				solicitud
+			);
+			const alert = terroralert.swal(
+				alertPosition,
+				"warning",
+				"Ficha insertada correctamente! pero ha habido un error al guardar las disciplinas!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 3) {
+			console.log(
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro!",
+				solicitud
+			);
+			const alert = terroralert.swal(
+				alertPosition,
+				"warning",
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 4) {
+			console.log(
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro y disciplinas!",
+				solicitud
+			);
+			const alert = terroralert.swal(
+				alertPosition,
+				"warning",
+				"Ficha insertada correctamente! pero ha habido un error al guardar el registro y disciplinas!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 5) {
+			console.log("¡Ha habido un error al insertar ficha!", solicitud);
+			const alert = terroralert.swal(
+				alertPosition,
+				"error",
+				"¡Ha habido un error al insertar ficha!",
+				5000,
+				1050
+			);
+		} else if (solicitud === 6) {
+			console.log("Ficha ya existe", solicitud);
+			const alert = terroralert.swal(
+				alertPosition,
+				"error",
+				"¡Ficha ya existe!",
+				5000,
+				1050
+			);
+		} else {
+			console.log("Error al cargar los datos de ficha:", solicitud);
+			const alert = terroralert.swal(
+				alertPosition,
+				"error",
+				"Error al cargar los datos de ficha",
+				5000,
+				1050
+			);
+		}
+	};
+	// Código para el botón de reset
+	const resetButton = document.getElementById("resetButton");
+
+	resetButton.addEventListener("click", function () {
+		form_editUser.reset();
+	});
 });
