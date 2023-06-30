@@ -1,23 +1,5 @@
 <?php
-function normaliza($cadena)
-{
-    $originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞ
-ßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ';
-    $modificadas = 'aaaaaaaceeeeiiiidnoooooouuuuy
-bsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
-    $cadena = utf8_decode($cadena);
 
-    $cadena = strtr($cadena, utf8_decode($originales), $modificadas);
-
-    $cadena = strtolower($cadena);
-    return utf8_encode($cadena);
-}
-function Links_limpios($var)
-{
-    setlocale(LC_ALL, 'en_US.UTF8');
-    $var = preg_replace("/[^A-Za-z0-9 ]/", '', iconv('UTF-8', 'ASCII//TRANSLIT', $var));
-    return strtolower($var);
-}
 
 class Libs
 {
@@ -237,18 +219,51 @@ class Libs
 
     public static function borrar_directorio($dir)
     {
-        if (!$dh = @opendir($dir)) return;
-        while (false !== ($actual = readdir($dh))) {
-            if ($actual != '.' && $actual != '..') {
-                //  echo 'Se ha eliminado el archivo ' . $dir . '/' . $actual . '<br/>';
-                if (!@unlink($dir . '/' . $actual)) {
+        if (!is_dir($dir)) {
+            //throw new Exception('La ruta no es un directorio válido.');
+            return false;
+        }
 
-                  #  borrar_directorio($dir . '/' . $actual);
+        $contenido = scandir($dir);
+
+        if ($contenido === false) {
+           // throw new Exception('No se pudo obtener el contenido del directorio.');
+        }
+
+        foreach ($contenido as $item) {
+            if ($item != '.' && $item != '..') {
+                $rutaItem = $dir . '/' . $item;
+                if (is_dir($rutaItem)) {
+                    if (!self::borrar_directorio($rutaItem)) {
+                        return false;
+                    }
+                } else {
+                    if (!unlink($rutaItem)) {
+                        return false;
+                    }
                 }
             }
         }
-        closedir($dh);
-        //echo 'Se ha borrado el directorio ' . $dir . '<br/>';
-        @rmdir($dir);
+
+        return rmdir($dir);
+    }
+    public static function normaliza($cadena)
+    {
+        $originales = 'ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖØÙÚÛÜÝÞ
+    ßàáâãäåæçèéêëìíîïðñòóôõöøùúûýýþÿŔŕ';
+        $modificadas = 'aaaaaaaceeeeiiiidnoooooouuuuy
+    bsaaaaaaaceeeeiiiidnoooooouuuyybyRr';
+        $cadena = utf8_decode($cadena);
+
+        $cadena = strtr($cadena, utf8_decode($originales), $modificadas);
+
+        $cadena = strtolower($cadena);
+        return utf8_encode($cadena);
+    }
+    public static function  Links_limpios($var)
+    {
+        setlocale(LC_ALL, 'en_US.UTF8');
+        $var = preg_replace("/[^A-Za-z0-9 ]/", '', iconv('UTF-8', 'ASCII//TRANSLIT', $var));
+        return strtolower($var);
     }
 }

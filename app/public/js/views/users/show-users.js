@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
 	showFichas();
 });
-//dom: '<"row"<"col-md-6 mb-1"l><"col-md-6"f><"col-md-6 text-md-end mt-1"B>>rtip',
-console.log(configDataTable);
+
 const tablaUsuarios = $("#tabla-usuarios").DataTable({
 	dom: configDataTable.dom,
 	buttons: [
@@ -101,8 +100,12 @@ const showFichas = async () => {
 						usuario.edicion_u == null ? "No actualizado" : usuario.edicion_u
 					}<br>Registro:<br>${usuario.registro_u}`,
 					`
-					<button class="btn btn-warning btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="editUser(${usuario.id_usuario})">Editar</button>
-					<button class="btn btn-danger btn-editar-usuario" data-id="${usuario.id_usuario}" onclick="deleteUser(${usuario.id_usuario})">Borrar</button>
+					<button class="btn btn-warning btn-editUser" data-name="${
+						usuario.nombre + usuario.apellido1
+					}" data-id="${usuario.id_usuario}">Editar</button>
+					<button class="btn btn-danger btn-deleteUser" data-name="${
+						usuario.nombre + usuario.apellido1
+					}" data-id="${usuario.id_usuario}">Borrar</button>
 					`,
 				])
 				.draw();
@@ -112,9 +115,92 @@ const showFichas = async () => {
 	}
 };
 
-function editUser(id) {
+const editUser = async (id_user) => {
 	console.log("Editar usuario con ID:", id);
-}
-function deleteUser(id) {
-	console.log("Editar usuario con ID:", id);
-}
+	let url = "../../app/ajax/users.ajax.php";
+	const solicitud = await terrorFetch.fetch(
+		"POST",
+		url,
+		{ user: "editUser", id_user: id_user },
+		true
+	);
+	if (solicitud === true) {
+		showFichas();
+	} else {
+	}
+};
+
+const deleteUser = async (id_user) => {
+	// Mostrar el cuadro de diálogo de confirmación
+	const result = await Swal.fire({
+		title: "Confirmar eliminación",
+		text: "Por favor, ingresa tu contraseña para confirmar la eliminación del usuario:",
+		input: "password",
+		showCancelButton: true,
+		confirmButtonText: "Eliminar",
+		cancelButtonText: "Cancelar",
+		inputValidator: (value) => {
+			if (!value) {
+				return "Debes ingresar tu contraseña";
+			}
+		},
+	});
+
+	// Si se proporciona una contraseña, continuar con la eliminación del usuario
+	if (result.isConfirmed) {
+		const password = result.value;
+		//borramos el usuario
+		let url = "../../app/ajax/users.ajax.php";
+		const solicitud = await terrorFetch.fetch(
+			"POST",
+			url,
+			{ user: "deleteUser", id_user: id_user, verifyPassword: password },
+			true
+		);
+		if (solicitud == 1) {
+			// Mostrar mensaje de éxito
+			Swal.fire(
+				"Usuario eliminado",
+				"El usuario ha sido eliminado correctamente.",
+				"success"
+			);
+			showFichas();
+		} else if (solicitud == 2) {
+			Swal.fire("Usuario eliminado", "Error al borrar imagen o no existia.", "warning");
+			showFichas();
+		} else if (solicitud == 3) {
+			Swal.fire(
+				"Usuario no eliminado",
+				"El usuario no ha sido eliminado correctamente.",
+				"error"
+			);
+		} else if (solicitud == 4) {
+			Swal.fire("Clave incorrecta", "Verifica tu clave.", "warning");
+		}
+	}
+};
+
+// Obtén una referencia al contenedor de la tabla
+const actionsTablaUsuarios = document.getElementById("tabla-usuarios");
+// Agrega el evento de clic utilizando eventos delegados
+//Editamos usuario
+actionsTablaUsuarios.addEventListener("click", (event) => {
+	// Verifica si el elemento clicado tiene la clase "btn-borrar-usuario"
+	if (event.target.classList.contains("btn-editUser")) {
+		const idUsuario = event.target.dataset.id;
+		const nameUsuario = event.target.dataset.name;
+		confirm("estas seguro que quieres editar este usuario?" + nameUsuario);
+		deleteUser(idUsuario);
+	}
+});
+//Borramos usuario
+actionsTablaUsuarios.addEventListener("click", (event) => {
+	// Verifica si el elemento clicado tiene la clase "btn-borrar-usuario"
+	if (event.target.classList.contains("btn-deleteUser")) {
+		const idUsuario = event.target.dataset.id;
+		const nameUsuario = event.target.dataset.name;
+		//confirm("estas seguro que quieres eliminar este usuario?" + nameUsuario);
+
+		deleteUser(idUsuario);
+	}
+});

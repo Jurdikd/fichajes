@@ -5,6 +5,7 @@ include_once "../../libs/UrlGetTerror.libs.php";
 include_once "../models/conexion.php";
 include_once "../models/RepositorioUsuarios.php";
 include_once '../libraries/classUsuario.php';
+include_once '../middlewares/middlewares.php';
 include_once "../models/RepositorioRegistroUsuarios.php";
 include_once "../models/RepositorioEstadosPaises.php";
 include_once "../models/RepositorioDisciplinasUsuarios.php";
@@ -35,6 +36,11 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
             $users = UsersCrt::GetUsers(Conexion::obtener_conexion(), $get);
             //devolvemos los usuarios
             $respuesta = $users;
+        } else if ($get['user'] == "editUser") {
+            $respuesta = true;
+        } else if ($get['user'] == "deleteUser") {
+            $user = UsersCrt::DeleteUser(Conexion::obtener_conexion(), $get);
+            $respuesta =  $user;
         } else {
 
             $respuesta = array('error' => array(

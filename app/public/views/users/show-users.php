@@ -12,7 +12,7 @@ if ($user["id_rol"] !== "1" && $user["id_rol"] !== "4") {
     Redireccion::redirigir(RUTA_GENERAL);
 }
 
-$titulo = "Ver Fichajes";
+$titulo = "Ver Usuarios";
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <link href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css" rel="stylesheet" />

@@ -226,6 +226,50 @@ class RepositorioUsuario
         }
         return $arrDatos;
     }
+    public static function obtener_usuario($conexion, $id_usuario)
+    {
+        $resultado = null;
+
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT usuario FROM usuarios WHERE id_usuario = :id_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $resultado;
+    }
+    public static function obtener_img_usuario($conexion, $id_usuario)
+    {
+        $resultado = null;
+
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT imagen FROM usuarios WHERE id_usuario = :id_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->fetchAll();
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $resultado;
+    }
     public static function mostrar_usuarios_tutores($conexion, $cargo)
     {
 
@@ -564,30 +608,24 @@ class RepositorioUsuario
     }
     public static function clave_existe($conexion, $usuario, $clave)
     {
-        $clave_existe = false;
+        $resultado = false;
 
         if (isset($conexion)) {
             try {
-                $sql = "SELECT clave FROM usuarios WHERE usuario = :usuario";
+                $sql = "SELECT clave FROM usuarios WHERE usuario = :usuario AND clave = :clave";
 
                 $sentencia = $conexion->prepare($sql);
                 $sentencia->bindParam(':usuario', $usuario, PDO::PARAM_STR);
-
+                $sentencia->bindParam(':clave', $clave, PDO::PARAM_STR);
                 $sentencia->execute();
 
-                $resultado = $sentencia->fetchAll();
-
-                foreach ($resultado as $clavedb) {
-                    if ($clave == $clavedb['clave']) {
-                        $clave_existe = true;
-                    }
-                }
+                $resultado = ($sentencia->rowCount() > 0);
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }
         }
 
-        return $clave_existe;
+        return $resultado;
     }
     public static function email_existe($conexion, $email)
     {
@@ -1058,6 +1096,21 @@ class RepositorioUsuario
         }
 
         return $patron_existe;
+    }
+    public static function eliminar_usuario($conexion, $id_usuario)
+    {
+        $resultado = false;
+        try {
+            $sql = "DELETE FROM usuarios WHERE id_usuario = :id_usuario";
+            $sentencia = $conexion->prepare($sql);
+            $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+            $sentencia->execute();
+
+            $resultado = ($sentencia->rowCount() > 0);
+        } catch (PDOException $ex) {
+            print 'ERROR' . $ex->getMessage();
+        }
+        return $resultado;
     }
 }
 /**
