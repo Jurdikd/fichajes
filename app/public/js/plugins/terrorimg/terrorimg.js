@@ -30,6 +30,32 @@ class TerrorIMG {
 			}
 		});
 	}
+	// Método para convertir el src de una imagen a base64 en formato JPEG
+	convertirSrcABase64(src) {
+		return new Promise((resolve, reject) => {
+			const imagen = new Image();
+			imagen.crossOrigin = "Anonymous";
+
+			imagen.onload = function () {
+				const canvas = document.createElement("canvas");
+				canvas.width = imagen.width;
+				canvas.height = imagen.height;
+
+				const contexto = canvas.getContext("2d");
+				contexto.drawImage(imagen, 0, 0);
+
+				// Cambiar 'image/png' a 'image/jpeg' y ajustar la calidad (0.0 - 1.0) según tus necesidades
+				const dataURL = canvas.toDataURL("image/jpeg", 0.8);
+				resolve(dataURL);
+			};
+
+			imagen.onerror = function () {
+				reject("Error al cargar la imagen.");
+			};
+
+			imagen.src = src;
+		});
+	}
 
 	// Método para comprimir una imagen utilizando un factor de compresión (0-100)
 	compresion(i, c) {

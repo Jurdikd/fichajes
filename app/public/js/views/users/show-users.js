@@ -376,7 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
 	const enviarFormulario = async (form_editUser) => {
 		let imagenU = "";
 		if (imagenInput.value === "") {
-			imagenU = await terrorIMG.obtenerIMG(previewImg);
+			imagenU = await terrorIMG.convertirSrcABase64(previewImg.getAttribute("src"));
 		} else {
 			imagenU = await terrorIMG.obtenerIMG(imagenInput);
 		}
@@ -416,11 +416,11 @@ document.addEventListener("DOMContentLoaded", function () {
 			true
 		);
 		if (solicitud === 1) {
-			console.log("Ficha registrada correctamente");
+			console.log("Usuario actualizado correctamente");
 			const alert = terroralert.swal(
 				alertPosition,
 				"success",
-				"Ficha registrada correctamente",
+				"Usuario actualizado correctamente",
 				7000,
 				1050
 			);

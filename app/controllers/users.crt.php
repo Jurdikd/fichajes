@@ -404,23 +404,26 @@ class UsersCrt
 
 
         $actualizacion = RepositorioUsuario::actualizar_usuario($conexion, $userDataUpdate);
-        //borrar imagen anterior
-        $oldUser = RepositorioUsuario::obtener_usuario_de_usuario($conexion, $userData["id_usuario"]);
-        $carpeta = "../public/img/users/" . $oldUser;
-        $imgDelete = Libs::borrar_directorio($carpeta);
+        if ($actualizacion) {
 
-        # guardamos la imagen...
-        //Creamos un objeto con todos los datos para guardar en la base de datos luego del registro
-        $base64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagen));
-        $carpeta = "../public/img/users/" . $usuario;
-        if (!file_exists($carpeta)) {
-            mkdir($carpeta, 0777, true);
+
+            //borrar imagen anterior
+            $oldUser = RepositorioUsuario::obtener_usuario_de_usuario($conexion, $userData["id_usuario"]);
+            $carpeta = "../public/img/users/" . $oldUser;
+            $imgDelete = Libs::borrar_directorio($carpeta);
+            # guardamos la imagen...
+            //Creamos un objeto con todos los datos para guardar en la base de datos luego del registro
+            $base64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagen));
+            $carpeta = "../public/img/users/" . $usuario;
+            if (!file_exists($carpeta)) {
+                mkdir($carpeta, 0777, true);
+            }
+            //Guardamos la imagen si todo salio correcto
+            file_put_contents("../" . $rutaimg, $base64);
+            $resultado = 1;
         }
-        //Guardamos la imagen si todo salio correcto
-        file_put_contents("../" . $rutaimg, $base64);
 
-        // RepositorioUsuario::obtener_fichas_usuarios($conexion);
-        return $actualizacion;
+        return $resultado;
     }
     public static function DeleteUser($conexion, $user)
     {
