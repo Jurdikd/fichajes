@@ -96,6 +96,7 @@ class RepositorioUsuario
                             INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo 
                             INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
                             INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
+                            WHERE usuarios.nombre != 'admin' -- Excluir al usuario 'admin'
                             ORDER BY usuarios.registro_u DESC";
 
                     $sentencia = $conexion->prepare($sql);
@@ -112,12 +113,14 @@ class RepositorioUsuario
                             INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
                             INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
                             WHERE usuarios.fk_estado = :id_estado
+                            AND usuarios.nombre != 'admin' -- Excluir al usuario 'admin'
                             ORDER BY usuarios.registro_u DESC";
 
                     $sentencia = $conexion->prepare($sql);
                     $sentencia->bindParam(':id_estado', $id_estado, PDO::PARAM_INT);
                     $sentencia->execute();
                 }
+
 
                 $arrDatos = $sentencia->fetchAll(PDO::FETCH_ASSOC);
             } catch (PDOException $ex) {
@@ -144,6 +147,7 @@ class RepositorioUsuario
                             INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo 
                             INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
                             INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
+                            WHERE usuarios.nombre != 'admin' -- Excluir al usuario 'admin'
                             ORDER BY usuarios.registro_u DESC";
 
                     $sentencia = $conexion->prepare($sql);
@@ -162,6 +166,7 @@ class RepositorioUsuario
                             INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
                             INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
                             WHERE usuarios.fk_estado = :id_estado
+                            AND usuarios.nombre != 'admin' -- Excluir al usuario 'admin'
                             ORDER BY usuarios.registro_u DESC";
 
                     $sentencia = $conexion->prepare($sql);

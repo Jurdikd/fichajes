@@ -154,7 +154,7 @@ class UsersCrt
         # si ficha no existe lo creamos ...
         if (!$verifyUser) {
             $claveUser = Encriptrar::Crytp($userData['clave']);
-            $codigoEmpleado = uniqid($nombreDelegacion . "-");
+            $codigoEmpleado = uniqid();
             $usuario = $codigoEmpleado . "-" . $userData['cedula'];
             #guardar imagen
             $imagen = $userData['imagen'];
