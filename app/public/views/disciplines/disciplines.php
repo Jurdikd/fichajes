@@ -129,9 +129,9 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg" class="card-img-top p-2" alt="maraton" loading="lazy">
                                     <div class="card-body">
                                         <h5 class="card-title">Maratón</h5>
-                                        <p class="card-text">Carrera de larga distancia que cubre generalmente una
-                                            distancia de
-                                            42.195 kilómetros.</p>
+                                        <p class="card-text">Carrera de larga distancia en la que participan
+                                            diferentes atletas.
+                                        </p>
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=maraton" class="btn btn-primary">Ver
                                             más</a>
                                     </div>
