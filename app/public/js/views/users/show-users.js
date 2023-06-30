@@ -246,7 +246,7 @@ const openEditarUsuarioModal = async (idUsuario) => {
 	if (solicitud) {
 		const usuario = solicitud[0];
 		//console.log(usuario);
-
+		document.getElementById("btn-actualizar").setAttribute("data-id", idUsuario);
 		// Rellena los campos de la modal con la información del usuario
 		document.getElementById("primer-nombre").value = usuario.nombre;
 		document.getElementById("segundo-nombre").value = usuario.nombre2;
@@ -374,15 +374,22 @@ document.addEventListener("DOMContentLoaded", function () {
 		input.classList.add("is-valid");
 	}
 	const enviarFormulario = async (form_editUser) => {
-		const imagenU = await terrorIMG.obtenerIMG(imagenInput);
+		let imagenU = "";
+		if (imagenInput.value === "") {
+			imagenU = await terrorIMG.obtenerIMG(previewImg);
+		} else {
+			imagenU = await terrorIMG.obtenerIMG(imagenInput);
+		}
+
 		let delegacionSend;
-		console.log(setDelegacion);
 		if (setDelegacion) {
 			delegacionSend = form_editUser.querySelector("#delegacion").value;
 		} else {
 			delegacionSend = selectDelegacion.getSelected();
 		}
+		const id_usuario = document.getElementById("btn-actualizar").getAttribute("data-id");
 		const dataForm = {
+			id_usuario: id_usuario,
 			"primer-nombre": form_editUser.querySelector("#primer-nombre").value,
 			"segundo-nombre": form_editUser.querySelector("#segundo-nombre").value,
 			"primer-apellido": form_editUser.querySelector("#primer-apellido").value,

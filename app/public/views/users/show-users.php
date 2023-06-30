@@ -226,7 +226,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <button type="button" class="btn btn-warning mb-3" id="resetButton">Resetear
                                 formulario</button>
                         </div>
-                        <button type="submit" class="btn btn-primary">Registrar</button>
+                        <button type="submit" id="btn-actualizar" data-id="" class="btn btn-primary">Actualizar</button>
 
                     </div>
                 </form>

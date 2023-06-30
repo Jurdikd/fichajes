@@ -42,7 +42,8 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
             //devolvemos los usuarios
             $respuesta = $users;
         } else if ($get['user'] == "editUser") {
-            $respuesta = true;
+            $user = UsersCrt::EditUser(Conexion::obtener_conexion(), $get['datauser']);
+            $respuesta = $user;
         } else if ($get['user'] == "deleteUser") {
             $user = UsersCrt::DeleteUser(Conexion::obtener_conexion(), $get);
             $respuesta =  $user;

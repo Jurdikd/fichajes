@@ -279,6 +279,29 @@ class RepositorioUsuario
 
         return $resultado;
     }
+    public static function obtener_clave_usuario($conexion, $id_usuario)
+    {
+        $resultado = null;
+
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT clave FROM usuarios WHERE id_usuario = :id_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $resultado;
+    }
+
     public static function obtener_img_usuario($conexion, $id_usuario)
     {
         $resultado = null;
@@ -1005,6 +1028,29 @@ class RepositorioUsuario
         }
         return $resultado;
     }
+    public static function obtener_usuario_de_usuario($conexion, $id_usuario)
+    {
+        $resultado = false;
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT usuario FROM usuarios WHERE id_usuario = :id_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+
+                $sentencia->execute();
+
+                $id = $sentencia->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($id as $nroid) {
+                    $resultado = $nroid['usuario'];
+                }
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+        return $resultado;
+    }
     public static function obtener_rol_usuario($conexion, $usuario)
     {
         $resultado = false;
@@ -1127,6 +1173,66 @@ class RepositorioUsuario
         }
 
         return $patron_existe;
+    }
+    public static function actualizar_usuario($conexion, $dataUsuario)
+    {
+        $actualizacion_correcta = false;
+
+        if (isset($conexion)) {
+            try {
+                $sql = "UPDATE
+                usuarios
+                SET
+                nombre = :nombre,
+                nombre2 = :nombre2,
+                apellido1 = :apellido1,
+                apellido2 = :apellido2,
+                cedula = :cedula,
+                fk_sexo = :fk_sexo,
+                fecha_nacimiento = :fecha_nacimiento,
+                usuario = :usuario,
+                clave = :clave,
+                codigo_empleado = :codigo_empleado,
+                inpre_abogado = :inpre_abogado,
+                celular = :celular,
+                correo = :correo,
+                fk_estado = :fk_estado,
+                fk_rol = :fk_rol,
+                imagen  = :imagen
+                WHERE id_usuario = :id_usuario";
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':id_usuario', $dataUsuario['id_usuario'], PDO::PARAM_INT);
+                $sentencia->bindParam(':nombre', $dataUsuario['nombre'], PDO::PARAM_STR);
+                $sentencia->bindParam(':nombre2', $dataUsuario['nombre2'], PDO::PARAM_STR);
+                $sentencia->bindParam(':apellido1', $dataUsuario['apellido1'], PDO::PARAM_STR);
+                $sentencia->bindParam(':apellido2', $dataUsuario['apellido2'], PDO::PARAM_STR);
+                $sentencia->bindParam(':cedula', $dataUsuario['cedula'], PDO::PARAM_STR);
+                $sentencia->bindParam(':fk_sexo', $dataUsuario['fk_sexo'], PDO::PARAM_INT);
+                $sentencia->bindParam(':fecha_nacimiento', $dataUsuario['fecha_nacimiento'], PDO::PARAM_STR);
+                $sentencia->bindParam(':usuario', $dataUsuario['usuario'], PDO::PARAM_STR);
+                $sentencia->bindParam(':clave', $dataUsuario['clave'], PDO::PARAM_STR);
+                $sentencia->bindParam(':codigo_empleado', $dataUsuario['codigo_empleado'], PDO::PARAM_STR);
+                $sentencia->bindParam(':inpre_abogado', $dataUsuario['inpre_abogado'], PDO::PARAM_STR);
+                $sentencia->bindParam(':celular', $dataUsuario['celular'], PDO::PARAM_STR);
+                $sentencia->bindParam(':correo', $dataUsuario['correo'], PDO::PARAM_STR);
+                $sentencia->bindParam(':fk_estado', $dataUsuario['fk_estado'], PDO::PARAM_INT);
+                $sentencia->bindParam(':fk_rol', $dataUsuario['fk_rol'], PDO::PARAM_INT);
+                $sentencia->bindParam(':imagen', $dataUsuario['imagen'], PDO::PARAM_STR);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->rowCount();
+
+                if ($resultado > 0) {
+                    $actualizacion_correcta = true;
+                }
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $actualizacion_correcta;
     }
     public static function eliminar_usuario($conexion, $id_usuario)
     {

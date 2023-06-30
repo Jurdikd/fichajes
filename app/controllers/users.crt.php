@@ -359,6 +359,69 @@ class UsersCrt
         );
         return $estado;
     }
+    public static function EditUser($conexion, $userData)
+    {
+        # colocamos el estado que admin decida...
+
+        $estadoSelect = RepositorioEstadosPaises::obtener_estados_paises_por_id($conexion, $userData['delegacion'][0]);
+        $delegacion = $estadoSelect[0]["id_estado_pais"];
+        $nombreDelegacion = strtoupper($estadoSelect[0]["estado_nom"]);
+        if ($userData['clave'] !== "") {
+            # code...
+
+
+            $claveUser = Encriptrar::Crytp($userData['clave']);
+        } else {
+            # code...
+            $clave = RepositorioUsuario::obtener_clave_usuario($conexion, $userData["id_usuario"]);
+            $claveUser = $clave['clave'];
+        }
+        $codigoEmpleado = uniqid($nombreDelegacion . "-");
+        $usuario = $codigoEmpleado . "-" . $userData['cedula'];
+        #guardar imagen
+        $imagen = $userData['imagen'];
+        $rutaimg = "public/img/users/" . $usuario . "/" . $usuario . ".jpg";
+        $userDataUpdate = array(
+            'id_usuario' => $userData["id_usuario"],
+            'nombre' => $userData['primer-nombre'],
+            'nombre2' => $userData['segundo-nombre'],
+            'apellido1' =>  $userData['primer-apellido'],
+            'apellido2' => $userData['segundo-apellido'],
+            'cedula' => $userData['cedula'],
+            'fk_sexo' => $userData['sexo'],
+            'fecha_nacimiento' => $userData['fecha-nacimiento'],
+            'usuario' => $usuario,
+            'celular' => $userData['telefono'],
+            'codigo_empleado' => $codigoEmpleado,
+            'inpre_abogado' =>  $userData['inpre-abogado'],
+            'correo' =>  $userData['correo'],
+            'fk_estado' =>  $delegacion,
+            'fk_rol' => $userData['rol'],
+            'clave' =>  $claveUser,
+            'imagen' => "app/" . $rutaimg
+        );
+
+
+
+        $actualizacion = RepositorioUsuario::actualizar_usuario($conexion, $userDataUpdate);
+        //borrar imagen anterior
+        $oldUser = RepositorioUsuario::obtener_usuario_de_usuario($conexion, $userData["id_usuario"]);
+        $carpeta = "../public/img/users/" . $oldUser;
+        $imgDelete = Libs::borrar_directorio($carpeta);
+
+        # guardamos la imagen...
+        //Creamos un objeto con todos los datos para guardar en la base de datos luego del registro
+        $base64 = base64_decode(preg_replace('#^data:image/\w+;base64,#i', '', $imagen));
+        $carpeta = "../public/img/users/" . $usuario;
+        if (!file_exists($carpeta)) {
+            mkdir($carpeta, 0777, true);
+        }
+        //Guardamos la imagen si todo salio correcto
+        file_put_contents("../" . $rutaimg, $base64);
+
+        // RepositorioUsuario::obtener_fichas_usuarios($conexion);
+        return $actualizacion;
+    }
     public static function DeleteUser($conexion, $user)
     {
         // verificar contraseña
