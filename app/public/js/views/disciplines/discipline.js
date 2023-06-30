@@ -29,9 +29,15 @@ let selectSexo = new SlimSelect({
 		closeOnSelect: false,
 	},
 });
+let disciplinaPrint;
+if (urlGetTerror.get("d") !== undefined) {
+	disciplinaPrint = urlGetTerror.get("d").toUpperCase();
+} else {
+	disciplinaPrint = "DISCIPLINAS";
+}
 //CONVERTIR DATA DE IMAGEN
 const tableDisciplinas = $("#tabla-disciplinas").DataTable({
-	dom: "Bfrtip",
+	dom: configDataTable.dom,
 	buttons: [
 		{
 			extend: "print",
@@ -52,7 +58,7 @@ const tableDisciplinas = $("#tabla-disciplinas").DataTable({
 					<div class="header-content">
 					  <h2>Federación Deportiva del Abogado de Venezuela XL Juegos Deportivos Nacionales Intercolegios de Abogados Merida 2023</h2>
 					  <img class="header-image" src="${RUTA_IMG}logo/logo-fedeav.JPG" alt="Logo FEDEAV" width="80" height="80">
-					  <h2>Reporte de DISCIPLINAS | FEDEAV</h2>
+					  <h2>Reporte de ${disciplinaPrint} | FEDEAV</h2>
 					</div>
 				`;
 
@@ -65,7 +71,7 @@ const tableDisciplinas = $("#tabla-disciplinas").DataTable({
 				);
 
 				// Cambia el título de la pestaña del navegador
-				$(win.document).prop("title", "Reporte de DISCIPLINAS - FEDEAV");
+				$(win.document).prop("title", `Reporte de ${disciplinaPrint} - FEDEAV`);
 			},
 			exportOptions: {
 				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
@@ -111,7 +117,7 @@ const showFichas = async (selectedOptionDelegacion, selectedOptionSexo) => {
 	let disciplina;
 	if (urlGetTerror.get("d") !== undefined) {
 		disciplina = urlGetTerror.get("d");
-		console.log(disciplina);
+		//console.log(disciplina);
 		let url = "../../app/ajax/fichas.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",

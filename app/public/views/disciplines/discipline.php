@@ -105,7 +105,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                     <th>Fecha de nacimiento:</th>
                                     <th>Sexo:</th>
                                     <th>Cédula:</th>
-                                    <th>FEDEAV<: /th>
+                                    <th>FEDEAV:</th>
                                     <th>INPRE:</th>
                                     <th>Teléfono:</th>
                                     <th>Delegación:</th>
