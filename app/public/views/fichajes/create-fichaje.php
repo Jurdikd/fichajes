@@ -362,7 +362,7 @@ body {
 </div>
 <?php
 include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
-<script src=" <?php echo RUTA_JS; ?>views/create-fichaje.js"></script>
+<script src=" <?php echo RUTA_JS; ?>views/fichajes/create-fichaje.js"></script>
 
 <script>
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

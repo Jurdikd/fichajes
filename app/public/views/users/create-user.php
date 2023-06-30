@@ -212,6 +212,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                         <option value="">Seleccione una opción</option>
                                         <option value="1">ADMIN</option>
                                         <option value="2">FICHADOR</option>
+                                        <option value="3">FICHADO</option>
+                                        <option value="4">ALISTADOR</option>
                                     </select>
                                 </div>
                             </div>

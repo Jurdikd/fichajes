@@ -72,5 +72,5 @@ include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
 <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.js"></script>
-<script src=" <?php echo RUTA_JS; ?>views/show-fichajes.js"></script>
+<script src=" <?php echo RUTA_JS; ?>views/fichajes/show-fichajes.js"></script>
 <?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>

@@ -62,7 +62,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <!-- Agrega el siguiente código HTML al lugar donde deseas mostrar la modal -->
 
 <!-- Modal Editar Usuario -->
-<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -151,6 +152,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <option value="">Seleccione una opción</option>
                                     <option value="1">ADMIN</option>
                                     <option value="2">FICHADOR</option>
+                                    <option value="3">FICHADO</option>
                                     <option value="4">ALISTADOR</option>
                                 </select>
                             </div>
@@ -197,7 +199,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group mb-3">
-                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80" loading="lazy">
+                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80"
+                                    loading="lazy">
                             </div>
                         </div>
                         <div class="mb-3">
