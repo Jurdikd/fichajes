@@ -4,7 +4,7 @@
             <div class="col-md-6 mx-auto">
                 <p class="text-center mt-2">© 2023 - TODOS LOS
                     DERECHOS
-                    RESERVADOS - LUCAS CALDERÓN
+                    RESERVADOS - ABOG. LUCAS CALDERÓN
                 </p>
             </div>
         </div>
