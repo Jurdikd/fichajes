@@ -62,7 +62,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <!-- Agrega el siguiente código HTML al lugar donde deseas mostrar la modal -->
 
 <!-- Modal Editar Usuario -->
-<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel"
+    aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -198,7 +199,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group mb-3">
-                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80" loading="lazy">
+                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80"
+                                    loading="lazy">
                             </div>
                         </div>
                         <div class="mb-3">
@@ -227,7 +229,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <button type="button" class="btn btn-warning mb-3" id="resetButton">Resetear
                                 formulario</button>
                         </div>
-                        <button type="submit" id="btn-actualizar" data-id="" class="btn btn-primary">Actualizar</button>
+                        <button type="submit" id="btn-actualizar" data-id="" class="btn btn-warning">Actualizar</button>
 
                     </div>
                 </form>
