@@ -142,29 +142,11 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group mb-3">
-                                <label for="rol" class="form-label">Rol</label>
-                                <select class="form-select" id="rol" name="rol">
-                                    <option value="">Seleccione una opción</option>
-                                    <option value="1">ADMIN</option>
-                                    <option value="2">FICHADOR</option>
-                                    <option value="3">FICHADO</option>
-                                    <option value="4">ALISTADOR</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="form-group mb-3">
                                 <label for="delegacion" class="form-label">Delegación</label>
 
                                 <input type="text" class="form-control" id="delegacion" name="delegacion"
                                     value="<?php echo strtoupper($userEstado["nombre_estado"]); ?>" readonly>
 
-                            </div>
-                        </div>
-                        <div class="col-lg-3">
-                            <div class="form-group mb-3">
-                                <label for="clave" class="form-label">Clave</label>
-                                <input type="pass" class="form-control" id="clave" name="clave">
                             </div>
                         </div>
                         <div class="col-lg-3">
@@ -194,12 +176,8 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                 <option value="voleibol">Voleibol</option>
                             </select>
                         </div>
-                        <div class="col-6">
 
-                            <button type="button" class="btn btn-warning mb-3" id="resetButton">Resetear
-                                formulario</button>
-                        </div>
-                        <button type="submit" id="btn-actualizar" data-id="" class="btn btn-primary">Actualizar</button>
+                        <button type="submit" id="btn-actualizar" data-id="" class="btn btn-warning">Actualizar</button>
 
                     </div>
                 </form>
