@@ -389,8 +389,6 @@ class UsersCrt
 
         $actualizacion = RepositorioUsuario::actualizar_ficha($conexion, $userDataUpdate);
         if ($actualizacion) {
-
-
             //borrar imagen anterior
 
             $carpeta = "../public/img/users/" . $usuario;
