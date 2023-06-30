@@ -16,6 +16,7 @@
 <script src="<?php echo RUTA_JS; ?>plugins/terrorsound/dataterrorsound.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/terroralert/terroralert.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/terroralert/config-terroralert.js"></script>
+<script src="<?php echo RUTA_JS; ?>plugins/terrorimg/terrorimg.js"></script>
 <script src="<?php echo RUTA_JS; ?>plugins/terrorfetch/terrorfetch.js"></script>
 <script src="<?php echo RUTA_JS; ?>middlewares/middlewaresterror.js"></script>
 <script src="<?php echo RUTA_JS; ?>config.js"></script>

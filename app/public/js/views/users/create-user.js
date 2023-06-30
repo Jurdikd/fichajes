@@ -68,8 +68,7 @@ function rellenarFicha(event) {
 		}
 	}
 }
-// Crear una instancia de la clase TerrorIMG
-const terrorIMG = new TerrorIMG();
+
 // Obtener referencia al input de imagen y la etiqueta img de vista previa
 const imagenInput = document.getElementById("imagen");
 const previewImg = document.getElementById("preview");

@@ -277,8 +277,7 @@ const openEditarUsuarioModal = async (idUsuario) => {
 
 // Obtener formulario
 const form_editUser = document.getElementById("form_edit_user");
-// Crear una instancia de la clase TerrorIMG
-const terrorIMG = new TerrorIMG();
+
 // Obtener referencia al input de imagen y la etiqueta img de vista previa
 const imagenInput = document.getElementById("imagen");
 const previewImg = document.getElementById("img-user");
@@ -406,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		const solicitud = await terrorFetch.fetch(
 			"POST",
 			url,
-			{ user: "registeruser", datauser: dataForm },
+			{ user: "editUser", datauser: dataForm },
 			true
 		);
 		if (solicitud === 1) {
