@@ -86,4 +86,27 @@ class RepositorioDisciplinasUsuarios
         // Devolver false si ocurrió algún error
         return $resultado;
     }
+    public static function eliminar_disciplinas_usuario($conexion, $id_usuario)
+    {
+        $resultado = null;
+        if (isset($conexion)) {
+            try {
+                $sql = "DELETE
+                FROM
+                    registro_disciplinas_users
+                WHERE
+                    fk_usuario = :fk_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':fk_usuario', $id_usuario, PDO::PARAM_INT);
+                $sentencia->execute();  // Ejecutar la consulta
+
+                $resultado = ($sentencia->rowCount() > 0);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+            return $resultado;
+        }
+    }
 }
