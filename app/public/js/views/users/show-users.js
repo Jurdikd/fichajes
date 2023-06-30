@@ -105,7 +105,7 @@ const showFichas = async () => {
 						usuario.nombre + usuario.apellido1
 					}" data-id="${usuario.id_usuario}">Editar</button>
 					<button class="btn btn-danger btn-deleteUser" data-name="${
-						usuario.nombre + usuario.apellido1
+						usuario.nombre + " " + usuario.apellido1
 					}" data-id="${usuario.id_usuario}">Borrar</button>
 					`,
 				])
@@ -131,11 +131,13 @@ const editUser = async (id_user) => {
 	}
 };
 
-const deleteUser = async (id_user) => {
+const deleteUser = async (id_user, nameUsuario) => {
 	// Mostrar el cuadro de diálogo de confirmación
 	const result = await Swal.fire({
 		title: "Confirmar eliminación",
-		text: "Por favor, ingresa tu contraseña para confirmar la eliminación del usuario:",
+		text:
+			"Por favor, ingresa tu contraseña para confirmar la eliminación del usuario: " +
+			nameUsuario,
 		input: "password",
 		showCancelButton: true,
 		confirmButtonText: "Eliminar",
@@ -224,7 +226,7 @@ actionsTablaUsuarios.addEventListener("click", (event) => {
 		const idUsuario = event.target.dataset.id;
 		const nameUsuario = event.target.dataset.name;
 		//confirm("estas seguro que quieres editar este usuario?" + nameUsuario);
-		openEditarUsuarioModal(idUsuario);
+		openEditarUsuarioModal(idUsuario, nameUsuario);
 	}
 	//Borramos usuario
 	// Verifica si el elemento clicado tiene la clase "btn-deleteUser"

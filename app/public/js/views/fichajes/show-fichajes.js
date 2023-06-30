@@ -8,7 +8,7 @@ const tablaFichajes = $("#tabla-fichajes").DataTable({
 		{
 			extend: "print",
 			text: "Imprimir PDF",
-			title: "Reporte de FICHAJES | FEDEAV",
+			title: "",
 			filename: "Reporte de FICHAJES - FEDEAV",
 			customize: function (win) {
 				// Agrega estilos CSS personalizados al documento de impresión
@@ -40,7 +40,7 @@ const tablaFichajes = $("#tabla-fichajes").DataTable({
 				$(win.document).prop("title", "Reporte de FICHAJES - FEDEAV");
 			},
 			exportOptions: {
-				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+				columns: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
 				format: {
 					body: function (data, row, column, node) {
 						// Personalizar el contenido de la impresión
@@ -104,7 +104,7 @@ const showFichas = async () => {
 						usuario.nombre + usuario.apellido1
 					}" data-id="${usuario.id_usuario}">Editar</button>
 					<button class="btn btn-danger btn-deleteUser" data-name="${
-						usuario.nombre + usuario.apellido1
+						usuario.nombre + " " + usuario.apellido1
 					}" data-id="${usuario.id_usuario}">Borrar</button>
 					`,
 				])
@@ -115,8 +115,112 @@ const showFichas = async () => {
 	}
 };
 
-// Función para editar un usuario
-function editarUsuario(id) {
-	// Aquí puedes implementar la lógica para editar el usuario con el ID proporcionado
-	console.log("Editar usuario con ID:", id);
-}
+const deleteUser = async (id_user, nameUsuario) => {
+	// Mostrar el cuadro de diálogo de confirmación
+	const result = await Swal.fire({
+		title: "Confirmar eliminación",
+		text:
+			"Por favor, ingresa tu contraseña para confirmar la eliminación del usuario: " +
+			nameUsuario,
+		input: "password",
+		showCancelButton: true,
+		confirmButtonText: "Eliminar",
+		cancelButtonText: "Cancelar",
+		inputValidator: (value) => {
+			if (!value) {
+				return "Debes ingresar tu contraseña";
+			}
+		},
+	});
+
+	// Si se proporciona una contraseña, continuar con la eliminación del usuario
+	if (result.isConfirmed) {
+		const password = result.value;
+		//borramos el usuario
+		let url = "../../app/ajax/users.ajax.php";
+		const solicitud = await terrorFetch.fetch(
+			"POST",
+			url,
+			{ user: "deleteUser", id_user: id_user, verifyPassword: password },
+			true
+		);
+		if (solicitud == 1) {
+			// Mostrar mensaje de éxito
+			Swal.fire(
+				"Usuario eliminado",
+				"El usuario ha sido eliminado correctamente.",
+				"success"
+			);
+			showFichas();
+		} else if (solicitud == 2) {
+			Swal.fire("Usuario eliminado", "Error al borrar imagen o no existia.", "warning");
+			showFichas();
+		} else if (solicitud == 3) {
+			Swal.fire(
+				"Usuario no eliminado",
+				"El usuario no ha sido eliminado correctamente.",
+				"error"
+			);
+		} else if (solicitud == 4) {
+			Swal.fire("Clave incorrecta", "Verifica tu clave.", "warning");
+		}
+	}
+};
+// Obtén una referencia al contenedor de la tabla
+const actionsTablaUsuarios = document.getElementById("tabla-fichajes");
+// Agrega el evento de clic utilizando eventos delegados
+
+actionsTablaUsuarios.addEventListener("click", (event) => {
+	//Editamos usuario
+	// Verifica si el elemento clicado tiene la clase "btn-editUser"
+	if (event.target.classList.contains("btn-editUser")) {
+		const idUsuario = event.target.dataset.id;
+		const nameUsuario = event.target.dataset.name;
+		//confirm("estas seguro que quieres editar este usuario?" + nameUsuario);
+		openEditarUsuarioModal(idUsuario);
+	}
+	//Borramos usuario
+	// Verifica si el elemento clicado tiene la clase "btn-deleteUser"
+	if (event.target.classList.contains("btn-deleteUser")) {
+		const idUsuario = event.target.dataset.id;
+		const nameUsuario = event.target.dataset.name;
+		deleteUser(idUsuario, nameUsuario);
+	}
+});
+const openEditarUsuarioModal = async (idUsuario) => {
+	const url = "../../app/ajax/users.ajax.php";
+	const solicitud = await terrorFetch.fetch("POST", url, {
+		user: "getUser",
+		id_user: idUsuario,
+	});
+
+	if (solicitud) {
+		const usuario = solicitud[0];
+		//console.log(usuario);
+		document.getElementById("btn-actualizar").setAttribute("data-id", idUsuario);
+		// Rellena los campos de la modal con la información del usuario
+		document.getElementById("primer-nombre").value = usuario.nombre;
+		document.getElementById("segundo-nombre").value = usuario.nombre2;
+		document.getElementById("primer-apellido").value = usuario.apellido1;
+		document.getElementById("segundo-apellido").value = usuario.apellido2;
+		document.getElementById("cedula").value = usuario.cedula;
+		document.getElementById("sexo").value = usuario.id_sexo;
+		document.getElementById("fecha-nacimiento").value = usuario.fecha_nacimiento;
+		document.getElementById("correo").value = usuario.correo;
+		document.getElementById("inpre-abogado").value = usuario.inpre_abogado;
+		document.getElementById("telefono").value = usuario.celular;
+		document.getElementById("img-user").setAttribute("src", usuario.imagen);
+		document.getElementById("rol").value = usuario.id_rol;
+
+		selectDelegacion.setSelected(usuario.id_estado_pais);
+		selectDisipline.setSelected(usuario.disciplinas);
+
+		// Abre la modal
+		const modalEditarUsuario = new bootstrap.Modal(
+			document.getElementById("modalEditarUsuario")
+		);
+		modalEditarUsuario.show();
+	} else {
+		console.error("Ocurrió un error al obtener la información del usuario.");
+	}
+};
