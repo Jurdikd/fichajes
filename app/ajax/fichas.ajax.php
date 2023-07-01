@@ -10,6 +10,7 @@ include_once "../models/RepositorioRegistroUsuarios.php";
 include_once "../models/RepositorioEstadosPaises.php";
 include_once "../models/RepositorioDisciplinasUsuarios.php";
 //controlers
+include_once "../libraries/ClaseCrypt.php";
 include_once "../controllers/users.crt.php"; #controlador usuarios
 include_once "../libraries/ControlSesion.php";
 

@@ -633,36 +633,38 @@ class UsersCrt
         // verificar contraseña
 
         $userLogin = ControlSesion::datos_sesion();
+        $rolUserLogin = UsersCrt::GetRol($conexion, $userLogin["usuario"]);
+        if ($rolUserLogin["id_rol"] == 1 || $rolUserLogin["id_rol"] == 2 || $rolUserLogin["id_rol"] == 4) {
+            # verificamos contraseña...
 
-        # verificamos contraseña...
+            $passUsuario = Encriptrar::Crytp($user['verifyPassword']); #encriptamos la clave
 
-        $passUsuario = Encriptrar::Crytp($user['verifyPassword']); #encriptamos la clave
+            $Clave = RepositorioUsuario::clave_existe($conexion,  $userLogin["usuario"], $passUsuario); #verificamos clave
 
-        $Clave = RepositorioUsuario::clave_existe($conexion,  $userLogin["usuario"], $passUsuario); #verificamos clave
-
-        if ($Clave) {
-            // borramos usuario
-            $usuario = RepositorioUsuario::obtener_usuario($conexion, $user['id_user']);
-            $deleteUser = RepositorioUsuario::eliminar_usuario($conexion, $user['id_user']);
-            if ($deleteUser) {
-                //ELIMNAR FOTO DE Y CARPETA DE USUARIO
-                $carpeta = "../public/img/users/" . $usuario['usuario'];
-                $imgDelete = Libs::borrar_directorio($carpeta);
-                if ($imgDelete) {
-                    //borrado de imagen correcto
-                    # si usuario fue eliminado retormanos 1...
-                    $resultado = 1;
+            if ($Clave) {
+                // borramos usuario
+                $usuario = RepositorioUsuario::obtener_usuario($conexion, $user['id_user']);
+                $deleteUser = RepositorioUsuario::eliminar_usuario($conexion, $user['id_user']);
+                if ($deleteUser) {
+                    //ELIMNAR FOTO DE Y CARPETA DE USUARIO
+                    $carpeta = "../public/img/users/" . $usuario['usuario'];
+                    $imgDelete = Libs::borrar_directorio($carpeta);
+                    if ($imgDelete) {
+                        //borrado de imagen correcto
+                        # si usuario fue eliminado retormanos 1...
+                        $resultado = 1;
+                    } else {
+                        # error al borrar la imagen pero el usuario fue eliminado
+                        $resultado = 2;
+                    }
                 } else {
-                    # error al borrar la imagen pero el usuario fue eliminado
-                    $resultado = 2;
+                    # si el usuario no fue elimnado avisamos...
+                    $resultado = 3;
                 }
             } else {
-                # si el usuario no fue elimnado avisamos...
-                $resultado = 3;
+                // avisamos que la clave es incorrecta
+                $resultado = 4;
             }
-        } else {
-            // avisamos que la clave es incorrecta
-            $resultado = 4;
         }
         return $resultado;
     }
