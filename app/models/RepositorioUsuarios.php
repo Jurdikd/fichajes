@@ -306,7 +306,28 @@ class RepositorioUsuario
 
         return $resultado;
     }
+    public static function obtener_codigo_empleado_usuario($conexion, $id_usuario)
+    {
+        $resultado = null;
 
+        if (isset($conexion)) {
+            try {
+                $sql = "SELECT codigo_empleado FROM usuarios WHERE id_usuario = :id_usuario";
+
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':id_usuario', $id_usuario, PDO::PARAM_INT);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $resultado;
+    }
     public static function obtener_img_usuario($conexion, $id_usuario)
     {
         $resultado = null;
@@ -1197,7 +1218,6 @@ class RepositorioUsuario
                 fecha_nacimiento = :fecha_nacimiento,
                 usuario = :usuario,
                 clave = :clave,
-                codigo_empleado = :codigo_empleado,
                 inpre_abogado = :inpre_abogado,
                 celular = :celular,
                 correo = :correo,
@@ -1217,7 +1237,6 @@ class RepositorioUsuario
                 $sentencia->bindParam(':fecha_nacimiento', $dataUsuario['fecha_nacimiento'], PDO::PARAM_STR);
                 $sentencia->bindParam(':usuario', $dataUsuario['usuario'], PDO::PARAM_STR);
                 $sentencia->bindParam(':clave', $dataUsuario['clave'], PDO::PARAM_STR);
-                $sentencia->bindParam(':codigo_empleado', $dataUsuario['codigo_empleado'], PDO::PARAM_STR);
                 $sentencia->bindParam(':inpre_abogado', $dataUsuario['inpre_abogado'], PDO::PARAM_STR);
                 $sentencia->bindParam(':celular', $dataUsuario['celular'], PDO::PARAM_STR);
                 $sentencia->bindParam(':correo', $dataUsuario['correo'], PDO::PARAM_STR);
@@ -1238,7 +1257,8 @@ class RepositorioUsuario
         }
 
         return $actualizacion_correcta;
-    } public static function actualizar_ficha($conexion, $dataUsuario)
+    }
+    public static function actualizar_ficha($conexion, $dataUsuario)
     {
         $actualizacion_correcta = false;
 

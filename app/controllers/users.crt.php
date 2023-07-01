@@ -9,7 +9,6 @@ class UsersCrt
         $rolUserLogin = UsersCrt::GetRol($conexion, $userLogin["usuario"]);
         if ($rolUserLogin["id_rol"] == 1) {
             # colocamos el estado que admin decida...
-            //  echo $userData['delegacion'][0];
             $estadoSelect = RepositorioEstadosPaises::obtener_estados_paises_por_id($conexion, $userData['delegacion'][0]);
             $delegacion = $estadoSelect[0]["id_estado_pais"];
             $nombreDelegacion = strtoupper($estadoSelect[0]["estado_nom"]);
@@ -26,8 +25,8 @@ class UsersCrt
         $verifyUser = RepositorioUsuario::ci_existe($conexion, $userData['cedula']);
         # si ficha no existe lo creamos ...
         if (!$verifyUser) {
-            $codigoEmpleado = uniqid($nombreDelegacion . "-");
-            $usuario = $codigoEmpleado . "-" . $userData['cedula'];
+            $codigoEmpleado = uniqid();
+            $usuario = $nombreDelegacion . "-" . $codigoEmpleado . "-" . $userData['cedula'];
             #guardar imagen
             $imagen = $userData['imagen'];
             $rutaimg = "public/img/users/" . $usuario . "/" . $usuario . ".jpg";
@@ -155,7 +154,7 @@ class UsersCrt
         if (!$verifyUser) {
             $claveUser = Encriptrar::Crytp($userData['clave']);
             $codigoEmpleado = uniqid();
-            $usuario = $codigoEmpleado . "-" . $userData['cedula'];
+            $usuario =  $nombreDelegacion . "-" . $codigoEmpleado . "-" . $userData['cedula'];
             #guardar imagen
             $imagen = $userData['imagen'];
             $rutaimg = "public/img/users/" . $usuario . "/" . $usuario . ".jpg";
@@ -482,8 +481,11 @@ class UsersCrt
             $clave = RepositorioUsuario::obtener_clave_usuario($conexion, $userData["id_usuario"]);
             $claveUser = $clave['clave'];
         }
-        $codigoEmpleado = uniqid($nombreDelegacion . "-");
-        $usuario = $codigoEmpleado . "-" . $userData['cedula'];
+        // buscamos el codigo de usuario existente
+        $getUserCode = RepositorioUsuario::obtener_codigo_empleado_usuario($conexion, $userData["id_usuario"]);
+        $codigoEmpleado = $getUserCode['codigo_empleado'];
+        // creamos el ususario
+        $usuario = $nombreDelegacion . "-" . $codigoEmpleado . "-" . $userData['cedula'];
         #guardar imagen
         $imagen = $userData['imagen'];
         $rutaimg = "public/img/users/" . $usuario . "/" . $usuario . ".jpg";
@@ -498,7 +500,6 @@ class UsersCrt
             'fecha_nacimiento' => $userData['fecha-nacimiento'],
             'usuario' => $usuario,
             'celular' => $userData['telefono'],
-            'codigo_empleado' => $codigoEmpleado,
             'inpre_abogado' =>  $userData['inpre-abogado'],
             'correo' =>  $userData['correo'],
             'fk_estado' =>  $delegacion,
