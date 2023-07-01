@@ -2,7 +2,8 @@
 	scroll-behavior: smooth;
 }
 .body-page{
-	background: rgb(0, 0, 0);
+	/*background: rgb(0, 0, 0);*/
+	background:#164ea1;
 	/*background: rgb(23,157,255);
 	background: linear-gradient(90deg, rgba(23,157,255,1) 0%, rgba(187,238,63,1) 57%, rgba(165,255,16,1) 100%);
 */}
