@@ -1295,12 +1295,8 @@ class RepositorioUsuario
                 $sentencia->bindParam(':imagen', $dataUsuario['imagen'], PDO::PARAM_STR);
 
                 $sentencia->execute();
-
-                $resultado = $sentencia->rowCount();
-
-                if ($resultado > 0) {
-                    $actualizacion_correcta = true;
-                }
+                $actualizacion_correcta =  $sentencia;
+               
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }

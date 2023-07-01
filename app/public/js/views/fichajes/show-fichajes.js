@@ -154,11 +154,11 @@ const deleteUser = async (id_user, nameUsuario) => {
 	if (result.isConfirmed) {
 		const password = result.value;
 		//borramos el usuario
-		let url = "../../app/ajax/users.ajax.php";
+		let url = "../../app/ajax/fichas.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",
 			url,
-			{ user: "deleteUser", id_user: id_user, verifyPassword: password },
+			{ ficha: "deleteUser", id_user: id_user, verifyPassword: password },
 			true
 		);
 		if (solicitud == 1) {

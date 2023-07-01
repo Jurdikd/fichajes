@@ -37,6 +37,9 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
 
             $ficha = UsersCrt::EditFicha(Conexion::obtener_conexion(), $get['dataFicha']);
             $respuesta = $ficha;
+        } else if ($get['ficha'] == "deleteUser") {
+            $user = UsersCrt::DeleteFicha(Conexion::obtener_conexion(), $get);
+            $respuesta =  $user;
         } else if ($get['ficha'] == "getfichasdiscipline") {
 
             $ficha = UsersCrt::GetFichasDiciplinas(Conexion::obtener_conexion(), $get);
