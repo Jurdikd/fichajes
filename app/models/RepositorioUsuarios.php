@@ -1,85 +1,7 @@
 <?php
 class RepositorioUsuario
 {
-    public static function obtener_todos($conexion)
-    {
-
-        $usuarios = array();
-
-        if (isset($conexion)) {
-
-            try {
-
-                include_once '../clases/ClaseUsuario.inc.php';
-
-                $sql = "SELECT * FROM usuarios
-                    INNER JOIN rol on usuarios.fk_rol = rol.id_rol
-                INNER JOIN cargo on usuarios.fk_cargo = cargo.id_cargo
-                INNER JOIN estatus on usuarios.fk_estatus = estatus.id_estatus
-                 WHERE usuario = :usuario";
-
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->execute();
-
-                $resultado = $sentencia->fetchAll();
-
-                if (count($resultado)) {
-                    foreach ($resultado as $fila) {
-                        $usuarios[] = new Usuario(
-                            $resultado['id_usuario'],
-                            $resultado['nombre'],
-                            $resultado['apellidos'],
-                            $resultado['usuario'],
-                            $resultado['clave'],
-                            $resultado['patron'],
-                            $resultado['fk_rol'],
-                            $resultado['nombre_rol'],
-                            $resultado['fk_cargo'],
-                            $resultado['nombre_cargo'],
-                            $resultado['imagen'],
-                            $resultado['fk_estatus'],
-                            $resultado['nombre_estatus'],
-                            $resultado['ultimo_login']
-                        );
-                    }
-                } else {
-                    print 'No hay usuarios';
-                }
-            } catch (PDOException $ex) {
-                print "ERROR" . $ex->getMessage();
-            }
-        }
-
-        return $usuarios;
-    }
-    public static function obtener_fichas_usuarios2($conexion, $id_rol, $id_estado)
-    {
-
-        $arrDatos = null;
-        if (isset($conexion)) {
-            try {
-
-                $sql = "SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, 
-                usuarios.apellido1, usuarios.apellido2, usuarios.cedula, 
-                sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, 
-                usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, 
-                usuarios.correo, usuarios.edicion_u, estados_paises.estado_nom,
-                usuarios.registro_u, usuarios.id_usuario 
-                FROM usuarios 
-                INNER JOIN sexos on usuarios.fk_sexo = sexos.id_sexo 
-                INNER JOIN estatus on usuarios.fk_estatus = estatus.id_estatus
-                INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
-                WHERE 1 
-                    ORDER BY usuarios.registro_u DESC";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->execute();
-                $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-        }
-        return $arrDatos;
-    }
+    
     public static function obtener_fichas_usuarios($conexion, $id_rol, $id_estado = null)
     {
         $arrDatos = null;
@@ -1246,9 +1168,9 @@ class RepositorioUsuario
 
                 $sentencia->execute();
 
-                $resultado = $sentencia->rowCount();
+                $resultado = $sentencia;
 
-                if ($resultado > 0) {
+                if ($resultado) {
                     $actualizacion_correcta = true;
                 }
             } catch (PDOException $ex) {
@@ -1296,7 +1218,6 @@ class RepositorioUsuario
 
                 $sentencia->execute();
                 $actualizacion_correcta =  $sentencia;
-               
             } catch (PDOException $ex) {
                 print 'ERROR' . $ex->getMessage();
             }
