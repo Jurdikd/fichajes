@@ -28,19 +28,19 @@
                 <h4 class="text-center mt-2 text-white">POWERED BY:</h4>
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
                     <li>
-                        <p class="text-white">Programador: <a
-                                href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%programación"
-                                target="_blank" rel="noopener noreferrer">instarapids.com</a></p>
+                        <p class="text-white">Programador:</p> <a
+                            href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%programación"
+                            target="_blank" rel="noopener noreferrer">instarapids.com</a>
                     </li>
                     <li>
-                        <p class="text-white">Alojamiento: <a
-                                href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web"
-                                target="_blank" rel="noopener noreferrer">guslaya.com</a></p>
-                    </li>
+                        <p class="text-white">Alojamiento:</p>
+                    </li> <a
+                        href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web"
+                        target="_blank" rel="noopener noreferrer">guslaya.com</a>
                     <li>
-                        <p class="text-white">Diseños: <a
-                                href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%diseño"
-                                target="_blank" rel="noopener noreferrer">luyadesing</a></p>
+                        <p class="text-white">Diseños:</p> <a
+                            href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%diseño"
+                            target="_blank" rel="noopener noreferrer">luyadesing</a>
                     </li>
                 </ul>
             </div>
