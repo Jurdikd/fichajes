@@ -25,13 +25,13 @@
                 <h4 class="text-center mt-2 text-white">POWERED BY:</h4>
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
                     <li>
-                        <span class="text-white">Programador:</span> <a href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%programación" target="_blank" rel="noopener noreferrer">instarapids.com</a>
+                        <span class="text-white">Programador:</span> <a href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20%C2%BFQu%C3%A9%20tal%20est%C3%A1s?%20Quisiera%20contratar%20los%20servicios%20de%20programaci%C3%B3n" target="_blank" rel="noopener noreferrer">instarapids.com</a>
                     </li>
                     <li>
-                        <span class="text-white">Alojamiento:</span> <a href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web" target="_blank" rel="noopener noreferrer">guslaya.com</a>
+                        <span class="text-white">Alojamiento:</span> <a href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20%C2%BFQu%C3%A9%20tal%20est%C3%A1s?%20Quisiera%20contratar%20los%20servicios%20de%20alojamiento%20web" target="_blank" rel="noopener noreferrer">guslaya.com</a>
                     </li>
                     <li>
-                        <span class="text-white">Diseños:</span> <a href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%diseño" target="_blank" rel="noopener noreferrer">luyadesing</a>
+                        <span class="text-white">Diseños:</span> <a href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20%C2%BFQu%C3%A9%20tal%20est%C3%A1s?%20Quisiera%20contratar%20los%20servicios%20de%20dise%C3%B1o" target="_blank" rel="noopener noreferrer">luyadesing</a>
                     </li>
                 </ul>
             </div>
