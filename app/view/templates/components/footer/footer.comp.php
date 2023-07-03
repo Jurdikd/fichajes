@@ -22,6 +22,21 @@
                     <li><a href="https://www.instagram.com/fedeavoficial" target="_blank" rel="noopener noreferrer"><i
                                 class="fab fa-instagram"></i>@fedeavoficial</a></a></li>
                 </ul>
+
+            </div>
+            <div class="col-md-6 mx-auto">
+                <h4 class="text-center mt-2 text-white">POWERED BY:</h4>
+                <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
+                    <li>Programador: <a
+                            href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%programación">instarapids.com</a>
+                    </li>
+                    <li>Alojamiento: <a
+                            href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web">guslaya.com</a>
+                    </li>
+                    <li>Diseños: <a
+                            href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%diseño">luyadesing</a>
+                    </li>
+                </ul>
             </div>
         </div>
 </footer>
