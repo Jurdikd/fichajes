@@ -495,21 +495,14 @@ const openImprimirFichaModal = async (idUsuario, nameUsuario) => {
 
 		// id de usuario
 		modalFicha.querySelector("#btn-printFicha").setAttribute("data-id", idUsuario);
-		// SECXO
-let sexUser
-if(usuario.id_sexo == 1){
-	sexUser = "FEMENINO";
-}else if(fusuario.id_sexo == 2){
-	sexUser = "MASCULINO";
-}
+
 		// Rellena los campos de la modal con la información del usuario
 		modalFicha.querySelector("#previewImg").setAttribute("src", usuario.imagen);
 		modalFicha.querySelector(".name").textContent = usuario.nombre;
 		modalFicha.querySelector(".lastname").textContent = usuario.apellido1;
 		modalFicha.querySelector(".cedula").textContent = usuario.cedula;
 		modalFicha.querySelector(".age").textContent = usuario.fecha_nacimiento;
-		modalFicha.querySelector(".sex").textContent =
-			usuario.id_sexo == 1 ? "FEMENINO" : "MASCULINO";
+		modalFicha.querySelector(".sex").textContent = usuario.id_sexo;
 		modalFicha.querySelector(".inpre").textContent = usuario.inpre_abogado;
 		modalFicha.querySelector(".telephone").textContent = usuario.celular;
 		modalFicha.querySelector(".delegacion").textContent =
