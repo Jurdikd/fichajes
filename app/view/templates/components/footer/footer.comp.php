@@ -16,11 +16,8 @@
             <div class="col-md-6">
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
                     <li><a href="<?php echo RUTA_GENERAL; ?>">Fichajes FEDEAV</a></li>
-                    <li><a
-                            href="mailto:contact@fichajefedeav.org?Subject=<?php echo RUTA_GENERAL; ?>%20Interesado%20en%20el%20servicio."><i
-                                class="fa fa-envelope"></i>contact@fichajefedeav.org</a></li>
-                    <li><a href="https://www.instagram.com/fedeavoficial" target="_blank" rel="noopener noreferrer"><i
-                                class="fab fa-instagram"></i>@fedeavoficial</a></a></li>
+                    <li><a href="mailto:contact@fichajefedeav.org?Subject=<?php echo RUTA_GENERAL; ?>%20Interesado%20en%20el%20servicio."><i class="fa fa-envelope"></i>contact@fichajefedeav.org</a></li>
+                    <li><a href="https://www.instagram.com/fedeavoficial" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i>@fedeavoficial</a></a></li>
                 </ul>
 
             </div>
@@ -28,19 +25,13 @@
                 <h4 class="text-center mt-2 text-white">POWERED BY:</h4>
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
                     <li>
-                        <p class="text-white">Programador:</p> <a
-                            href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%programación"
-                            target="_blank" rel="noopener noreferrer">instarapids.com</a>
+                        <span class="text-white">Programador:</span> <a href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%programación" target="_blank" rel="noopener noreferrer">instarapids.com</a>
                     </li>
                     <li>
-                        <p class="text-white">Alojamiento:</p>
-                    </li> <a
-                        href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web"
-                        target="_blank" rel="noopener noreferrer">guslaya.com</a>
+                        <span class="text-white">Alojamiento:</span>
+                    </li> <a href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web" target="_blank" rel="noopener noreferrer">guslaya.com</a>
                     <li>
-                        <p class="text-white">Diseños:</p> <a
-                            href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%diseño"
-                            target="_blank" rel="noopener noreferrer">luyadesing</a>
+                        <span class="text-white">Diseños:</span> <a href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%diseño" target="_blank" rel="noopener noreferrer">luyadesing</a>
                     </li>
                 </ul>
             </div>
