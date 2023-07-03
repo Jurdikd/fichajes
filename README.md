@@ -1,5 +1,5 @@
-## Licencia Comercial
-
+# Licencia Comercial
+## LICENCE.md
 # FICHAJE
 Sistemas para Fichajes
 
