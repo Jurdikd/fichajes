@@ -28,8 +28,8 @@
                         <span class="text-white">Programador:</span> <a href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%programación" target="_blank" rel="noopener noreferrer">instarapids.com</a>
                     </li>
                     <li>
-                        <span class="text-white">Alojamiento:</span>
-                    </li> <a href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web" target="_blank" rel="noopener noreferrer">guslaya.com</a>
+                        <span class="text-white">Alojamiento:</span> <a href="https://api.whatsapp.com/send?phone=584145681386&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%alojamiento%20%web" target="_blank" rel="noopener noreferrer">guslaya.com</a>
+                    </li>
                     <li>
                         <span class="text-white">Diseños:</span> <a href="https://api.whatsapp.com/send?phone=584249679522&text=Hola,%20¿Qué%20tal%20%estás?%20%quisiera%20%contratar%20%los%20%servicios%20%de%20%diseño" target="_blank" rel="noopener noreferrer">luyadesing</a>
                     </li>
