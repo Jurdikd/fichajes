@@ -41,11 +41,11 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <th>Usuario:</th>
                                     <th>FEDEAV:</th>
                                     <th>INPRE:</th>
-                                    <th>Contacto:</th>
                                     <th>Rol:</th>
+                                    <th>Contacto:</th>
                                     <th>Delegación:</th>
                                     <th>Disciplinas:</th>
-                                    <th>Registro:</th>
+                                    <th>Registros:</th>
                                     <th>Acciones:</th>
                                 </tr>
                             </thead>
@@ -235,7 +235,9 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 </div>
 
 <?php
-include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
+include_once "app/view/templates/components/modals/print_ficha.modal.php";
+include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php";
+?>
 <!-- Tabulator -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
@@ -250,5 +252,7 @@ include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
 <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas2image/canvas2image.js"></script>
 <script src=" <?php echo RUTA_JS; ?>views/users/show-users.js"></script>
 <?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>

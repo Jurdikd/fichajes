@@ -276,7 +276,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			disciplinas: selectDisipline.getSelected(),
 		};
 
-		//console.log(dataForm);
+		// Agregar la clase para el spinner giratorio del boton
+		const submitBtn = form.querySelector("#btn-submit");
+		const textSubmitBtn = submitBtn.innerHTML;
+		submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+		// Deshabilitar el botón agregando el atributo "disabled"
+		submitBtn.setAttribute("disabled", true);
+
 		let url = "../../app/ajax/users.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",
@@ -342,6 +348,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		} else if (solicitud === 6) {
 			console.log("Ficha ya existe", solicitud);
 			const alert = terroralert.swal(
@@ -351,6 +361,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		} else {
 			console.log("Error al cargar los datos de ficha:", solicitud);
 			const alert = terroralert.swal(
@@ -360,6 +374,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		}
 	};
 	// Código para el botón de reset

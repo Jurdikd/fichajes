@@ -38,7 +38,9 @@ if (!empty($_SERVER['HTTP_ORIGIN'])) {
             if ($clave) {
                 // DATOS DE SESION CORRECTOS SE INICIA SESION
                 ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
-                $respuesta = true;
+                // ACTUALIZAR ULTIMO LOGIN
+                
+                $respuesta = true; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
             } else {
                 $respuesta = array('error' => array(
                     'message' => array(

@@ -93,18 +93,21 @@ const showFichas = async () => {
 					usuario.usuario,
 					usuario.codigo_empleado,
 					usuario.inpre_abogado,
-					`Télefono:<br>${usuario.celular}<br>Correo:<br>${usuario.correo}`,
 					usuario.nombre_rol,
+					`Télefono:<br>${usuario.celular}<br>Correo:<br>${usuario.correo}`,
 					usuario.estado_nom,
 					disciplinas, // MOSTRAMOS DISCIPLINAS
 					`Edición:<br>${
 						usuario.edicion_u == null ? "No actualizado" : usuario.edicion_u
 					}<br>Registro:<br>${usuario.registro_u}`,
 					`
-					<button class="btn btn-warning btn-editUser" data-name="${
+					<button class="btn btn-primary btn-printFicha mb-1" data-name="${
+						usuario.nombre + usuario.apellido1
+					}" data-id="${usuario.id_usuario}">Ver ficha</button>
+					<button class="btn btn-warning btn-editUser mb-1" data-name="${
 						usuario.nombre + usuario.apellido1
 					}" data-id="${usuario.id_usuario}">Editar</button>
-					<button class="btn btn-danger btn-deleteUser" data-name="${
+					<button class="btn btn-danger btn-deleteUser mb-1" data-name="${
 						usuario.nombre + " " + usuario.apellido1
 					}" data-id="${usuario.id_usuario}">Borrar</button>
 					`,
@@ -236,6 +239,13 @@ actionsTablaUsuarios.addEventListener("click", (event) => {
 		//confirm("estas seguro que quieres eliminar este usuario?" + nameUsuario);
 
 		deleteUser(idUsuario);
+	}
+	//ficha usuario
+	// Verifica si el elemento clicado tiene la clase "btn-deleteUser"
+	if (event.target.classList.contains("btn-printFicha")) {
+		const idUsuario = event.target.dataset.id;
+		const nameUsuario = event.target.dataset.name;
+		openImprimirFichaModal(idUsuario, nameUsuario);
 	}
 });
 const openEditarUsuarioModal = async (idUsuario) => {
@@ -408,8 +418,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			delegacion: delegacionSend,
 			disciplinas: selectDisipline.getSelected(),
 		};
+		// Agregar la clase para el spinner giratorio del boton
+		const submitBtn = form_editUser.querySelector("#btn-actualizar");
+		const textSubmitBtn = submitBtn.innerHTML;
+		submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+		// Deshabilitar el botón agregando el atributo "disabled"
+		submitBtn.setAttribute("disabled", true);
 
-		//console.log(dataForm);
 		let url = "../../app/ajax/users.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",
@@ -428,8 +443,8 @@ document.addEventListener("DOMContentLoaded", function () {
 			);
 			if (alert) {
 				form_editUser.reset();
-				location.reload(true);
 			}
+			location.reload(true);
 		} else if (solicitud === 2) {
 			console.log(
 				"Ficha insertada correctamente! pero ha habido un error al guardar las disciplinas!",
@@ -475,6 +490,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		} else if (solicitud === 6) {
 			console.log("Ficha ya existe", solicitud);
 			const alert = terroralert.swal(
@@ -484,6 +503,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		} else {
 			console.log("Error al cargar los datos de ficha:", solicitud);
 			const alert = terroralert.swal(
@@ -493,12 +516,132 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		}
 	};
-	// Código para el botón de reset
-	const resetButton = document.getElementById("resetButton");
-
-	resetButton.addEventListener("click", function () {
-		form_editUser.reset();
-	});
 });
+//********************************************* */
+
+// Imprimir ficha//
+const openImprimirFichaModal = async (idUsuario, nameUsuario) => {
+	const url = "../../app/ajax/users.ajax.php";
+	const solicitud = await terrorFetch.fetch("POST", url, {
+		user: "getUser",
+		id_user: idUsuario,
+	});
+
+	if (solicitud) {
+		const usuario = solicitud[0];
+		// obtener modal
+		const modalFicha = document.getElementById("modalPrintFicha");
+		const modalPrintFicha = new bootstrap.Modal(modalFicha);
+
+		// id de usuario
+		modalFicha.querySelector("#btn-printFicha").setAttribute("data-id", idUsuario);
+		// Rellena los campos de la modal con la información del usuario
+		modalFicha.querySelector("#previewImg").setAttribute("src", usuario.imagen);
+		modalFicha.querySelector(".name").textContent = usuario.nombre;
+		modalFicha.querySelector(".lastname").textContent = usuario.apellido1;
+		modalFicha.querySelector(".cedula").textContent = usuario.cedula;
+		modalFicha.querySelector(".age").textContent = usuario.fecha_nacimiento;
+		modalFicha.querySelector(".sex").textContent =
+			usuario.id_sexo === 1 ? "FEMENINO" : "MASCULINO";
+		modalFicha.querySelector(".inpre").textContent = usuario.inpre_abogado;
+		modalFicha.querySelector(".telephone").textContent = usuario.celular;
+		modalFicha.querySelector(".delegacion").textContent =
+			usuario.estado_nom.toUpperCase();
+		modalFicha.querySelector(".fedeav").textContent = usuario.codigo_empleado;
+		// crear botones de disciplinas
+		actualizarBotones(usuario.disciplinas);
+
+		// Abre la modal
+		modalPrintFicha.show();
+	} else {
+		console.error("Ocurrió un error al obtener la información del usuario.");
+	}
+};
+// imprimir ficha boton
+
+const btnImprimirFicha = document.getElementById("btn-printFicha");
+btnImprimirFicha.addEventListener("click", async (e) => {
+	const idFicha = e.target.getAttribute("data-id");
+	const userFichaPrint = document.getElementById("userFichaPrint");
+	console.log("imprimiendo ficha", idFicha);
+	await imprimirFicha(userFichaPrint, "309.08px", "#164ea1");
+});
+
+// Función para actualizar los botones y el collapse
+function actualizarBotones(disciplinas) {
+	// Obtener los valores seleccionados
+	const selectedValues = disciplinas;
+
+	// Obtener referencia al contenedor donde se mostrarán los botones principales y el botón "Ver más"
+	const disponiblesContainer = document.getElementById("discpliplines-show");
+
+	// Eliminar los botones anteriores
+	disponiblesContainer.innerHTML = "";
+
+	// Crear botón por cada valor en el array
+	selectedValues.slice(0, 3).forEach((valor) => {
+		// Crear elemento de botón
+		const boton = crearBotonDisciplina(valor);
+
+		// Agregar el botón al contenedor principal
+		disponiblesContainer.appendChild(boton);
+	});
+
+	// Si hay más de 3 valores, agregar botón "Ver más"
+	if (selectedValues.length > 3) {
+		const valoresRestantes = selectedValues.slice(3);
+		const botonVerMas = crearBotonVerMas(valoresRestantes);
+		disponiblesContainer.appendChild(botonVerMas);
+	}
+}
+// Función para crear un botón de disciplina
+function crearBotonDisciplina(valor) {
+	const boton = document.createElement("button");
+	boton.classList.add("btn", "p-0", "rounded-circle");
+	boton.setAttribute("data-bs-title", valor);
+
+	// Crear elemento de imagen
+	const imagen = document.createElement("img");
+	imagen.classList.add("img-fluid", "shadow-discipline");
+	imagen.setAttribute(
+		"src",
+		RUTA_IMG + "icons/icons-discipline-rounded-solid/" + valor + ".svg"
+	);
+	imagen.setAttribute("alt", valor);
+	imagen.setAttribute("width", "30");
+	imagen.setAttribute("loading", "lazy");
+
+	// Agregar la imagen al botón
+	boton.appendChild(imagen);
+
+	return boton;
+}
+function crearBotonVerMas(valores) {
+	let total = valores.length;
+	const botonVerMas = document.createElement("button");
+	botonVerMas.classList.add(
+		"btn",
+		"btn-primary",
+		"__ficha-btn-plus",
+		"rounded-circle",
+		"text-ficha-list"
+	);
+	botonVerMas.setAttribute("type", "button");
+
+	botonVerMas.textContent = total;
+
+	// Crear icono para el botón "Ver más"
+	const icono = document.createElement("i");
+	icono.classList.add("fas", "fa-plus");
+
+	// Agregar el icono al botón
+	botonVerMas.appendChild(icono);
+
+	return botonVerMas;
+}

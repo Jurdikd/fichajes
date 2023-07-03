@@ -84,7 +84,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_LOGOUT_GENERAL; ?>">
-                        <i class="fas fa-question-circle"></i> <span>Salir</span>
+                        <i class="fas fa-sign-out"></i> <span>Salir</span>
                     </a>
                 </li>
             </ul>

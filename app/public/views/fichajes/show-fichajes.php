@@ -57,8 +57,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 </div>
 
 <!-- Modal Editar Usuario -->
-<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel"
-    aria-hidden="true">
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -144,15 +143,13 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <div class="form-group mb-3">
                                 <label for="delegacion" class="form-label">Delegación</label>
 
-                                <input type="text" class="form-control" id="delegacion" name="delegacion"
-                                    value="<?php echo strtoupper($userEstado["nombre_estado"]); ?>" readonly>
+                                <input type="text" class="form-control" id="delegacion" name="delegacion" value="<?php echo strtoupper($userEstado["nombre_estado"]); ?>" readonly>
 
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group mb-3">
-                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80"
-                                    loading="lazy">
+                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80" loading="lazy">
                             </div>
                         </div>
                         <div class="mb-3">
@@ -188,8 +185,11 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
         </div>
     </div>
 </div>
+
 <?php
-include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
+include_once "app/view/templates/components/modals/print_ficha.modal.php";
+include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php";
+?>
 <!-- Tabulator -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
@@ -204,5 +204,8 @@ include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
 <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/dataTables.responsive.min.js"></script>
 <script src="https://cdn.datatables.net/responsive/2.4.1/js/responsive.bootstrap5.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.3.2/html2canvas.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas2image/canvas2image.js"></script>
+
 <script src=" <?php echo RUTA_JS; ?>views/fichajes/show-fichajes.js"></script>
 <?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>

@@ -273,7 +273,7 @@ class UsersCrt
         }
         foreach ($fichas as &$usuario) {
             // Obtener las disciplinas del usuario utilizando la función existente
-            $disciplinas = RepositorioDisciplinasUsuarios::obtener_disciplinas_usuario($conexion, $usuario['id_usuario']);
+            $disciplinas = RepositorioDisciplinasUsuarios::obtener_disciplinas_usuarios($conexion, $usuario['id_usuario']);
             // Agregar el array de disciplinas al final del usuario
             $usuario['disciplinas'] = $disciplinas;
         }
@@ -296,7 +296,7 @@ class UsersCrt
         }
         foreach ($usersdb as &$usuario) {
             // Obtener las disciplinas del usuario utilizando la función existente
-            $disciplinas = RepositorioDisciplinasUsuarios::obtener_disciplinas_usuario($conexion, $usuario['id_usuario']);
+            $disciplinas = RepositorioDisciplinasUsuarios::obtener_disciplinas_usuarios($conexion, $usuario['id_usuario']);
             // Agregar el array de disciplinas al final del usuario
             $usuario['disciplinas'] = $disciplinas;
         }

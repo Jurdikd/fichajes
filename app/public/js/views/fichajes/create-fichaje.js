@@ -69,7 +69,6 @@ function rellenarFicha(event) {
 	}
 }
 
-
 // Obtener referencia al input de imagen y la etiqueta img de vista previa
 const imagenInput = document.getElementById("imagen");
 const previewImg = document.getElementById("preview");
@@ -261,12 +260,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	form.addEventListener("submit", function (event) {
 		event.preventDefault();
+
 		if (validarFormulario()) {
 			// El formulario es válido, puedes realizar las acciones necesarias aquí
-			//console.log("Formulario válido:", form);
 
 			enviarFormulario(form);
-			// form.submit(); // Descomenta esta línea para enviar el formulario
 		} else {
 			console.log("Formulario inválido");
 		}
@@ -340,8 +338,13 @@ document.addEventListener("DOMContentLoaded", function () {
 			delegacion: delegacionSend,
 			disciplinas: selectDisipline.getSelected(),
 		};
+		// Agregar la clase para el spinner giratorio del boton
+		const submitBtn = form.querySelector("#btn-submit");
+		const textSubmitBtn = submitBtn.innerHTML;
+		submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i>';
+		// Deshabilitar el botón agregando el atributo "disabled"
+		submitBtn.setAttribute("disabled", true);
 
-		//console.log(dataForm);
 		let url = "../../app/ajax/fichas.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",
@@ -407,6 +410,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		} else if (solicitud === 6) {
 			console.log("Ficha ya existe", solicitud);
 			const alert = terroralert.swal(
@@ -416,6 +423,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		} else {
 			console.log("Error al cargar los datos de ficha:", solicitud);
 			const alert = terroralert.swal(
@@ -425,6 +436,10 @@ document.addEventListener("DOMContentLoaded", function () {
 				5000,
 				1050
 			);
+			// Eliminar el spinner y restaurar el contenido original del botón
+			submitBtn.innerHTML = textSubmitBtn;
+			// Habilitar el botón quitando el atributo "disabled"
+			submitBtn.removeAttribute("disabled");
 		}
 	};
 	// Código para el botón de reset
@@ -434,3 +449,4 @@ document.addEventListener("DOMContentLoaded", function () {
 		form.reset();
 	});
 });
+

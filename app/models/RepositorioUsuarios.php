@@ -1,7 +1,7 @@
 <?php
 class RepositorioUsuario
 {
-    
+
     public static function obtener_fichas_usuarios($conexion, $id_rol, $id_estado = null)
     {
         $arrDatos = null;
@@ -18,7 +18,7 @@ class RepositorioUsuario
                             INNER JOIN sexos ON usuarios.fk_sexo = sexos.id_sexo 
                             INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
                             INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
-                            WHERE usuarios.nombre != 'admin' -- Excluir al usuario 'admin'
+                            WHERE usuarios.nombre != 'admin' AND usuarios.fk_rol != 4 -- Excluir al usuario 'admin'
                             ORDER BY usuarios.registro_u DESC";
 
                     $sentencia = $conexion->prepare($sql);
@@ -35,7 +35,7 @@ class RepositorioUsuario
                             INNER JOIN estatus ON usuarios.fk_estatus = estatus.id_estatus
                             INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais
                             WHERE usuarios.fk_estado = :id_estado
-                            AND usuarios.nombre != 'admin' -- Excluir al usuario 'admin'
+                            AND usuarios.nombre != 'admin' AND usuarios.fk_rol != 4-- Excluir al usuario 'admin'
                             ORDER BY usuarios.registro_u DESC";
 
                     $sentencia = $conexion->prepare($sql);
