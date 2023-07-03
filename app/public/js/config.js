@@ -46,7 +46,7 @@ const configDataTable = {
 
 async function imprimirFicha(element, setWidth, color) {
 	let tarjeta = element;
-
+	let tarjetaWidth = tarjeta.style.width;
 	// Establece explícitamente las dimensiones de la tarjeta utilizando CSS
 	tarjeta.style.width = setWidth;
 	//tarjeta.style.width = "306px";
@@ -82,8 +82,9 @@ async function imprimirFicha(element, setWidth, color) {
 	win.print();
 
 	// Cierra la ventana de imagen después de imprimir
-	win.close();
-
+	//win.close();
+	//Devolver valores originales
+	tarjeta.style.width = tarjetaWidth;
 	// Elimina la propiedad style.width para restaurar el tamaño original
 	tarjeta.style.removeProperty("width");
 }
