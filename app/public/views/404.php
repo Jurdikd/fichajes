@@ -6,8 +6,7 @@ $userLogin = ControlSesion::datos_sesion();
 
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
 $titulo = "Error 404";
-include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
-include_once "app/view/templates/components/menu/menu.comp.php"; ?>
+include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";?>
 
 <div class="container">
     <div class="row p-5 m-4">
