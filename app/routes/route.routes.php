@@ -59,8 +59,8 @@ $router->register('/show-users', 'app/public/views/users/show-users.php');
 // Ruta de help
 $router->register('/help', 'app/public/views/help/help.php');
 
-// Ruta de tasa personalizada
-$router->register('/custom', 'app/public/views/custom.php');
+// Ruta de licencia
+$router->register('/licencia', 'app/public/views/licencia/licencia.php');
 
 
 

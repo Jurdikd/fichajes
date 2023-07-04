@@ -60,6 +60,7 @@ define("RUTA_START", VISTA . "start");
 define("RUTA_LOGIN_GENERAL", VISTA . "login");
 define("RUTA_REGISTER", VISTA . "register");
 define("RUTA_LOGOUT_GENERAL", VISTA . "logout");
+define("RUTA_LICENCIA", VISTA . "licencia");
 define("RUTA_HELP", VISTA . "help");
 
 //VISTAS FICHAJES
