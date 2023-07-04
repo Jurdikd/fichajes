@@ -5,7 +5,7 @@ Copyright (c) 2023 Jesus Covo
 
 Attendance Systems / Sistemas para Fichajes
 
-This FICHAJE system is protected by a commercial license. As a customer, you have the right to request adjustments to implement it on your website. Once you have made the payment, you are granted the following rights with respect to your copy of the system:
+This FICHAJE system is protected by a commercial license. As a customer, you have the right to request adjustments to implement it on your website. Once you have made the payment, you are granted the following rights with respect to your copy of the system: / Esta licencia garantiza tus derechos como cliente y protege tanto mis derechos de autor como tu inversión en el sistema de FICHAJE.
 
 1. Sale: You have the right to sell the system to third parties. / Venta: Tienes el derecho de vender el sistema a terceros.
 2. Distribution: You may distribute the system to third parties. / Distribución: Puedes distribuir el sistema a terceros.
