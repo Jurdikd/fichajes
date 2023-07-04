@@ -1,23 +1,3 @@
-<?php
-# Nombre de la tabla en la que deseas eliminar registros
-$tabla = 'paises';
-
-# ID del país origen que deseas preservar
-$idPaisOrigenPreservar = 232;
-
-# Ejecuta la consulta de eliminación condicional
-try {
-    $sql = "DELETE FROM $tabla WHERE id_pais_origen != :idPaisOrigen";
-    $stmt = Conexion::obtener_conexion()->prepare($sql);
-    $stmt->bindParam(':idPaisOrigen', $idPaisOrigenPreservar, PDO::PARAM_INT);
-    $stmt->execute();
-
-    $cantidadRegistrosEliminados = $stmt->rowCount();
-    echo "Se eliminaron $cantidadRegistrosEliminados registros de la tabla $tabla.";
-} catch (PDOException $ex) {
-    echo "Error al eliminar registros de la tabla $tabla: " . $ex->getMessage();
-}
-?>
 <!DOCTYPE html>
 <html lang="es-VE">
 
