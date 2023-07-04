@@ -8,7 +8,7 @@ Este sistema de FICHAJE es un sistema diseñado para el registro de usuarios en 
 - Vista de usuarios: Permite crear usuarios con roles como administrador, fichador, fichado y alistador.
 - Vista de disciplinas: Muestra las disciplinas en un carrusel con sus respectivas descripciones. Al hacer clic en alguna disciplina, se redirecciona a una tabla que muestra los fichados según el sexo, delegación y deporte seleccionado.
 
-## Licencia Comercial
+## Licencia Comercial Fichaje 
 
 Este sistema de FICHAJE está protegido por una licencia comercial. Como cliente, tienes derecho a solicitar ajustes para implementarlo en tu sitio. Una vez que hayas realizado el pago, puedes hacer lo siguiente con tu copia del sistema:
 
@@ -19,7 +19,7 @@ Este sistema de FICHAJE está protegido por una licencia comercial. Como cliente
 
 Sin embargo, ten en cuenta que el código fuente y la lógica del sistema, así como las librerías creadas por mí, siguen siendo de mi propiedad. Si deseas realizar modificaciones o mejoras, te recomiendo que te pongas en contacto conmigo para discutir los detalles.
 
-## Resumen de la Licencia Comercial
+## Resumen de la Licencia Comercial Fichaje 
 
 Este sistema de FICHAJE está protegido por una licencia comercial. Como cliente, tienes derecho a solicitar ajustes para implementarlo en tu sitio. Una vez que hayas realizado el pago, se te otorgan los siguientes derechos con respecto a tu copia del sistema:
 
