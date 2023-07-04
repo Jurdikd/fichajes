@@ -1,7 +1,7 @@
-# Commercial License / Licencia Comercial
+# Commercial License Fichaje / Licencia Comercial Fichaje
 ## FICHAJE
 
-© 2023 Jesús Covo
+Copyright © 2023 Jesús Covo
 
 Attendance Systems / Sistemas para Fichajes
 
