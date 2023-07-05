@@ -75,6 +75,9 @@ $router->register('/create-fichaje', 'app/public/views/fichajes/create-fichaje.p
 // Ruta de VER FICHAJES
 $router->register('/show-fichajes', 'app/public/views/fichajes/show-fichajes.php');
 
+// Ruta de CREAR TEMPORADA
+$router->register('/create-season', 'app/public/views/fichajes/create-season.php');
+
 // Ruta para VER DISCIPLINAS
 $router->register('/disciplines', 'app/public/views/disciplines/disciplines.php');
 
@@ -91,7 +94,7 @@ $router->register('/show-users', 'app/public/views/users/show-users.php');
 $router->register('/help', 'app/public/views/help/help.php');
 
 // Ruta de licencia
-$router->register('/licencia', 'app/public/views/licencia/licencia.php');
+$router->register('/licence', 'app/public/views/licence/licence.php');
 
 
 

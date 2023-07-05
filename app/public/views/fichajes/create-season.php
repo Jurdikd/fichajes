@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -30,93 +31,68 @@
  * 
  **/
 
-//DATOS DEL SITIO
-
-define('NOMBRE_PRINCIPAL', 'Fichajes FEDEAV'); #nombre
-/* Rutas de la web
-http://localhost/instarapid/
-    ** Colocar el url del dominio entre comillas y reemplazarlo con el nombre del dominio final
-    Nota si es http o https colocar s porque por defecto viene http
-    */
-define("HTTPS", $_SERVER["REQUEST_SCHEME"] . "://");
-define("DOMINIO", $_SERVER['SERVER_NAME']);
-define("PUERTO", $_SERVER['SERVER_PORT']);
-// Verificación de servidor de prueba u oficial
-$dbSet = false; # verofica si estamos en db de local
-if (PUERTO === "80" || PUERTO === "443") {
-    define("SERVIDOR", HTTPS . DOMINIO);
-    $dbSet = true;
-} else {
-    define("SERVIDOR", HTTPS . DOMINIO . ":" . PUERTO);
+if (!ControlSesion::sesion_iniciada()) {
+    Redireccion::redirigir(RUTA_LOGIN_GENERAL);
+    #Si el usuario tiene una sesion activa se redirige a inicio
 }
-// Creacion de base de datos
+// Datos usuario en sesion
+$userLogin = ControlSesion::datos_sesion();
 
-//información de la base de datos
+$user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
+if ($user["id_rol"] !== "1" && $user["id_rol"] !== "2" && $user["id_rol"] !== "4") {
+    # code...
 
-#NOTA: verificamos sin estamos en prueba o hosting
-if ($dbSet === true) {
-    #  datos de base de datos online
-    define('NOMBRE_SERVIDOR', 'localhost'); #nombre
-    define('NOMBRE_USUARIO', 'u646234231_fichaje_fedeav'); #usuario
-    define('PASSWORD', 'Fichaje_fedeav2204'); #clave
-    define('NOMBRE_BD', 'u646234231_fichaje_fedeav'); #nombre de la base de datos
-} else {
-    # SI ESTA CORRIENDO LA PRUEBA LOCAL...
-    define('NOMBRE_SERVIDOR', 'localhost'); #nombre
-    define('NOMBRE_USUARIO', 'root'); #usuario
-    define('PASSWORD', ''); #clave
-    define('NOMBRE_BD', 'fichajes_fedeav'); #nombre de la base de datos
+    Redireccion::redirigir(RUTA_GENERAL);
 }
-// Variables para hora y zona horaria
-define('PAIS_ZONA_HORARIA', 'America/Caracas'); #pais - zona horaria
-define('ZONA_HORARIA', '-4:00'); #zona horaria
+$titulo = "Crear temporada";
+include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
+include_once "app/view/templates/components/menu/menu.comp.php"; ?>
+
+<div class="container">
+    <div class="row mt-5 mb-5">
+        <div class="col-12 col-sm-7 col-md-7 col-lg-9">
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="card-tittle mb-4">Crear temporada</h2>
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php
+include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
+<script src=" <?php echo RUTA_JS; ?>views/fichajes/create-fichaje.js"></script>
+
+<script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    document.addEventListener("DOMContentLoaded", function() {
+        // Inicializa los tooltips
+        [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
+        .forEach(el => new bootstrap.Tooltip(el));
+
+        // Selecciona todos los botones con la clase .__ficha-btn-plus
+        const collapseButtons = document.querySelectorAll('.__ficha-btn-plus');
+
+        // Recorre todos los botones y agrega el evento click
+        collapseButtons.forEach(collapseButton => {
+            const collapseTarget = document.querySelector(collapseButton.getAttribute(
+                'data-bs-target'));
+            const collapse = new bootstrap.Collapse(collapseTarget, {
+                toggle: false
+            });
+
+            collapseButton.addEventListener('click', () => {
+                collapse.toggle();
+            });
+        });
+    });
+</script>
 
 
 
-#Server para admins
 
-/* Rutas de la vista
-    ** Vistas de html o php
-    */
-#define("VISTA", SERVIDOR . "vistas" . "/");
-define("VISTA", SERVIDOR . "/");
-
-//copiar esta de ejemplo sin "#" para seguir colocando rutas:
-
-# define("RUTA_", VISTA . ".php");
-
-//VISTAS PRINCIPALES
-define("RUTA_GENERAL", VISTA);
-define("RUTA_START", VISTA . "start");
-define("RUTA_LOGIN_GENERAL", VISTA . "login");
-define("RUTA_REGISTER", VISTA . "register");
-define("RUTA_LOGOUT_GENERAL", VISTA . "logout");
-define("RUTA_LICENCE", VISTA . "licence");
-define("RUTA_HELP", VISTA . "help");
-
-//VISTAS FICHAJES
-define("RUTA_CREATE_FICHAJE", VISTA . "create-fichaje");
-define("RUTA_SHOW_FICHAJES", VISTA . "show-fichajes");
-define("RUTA_CREATE_SEASON", VISTA . "create-season");
-//VISTAS USUARIOS
-define("RUTA_CREATE_USER", VISTA . "create-user");
-define("RUTA_SHOW_USERS", VISTA . "show-users");
-//VISTA DISCIPLINAS
-define("RUTA_DISCIPLINAS", VISTA . "disciplines");
-define("RUTA_DISCIPLINA", VISTA . "discipline");
-#VISTA DE PRUEBA
-define("RUTA_PRUBS", VISTA . "prubs");
-
-
-
-#define("RUTA_MUESTRA", SERVIDOR . "muestras" . "/");
-
-//RECURSOS
-define("RUTA_CSS", SERVIDOR . "/app/public/css" . "/");
-define("RUTA_JS", SERVIDOR . "/app/public/js" . "/");
-define("RUTA_FAVICON", SERVIDOR . "/app/public/img/favicon" . "/");
-define("RUTA_IMG", SERVIDOR . "/app/public/img" . "/");
-define("DIRECTORIO_RAIZ", realpath(dirname(__FILE__) . "/..")); //para php < 5.3
-// realpath(__DIR__."/..") para php 5.3+
-@session_start();
-@extract($_REQUEST);
+<?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>
