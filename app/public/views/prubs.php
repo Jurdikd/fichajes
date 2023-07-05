@@ -31,21 +31,6 @@
  * 
  **/
 
-
- try {
-    // Cambiar tipo de dato de fecha_open a date
-    $sqlAlterOpen = "ALTER TABLE tiempo_fichaje MODIFY fecha_open DATE";
-    Conexion::obtener_conexion()->exec($sqlAlterOpen);
-
-    // Cambiar tipo de dato de fecha_cierre a date
-    $sqlAlterCierre = "ALTER TABLE tiempo_fichaje MODIFY fecha_cierre DATE";
-    Conexion::obtener_conexion()->exec($sqlAlterCierre);
-
-    echo "Se modificaron los tipos de datos de fecha_open y fecha_cierre en la tabla tiempo_fichaje.";
-} catch (PDOException $ex) {
-    echo "Error al modificar los tipos de datos de fecha_open y fecha_cierre: " . $ex->getMessage();
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="es-VE">
