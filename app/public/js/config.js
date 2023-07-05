@@ -7,7 +7,6 @@ const RUTA_IMG = SERVER + "/app/public/img/";
 const terrorFetch = new TerrorFetch();
 // Crear una instancia de la clase TerrorIMG
 const terrorIMG = new TerrorIMG();
-console.log(terrorIMG);
 const urlGetTerror = {
 	get: (param) => {
 		const urlSearchParams = new URLSearchParams(window.location.search);
