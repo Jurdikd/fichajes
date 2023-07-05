@@ -32,23 +32,20 @@
  **/
 
 
-# Nombre de la tabla en la que deseas eliminar registros
-$tabla = 'divisa';
+ try {
+    // Cambiar tipo de dato de fecha_open a date
+    $sqlAlterOpen = "ALTER TABLE tiempo_fichaje MODIFY fecha_open DATE";
+    Conexion::obtener_conexion()->exec($sqlAlterOpen);
 
-# ID del país origen que deseas preservar
-$id_divisa  = 9;
+    // Cambiar tipo de dato de fecha_cierre a date
+    $sqlAlterCierre = "ALTER TABLE tiempo_fichaje MODIFY fecha_cierre DATE";
+    Conexion::obtener_conexion()->exec($sqlAlterCierre);
 
-# Ejecuta la consulta de eliminación condicional
-try {
-    $sql = "DELETE FROM divisa WHERE id_divisa != 9 ";
-    $stmt = Conexion::obtener_conexion()->prepare($sql);
-    $stmt->execute();
-
-    $cantidadRegistrosEliminados = $stmt->rowCount();
-    echo "Se eliminaron $cantidadRegistrosEliminados registros de la tabla $tabla.";
+    echo "Se modificaron los tipos de datos de fecha_open y fecha_cierre en la tabla tiempo_fichaje.";
 } catch (PDOException $ex) {
-    echo "Error al eliminar registros de la tabla $tabla: " . $ex->getMessage();
+    echo "Error al modificar los tipos de datos de fecha_open y fecha_cierre: " . $ex->getMessage();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es-VE">
