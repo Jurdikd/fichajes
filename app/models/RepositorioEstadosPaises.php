@@ -1,5 +1,36 @@
 <?php
 
+/**
+ *
+ * # Commercial License Fichaje / Licencia Comercial Fichaje
+ * ## FICHAJE
+ *
+ * Copyright © 2023 Jesús Covo https://github.com/Jurdikd
+ * 
+ * Attendance Systems / Sistemas para Fichajes
+ * 
+ * As the creator and intellectual property owner, I hereby grant you, as a customer, the following rights with respect to your copy of the FICHAJE system upon payment: / Como creador y propietario intelectual, por la presente te otorgo, como cliente, los siguientes derechos con respecto a tu copia del sistema FICHAJE al realizar el pago:
+ * 
+ * 1. Sale: You have the right to sell the system to third parties. / Venta: Tienes el derecho de vender el sistema a terceros.
+ * 2. Distribution: You may distribute the system to third parties. / Distribución: Puedes distribuir el sistema a terceros.
+ * 3. Gift: You have the option to gift the system to third parties. / Regalo: Tienes la opción de regalar el sistema a terceros.
+ * 4. Personal Use: You may keep and use the system for any personal purpose without modifying the system or its libraries. / Uso personal: Puedes guardar y utilizar el sistema para cualquier propósito personal sin realizar modificaciones en el sistema o sus librerías.
+ * 
+ * However, please note the following: / Sin embargo, ten en cuenta lo siguiente:
+ * 
+ * 1. Ownership: The source code and logic of the system, as well as the libraries created by the creator and intellectual property owner, remain the property of the creator and intellectual property owner. / Propiedad: El código fuente y la lógica del sistema, así como las librerías creadas por el creador y propietario intelectual, siguen siendo propiedad del creador y propietario intelectual.
+ * 2. Modifications and Enhancements: If you wish to make modifications or enhancements to the system, I recommend that you contact the creator and intellectual property owner to discuss the details and obtain their prior written consent. / Modificaciones y mejoras: Si deseas realizar modificaciones o mejoras en el sistema, te recomiendo que te pongas en contacto con el creador y propietario intelectual para discutir los detalles y obtener su consentimiento previo por escrito.
+ * 
+ * This license guarantees your rights as a customer and protects both the creator and intellectual property owner's copyright and your investment in the FICHAJE system. / Esta licencia garantiza tus derechos como cliente y protege tanto los derechos de autor del creador y propietario intelectual como tu inversión en el sistema de FICHAJE.
+ * 
+ * Additional Terms: / Términos adicionales:
+ * - The system is provided "as is," without warranty of any kind, express or implied. / El sistema se proporciona "tal cual", sin garantía de ningún tipo, expresa o implícita.
+ * - Under no circumstances shall the creator and intellectual property owner be liable for any claims, damages, or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the use of the system or any transactions related to it. / En ningún caso el creador y propietario intelectual será responsable por cualquier reclamo, daño u otra responsabilidad, ya sea en una acción de contrato, agravio o de otra manera, que surja de, fuera de o en conexión con el uso del sistema o cualquier transacción relacionada con el mismo.
+ * 
+ * By downloading, cloning, installing, purchasing, or selling the FICHAJE system, you indicate your acceptance of the terms and conditions set forth in this commercial license. / Al descargar, clonar, instalar, comprar o vender el sistema de FICHAJE, indicas tu aceptación de los términos y condiciones establecidos en esta licencia comercial.
+ * 
+ **/
+
 class RepositorioEstadosPaises
 {
     public static function obtener_estados_paises_por_id($conexion, $id_estado_pais)
@@ -26,182 +57,5 @@ class RepositorioEstadosPaises
         }
 
         return $resultado;
-    }
-    public static function obtener_todos_paises($conexion, $urlpais)
-    {
-
-
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT * FROM paises";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->execute();
-                $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
-                /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
-                foreach ($arrDatos as $pais) {
-
-                    echo $urlpais = Links_limpios($pais['iso']) . "<br>";
-                }
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-        }
-        return $urlpais;
-    }
-    public static function mostrar_iso_mas_paises($conexion)
-    {
-        $arrDatos =  "";
-
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT id_pais_origen, iso, nombre_pais FROM paises";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->execute();
-                $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
-                /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-        }
-        return $arrDatos;
-    }
-    public static function mostrar_iso_mas_paises_activos($conexion)
-    {
-        $arrDatos =  "";
-
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT id_pais_origen, iso, nombre_pais FROM paises WHERE status_pais = 1";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->execute();
-                $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
-                /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
-                return $arrDatos;
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-        }
-    }
-    public static function mostrar_tlf_paises($conexion)
-    {
-        $arrDatos =  "";
-
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT iso, nombre_pais, codigo_area FROM paises";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->execute();
-                $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
-                /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-        }
-        return $arrDatos;
-    }
-
-    public static function mostrar_paises($conexion)
-    {
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT * FROM paises ORDER BY activo = 1 DESC, nombre_pais";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->execute();
-                $arrDatos =  $sentencia->fetchAll(PDO::FETCH_ASSOC);
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-        }
-        return $arrDatos;
-    }
-
-    public static function obtener_nombre_pais($conexion, $iso_pais)
-    {
-        $nom_pais = null;
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT nombre_pais FROM paises WHERE nombre_pais = :isourl";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(':isourl', $iso_pais, PDO::PARAM_STR);
-                $sentencia->execute();
-                $nom_pais  = $sentencia->fetch(PDO::FETCH_ASSOC);
-                $nom_pais = $nom_pais['nombre_pais'];
-                /*Recorremos todos los resultados, ya no hace falta invocar más a fetchAll como si fuera fetch...*/
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-            return  $nom_pais;
-        }
-    }
-    public static function obtener_pais_por_url($conexion, $url, $nombre_pais)
-    {
-
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT nombre_pais FROM paises WHERE nombre_pais = :isourl";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(":isourl", $url, PDO::PARAM_STR);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-
-                $nombre_pais = $resultado['nombre_pais'];
-                $nombre_pais = Libs::eliminar_simbolos_acentos_espacios_demas($nombre_pais);
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-            return strtolower($nombre_pais);
-        }
-    }
-    public static function obtener_pais_activo($conexion, $pais)
-    {
-        $pais_activo = null;
-
-        if (isset($conexion)) {
-            try {
-                # $sql = "SELECT COUNT(*) as total FROM paises WHERE iso = :isourl AND activo = 1";
-                $sql = "SELECT COUNT(nombre_pais) as total FROM paises WHERE nombre_pais = :isourl AND activo = 1";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(':isourl', $pais, PDO::PARAM_STR);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-                $pais_activo = $resultado['total'];
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-        }
-        return $pais_activo;
-    }
-
-    public static function obtener_pais_por_id($conexion, $id_pais)
-    {
-        $resultado = false;
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT id_pais FROM paises WHERE id_pais = :id_pais";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(":id_pais", $id_pais, PDO::PARAM_STR);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-            return $resultado;
-        }
-    }
-    public static function obtener_id_pais_por_id_activo($conexion, $id_pais_origen)
-    {
-        $resultado = false;
-        if (isset($conexion)) {
-            try {
-                $sql = "SELECT id_pais_origen  FROM paises WHERE id_pais_origen  = :id_pais_origen  AND status_pais = 1";
-                $sentencia = $conexion->prepare($sql);
-                $sentencia->bindParam(":id_pais_origen", $id_pais_origen, PDO::PARAM_INT);
-                $sentencia->execute();
-                $resultado = $sentencia->fetch(PDO::FETCH_ASSOC);
-            } catch (PDOException $ex) {
-                print 'ERROR' . $ex->getMessage();
-            }
-            return $resultado;
-        }
     }
 }
