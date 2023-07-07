@@ -1,7 +1,7 @@
 # Commercial License Fichaje / Licencia Comercial Fichaje
 ## FICHAJE
 
-Copyright © 2023 Jesús Covo
+Copyright © 2023 Jesús Covo https://github.com/Jurdikd/
 
 Attendance Systems / Sistemas para Fichajes
 
