@@ -560,7 +560,7 @@ class UsersCrt
             file_put_contents("../" . $rutaimg, $base64);
             // borrar disciplinas
             $deleteDisciplinas = RepositorioDisciplinasUsuarios::eliminar_disciplinas_usuario($conexion, $userData["id_usuario"]);
-            if ($deleteDisciplinas) {
+         // borrado de disciplinas haya o no
                 # code...
 
 
@@ -611,10 +611,7 @@ class UsersCrt
                     # no se registraron las disciplinas...
                     $resultado = 2;
                 }
-            } else {
-                # error al borrar disciplinas y actualizar...
-                $resultado = 3;
-            }
+        
         }
 
         return $resultado;
