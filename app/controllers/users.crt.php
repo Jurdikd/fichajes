@@ -418,7 +418,7 @@ class UsersCrt
 
 
         $actualizacion = RepositorioUsuario::actualizar_ficha($conexion, $userDataUpdate);
-        if ($actualizacion) {
+     
             //borrar imagen anterior
 
             $carpeta = "../public/img/users/" . $usuario;
@@ -489,10 +489,7 @@ class UsersCrt
                 # error al borrar disciplinas y actualizar...
                 $resultado = 3;
             }
-        } else {
-            # error al borrar disciplinas y actualizar...
-            $resultado = 5;
-        }
+        
         return $resultado;
     }
     public static function EditUser($conexion, $userData)
