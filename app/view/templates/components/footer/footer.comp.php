@@ -61,9 +61,9 @@
                 <h4 class="text-center mt-2 text-white">POWERED BY:</h4>
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
                     <li>
-                        <span class="text-white">Programador:</span> <a
+                        <span class="text-white">Programador: Copyright © 2023</span> <a
                             href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20%C2%BFQu%C3%A9%20tal%20est%C3%A1s?%20Quisiera%20contratar%20los%20servicios%20de%20programaci%C3%B3n"
-                            target="_blank" rel="noopener noreferrer">instarapids.com</a>
+                            target="_blank" rel="noopener noreferrer">JESUS A. COVO GARRIDO</a>
                     </li>
                     <li>
                         <span class="text-white">Alojamiento:</span> <a
