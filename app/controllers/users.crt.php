@@ -609,6 +609,9 @@ class UsersCrt
                     $resultado = 2;
                 }
         
+        } else {
+            # error al borrar disciplinas y actualizar...
+            $resultado = 3;
         }
 
         return $resultado;
