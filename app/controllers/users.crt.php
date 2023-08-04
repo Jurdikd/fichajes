@@ -418,7 +418,7 @@ class UsersCrt
 
 
         $actualizacion = RepositorioUsuario::actualizar_ficha($conexion, $userDataUpdate);
-     
+        if ($actualizacion) {
             //borrar imagen anterior
 
             $carpeta = "../public/img/users/" . $usuario;
@@ -434,7 +434,7 @@ class UsersCrt
             file_put_contents("../" . $rutaimg, $base64);
             // borrar disciplinas
             $deleteDisciplinas = RepositorioDisciplinasUsuarios::eliminar_disciplinas_usuario($conexion, $userData["id_usuario"]);
-            if ($deleteDisciplinas) {
+          
                 # code...
 
 
