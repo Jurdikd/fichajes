@@ -125,13 +125,13 @@ body.count {
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
 <div class="container mt-5">
-<h4> El sistema se encuentra en mantenimiento </h4>
+<h4 class="text-center text-white"> El sistema se encuentra en mantenimiento </h4>
     <div id="particles-container"></div>
     <div id="contador">
         <h3>Comienza <br> 15/05/2024</h3>
         <h3>Fichajes terminan el:</h3>
         <span id="dateFichaje"></span>
-        <h4>en:</h4>
+        <h4>Falta:</h4>
         <span id="contadorDate"></span>
     </div>
 <!--
