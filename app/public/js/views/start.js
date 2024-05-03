@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 // Configuración del contador de cuenta regresiva
-let dataDb = '2023-07-27T23:59:00'
+let dataDb = '2024-07-10T23:59:00'
 const fechaActual = new Date()
 const fechaCierre = new Date(dataDb);
 const contadorDate = document.getElementById('contadorDate');
