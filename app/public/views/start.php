@@ -133,9 +133,10 @@ body.count {
         <h4>en:</h4>
         <span id="contadorDate"></span>
     </div>
-
-    <img class="img-fluid mx-auto my-auto" src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png"
-        alt="Logo fedeav">
+<!--
+    <img class="img-fluid mx-auto my-auto" src="<?php #echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png"
+        alt="Logo fedeav"> 
+        -->
     <div class="rocket-container">
         <div class="rocket"></div>
     </div>
