@@ -128,6 +128,7 @@ body.count {
 <h4> El sistema se encuentra en mantenimiento </h4>
     <div id="particles-container"></div>
     <div id="contador">
+        <h3>Comienza <br> 15/05/2024</h3>
         <h3>Fichajes terminan el:</h3>
         <span id="dateFichaje"></span>
         <h4>en:</h4>
