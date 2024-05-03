@@ -125,7 +125,7 @@ body.count {
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
 <div class="container mt-5">
-
+<h4> El sistema se encuentra en mantenimiento </h4>
     <div id="particles-container"></div>
     <div id="contador">
         <h3>Fichajes terminan el:</h3>
