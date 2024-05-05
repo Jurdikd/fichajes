@@ -53,7 +53,7 @@
                 <?php
                 // vista para fichajes
                 if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
-                    # si el usuario es administrador o alistador...
+                    # si el usuario es administrador, fichador o alistador...
 
                 ?>
                     <li class="nav-item dropdown">
@@ -117,15 +117,10 @@
                         <span">Ayuda</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
-                        <i class="fas fa-download"></i> Descargar PDF
-                    </a>
-                </li>
                 <?php
                 // vista para usuarios
-                if ($user["id_rol"] == 1) {
-                    # si el usuario es administrador...
+                if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
+                    # si el usuario es administrador... NEW fichador y alistador
 
                 ?>
                     <li class="nav-item dropdown">
@@ -133,7 +128,11 @@
                             <i class="fas fa-info"></i> <span>Info</span>
                         </a>
                         <ul class="dropdown-menu">
-
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>  Ver Estatutos FEDEAV
+                                </a>
+                            </li>
                             <li><a class="dropdown-item" href="<?php echo RUTA_LICENCE; ?>">
                                     <i class="fas fa-card"></i>
                                     <span>Ver Licencia</span>
