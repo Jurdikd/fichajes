@@ -117,6 +117,11 @@
                         <span">Ayuda</span>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
+                        <i class="fas fa-download"></i> Descargar PDF
+                    </a>
+                </li>
                 <?php
                 // vista para usuarios
                 if ($user["id_rol"] == 1) {
