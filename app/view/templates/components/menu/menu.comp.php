@@ -123,7 +123,7 @@
                     # si el usuario es administrador... NEW fichador y alistador
 
                 ?>
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown dropleft">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-info"></i> <span>Info</span>
                         </a>
