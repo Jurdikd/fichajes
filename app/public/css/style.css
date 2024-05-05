@@ -3,7 +3,7 @@
 }
 .body-page{
 	/*background: rgb(0, 0, 0);*/
-	background: #C81E1E;/*164ea1;*/
+	background: #dd4c4c;/*164ea1;*/
 	/*background: rgb(23,157,255);
 	background: linear-gradient(90deg, rgba(23,157,255,1) 0%, rgba(187,238,63,1) 57%, rgba(165,255,16,1) 100%);
 */}
@@ -407,10 +407,16 @@ body {
 	
 	}
   }
+  .hide-on-all {
+	display: none;
+  }
   @media screen and (max-width: 425px) {
 	
 	.float {
 		font-size: 1em;
 	
 	}
+	.hide-on-all {
+		display: block;
+	  }
   }
