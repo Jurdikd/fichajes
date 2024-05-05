@@ -51,13 +51,7 @@
                     </a>
                 </li>   
         </ul> 
-        <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-user"></i>
-                        <span"><?php echo $userLogin["usuario"]; ?></span>
-                    </a>
-                </li>
+        <ul class="navbar-nav mx-auto">
                 <?php
                 // vista para fichajes
                 if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
@@ -125,12 +119,14 @@
                         <span">Ayuda</span>
                     </a>
                 </li>
+            </ul>
                 <?php
                 // vista para usuarios
                 if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
                     # si el usuario es administrador... NEW fichador y alistador
 
                 ?>
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-info"></i> <span>Info</span>
