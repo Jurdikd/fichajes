@@ -113,12 +113,7 @@
                         <span class="badge bg-info">Ver</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="<?php echo RUTA_HELP; ?>">
-                        <i class="fas fa-question-circle"></i>
-                        <span">Ayuda</span>
-                    </a>
-                </li>
+                
             </ul>
                 <?php
                 // vista para usuarios
@@ -148,6 +143,12 @@
                 <?php
                 } # si el usuario no esta habilitado continua el menu
                 ?>
+                <li class="nav-item">
+                    <a class="nav-link" href="<?php echo RUTA_HELP; ?>">
+                        <i class="fas fa-question-circle"></i>
+                        <span">Ayuda</span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_LOGOUT_GENERAL; ?>">
                         <i class="fas fa-sign-out"></i> <span>Salir</span>
