@@ -116,6 +116,7 @@ define("RUTA_CSS", SERVIDOR . "/app/public/css" . "/");
 define("RUTA_JS", SERVIDOR . "/app/public/js" . "/");
 define("RUTA_FAVICON", SERVIDOR . "/app/public/img/favicon" . "/");
 define("RUTA_IMG", SERVIDOR . "/app/public/img" . "/");
+define("RUTA_DONWLOAD", SERVIDOR . "/app/public/donwload" . "/");
 define("DIRECTORIO_RAIZ", realpath(dirname(__FILE__) . "/..")); //para php < 5.3
 // realpath(__DIR__."/..") para php 5.3+
 @session_start();
