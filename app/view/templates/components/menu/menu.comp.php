@@ -43,7 +43,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav me-auto">        
+             <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fas fa-user"></i>
+                        <span"><?php echo $userLogin["usuario"]; ?></span>
+                    </a>
+                </li>   
+        </ul> 
+        <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-user"></i>
