@@ -408,7 +408,7 @@ body {
 	}
   }
   .hide-on-all {
-	display: block !important;
+	display: block;
   }
   @media screen and (max-width: 425px) {
 	
@@ -417,6 +417,6 @@ body {
 	
 	}
 	.hide-on-all {
-		display: none !important;
+		display: none ! important;
 	  }
   }
