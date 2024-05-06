@@ -118,7 +118,9 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         <h5 class="card-title">Boliche</h5>
                                         <p class="card-text">Juego donde se lanzan bolas hacia un conjunto de bolos
                                             para de derribar la mayor cantidad posible.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=boliche" class="btn btn-primary">Ver
+                                    </div>
+                                    <div class="card-footer">
+                                    <a href="<?php echo RUTA_DISCIPLINA; ?>?d=boliche" class="btn btn-small btn-primary">Ver
                                             más</a>
                                     </div>
                                 </div>
