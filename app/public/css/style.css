@@ -384,8 +384,10 @@ body {
     mix-blend-mode: screen;
     color: colora;
 }
-
-
+/*clase paes ocular elementos*/
+.hide-on-all {
+	display: block;
+  }
 /* Estilos para dispositivos con ancho de pantalla menor o igual a 280px */
 @media (max-width: 330px) {
     .card {
@@ -406,17 +408,15 @@ body {
 		font-size: 1.4em;
 	
 	}
+	.hide-on-all {
+		display: none ! important;
+	  }
   }
-  .hide-on-all {
-	display: block;
-  }
+  
   @media screen and (max-width: 425px) {
 	
 	.float {
 		font-size: 1em;
 	
 	}
-	.hide-on-all {
-		display: none ! important;
-	  }
   }
