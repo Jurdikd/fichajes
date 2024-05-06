@@ -43,7 +43,7 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <p>XL JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE
+                <p>XLI JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE
                     ABOGADOS DE VENEZUELA CARABOBO 2024</p>
             </div>
             <div class="col-md-6">
