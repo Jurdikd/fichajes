@@ -63,10 +63,10 @@
                     <li>
                         <span class="text-white">Programador: Copyright © 2023 / 2024</span> <a
                             href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20%C2%BFQu%C3%A9%20tal%20est%C3%A1s?%20Quisiera%20contratar%20los%20servicios%20de%20programaci%C3%B3n"
-                            target="_blank" rel="noopener noreferrer">JESUS A. COVO GARRIDO</a>
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> JESUS A. COVO GARRIDO</a>
                             
                             <a href="https://www.instagram.com/jesuscovo777/" target="_blank">
-          <i class="fa fas-instagram"></i> @jesuscovo777
+          <i class="fab fa-instagram"></i> @jesuscovo777
         </a>
                     </li>
                     <li>
