@@ -35,7 +35,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <p class="text-center mt-2">© 2023 - TODOS LOS
+                <p class="text-center mt-2">© 2023 / 2024 - TODOS LOS
                     DERECHOS
                     RESERVADOS - ABOG. LUCAS CALDERÓN
                 </p>
@@ -44,7 +44,7 @@
         <div class="row">
             <div class="col-md-6">
                 <p>XL JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE
-                    ABOGADOS DE VENEZUELA MERIDA 2023</p>
+                    ABOGADOS DE VENEZUELA CARABOBO 2024</p>
             </div>
             <div class="col-md-6">
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
@@ -61,9 +61,13 @@
                 <h4 class="text-center mt-2 text-white">POWERED BY:</h4>
                 <ul class="bottom_ul footer-ul bg-dark" dir="ltr">
                     <li>
-                        <span class="text-white">Programador: Copyright © 2023</span> <a
+                        <span class="text-white">Programador: Copyright © 2023 / 2024</span> <a
                             href="https://api.whatsapp.com/send?phone=584245649007&text=Hola,%20%C2%BFQu%C3%A9%20tal%20est%C3%A1s?%20Quisiera%20contratar%20los%20servicios%20de%20programaci%C3%B3n"
                             target="_blank" rel="noopener noreferrer">JESUS A. COVO GARRIDO</a>
+                            <span class="text-white"> @jesuscovo777</span>
+                            <a href="https://www.instagram.com/jesuscovo777/" target="_blank">
+          <i class="bi bi-instagram"></i> Seguir en Instagram
+        </a>
                     </li>
                     <li>
                         <span class="text-white">Alojamiento:</span> <a
