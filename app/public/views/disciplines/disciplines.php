@@ -59,6 +59,9 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         <h5 class="card-title">Ajedrez</h5>
                                         <p class="card-text">Juego de estrategia y habilidad mental que involucra
                                             movimientos de piezas en un tablero.</p>
+                                        
+                                    </div>
+                                    <div class="card-footer">
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn btn-primary">Ver
                                             más</a>
                                     </div>
