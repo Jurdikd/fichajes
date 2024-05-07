@@ -207,8 +207,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=natacion">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion.svg"
                                         class="card-img-top p-2" alt="natacion" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Natación</h5>
                                         <p class="card-text">Deporte acuático en el que los nadadores compiten en
@@ -220,8 +222,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=softball">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg"
                                         class="card-img-top p-2" alt="softball" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Softball</h5>
                                         <p class="card-text">Juego similar al béisbol, pero con una pelota más grande y
@@ -233,8 +237,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tenis_de_campo">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_campo.svg"
                                         class="card-img-top p-2" alt="tenis de campo" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Tenis de Campo</h5>
                                         <p class="card-text">Deporte de raqueta en el que dos jugadores o parejas se
@@ -253,8 +259,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             <!-- Resto de las tarjetas -->
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tenis_de_mesa">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_mesa.svg"
                                         class="card-img-top p-2" alt="tenis de mesa" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Tenis de Mesa</h5>
                                         <p class="card-text">Juego de raqueta en el que los jugadores golpean una pelota
@@ -266,8 +274,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tiro">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tiro.svg"
                                         class="card-img-top p-2" alt="tiro" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Tiro</h5>
                                         <p class="card-text">Actividad en la que se dispara un proyectil hacia un
@@ -279,8 +289,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=toros_coleados">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/toros_coleados.svg"
                                         class="card-img-top p-2" alt="toros coleados" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Toros Coleados</h5>
                                         <p class="card-text">Competencia en la que los jinetes deben derribar un toro
@@ -292,8 +304,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=voleibol">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/voleibol.svg"
                                         class="card-img-top p-2" alt="voleibol" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Voleibol</h5>
                                         <p class="card-text">Deporte donde dos equipos se enfrentan en una
