@@ -125,19 +125,19 @@ body.count {
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
 <div class="container mt-5">
-<h4 class="text-center text-white"> El sistema se encuentra en mantenimiento </h4>
+<h2 class="text-center text-white"> EL SISTEMA SE ENCUENTRA EN MANTENIMIENTO...</h2>
     <div id="particles-container"></div>
     <div id="contador">
-        <h3>Comienza <br> 15/05/2024</h3>
+        <h3>Comienza: <br> 15/05/2024</h3>
         <h3>Fichajes terminan el:</h3>
         <span id="dateFichaje"></span>
         <h4>Falta:</h4>
         <span id="contadorDate"></span>
     </div>
 
-    <img class="img-fluid mx-auto my-auto" src="<?php echo RUTA_IMG; ?>logo/fondo-fedeav.svg"
+    <img class="img-fluid mx-auto my-auto mb-3" src="<?php echo RUTA_IMG; ?>logo/fondo-fedeav.svg"
         alt="Fondo fedeav"> 
-        
+
     <div class="rocket-container">
         <div class="rocket"></div>
     </div>
