@@ -62,15 +62,17 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         
                                     </div>
                                     <div class="card-footer">
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn btn-primary">Ver
+                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn btn-small btn-primary">Ver
                                             más</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn">          
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/baloncesto.svg"
                                         class="card-img-top p-2" alt="baloncesto" loading="lazy">
+                                     más</a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Baloncesto</h5>
                                         <p class="card-text">Deporte de equipo que se juega con una pelota y cestas en
