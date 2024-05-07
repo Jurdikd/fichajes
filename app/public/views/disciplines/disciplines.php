@@ -53,26 +53,27 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             <!-- Resto de las tarjetas -->
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez">    
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg"
                                         class="card-img-top p-2" alt="ajedrez" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Ajedrez</h5>
                                         <p class="card-text">Juego de estrategia y habilidad mental que involucra
                                             movimientos de piezas en un tablero.</p>
                                         
-                                    </div>
-                                    <div class="card-footer">
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn btn-small btn-primary">Ver
-                                            más</a>
+                                            <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn btn-small btn-primary">Ver
+                                                más</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn">          
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=baloncesto">          
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/baloncesto.svg"
                                         class="card-img-top p-2" alt="baloncesto" loading="lazy">
-                                     más</a>
+                                        </a>
+                                     </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Baloncesto</h5>
                                         <p class="card-text">Deporte de equipo que se juega con una pelota y cestas en
@@ -84,8 +85,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=billar">  
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg"
                                         class="card-img-top p-2" alt="billar" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Billar</h5>
                                         <p class="card-text">Juego de precisión que se juega con bolas y un taco sobre
@@ -97,8 +100,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=bolas_criollas">  
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/bolas_criollas.svg"
                                         class="card-img-top p-2" alt="bolas criollas" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Bolas Criollas</h5>
                                         <p class="card-text">Deporte tradicional en el que se lanzan bolas metálicas
@@ -117,23 +122,25 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             <!-- Resto de las tarjetas -->
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=boliche">  
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg"
                                         class="card-img-top p-2" alt="boliche" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Boliche</h5>
                                         <p class="card-text">Juego donde se lanzan bolas hacia un conjunto de bolos
                                             para de derribar la mayor cantidad posible.</p>
-                                    </div>
-                                    <div class="card-footer">
-                                    <a href="<?php echo RUTA_DISCIPLINA; ?>?d=boliche" class="btn btn-small btn-primary">Ver
+                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=boliche" class="btn btn-small btn-primary">Ver
                                             más</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=domino">  
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg"
                                         class="card-img-top p-2" alt="domino" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Domino</h5>
                                         <p class="card-text"> Juego de mesa con fichas rectangulares en las que se
@@ -145,8 +152,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_sala">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_sala.svg"
                                         class="card-img-top p-2" alt="futbol sala" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Fútbol Sala</h5>
                                         <p class="card-text">Variante del fútbol que se juega en espacios cerrados con
@@ -158,8 +167,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=kickingball">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg"
                                         class="card-img-top p-2" alt="kickingball" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Kickingball</h5>
                                         <p class="card-text">Deporte similar al béisbol, pero se golpea una pelota con
@@ -180,8 +191,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
 
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=maraton">
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg"
                                         class="card-img-top p-2" alt="maraton" loading="lazy">
+                                        </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Maratón</h5>
                                         <p class="card-text">Carrera de larga distancia en la que participan
