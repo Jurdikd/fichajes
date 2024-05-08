@@ -84,12 +84,23 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg" alt="kickingball" width="30" class="img-fluid me-3">
     Kickingball
   </li>
-  
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg" alt="billar" width="30" class="img-fluid me-3">
+    Billar
+  </li>
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/bolas_criollas.svg" alt="bolas_criollas" width="30" class="img-fluid me-3">
+    Bolas Criollas
+  </li>
   </ul>
     </div>
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
+    <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg" alt="maraton" width="30" class="img-fluid me-3">
+    Maratón
+  </li>
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion.svg" alt="natacion" width="30" class="img-fluid me-3">
     Natación
   </li>
