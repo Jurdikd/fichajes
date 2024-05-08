@@ -63,7 +63,12 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/baloncesto.svg" alt="baloncesto" width="30" class="img-fluid me-3">
     Baloncesto
   </li>
-  <li class="d-flex align-items-center mb-3">
+  
+  </ul>
+    </div>
+    <div class="col-3 col-md-3">
+    <ul class="list-group list-group-flush">
+    <li class="d-flex align-items-center mb-3">
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3">
     Boliche
   </li>
@@ -71,10 +76,6 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg" alt="domino" width="30" class="img-fluid me-3">
     Domino
   </li>
-  </ul>
-    </div>
-    <div class="col-3 col-md-3">
-    <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_sala.svg" alt="futbol_sala" width="30" class="img-fluid me-3">
     Fútbol Sala
@@ -83,7 +84,12 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg" alt="kickingball" width="30" class="img-fluid me-3">
     Kickingball
   </li>
-  <li class="d-flex align-items-center mb-3">
+  
+  </ul>
+    </div>
+    <div class="col-3 col-md-3">
+    <ul class="list-group list-group-flush">
+    <li class="d-flex align-items-center mb-3">
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion.svg" alt="natacion" width="30" class="img-fluid me-3">
     Natación
   </li>
@@ -91,15 +97,15 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg" alt="softball" width="30" class="img-fluid me-3">
     Softball
   </li>
+    <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_campo.svg" alt="tenis_de_campo" width="30" class="img-fluid me-3">
+    Tenis de Campo
+  </li>
   </ul>
     </div>
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_campo.svg" alt="tenis_de_campo" width="30" class="img-fluid me-3">
-    Tenis de Campo
-  </li>
-  <li class="d-flex align-items-center mb-3">
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_mesa.svg" alt="tenis_de_mesa" width="30" class="img-fluid me-3">
     Tenis de Mesa
   </li>
@@ -107,14 +113,6 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tiro.svg" alt="tiro" width="30" class="img-fluid me-3">
     Tiro
   </li>
-  <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/.svg" alt="" width="30" class="img-fluid me-3">
-    
-  </li>
-  </ul>
-    </div>
-    <div class="col-3 col-md-3">
-    <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/toros_coleados.svg" alt="toros_coleados" width="30" class="img-fluid me-3">
     Toros Coleados
