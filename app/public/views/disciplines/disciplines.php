@@ -50,6 +50,17 @@ include_once "app/view/templates/components/menu/menu.comp.php";
 </p>
 <div class="collapse show" id="collapseLegend">
   <div class="card card-body bg-dark text-white">
+  <ul class="list-group list-group-flush">
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg" alt="ajedrez" width="30" class="img-fluid me-3">
+    Ajedrez
+  </li>
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/baloncesto.svg" alt="baloncesto" width="30" class="img-fluid me-3">
+    Baloncesto
+  </li>
+  </ul>
+
 Ajedrez <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg"
                                         class="card-img-top p-2" alt="ajedrez" width="20" loading="lazy"> Baloncesto Billar Billar Bolas Criollas
 Boliche Domino Fútbol Sala Kickingball 
