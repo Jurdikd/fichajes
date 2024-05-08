@@ -64,12 +64,12 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     Baloncesto
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3" loading="lazy">
-    Boliche
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg" alt="billar" width="30" class="img-fluid me-3" loading="lazy">
+    Billar
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg" alt="domino" width="30" class="img-fluid me-3" loading="lazy">
-    Domino
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/bolas_criollas.svg" alt="bolas_criollas" width="30" class="img-fluid me-3" loading="lazy">
+    Bolas Criollas
   </li>
   </ul>
     </div>
@@ -85,12 +85,12 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     Kickingball
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg" alt="billar" width="30" class="img-fluid me-3" loading="lazy">
-    Billar
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3" loading="lazy">
+    Boliche
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/bolas_criollas.svg" alt="bolas_criollas" width="30" class="img-fluid me-3" loading="lazy">
-    Bolas Criollas
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg" alt="domino" width="30" class="img-fluid me-3" loading="lazy">
+    Domino
   </li>
   </ul>
     </div>
