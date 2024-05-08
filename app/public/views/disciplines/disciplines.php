@@ -44,15 +44,13 @@ include_once "app/view/templates/components/menu/menu.comp.php";
 ?>
 
 <div class="container mt-5 mb-5">
-<button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend">
+<button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend">
     Leyenda de íconos
   </button>
 </p>
-<div class="collapse show" id="collapseLegend">
+<div class="collapse mb-4" id="collapseLegend">
   <div class="card card-body bg-dark text-white">
-    <div class="row">
-
-   
+    <div class="row">   
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
