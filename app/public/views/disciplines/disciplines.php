@@ -339,7 +339,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                     <div class="container">
                         <div class="row">
                             <!-- Resto de las tarjetas -->
-                            <div class="col-4 col-md-5">
+                            <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
                                 <a href="<?php echo RUTA_DISCIPLINA; ?>?d=golf">    
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/golf.svg"
@@ -355,7 +355,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4 col-md-5">
+                            <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
                                 <a href="<?php echo RUTA_DISCIPLINA; ?>?d=natacion_aguas_abiertas">          
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion_aguas_abiertas.svg"
@@ -371,6 +371,38 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-3 col-md-3">
+                                <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=beach_tenis">    
+                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/beach_tenis.svg"
+                                        class="card-img-top p-2" alt="beach_tenis" loading="lazy">
+                                        </a>
+                                    <div class="card-body hide-on-all">
+                                        <h5 class="card-title">Beach Tenis</h5>
+                                        <p class="card-text">Juego de estrategia y habilidad mental que involucra
+                                            movimientos de piezas en un tablero.</p>
+                                        
+                                            <a href="<?php echo RUTA_DISCIPLINA; ?>?d=beach_tenis" class="btn btn-small btn-primary">Ver
+                                                más</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 col-md-3">
+                                <div class="card bg-dark text-white">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=padel">          
+                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/padel.svg"
+                                        class="card-img-top p-2" alt="padel" loading="lazy">
+                                        </a>
+                                     </a>
+                                    <div class="card-body hide-on-all">
+                                        <h5 class="card-title">Padel</h5>
+                                        <p class="card-text">Deporte de equipo que se juega con una pelota y cestas en
+                                            ambos extremos de la cancha.</p>
+                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=padel"
+                                            class="btn btn-primary">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -380,65 +412,34 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             <!-- Resto de las tarjetas -->
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=boliche">  
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg"
-                                        class="card-img-top p-2" alt="boliche" loading="lazy">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_campo_libre">  
+                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_campo_libre.svg"
+                                        class="card-img-top p-2" alt="futbol_campo_libre" loading="lazy">
                                         </a>
                                     <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Boliche</h5>
+                                        <h5 class="card-title">Fútbol cámpo libre</h5>
                                         <p class="card-text">Juego donde se lanzan bolas hacia un conjunto de bolos
                                             para de derribar la mayor cantidad posible.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=boliche" class="btn btn-small btn-primary">Ver
+                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_campo_libre" class="btn btn-small btn-primary">Ver
                                             más</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-3 col-md-3">
                                 <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=domino">  
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg"
-                                        class="card-img-top p-2" alt="domino" loading="lazy">
+                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_campo_+50">  
+                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_campo_+50.svg"
+                                        class="card-img-top p-2" alt="futbol_campo_+50" loading="lazy">
                                         </a>
                                     <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Domino</h5>
+                                        <h5 class="card-title">Fútbol cámpo +50</h5>
                                         <p class="card-text"> Juego de mesa con fichas rectangulares en las que se
                                             muestran combinaciones de puntos.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=domino" class="btn btn-primary">Ver
+                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_campo_+50" class="btn btn-primary">Ver
                                             más</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_sala">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_sala.svg"
-                                        class="card-img-top p-2" alt="futbol sala" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Fútbol Sala</h5>
-                                        <p class="card-text">Variante del fútbol que se juega en espacios cerrados con
-                                            equipos de cinco jugadores.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_sala"
-                                            class="btn btn-primary">Ver más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=kickingball">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg"
-                                        class="card-img-top p-2" alt="kickingball" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Kickingball</h5>
-                                        <p class="card-text">Deporte similar al béisbol, pero se golpea una pelota con
-                                            el pie en lugar de un bate.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=kickingball"
-                                            class="btn btn-primary">Ver más</a>
-                                    </div>
-                                </div>
-                            </div>
-
+                            </div>                          
                         </div>
                     </div>
                 </div>
