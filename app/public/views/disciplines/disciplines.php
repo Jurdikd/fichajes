@@ -56,19 +56,19 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg" alt="ajedrez" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg" alt="ajedrez" width="30" class="img-fluid me-3" loading="lazy">
     Ajedrez
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/baloncesto.svg" alt="baloncesto" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/baloncesto.svg" alt="baloncesto" width="30" class="img-fluid me-3" loading="lazy">
     Baloncesto
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3" loading="lazy">
     Boliche
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg" alt="domino" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg" alt="domino" width="30" class="img-fluid me-3" loading="lazy">
     Domino
   </li>
   </ul>
@@ -77,19 +77,19 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <ul class="list-group list-group-flush">
     
     <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_sala.svg" alt="futbol_sala" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_sala.svg" alt="futbol_sala" width="30" class="img-fluid me-3" loading="lazy">
     Fútbol Sala
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg" alt="kickingball" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg" alt="kickingball" width="30" class="img-fluid me-3" loading="lazy">
     Kickingball
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg" alt="billar" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg" alt="billar" width="30" class="img-fluid me-3" loading="lazy">
     Billar
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/bolas_criollas.svg" alt="bolas_criollas" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/bolas_criollas.svg" alt="bolas_criollas" width="30" class="img-fluid me-3" loading="lazy">
     Bolas Criollas
   </li>
   </ul>
@@ -97,19 +97,19 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
-    <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg" alt="maraton" width="30" class="img-fluid me-3">
+        <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg" alt="maraton" width="30" class="img-fluid me-3" loading="lazy">
     Maratón
   </li>
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion.svg" alt="natacion" width="30" class="img-fluid me-3">
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion.svg" alt="natacion" width="30" class="img-fluid me-3" loading="lazy">
     Natación
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg" alt="softball" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg" alt="softball" width="30" class="img-fluid me-3" loading="lazy">
     Softball
   </li>
     <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_campo.svg" alt="tenis_de_campo" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_campo.svg" alt="tenis_de_campo" width="30" class="img-fluid me-3" loading="lazy">
     Tenis de Campo
   </li>
   </ul>
@@ -117,19 +117,19 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
     <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_mesa.svg" alt="tenis_de_mesa" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_mesa.svg" alt="tenis_de_mesa" width="30" class="img-fluid me-3" loading="lazy">
     Tenis de Mesa
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tiro.svg" alt="tiro" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tiro.svg" alt="tiro" width="30" class="img-fluid me-3" loading="lazy">
     Tiro
   </li>
     <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/toros_coleados.svg" alt="toros_coleados" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/toros_coleados.svg" alt="toros_coleados" width="30" class="img-fluid me-3" loading="lazy">
     Toros Coleados
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/voleibol.svg" alt="voleibol" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/voleibol.svg" alt="voleibol" width="30" class="img-fluid me-3" loading="lazy">
     Voleibol
   </li>
   </ul>
