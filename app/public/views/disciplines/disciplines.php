@@ -363,40 +363,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         </a>
                                      </a>
                                     <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Natación aguas abiertas</h5>
+                                        <h5 class="card-title">Natación Aguas Abiertas</h5>
                                         <p class="card-text">Deporte de equipo que se juega con una pelota y cestas en
                                             ambos extremos de la cancha.</p>
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=natacion_aguas_abiertas"
-                                            class="btn btn-primary">Ver más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=billar">  
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/billar.svg"
-                                        class="card-img-top p-2" alt="billar" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Billar</h5>
-                                        <p class="card-text">Juego de precisión que se juega con bolas y un taco sobre
-                                            una mesa cubierta de paño.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=billar" class="btn btn-primary">Ver
-                                            más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=bolas_criollas">  
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/bolas_criollas.svg"
-                                        class="card-img-top p-2" alt="bolas criollas" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Bolas Criollas</h5>
-                                        <p class="card-text">Deporte tradicional en el que se lanzan bolas metálicas
-                                            para acercarse a un objetivo.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=bolas_criollas"
                                             class="btn btn-primary">Ver más</a>
                                     </div>
                                 </div>
