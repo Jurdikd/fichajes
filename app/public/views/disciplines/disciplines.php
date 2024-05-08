@@ -339,7 +339,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                     <div class="container">
                         <div class="row">
                             <!-- Resto de las tarjetas -->
-                            <div class="col-3 col-md-3">
+                            <div class="col-4 col-md-5">
                                 <div class="card bg-dark text-white">
                                 <a href="<?php echo RUTA_DISCIPLINA; ?>?d=golf">    
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/golf.svg"
@@ -355,7 +355,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-3 col-md-3">
+                            <div class="col-4 col-md-5">
                                 <div class="card bg-dark text-white">
                                 <a href="<?php echo RUTA_DISCIPLINA; ?>?d=natacion_aguas_abiertas">          
                                     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion_aguas_abiertas.svg"
@@ -439,143 +439,6 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                 </div>
                             </div>
 
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item p-2 ">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Resto de las tarjetas -->
-
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=maraton">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/maraton.svg"
-                                        class="card-img-top p-2" alt="maraton" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Maratón</h5>
-                                        <p class="card-text">Carrera de larga distancia en la que participan
-                                            diferentes atletas.
-                                        </p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=maraton" class="btn btn-primary">Ver
-                                            más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=natacion">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/natacion.svg"
-                                        class="card-img-top p-2" alt="natacion" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Natación</h5>
-                                        <p class="card-text">Deporte acuático en el que los nadadores compiten en
-                                            diferentes estilos y distancias.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=natacion" class="btn btn-primary">Ver
-                                            más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=softball">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/softball.svg"
-                                        class="card-img-top p-2" alt="softball" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Softball</h5>
-                                        <p class="card-text">Juego similar al béisbol, pero con una pelota más grande y
-                                            un campo de juego más pequeño.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=softball" class="btn btn-primary">Ver
-                                            más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tenis_de_campo">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_campo.svg"
-                                        class="card-img-top p-2" alt="tenis de campo" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Tenis de Campo</h5>
-                                        <p class="card-text">Deporte de raqueta en el que dos jugadores o parejas se
-                                            enfrentan en una cancha rectangular.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tenis_de_campo"
-                                            class="btn btn-primary">Ver más</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item p-2 ">
-                    <div class="container">
-                        <div class="row">
-                            <!-- Resto de las tarjetas -->
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tenis_de_mesa">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tenis_de_mesa.svg"
-                                        class="card-img-top p-2" alt="tenis de mesa" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Tenis de Mesa</h5>
-                                        <p class="card-text">Juego de raqueta en el que los jugadores golpean una pelota
-                                            sobre una mesa dividida por una red.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tenis_de_mesa"
-                                            class="btn btn-primary">Ver más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tiro">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/tiro.svg"
-                                        class="card-img-top p-2" alt="tiro" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Tiro</h5>
-                                        <p class="card-text">Actividad en la que se dispara un proyectil hacia un
-                                            objetivo utilizando armas de fuego o arcos.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=tiro" class="btn btn-primary">Ver
-                                            más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=toros_coleados">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/toros_coleados.svg"
-                                        class="card-img-top p-2" alt="toros coleados" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Toros Coleados</h5>
-                                        <p class="card-text">Competencia en la que los jinetes deben derribar un toro
-                                            agarrándolo por la cola.</p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=toros_coleados"
-                                            class="btn btn-primary">Ver más</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-3 col-md-3">
-                                <div class="card bg-dark text-white">
-                                <a href="<?php echo RUTA_DISCIPLINA; ?>?d=voleibol">
-                                    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/voleibol.svg"
-                                        class="card-img-top p-2" alt="voleibol" loading="lazy">
-                                        </a>
-                                    <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Voleibol</h5>
-                                        <p class="card-text">Deporte donde dos equipos se enfrentan en una
-                                            cancha dividida por una red, golpeando una pelota.
-                                        </p>
-                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=voleibol" class="btn btn-primary">Ver
-                                            más</a>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
