@@ -50,6 +50,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
 </p>
 <div class="collapse mb-4" id="collapseLegend">
   <div class="card card-body bg-dark text-white">
+    <h4 class="text-center text-white">Disciplinas</h4>
     <div class="row">   
      <div class="col-6 col-md-3">
     <ul class="list-group list-group-flush">
