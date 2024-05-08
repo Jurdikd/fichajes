@@ -48,9 +48,13 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     Leyenda de íconos
   </button>
 </p>
-<div class="collapse" id="collapseLegend">
-  <div class="card card-body">
-    
+<div class="collapse show" id="collapseLegend">
+  <div class="card card-body bg-dark text-white">
+Ajedrez <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg"
+                                        class="card-img-top p-2" alt="ajedrez" width="20" loading="lazy"> Baloncesto Billar Billar Bolas Criollas
+Boliche Domino Fútbol Sala Kickingball 
+Natación Softball Tenis de Campo
+Tenis de Mesa Tiro Toros Coleados Voleibol
   </div>
 </div>
 <h2 class="text-white text-center">Disciplinas</h2>
@@ -342,7 +346,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
             </button>
         </div>
     </div>
-    <h2 class="text-white text-center">Disciplinas Exhibición</h2>
+    <h2 class="text-white text-center mt-4">Disciplinas Exhibición</h2>
     <div class="row">
         <div id="diciplinesExibitionCarousel" class="carousel slide mt-2" data-bs-ride="carousel">
             <div class="carousel-inner">
