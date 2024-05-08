@@ -50,6 +50,22 @@ include_once "app/view/templates/components/menu/menu.comp.php";
 </p>
 <div class="collapse show" id="collapseLegend">
   <div class="card card-body bg-dark text-white">
+    <div class="col-3 col-md-3">
+    <ul class="list-group list-group-flush">
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg" alt="ajedrez" width="30" class="img-fluid me-3">
+    Ajedrez
+  </li>
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/baloncesto.svg" alt="baloncesto" width="30" class="img-fluid me-3">
+    Baloncesto
+  </li>
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3">
+    Boliche
+  </li>
+  </ul>
+    </div>
   <ul class="list-group list-group-flush">
   <li class="d-flex align-items-center mb-3">
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/ajedrez.svg" alt="ajedrez" width="30" class="img-fluid me-3">
@@ -104,7 +120,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     Toros Coleados
   </li>
   <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/.svg" alt="" width="30" class="img-fluid me-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/voleibol.svg" alt="voleibol" width="30" class="img-fluid me-3">
     Voleibol
   </li>
   </ul>
