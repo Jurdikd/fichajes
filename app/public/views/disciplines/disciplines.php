@@ -44,6 +44,16 @@ include_once "app/view/templates/components/menu/menu.comp.php";
 ?>
 
 <div class="container mt-5 mb-5">
+<button class="btn btn-info" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend">
+    Leyenda de íconos
+  </button>
+</p>
+<div class="collapse" id="collapseLegend">
+  <div class="card card-body">
+    
+  </div>
+</div>
+<h2 class="text-white text-center">Disciplinas</h2>
     <div class="row">
         <div id="diciplinesCarousel" class="carousel slide mt-2" data-bs-ride="carousel">
             <div class="carousel-inner">
@@ -332,6 +342,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
             </button>
         </div>
     </div>
+    <h2 class="text-white text-center">Disciplinas Exhibición</h2>
     <div class="row">
         <div id="diciplinesExibitionCarousel" class="carousel slide mt-2" data-bs-ride="carousel">
             <div class="carousel-inner">
