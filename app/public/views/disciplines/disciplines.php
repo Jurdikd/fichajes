@@ -75,7 +75,14 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     </div>
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
-    
+    <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3" loading="lazy">
+    Boliche
+  </li>
+  <li class="d-flex align-items-center mb-3">
+    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg" alt="domino" width="30" class="img-fluid me-3" loading="lazy">
+    Domino
+  </li>
     <li class="d-flex align-items-center mb-3">
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_sala.svg" alt="futbol_sala" width="30" class="img-fluid me-3" loading="lazy">
     Fútbol Sala
@@ -84,14 +91,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg" alt="kickingball" width="30" class="img-fluid me-3" loading="lazy">
     Kickingball
   </li>
-  <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/boliche.svg" alt="boliche" width="30" class="img-fluid me-3" loading="lazy">
-    Boliche
-  </li>
-  <li class="d-flex align-items-center mb-3">
-    <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/domino.svg" alt="domino" width="30" class="img-fluid me-3" loading="lazy">
-    Domino
-  </li>
+  
   </ul>
     </div>
     <div class="col-3 col-md-3">
