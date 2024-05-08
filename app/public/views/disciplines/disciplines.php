@@ -50,6 +50,9 @@ include_once "app/view/templates/components/menu/menu.comp.php";
 </p>
 <div class="collapse show" id="collapseLegend">
   <div class="card card-body bg-dark text-white">
+    <div class="row">
+
+   
     <div class="col-3 col-md-3">
     <ul class="list-group list-group-flush">
   <li class="d-flex align-items-center mb-3">
@@ -113,6 +116,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     Boliche
   </li>
   </ul>
+    </div>
     </div>
   <ul class="list-group list-group-flush">
   <li class="d-flex align-items-center mb-3">
