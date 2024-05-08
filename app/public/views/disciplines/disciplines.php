@@ -440,10 +440,8 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Golf</h5>
-                                        <p class="card-text">Juego de estrategia y habilidad mental que involucra
-                                            movimientos de piezas en un tablero.</p>
-                                        
-                                            <a href="<?php echo RUTA_DISCIPLINA; ?>?d=golf" class="btn btn-small btn-primary">Ver
+                                        <p class="card-text">Precisión individual: Golpear bola con palos hacia hoyos en campo al aire libre (mínimos golpes).</p>
+                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=golf" class="btn btn-small btn-primary">Ver
                                                 más</a>
                                     </div>
                                 </div>
@@ -457,8 +455,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                      </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Natación Aguas Abiertas</h5>
-                                        <p class="card-text">Deporte de equipo que se juega con una pelota y cestas en
-                                            ambos extremos de la cancha.</p>
+                                        <p class="card-text">Resistencia acuática: Nadar en espacios naturales (mares, lagos, ríos) sin asistencia (distancias largas).</p>
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=natacion_aguas_abiertas"
                                             class="btn btn-primary">Ver más</a>
                                     </div>
@@ -472,8 +469,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         </a>
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Beach Tenis</h5>
-                                        <p class="card-text">Juego de estrategia y habilidad mental que involucra
-                                            movimientos de piezas en un tablero.</p>
+                                        <p class="card-text">Raqueta y pelota en arena: Parejas o individual (golpear pelota con raquetas pequeñas en cancha de arena).</p>
                                         
                                             <a href="<?php echo RUTA_DISCIPLINA; ?>?d=beach_tenis" class="btn btn-small btn-primary">Ver
                                                 más</a>
@@ -488,9 +484,8 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         </a>
                                      </a>
                                     <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Padel</h5>
-                                        <p class="card-text">Deporte de equipo que se juega con una pelota y cestas en
-                                            ambos extremos de la cancha.</p>
+                                        <h5 class="card-title">Pádel</h5>
+                                        <p class="card-text">Raqueta y pelota en pista cerrada: Parejas (golpear pelota con raquetas sólidas en pista con paredes de rejilla).</p>
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=padel"
                                             class="btn btn-primary">Ver más</a>
                                     </div>
@@ -510,9 +505,8 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         class="card-img-top p-2" alt="futbol_campo_libre" loading="lazy">
                                         </a>
                                     <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Fútbol cámpo libre</h5>
-                                        <p class="card-text">Juego donde se lanzan bolas hacia un conjunto de bolos
-                                            para de derribar la mayor cantidad posible.</p>
+                                        <h5 class="card-title">Fútbol campo libre</h5>
+                                        <p class="card-text">Equipo con pelota en campo grande: 11 jugadores (introducir pelota en portería contraria con pases, conducciones y remates).</p>
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_campo_libre" class="btn btn-small btn-primary">Ver
                                             más</a>
                                     </div>
@@ -525,9 +519,8 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         class="card-img-top p-2" alt="futbol_campo_+50" loading="lazy">
                                         </a>
                                     <div class="card-body hide-on-all">
-                                        <h5 class="card-title">Fútbol cámpo +50</h5>
-                                        <p class="card-text"> Juego de mesa con fichas rectangulares en las que se
-                                            muestran combinaciones de puntos.</p>
+                                        <h5 class="card-title">Fútbol campo +50</h5>
+                                        <p class="card-text">Variante para mayores de 50 años: Reglas similares al fútbol campo tradicional estilo Masters.</p>
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_campo_+50" class="btn btn-primary">Ver
                                             más</a>
                                     </div>
