@@ -42,7 +42,6 @@ $titulo = "Disciplinas";
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 include_once "app/view/templates/components/menu/menu.comp.php";
 ?>
-
 <div class="container mt-5 mb-5">
 <button class="btn btn-dark" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLegend" aria-expanded="false" aria-controls="collapseLegend">
 <span><i class="fas fa-bars"></i></span> Leyenda de íconos
@@ -90,8 +89,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
     <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/kickingball.svg" alt="kickingball" width="30" class="img-fluid me-3" loading="lazy">
     Kickingball
   </li>
-  
-  </ul>
+    </ul>
     </div>
      <div class="col-6 col-md-3">
     <ul class="list-group list-group-flush">
@@ -153,8 +151,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                     <div class="card-body hide-on-all">
                                         <h5 class="card-title">Ajedrez</h5>
                                         <p class="card-text">Juego de estrategia y habilidad mental que involucra
-                                            movimientos de piezas en un tablero.</p>
-                                        
+                                            movimientos de piezas en un tablero.</p>                                        
                                             <a href="<?php echo RUTA_DISCIPLINA; ?>?d=ajedrez" class="btn btn-small btn-primary">Ver
                                                 más</a>
                                     </div>
