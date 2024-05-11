@@ -35,41 +35,39 @@
 
 
 
-$nombreDisciplina = "Fútbol campo +50";
-$nombreCortoDisciplina = "futbol_campo_+50";
-
 try {
 
-    // Verificar si la disciplina ya existe
-    $existeDisciplina = false;
+    // Preparar consulta para recuperar todos los registros
+    $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
 
-    $consultaVerificar = Conexion::obtener_conexion()->prepare("SELECT COUNT(*) FROM disciplinas WHERE name_disciplina = ?");
-    $consultaVerificar->bindParam(1, $nombreDisciplina);
-    $consultaVerificar->execute();
+    // Ejecutar la consulta
+    $consulta->execute();
 
-    $totalDisciplinas = $consultaVerificar->fetchColumn();
+    // Obtener los resultados como un array asociativo
+    $disciplinas = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-    if ($totalDisciplinas > 0) {
-        $existeDisciplina = true;
-    }
 
-    // Insertar disciplina si no existe
-    if (!$existeDisciplina) {
-        $consulta = Conexion::obtener_conexion()->prepare("INSERT INTO disciplinas (name_disciplina, name_short_disciplina) VALUES (?, ?)");
-        $consulta->bindParam(1, $nombreDisciplina);
-        $consulta->bindParam(2, $nombreCortoDisciplina);
-        $consulta->execute();
 
-        echo "Datos de la disciplina insertados correctamente.";
+    // Recorrer y mostrar los datos de las disciplinas
+    if (count($disciplinas) > 0) {
+        echo "<h3>Lista de disciplinas</h3>";
+        echo "<table border=1>";
+        echo "<tr><th>ID Disciplina</th><th>Nombre Disciplina</th><th>Nombre Corto Disciplina</th></tr>";
+        foreach ($disciplinas as $disciplina) {
+            echo "<tr>";
+            echo "<td>" . $disciplina['id_disciplina'] . "</td>";
+            echo "<td>" . $disciplina['name_disciplina'] . "</td>";
+            echo "<td>" . $disciplina['name_short_disciplina'] . "</td>";
+            echo "</tr>";
+        }
+        echo "</table>";
     } else {
-        echo "La disciplina '{$nombreDisciplina}' ya existe en la tabla.";
+        echo "No se encontraron disciplinas en la tabla.";
     }
-
-    // Cerrar conexión a la base de datos
-    Conexion::cerrar_conexion();
 } catch (PDOException $e) {
-    echo "Error al insertar datos: " . $e->getMessage();
+    echo "Error al recuperar datos: " . $e->getMessage();
 }
+
 
 
 ?>
