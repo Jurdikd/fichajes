@@ -39,11 +39,9 @@ if (!ControlSesion::sesion_iniciada()) {
 $userLogin = ControlSesion::datos_sesion();
 
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
-if ($user["id_rol"] !== 1 && $user["id_rol"] !== 2 && $user["id_rol"] !== 4) {
+if (intval($user["id_rol"]) !== 1 && intval($user["id_rol"]) !== 2 && intval($user["id_rol"]) !== 4) {
     # code...
-    echo "rol: " . $user["id_rol"];
-    echo var_dump($user["id_rol"]) . " " . var_dump(intval($user["id_rol"]));
-    ##Redireccion::redirigir(RUTA_GENERAL);
+    Redireccion::redirigir(RUTA_GENERAL);
 }
 $titulo = "Crear Fichaje";
 include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";

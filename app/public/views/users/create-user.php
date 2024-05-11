@@ -39,7 +39,7 @@ if (!ControlSesion::sesion_iniciada()) {
 $userLogin = ControlSesion::datos_sesion();
 
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
-if ($user["id_rol"] !== 1 && $user["id_rol"] !== 4) {
+if (intval($user["id_rol"]) !== 1 && intval($user["id_rol"]) !== 4) {
     # code...
     Redireccion::redirigir(RUTA_GENERAL);
 }

@@ -6,7 +6,7 @@ if (!ControlSesion::sesion_iniciada()) {
 // Datos usuario en sesion
 $userLogin = ControlSesion::datos_sesion();
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
-if ($user["id_rol"] !== 1 && $user["id_rol"] !== 4) {
+if (intval($user["id_rol"]) !== 1 && intval($user["id_rol"]) !== 4) {
     // Código si el id_rol no es igual a 1 ni a 4
 
     Redireccion::redirigir(RUTA_GENERAL);
