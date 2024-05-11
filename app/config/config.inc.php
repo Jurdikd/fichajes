@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -34,7 +35,7 @@
 
 define('NOMBRE_PRINCIPAL', 'Fichajes FEDEAV'); #nombre
 /* Rutas de la web
-http://localhost/instarapid/
+http://localhost/fedeav/
     ** Colocar el url del dominio entre comillas y reemplazarlo con el nombre del dominio final
     Nota si es http o https colocar s porque por defecto viene http
     */
@@ -42,7 +43,7 @@ define("HTTPS", $_SERVER["REQUEST_SCHEME"] . "://");
 define("DOMINIO", $_SERVER['SERVER_NAME']);
 define("PUERTO", $_SERVER['SERVER_PORT']);
 // Verificación de servidor de prueba u oficial
-$dbSet = false; # verofica si estamos en db de local
+$dbSet = false; # verifica si estamos en db de local
 if (PUERTO === "80" || PUERTO === "443") {
     define("SERVIDOR", HTTPS . DOMINIO);
     $dbSet = true;
