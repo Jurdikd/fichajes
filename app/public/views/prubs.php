@@ -35,41 +35,6 @@
 
 
 
-try {
-
-    // Preparar consulta para recuperar todos los registros
-    $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
-
-    // Ejecutar la consulta
-    $consulta->execute();
-
-    // Obtener los resultados como un array asociativo
-    $disciplinas = $consulta->fetchAll(PDO::FETCH_ASSOC);
-
-
-
-    // Recorrer y mostrar los datos de las disciplinas
-    if (count($disciplinas) > 0) {
-        echo "<h3>Lista de disciplinas</h3>";
-        echo "<table border=1>";
-        echo "<tr><th>ID Disciplina</th><th>Nombre Disciplina</th><th>Nombre Corto Disciplina</th></tr>";
-        foreach ($disciplinas as $disciplina) {
-            echo "<tr>";
-            echo "<td>" . $disciplina['id_disciplina'] . "</td>";
-            echo "<td>" . $disciplina['name_disciplina'] . "</td>";
-            echo "<td>" . $disciplina['name_short_disciplina'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-    } else {
-        echo "No se encontraron disciplinas en la tabla.";
-    }
-} catch (PDOException $e) {
-    echo "Error al recuperar datos: " . $e->getMessage();
-}
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es-VE">
