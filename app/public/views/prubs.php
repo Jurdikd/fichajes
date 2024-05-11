@@ -35,8 +35,8 @@
 
 
 
-$nombreDisciplina = "Golf";
-$nombreCortoDisciplina = "golf";
+$nombreDisciplina = "Natación Aguas Abiertas";
+$nombreCortoDisciplina = "natacion_aguas_abiertas";
 
 try {
 
