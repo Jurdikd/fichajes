@@ -42,7 +42,7 @@ $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
 if ($user["id_rol"] !== 1 && $user["id_rol"] !== 2 && $user["id_rol"] !== 4) {
     # code...
     echo "rol: " . $user["id_rol"];
-    echo var_dump($user["id_rol"]);
+    echo var_dump($user["id_rol"]) . " " . var_dump(intval($user["id_rol"]));
     ##Redireccion::redirigir(RUTA_GENERAL);
 }
 $titulo = "Crear Fichaje";
