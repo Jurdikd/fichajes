@@ -128,33 +128,33 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
-                                    <i class="fas fa-download"></i>
-                                    <span>Estatutos Fedeav2024</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" download="carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" class="btn btn-primary text-white">
                                     <i class="fas fa-download"></i>
-                                    <span>Carta Fundamental y Código Disciplinario Fedeav2024</span>
+                                    <span>Carta Fundamental y Código Disciplinario Fedeav-2024</span>
                                 </a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>disposiciones-generalesg-fedeav2024.pdf" download="Disposiciones Generales Fedeav2024.pdf" class="btn btn-primary text-white">
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>disposiciones-generalesg-fedeav2024.pdf" download="disposiciones-generalesg-fedeav2024.pdf" class="btn btn-primary text-white">
                                     <i class="fas fa-download"></i>
-                                    <span>Disposiciones Generales Fedeav2024</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
-                                    <i class="fas fa-download"></i>
-                                    <span>Estatutos FEDEAV</span>
+                                    <span>Disposiciones Generales Fedeav-2024</span>
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
                                     <i class="fas fa-download"></i>
-                                    <span>Estatutos FEDEAV</span>
+                                    <span>Estatutos Fedeav-2024</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>reglamento-fedeav2024.pdf" download="reglamento-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Reglamento Fedeav-2024</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>reglamento-voz-del-abogado-fedeav2024.pdf" download="reglamento-voz-del-abogado-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Reglamento Voz del Abogado Fedeav-2024</span>
                                 </a>
                             </li>
                             <li><a class="dropdown-item" href="<?php echo RUTA_LICENCE; ?>">
