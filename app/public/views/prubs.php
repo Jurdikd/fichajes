@@ -35,8 +35,8 @@
 
 
 
-$nombreDisciplina = "Beach Tenis";
-$nombreCortoDisciplina = "beach_tenis";
+$nombreDisciplina = "Pádel";
+$nombreCortoDisciplina = "padel";
 
 try {
 
