@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -38,9 +39,8 @@ if (!ControlSesion::sesion_iniciada()) {
 $userLogin = ControlSesion::datos_sesion();
 
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
-if ($user["id_rol"] !== "1" && $user["id_rol"] !== "2" && $user["id_rol"] !== "4") {
+if ($user["id_rol"] !== 1 && $user["id_rol"] !== 2 && $user["id_rol"] !== 4) {
     # code...
-
     Redireccion::redirigir(RUTA_GENERAL);
 }
 $titulo = "Crear Fichaje";
@@ -79,15 +79,13 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="segundo-apellido" class="form-label">Segundo Apellido</label>
-                                    <input type="text" class="form-control" id="segundo-apellido"
-                                        name="segundo-apellido">
+                                    <input type="text" class="form-control" id="segundo-apellido" name="segundo-apellido">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fecha-nacimiento"
-                                        name="fecha-nacimiento">
+                                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento">
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -138,39 +136,38 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                         # colocar select para estados...
 
                                     ?>
-                                    <select class="form-control" id="delegacion" name="delegacion">
-                                        <option></option>
-                                        <option value="524">Amazonas</option>
-                                        <option value="537">Mérida</option>
-                                        <option value="538">Miranda</option>
-                                        <option value="539">Monagas</option>
-                                        <option value="540">Nueva Esparta</option>
-                                        <option value="541">Portuguesa</option>
-                                        <option value="542">Sucre</option>
-                                        <option value="543">Táchira</option>
-                                        <option value="544">Trujillo</option>
-                                        <option value="545">Vargas</option>
-                                        <option value="546">Yaracuy</option>
-                                        <option value="536">Lara</option>
-                                        <option value="535">Guárico</option>
-                                        <option value="525">Anzoátegui</option>
-                                        <option value="526">Apure</option>
-                                        <option value="527">Aragua</option>
-                                        <option value="528">Barinas</option>
-                                        <option value="529">Bolívar</option>
-                                        <option value="530">Carabobo</option>
-                                        <option value="531">Cojedes</option>
-                                        <option value="532">Delta Amacuro</option>
-                                        <option value="533">Distrito Capital</option>
-                                        <option value="534">Falcón</option>
-                                        <option value="547">Zulia</option>
-                                    </select>
+                                        <select class="form-control" id="delegacion" name="delegacion">
+                                            <option></option>
+                                            <option value="524">Amazonas</option>
+                                            <option value="537">Mérida</option>
+                                            <option value="538">Miranda</option>
+                                            <option value="539">Monagas</option>
+                                            <option value="540">Nueva Esparta</option>
+                                            <option value="541">Portuguesa</option>
+                                            <option value="542">Sucre</option>
+                                            <option value="543">Táchira</option>
+                                            <option value="544">Trujillo</option>
+                                            <option value="545">Vargas</option>
+                                            <option value="546">Yaracuy</option>
+                                            <option value="536">Lara</option>
+                                            <option value="535">Guárico</option>
+                                            <option value="525">Anzoátegui</option>
+                                            <option value="526">Apure</option>
+                                            <option value="527">Aragua</option>
+                                            <option value="528">Barinas</option>
+                                            <option value="529">Bolívar</option>
+                                            <option value="530">Carabobo</option>
+                                            <option value="531">Cojedes</option>
+                                            <option value="532">Delta Amacuro</option>
+                                            <option value="533">Distrito Capital</option>
+                                            <option value="534">Falcón</option>
+                                            <option value="547">Zulia</option>
+                                        </select>
                                     <?php   } else {
                                         # colocar input text para estado...
                                         $userEstado = UsersCrt::GetEstado(Conexion::obtener_conexion(), $userLogin["usuario"]);
                                     ?>
-                                    <input type="text" class="form-control" id="delegacion" name="delegacion"
-                                        value="<?php echo strtoupper($userEstado["nombre_estado"]); ?>" readonly>
+                                        <input type="text" class="form-control" id="delegacion" name="delegacion" value="<?php echo strtoupper($userEstado["nombre_estado"]); ?>" readonly>
                                     <?php }; ?>
                                 </div>
                             </div>
@@ -200,7 +197,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                 <button type="button" class="btn btn-warning mb-3" id="resetButton">Resetear
                                     formulario</button>
                             </div>
-                            <button id="btn-submit" type="submit" class="btn btn-primary disabled" >Registrar</button>
+                            <button id="btn-submit" type="submit" class="btn btn-primary disabled">Registrar</button>
 
                         </div>
                     </form>
@@ -215,9 +212,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         ATLETA
                         <span class="fas fa-star text-ficha-discipline"></span>
                     </h5>
-                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2"
-                        src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="" srcset="" width="300"
-                        height="300" loading="lazy">
+                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2" src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="" srcset="" width="300" height="300" loading="lazy">
                     <div class="container-fluid mt-3">
                         <div class="row">
                             <div class="col-7 ps-0">
@@ -260,8 +255,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             </div>
 
                             <div class="col-2 mt-2 pe-0">
-                                <img class="img-fluid rounded" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG"
-                                    alt="Logo fedeav" srcset="">
+                                <img class="img-fluid rounded" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="Logo fedeav" srcset="">
                             </div>
                             <div class="col-12 p-0">
                                 <div class="text-center collapse p-1 pt-0" id="collapseDiscipline">
@@ -286,29 +280,29 @@ include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
 <script src=" <?php echo RUTA_JS; ?>views/fichajes/create-fichaje.js"></script>
 
 <script>
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-document.addEventListener("DOMContentLoaded", function() {
-    // Inicializa los tooltips
-    [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
-    .forEach(el => new bootstrap.Tooltip(el));
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    document.addEventListener("DOMContentLoaded", function() {
+        // Inicializa los tooltips
+        [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
+        .forEach(el => new bootstrap.Tooltip(el));
 
-    // Selecciona todos los botones con la clase .__ficha-btn-plus
-    const collapseButtons = document.querySelectorAll('.__ficha-btn-plus');
+        // Selecciona todos los botones con la clase .__ficha-btn-plus
+        const collapseButtons = document.querySelectorAll('.__ficha-btn-plus');
 
-    // Recorre todos los botones y agrega el evento click
-    collapseButtons.forEach(collapseButton => {
-        const collapseTarget = document.querySelector(collapseButton.getAttribute(
-            'data-bs-target'));
-        const collapse = new bootstrap.Collapse(collapseTarget, {
-            toggle: false
-        });
+        // Recorre todos los botones y agrega el evento click
+        collapseButtons.forEach(collapseButton => {
+            const collapseTarget = document.querySelector(collapseButton.getAttribute(
+                'data-bs-target'));
+            const collapse = new bootstrap.Collapse(collapseTarget, {
+                toggle: false
+            });
 
-        collapseButton.addEventListener('click', () => {
-            collapse.toggle();
+            collapseButton.addEventListener('click', () => {
+                collapse.toggle();
+            });
         });
     });
-});
 </script>
 
 

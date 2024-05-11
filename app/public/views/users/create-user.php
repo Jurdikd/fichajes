@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -38,7 +39,7 @@ if (!ControlSesion::sesion_iniciada()) {
 $userLogin = ControlSesion::datos_sesion();
 
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
-if ($user["id_rol"] !== "1" && $user["id_rol"] !== "4") {
+if ($user["id_rol"] !== 1 && $user["id_rol"] !== 4) {
     # code...
     Redireccion::redirigir(RUTA_GENERAL);
 }
@@ -78,15 +79,13 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="segundo-apellido" class="form-label">Segundo Apellido</label>
-                                    <input type="text" class="form-control" id="segundo-apellido"
-                                        name="segundo-apellido">
+                                    <input type="text" class="form-control" id="segundo-apellido" name="segundo-apellido">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group mb-3">
                                     <label for="fecha-nacimiento" class="form-label">Fecha de Nacimiento</label>
-                                    <input type="date" class="form-control" id="fecha-nacimiento"
-                                        name="fecha-nacimiento">
+                                    <input type="date" class="form-control" id="fecha-nacimiento" name="fecha-nacimiento">
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -222,9 +221,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         ATLETA
                         <span class="fas fa-star text-ficha-discipline"></span>
                     </h5>
-                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2"
-                        src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="" srcset="" width="300"
-                        height="300" loading="lazy">
+                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2" src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="" srcset="" width="300" height="300" loading="lazy">
                     <div class="container-fluid mt-3">
                         <div class="row">
                             <div class="col-7 ps-0">
@@ -261,8 +258,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             </div>
 
                             <div class="col-2 mt-2 pe-0">
-                                <img class="img-fluid rounded" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG"
-                                    alt="Logo fedeav" srcset="">
+                                <img class="img-fluid rounded" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="Logo fedeav" srcset="">
                             </div>
                             <div class="col-12 p-0">
                                 <div class="text-center collapse p-1 pt-0" id="collapseDiscipline">
@@ -288,28 +284,28 @@ include_once "app/view/templates/app-inc-page/cuerpo-body-close.inc.php"; ?>
 <script src=" <?php echo RUTA_JS; ?>views/users/create-user.js"></script>
 
 <script>
-const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
-const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
-document.addEventListener("DOMContentLoaded", function() {
-    // Inicializa los tooltips
-    [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
-    .forEach(el => new bootstrap.Tooltip(el));
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+    document.addEventListener("DOMContentLoaded", function() {
+        // Inicializa los tooltips
+        [...document.querySelectorAll('[data-bs-toggle="tooltip"]')]
+        .forEach(el => new bootstrap.Tooltip(el));
 
-    // Selecciona todos los botones con la clase .__ficha-btn-plus
-    const collapseButtons = document.querySelectorAll('.__ficha-btn-plus');
+        // Selecciona todos los botones con la clase .__ficha-btn-plus
+        const collapseButtons = document.querySelectorAll('.__ficha-btn-plus');
 
-    // Recorre todos los botones y agrega el evento click
-    collapseButtons.forEach(collapseButton => {
-        const collapseTarget = document.querySelector(collapseButton.getAttribute(
-            'data-bs-target'));
-        const collapse = new bootstrap.Collapse(collapseTarget, {
-            toggle: false
-        });
+        // Recorre todos los botones y agrega el evento click
+        collapseButtons.forEach(collapseButton => {
+            const collapseTarget = document.querySelector(collapseButton.getAttribute(
+                'data-bs-target'));
+            const collapse = new bootstrap.Collapse(collapseTarget, {
+                toggle: false
+            });
 
-        collapseButton.addEventListener('click', () => {
-            collapse.toggle();
+            collapseButton.addEventListener('click', () => {
+                collapse.toggle();
+            });
         });
     });
-});
 </script>
 <?php include_once "app/view/templates/app-inc-page/pie-footer.inc.php"; ?>

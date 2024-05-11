@@ -6,7 +6,7 @@ if (!ControlSesion::sesion_iniciada()) {
 // Datos usuario en sesion
 $userLogin = ControlSesion::datos_sesion();
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
-if ($user["id_rol"] !== "1" && $user["id_rol"] !== "4") {
+if ($user["id_rol"] !== 1 && $user["id_rol"] !== 4) {
     // Código si el id_rol no es igual a 1 ni a 4
 
     Redireccion::redirigir(RUTA_GENERAL);
@@ -62,8 +62,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <!-- Agrega el siguiente código HTML al lugar donde deseas mostrar la modal -->
 
 <!-- Modal Editar Usuario -->
-<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel"
-    aria-hidden="true">
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -199,8 +198,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group mb-3">
-                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80"
-                                    loading="lazy">
+                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80" loading="lazy">
                             </div>
                         </div>
                         <div class="mb-3">

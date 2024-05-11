@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -38,7 +39,7 @@ if (!ControlSesion::sesion_iniciada()) {
 $userLogin = ControlSesion::datos_sesion();
 
 $user = UsersCrt::GetRol(Conexion::obtener_conexion(), $userLogin["usuario"]);
-if ($user["id_rol"] !== "1" && $user["id_rol"] !== "2" && $user["id_rol"] !== "4") {
+if ($user["id_rol"] !== 1 && $user["id_rol"] !== 2 && $user["id_rol"] !== "4") {
     # code...
     Redireccion::redirigir(RUTA_GENERAL);
 }
@@ -88,8 +89,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 </div>
 
 <!-- Modal Editar Usuario -->
-<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel"
-    aria-hidden="true">
+<div class="modal fade" id="modalEditarUsuario" tabindex="-1" aria-labelledby="modalEditarUsuarioLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-scrollable modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -175,15 +175,13 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             <div class="form-group mb-3">
                                 <label for="delegacion" class="form-label">Delegación</label>
 
-                                <input type="text" class="form-control" id="delegacion" name="delegacion"
-                                    value="<?php echo strtoupper($userEstado["nombre_estado"]); ?>" readonly>
+                                <input type="text" class="form-control" id="delegacion" name="delegacion" value="<?php echo strtoupper($userEstado["nombre_estado"]); ?>" readonly>
 
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group mb-3">
-                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80"
-                                    loading="lazy">
+                                <img id="img-user" class="img-fluid" src="" alt="" width="80" height="80" loading="lazy">
                             </div>
                         </div>
                         <div class="mb-3">
