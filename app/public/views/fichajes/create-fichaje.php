@@ -190,6 +190,12 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <option value="tiro">Tiro</option>
                                     <option value="toros_coleados">Toros Coleados</option>
                                     <option value="voleibol">Voleibol</option>
+                                    <option value="golf">Golf</option>
+                                    <option value="natacion_aguas_abiertas">Natación Aguas Abiertas</option>
+                                    <option value="beach_tenis">Beach Tenis</option>
+                                    <option value="padel">Pádel</option>
+                                    <option value="futbol_campo_libre">Fútbol campo libre</option>
+                                    <option value="futbol_campo_+50">Fútbol campo +50</option>
                                 </select>
                             </div>
                             <div class="col-6">
