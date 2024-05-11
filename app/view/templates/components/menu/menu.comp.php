@@ -43,15 +43,15 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav me-auto">        
-             <li class="nav-item">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item">
                     <a class="nav-link" href="#">
                         <i class="fas fa-user"></i>
                         <span"><?php echo $userLogin["usuario"]; ?></span>
                     </a>
-                </li>   
-        </ul> 
-        <ul class="navbar-nav mx-auto">
+                </li>
+            </ul>
+            <ul class="navbar-nav mx-auto">
                 <?php
                 // vista para fichajes
                 if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
@@ -113,20 +113,44 @@
                         <span class="badge bg-info">Ver</span>
                     </a>
                 </li>
-                
-            </ul>
-                <?php
-                // vista para usuarios
-                if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
-                    # si el usuario es administrador... NEW fichador y alistador
 
-                ?>
+            </ul>
+            <?php
+            // vista para usuarios
+            if ($user["id_rol"] == 1 || $user["id_rol"] == 2 || $user["id_rol"] == 4) {
+                # si el usuario es administrador... NEW fichador y alistador
+
+            ?>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fas fa-info"></i> <span>Info</span>
                         </a>
                         <ul class="dropdown-menu">
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Estatutos FEDEAV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Estatutos FEDEAV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Estatutos FEDEAV</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" download="carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Carta Fundamental y Código Disciplinario Fedeav2024</span>
+                                </a>
+                            </li>
                             <li>
                                 <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
                                     <i class="fas fa-download"></i>
@@ -141,7 +165,7 @@
                         </ul>
                     </li>
                 <?php
-                } # si el usuario no esta habilitado continua el menu
+            } # si el usuario no esta habilitado continua el menu
                 ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo RUTA_HELP; ?>">
@@ -154,7 +178,7 @@
                         <i class="fas fa-sign-out"></i> <span>Salir</span>
                     </a>
                 </li>
-            </ul>
+                </ul>
         </div>
     </div>
 </nav>
