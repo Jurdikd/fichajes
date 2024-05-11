@@ -35,8 +35,8 @@
 
 
 
-$nombreDisciplina = "Fútbol campo libre";
-$nombreCortoDisciplina = "futbol_campo_libre";
+$nombreDisciplina = "Fútbol campo +50";
+$nombreCortoDisciplina = "futbol_campo_+50";
 
 try {
 
