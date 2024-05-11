@@ -130,25 +130,25 @@
                             <li>
                                 <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
                                     <i class="fas fa-download"></i>
-                                    <span>Estatutos FEDEAV</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
-                                    <i class="fas fa-download"></i>
-                                    <span>Estatutos FEDEAV</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
-                                    <i class="fas fa-download"></i>
-                                    <span>Estatutos FEDEAV</span>
+                                    <span>Estatutos Fedeav2024</span>
                                 </a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" download="carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" class="btn btn-primary text-white">
                                     <i class="fas fa-download"></i>
                                     <span>Carta Fundamental y Código Disciplinario Fedeav2024</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>disposiciones-generalesg-fedeav2024.pdf" download="Disposiciones Generales Fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Disposiciones Generales Fedeav2024</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>estatutos-fedeav2024.pdf" download="estatutos-fedeav2024.pdf" class="btn btn-primary text-white">
+                                    <i class="fas fa-download"></i>
+                                    <span>Estatutos FEDEAV</span>
                                 </a>
                             </li>
                             <li>
