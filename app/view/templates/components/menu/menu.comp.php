@@ -30,6 +30,12 @@
  * By downloading, cloning, installing, purchasing, or selling the FICHAJE system, you indicate your acceptance of the terms and conditions set forth in this commercial license. / Al descargar, clonar, instalar, comprar o vender el sistema de FICHAJE, indicas tu aceptación de los términos y condiciones establecidos en esta licencia comercial.
  * 
  **/
+// Datos de usuario:
+$userPerfil = $userLogin["usuario"];
+// Datos usuario en sesion
+$userLogin = ControlSesion::datos_sesion();
+
+$userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id"]);
 
 ?>
 <!-- Menu -->
@@ -44,11 +50,33 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fas fa-user"></i>
-                        <span"><?php echo $userLogin["usuario"]; ?></span>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle nav-calculators" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img class="img-fluid rounded-circle border border-3 border-primary img-cover" src="<?php echo $userData["img"]; ?>" alt="" width="35px">
                     </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <div class="dropdown-item">
+                                <ul>
+                                    <li>
+                                        <span"><b>Usuario:</b> <?php echo $userData["usuario"]; ?></span>
+                                    </li>
+                                    <li>
+                                        <span"><b>Nombre:</b> <?php echo $userData["nombre"] . " " . $userData["apellido"]; ?></span>
+                                    </li>
+                                    <li>
+                                        <span"><b>Rol:</b> <?php echo $userData["rol"]; ?></span>
+                                    </li>
+                                    <li>
+                                        <span"><b>Codigo Fedeav:</b> <?php echo $userData["codigo_fedeav"]; ?></span>
+                                    </li>
+                                    <li>
+                                        <span"><b>Delegación:</b> <?php echo $userData["delegacion"]; ?></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </li>
             </ul>
             <ul class="navbar-nav mx-auto">

@@ -384,6 +384,9 @@ body {
     mix-blend-mode: screen;
     color: colora;
 }
+.img-cover{
+  object-fit: cover !important;
+}
 /*clase paes ocular elementos*/
 .hide-on-all {
 	display: block;

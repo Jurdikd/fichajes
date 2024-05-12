@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -1272,6 +1273,3 @@ class RepositorioUsuario
         return $resultado;
     }
 }
-/**
- * SELECT usuarios.imagen, usuarios.nombre, usuarios.nombre2, disciplinas.name_disciplina AS nombre_disciplina, usuarios.apellido1, usuarios.apellido2, usuarios.cedula, sexos.nombre_sexo, usuarios.fecha_nacimiento, usuarios.codigo_empleado, usuarios.inpre_abogado, estatus.id_estatus, usuarios.celular, usuarios.correo, usuarios.edicion_u, estados_paises.estado_nom, usuarios.registro_u, usuarios.id_usuario FROM usuarios INNER JOIN sexos on usuarios.fk_sexo = sexos.id_sexo INNER JOIN estatus on usuarios.fk_estatus = estatus.id_estatus INNER JOIN estados_paises ON usuarios.fk_estado = estados_paises.id_estado_pais JOIN registro_disciplinas_users ON usuarios.id_usuario = registro_disciplinas_users.fk_usuario JOIN disciplinas ON registro_disciplinas_users.fk_disciplina = disciplinas.id_disciplina WHERE
- */

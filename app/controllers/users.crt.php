@@ -376,6 +376,23 @@ class UsersCrt
         $fichas = RepositorioUsuario::obtener_fichas_usuarios_por_estado($conexion, $delegacion, $get['disciplina'], $get['sexo']);
         return $fichas;
     }
+    public static function GetUserSimple($conexion, $user)
+    {
+        $getUser = RepositorioUsuario::obtener_usuario_por_id_simple($conexion, $user);
+
+        $user = array(
+            'img' => $getUser[0]["imagen"],
+            'usuario' =>  $getUser[0]["usuario"],
+            'nombre' =>  $getUser[0]["nombre"],
+            'apellido' =>  $getUser[0]["apellido1"],
+            'nombre_completo' => $getUser[0]["nombre"] . " " . $getUser[0]["nombre2"] . " " . $getUser[0]["apellido1"] . " " . $getUser[0]["apellido2"],
+            'rol' =>  $getUser[0]["nombre_rol"],
+            'codigo_fedeav' =>  $getUser[0]["codigo_empleado"],
+            'delegacion' =>  $getUser[0]["estado_nom"],
+
+        );
+        return $user;
+    }
     public static function GetRol($conexion, $user)
     {
         $getRol = RepositorioUsuario::obtener_rol_usuario($conexion, $user);

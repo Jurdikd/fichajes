@@ -7,4 +7,4 @@ Disallow: /include/
 User-agent: Googlebot-Image
 Disallow: /
 
-Sitemap: https://www.tasatoday.pro/sitemap.xml
+Sitemap: https://fichajefedeav.org/sitemap.xml
