@@ -35,8 +35,8 @@
 
 
 
-$nameShortDisciplina = "futbol_campo_libre"; // Valor de name_short_disciplina
-$nuevoIdDisciplina = 21; // Nuevo ID de la disciplina
+$nameShortDisciplina = "futbol_campo_+50"; // Valor de name_short_disciplina
+$nuevoIdDisciplina = 22; // Nuevo ID de la disciplina
 
 try {
 
