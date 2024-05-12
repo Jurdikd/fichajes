@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -44,99 +45,96 @@ include_once "app/view/templates/app-inc-page/cabecera-header-inc.php";
 
 include_once "app/view/templates/components/menu/menu.comp.php"; ?>
 <style>
-body.count {
-    background: #04214e;
-}
+    body.count {
+        background: #04214e;
+    }
 
-/* Estilos del contador */
-#contador {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 48px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 100px;
-    color: #ffffff;
-}
+    /* Estilos del contador */
+    #contador {
+        font-family: 'Orbitron', sans-serif;
+        font-size: 48px;
+        font-weight: bold;
+        text-align: center;
+        margin-top: 100px;
+        color: #ffffff;
+    }
 
-#contador span {
-    display: inline-block;
-    perspective: 1000px;
-}
+    #contador span {
+        display: inline-block;
+        perspective: 1000px;
+    }
 
-/* Estilos para los cohetes */
-.rocket-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-}
+    /* Estilos para los cohetes */
+    .rocket-container {
+        position: relative;
+        width: 100%;
+        height: 0;
+    }
 
-.rocket {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100px;
-    height: 200px;
-    background-image: url('app/public/img/rocket/rocket.png');
-    background-size: cover;
-    z-index: 100;
-    opacity: 0;
-}
-
-.explote {
-    animation: rocketLaunch 7s ease-out;
-    animation-fill-mode: forwards;
-    opacity: 1;
-}
-
-@keyframes rocketLaunch {
-    0% {
+    .rocket {
+        position: absolute;
+        top: 50%;
+        left: 50%;
         transform: translate(-50%, -50%);
+        width: 100px;
+        height: 200px;
+        background-image: url('app/public/img/rocket/rocket.png');
+        background-size: cover;
+        z-index: 100;
         opacity: 0;
     }
 
-    40% {
-        opacity: 0.5;
-    }
-
-    60% {
-        opacity: 0.7;
-    }
-
-    80% {
+    .explote {
+        animation: rocketLaunch 7s ease-out;
+        animation-fill-mode: forwards;
         opacity: 1;
     }
 
-    100% {
-        transform: translate(-50%, -900%);
-        opacity: 0;
-    }
-}
+    @keyframes rocketLaunch {
+        0% {
+            transform: translate(-50%, -50%);
+            opacity: 0;
+        }
 
-/* Estilos para el contenedor de partículas */
-#particles-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
+        40% {
+            opacity: 0.5;
+        }
+
+        60% {
+            opacity: 0.7;
+        }
+
+        80% {
+            opacity: 1;
+        }
+
+        100% {
+            transform: translate(-50%, -900%);
+            opacity: 0;
+        }
+    }
+
+    /* Estilos para el contenedor de partículas */
+    #particles-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+    }
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap">
 <div class="container mt-5">
-<h2 class="text-center text-white"> EL SISTEMA SE ENCUENTRA EN MANTENIMIENTO...</h2>
     <div id="particles-container"></div>
     <div id="contador">
-        <h3>Comienza: <br> 15/05/2024</h3>
         <h3>Fichajes terminan el:</h3>
         <span id="dateFichaje"></span>
         <h4>Falta:</h4>
         <span id="contadorDate"></span>
     </div>
 
-    <img class="img-fluid mx-auto my-auto mb-3" src="<?php echo RUTA_IMG; ?>logo/fondo-fedeav.svg"
-        alt="Fondo fedeav"> 
+    <img class="img-fluid mx-auto my-auto mb-3" src="<?php echo RUTA_IMG; ?>logo/fondo-fedeav.svg" alt="Fondo fedeav">
 
     <div class="rocket-container">
         <div class="rocket"></div>
