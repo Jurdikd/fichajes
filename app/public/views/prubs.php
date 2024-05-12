@@ -34,33 +34,6 @@
 ## codificar aqui:
 
 
-
-$nameShortDisciplina = "futbol_campo_+50"; // Valor de name_short_disciplina
-$nuevoIdDisciplina = 22; // Nuevo ID de la disciplina
-
-try {
-
-    // Preparar la consulta para actualizar el ID
-    $consulta = Conexion::obtener_conexion()->prepare("UPDATE disciplinas SET id_disciplina = :nuevoIdDisciplina WHERE name_short_disciplina = :nameShortDisciplina");
-    $consulta->bindParam(':nuevoIdDisciplina', $nuevoIdDisciplina);
-    $consulta->bindParam(':nameShortDisciplina', $nameShortDisciplina);
-
-    // Ejecutar la consulta
-    $consulta->execute();
-
-    // Verificar si se actualizaron registros
-    $cantidadRegistrosAfectados = $consulta->rowCount();
-
-    if ($cantidadRegistrosAfectados > 0) {
-        echo "ID de disciplina actualizado para '{$nameShortDisciplina}'. Se actualizaron {$cantidadRegistrosAfectados} registros.";
-    } else {
-        echo "No se encontraron registros para actualizar con '{$nameShortDisciplina}'.";
-    }
-} catch (PDOException $e) {
-    echo "Error al actualizar ID: " . $e->getMessage();
-}
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es-VE">
