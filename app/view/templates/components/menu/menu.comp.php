@@ -152,7 +152,7 @@ $userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-info"></i> <span>Info</span>
+                            <i class="fas fa-check"></i> <span>Estatutos</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li>
@@ -185,8 +185,27 @@ $userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id
                                     <span>Reglamento Voz del Abogado Fedeav-2024</span>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-info"></i> <span>Info</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">
+                                    <i class="fas fa-history"></i>
+                                    <span>Versión actual V2.5.9</span>
+                                </a>
+                            </li>
+                            <li><a class="dropdown-item" href="#">
+                                    <i class="fas fa-history"></i>
+                                    <span>Versión anterior V1.5.7</span>
+                                </a>
+                            </li>
                             <li><a class="dropdown-item" href="<?php echo RUTA_LICENCE; ?>">
-                                    <i class="fas fa-card"></i>
+                                    <i class="fas fa-eye"></i>
                                     <span>Ver Licencia</span>
                                 </a>
                             </li>
