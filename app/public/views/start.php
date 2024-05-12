@@ -130,7 +130,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
     <div id="contador">
         <h3>Fichajes terminan el:</h3>
         <span id="dateFichaje"></span>
-        <h4>Falta:</h4>
+        <h4>Faltan:</h4>
         <span id="contadorDate"></span>
     </div>
 
