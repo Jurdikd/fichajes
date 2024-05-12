@@ -35,8 +35,8 @@
 
 
 
-$nameShortDisciplina = "golf"; // Valor de name_short_disciplina
-$nuevoIdDisciplina = 17; // Nuevo ID de la disciplina
+$nameShortDisciplina = "natacion_aguas_abiertas"; // Valor de name_short_disciplina
+$nuevoIdDisciplina = 18; // Nuevo ID de la disciplina
 
 try {
 
