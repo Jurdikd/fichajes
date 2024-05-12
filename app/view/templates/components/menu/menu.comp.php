@@ -158,7 +158,7 @@ $userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id
                             <li>
                                 <a class="dropdown-item" href="<?php echo RUTA_DONWLOAD; ?>carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" download="carta-fundamental-y-codigo-disciplinario-fedeav2024.pdf" class="btn btn-primary text-white">
                                     <i class="fas fa-download"></i>
-                                    <span>Carta Fundamental y Código Disciplinario Fedeav-2024</span>
+                                    <span>Carta Fundamental y <br> Código Disciplinario Fedeav-2024</span>
                                 </a>
                             </li>
                             <li>
@@ -196,7 +196,7 @@ $userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">
                                     <i class="fas fa-history"></i>
-                                    <span>Versión actual V2.5.9</span>
+                                    <span>Versión actual V2.6.1</span>
                                 </a>
                             </li>
                             <li><a class="dropdown-item" href="#">
