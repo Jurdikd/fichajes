@@ -391,6 +391,36 @@ body {
 .hide-on-all {
 	display: block;
   }
+
+  /* Estilos de barra de desplazamiento*/
+
+  /* Estilos generales para la barra de desplazamiento */
+::-webkit-scrollbar {
+	width: 10px; /* Ancho de la barra de desplazamiento */
+	height: auto; /* Altura de la barra de desplazamiento */
+	background-color: #F5F5F5; /* Color de fondo de la barra de desplazamiento */
+  }
+  
+  ::-webkit-scrollbar-thumb {
+	background-color: #CCC; /* Color del pulsor de la barra de desplazamiento */
+	border-radius: 5px; /* Radio de los bordes del pulsor */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+	background-color: #AAA; /* Color del pulsor al pasar el cursor */
+  }
+  
+  /* Estilos para la barra de desplazamiento horizontal */
+  ::-webkit-scrollbar-track-piece {
+	background-color: #F5F5F5; /* Color de la pista de la barra de desplazamiento horizontal */
+  }
+  
+  /* Estilos para la barra de desplazamiento vertical */
+  ::-webkit-scrollbar-track-piece-vertical {
+	background-color: #F5F5F5; /* Color de la pista de la barra de desplazamiento vertical */
+  }
+  
+
 /* Estilos para dispositivos con ancho de pantalla menor o igual a 280px */
 @media (max-width: 330px) {
     .card {
