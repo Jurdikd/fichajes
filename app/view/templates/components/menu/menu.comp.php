@@ -196,7 +196,7 @@ $userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">
                                     <i class="fas fa-history"></i>
-                                    <span>Versión actual V2.6.1</span>
+                                    <span>Versión actual V2.6.2</span>
                                 </a>
                             </li>
                             <li><a class="dropdown-item" href="#">
