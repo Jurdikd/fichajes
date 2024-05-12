@@ -170,7 +170,8 @@ const deleteUser = async (id_user, nameUsuario) => {
 				"El usuario ha sido eliminado correctamente.",
 				"success"
 			);
-			showFichas();
+			//showFichas();
+			location.reload(true);
 		} else if (solicitud == 2) {
 			Swal.fire("Usuario eliminado", "Error al borrar imagen o no existia.", "warning");
 			showFichas();
