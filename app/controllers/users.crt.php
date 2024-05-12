@@ -115,7 +115,13 @@ class UsersCrt
                     "tenis_de_mesa",
                     "tiro",
                     "toros_coleados",
-                    "voleibol"
+                    "voleibol",
+                    "golf",
+                    "natacion_aguas_abiertas",
+                    "beach_tenis",
+                    "padel",
+                    "futbol_campo_libre",
+                    "futbol_campo_+50"
                 ];
 
                 $arrayACambiar = $userData["disciplinas"];
@@ -244,7 +250,13 @@ class UsersCrt
                     "tenis_de_mesa",
                     "tiro",
                     "toros_coleados",
-                    "voleibol"
+                    "voleibol",
+                    "golf",
+                    "natacion_aguas_abiertas",
+                    "beach_tenis",
+                    "padel",
+                    "futbol_campo_libre",
+                    "futbol_campo_+50"
                 ];
 
                 $arrayACambiar = $userData["disciplinas"];
@@ -434,62 +446,68 @@ class UsersCrt
             file_put_contents("../" . $rutaimg, $base64);
             // borrar disciplinas
             $deleteDisciplinas = RepositorioDisciplinasUsuarios::eliminar_disciplinas_usuario($conexion, $userData["id_usuario"]);
-          
-                # code...
+
+            # code...
 
 
-                //verificacion de disciplinas
-                $disciplinas = [
-                    "ajedrez",
-                    "baloncesto",
-                    "billar",
-                    "bolas_criollas",
-                    "boliche",
-                    "domino",
-                    "futbol_sala",
-                    "kickingball",
-                    "maraton",
-                    "natacion",
-                    "softball",
-                    "tenis_de_campo",
-                    "tenis_de_mesa",
-                    "tiro",
-                    "toros_coleados",
-                    "voleibol"
-                ];
+            //verificacion de disciplinas
+            $disciplinas = [
+                "ajedrez",
+                "baloncesto",
+                "billar",
+                "bolas_criollas",
+                "boliche",
+                "domino",
+                "futbol_sala",
+                "kickingball",
+                "maraton",
+                "natacion",
+                "softball",
+                "tenis_de_campo",
+                "tenis_de_mesa",
+                "tiro",
+                "toros_coleados",
+                "voleibol",
+                "golf",
+                "natacion_aguas_abiertas",
+                "beach_tenis",
+                "padel",
+                "futbol_campo_libre",
+                "futbol_campo_+50"
+            ];
 
-                $arrayACambiar = $userData["disciplinas"];
-                $nuevosIndices = [];
-                //numerar disciplinas 
-                foreach ($arrayACambiar as $elemento) {
-                    $indice = array_search($elemento, $disciplinas);
-                    if ($indice !== false) {
-                        $nuevosIndices[] = $indice + 1; // Sumar 1 para obtener el número correspondiente
-                    }
+            $arrayACambiar = $userData["disciplinas"];
+            $nuevosIndices = [];
+            //numerar disciplinas 
+            foreach ($arrayACambiar as $elemento) {
+                $indice = array_search($elemento, $disciplinas);
+                if ($indice !== false) {
+                    $nuevosIndices[] = $indice + 1; // Sumar 1 para obtener el número correspondiente
                 }
-                // Datos usuario en sesion
-                $userLogin = ControlSesion::datos_sesion();
-                //registro dinamico de disciplinas
-                $registrarDisciplinas = true;
-                foreach ($nuevosIndices as $disciplina) {
-                    $result = RepositorioDisciplinasUsuarios::insertar_disciplinas_usuario($conexion, $disciplina, $userData["id_usuario"], $userLogin["id"]);
-                    if (!$result) {
-                        $registrarDisciplinas = false;
-                        break; // Detener el bucle si ocurre algún error
-                    }
-                }
-                if ($registrarDisciplinas) {
-                    # si se registraron las disciplinas todo bien...
-                    $resultado = 1;
-                } else {
-                    # no se registraron las disciplinas...
-                    $resultado = 2;
-                }
-            } else {
-                # error al borrar disciplinas y actualizar...
-                $resultado = 3;
             }
-        
+            // Datos usuario en sesion
+            $userLogin = ControlSesion::datos_sesion();
+            //registro dinamico de disciplinas
+            $registrarDisciplinas = true;
+            foreach ($nuevosIndices as $disciplina) {
+                $result = RepositorioDisciplinasUsuarios::insertar_disciplinas_usuario($conexion, $disciplina, $userData["id_usuario"], $userLogin["id"]);
+                if (!$result) {
+                    $registrarDisciplinas = false;
+                    break; // Detener el bucle si ocurre algún error
+                }
+            }
+            if ($registrarDisciplinas) {
+                # si se registraron las disciplinas todo bien...
+                $resultado = 1;
+            } else {
+                # no se registraron las disciplinas...
+                $resultado = 2;
+            }
+        } else {
+            # error al borrar disciplinas y actualizar...
+            $resultado = 3;
+        }
+
         return $resultado;
     }
     public static function EditUser($conexion, $userData)
@@ -557,58 +575,63 @@ class UsersCrt
             file_put_contents("../" . $rutaimg, $base64);
             // borrar disciplinas
             $deleteDisciplinas = RepositorioDisciplinasUsuarios::eliminar_disciplinas_usuario($conexion, $userData["id_usuario"]);
-         // borrado de disciplinas haya o no
-                # code...
+            // borrado de disciplinas haya o no
+            # code...
 
 
-                //verificacion de disciplinas
-                $disciplinas = [
-                    "ajedrez",
-                    "baloncesto",
-                    "billar",
-                    "bolas_criollas",
-                    "boliche",
-                    "domino",
-                    "futbol_sala",
-                    "kickingball",
-                    "maraton",
-                    "natacion",
-                    "softball",
-                    "tenis_de_campo",
-                    "tenis_de_mesa",
-                    "tiro",
-                    "toros_coleados",
-                    "voleibol"
-                ];
+            //verificacion de disciplinas
+            $disciplinas = [
+                "ajedrez",
+                "baloncesto",
+                "billar",
+                "bolas_criollas",
+                "boliche",
+                "domino",
+                "futbol_sala",
+                "kickingball",
+                "maraton",
+                "natacion",
+                "softball",
+                "tenis_de_campo",
+                "tenis_de_mesa",
+                "tiro",
+                "toros_coleados",
+                "voleibol",
+                "golf",
+                "natacion_aguas_abiertas",
+                "beach_tenis",
+                "padel",
+                "futbol_campo_libre",
+                "futbol_campo_+50"
+            ];
 
-                $arrayACambiar = $userData["disciplinas"];
-                $nuevosIndices = [];
-                //numerar disciplinas 
-                foreach ($arrayACambiar as $elemento) {
-                    $indice = array_search($elemento, $disciplinas);
-                    if ($indice !== false) {
-                        $nuevosIndices[] = $indice + 1; // Sumar 1 para obtener el número correspondiente
-                    }
+            $arrayACambiar = $userData["disciplinas"];
+            $nuevosIndices = [];
+            //numerar disciplinas 
+            foreach ($arrayACambiar as $elemento) {
+                $indice = array_search($elemento, $disciplinas);
+                if ($indice !== false) {
+                    $nuevosIndices[] = $indice + 1; // Sumar 1 para obtener el número correspondiente
                 }
-                // Datos usuario en sesion
-                $userLogin = ControlSesion::datos_sesion();
-                //registro dinamico de disciplinas
-                $registrarDisciplinas = true;
-                foreach ($nuevosIndices as $disciplina) {
-                    $result = RepositorioDisciplinasUsuarios::insertar_disciplinas_usuario($conexion, $disciplina, $userData["id_usuario"], $userLogin["id"]);
-                    if (!$result) {
-                        $registrarDisciplinas = false;
-                        break; // Detener el bucle si ocurre algún error
-                    }
+            }
+            // Datos usuario en sesion
+            $userLogin = ControlSesion::datos_sesion();
+            //registro dinamico de disciplinas
+            $registrarDisciplinas = true;
+            foreach ($nuevosIndices as $disciplina) {
+                $result = RepositorioDisciplinasUsuarios::insertar_disciplinas_usuario($conexion, $disciplina, $userData["id_usuario"], $userLogin["id"]);
+                if (!$result) {
+                    $registrarDisciplinas = false;
+                    break; // Detener el bucle si ocurre algún error
                 }
-                if ($registrarDisciplinas) {
-                    # si se registraron las disciplinas todo bien...
-                    $resultado = 1;
-                } else {
-                    # no se registraron las disciplinas...
-                    $resultado = 2;
-                }
-        
+            }
+            if ($registrarDisciplinas) {
+                # si se registraron las disciplinas todo bien...
+                $resultado = 1;
+            } else {
+                # no se registraron las disciplinas...
+                $resultado = 2;
+            }
         } else {
             # error al borrar disciplinas y actualizar...
             $resultado = 3;
