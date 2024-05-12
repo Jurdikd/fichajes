@@ -116,8 +116,9 @@ selectSexos.addEventListener("change", function () {
 const showFichas = async (selectedOptionDelegacion, selectedOptionSexo) => {
 	let disciplina;
 	if (urlGetTerror.get("d") !== undefined) {
-		disciplina = urlGetTerror.get("d");
-		//console.log(disciplina);
+		// Remplaza ESPACIOS por +
+		disciplina = urlGetTerror.get("d").replace(/ /g, "+");
+		console.log(disciplina);
 		let url = "../../app/ajax/fichas.ajax.php";
 		const solicitud = await terrorFetch.fetch(
 			"POST",

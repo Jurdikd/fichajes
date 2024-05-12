@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -36,7 +37,7 @@ if (!ControlSesion::sesion_iniciada()) {
 }
 if (UrlGetTerror::Getquery("d")) {
     $titulo = "Disciplina | " . strtoupper(UrlGetTerror::Getquery("d"));
-    $disciplina = strtoupper(UrlGetTerror::Getquery("d"));
+    $disciplina = preg_replace("/\s/", "+", strtoupper(UrlGetTerror::Getquery("d"))); // Reemplazar espacios por "+" con expresión regular
 } else {
     Redireccion::redirigir(RUTA_DISCIPLINAS);
 }
@@ -58,44 +59,44 @@ include_once "app/view/templates/components/menu/menu.comp.php";
             # colocar select para estados...
 
         ?>
-        <div class="col-lg-3">
-            <div class="card">
-                <div class="card-body">
-                    <div class="form-group mb-3">
-                        <label for="delegacion" class="form-label">Delegación:</label>
-                        <select class="form-control" id="delegacion" name="delegacion">
-                            <option></option>
-                            <option value="524">Amazonas</option>
-                            <option value="525">Anzoátegui</option>
-                            <option value="526">Apure</option>
-                            <option value="527">Aragua</option>
-                            <option value="528">Barinas</option>
-                            <option value="529">Bolívar</option>
-                            <option value="530">Carabobo</option>
-                            <option value="531">Cojedes</option>
-                            <option value="532">Delta Amacuro</option>
-                            <option value="533">Distrito Capital</option>
-                            <option value="534">Falcón</option>
-                            <option value="535">Guárico</option>
-                            <option value="536">Lara</option>
-                            <option value="537">Mérida</option>
-                            <option value="538">Miranda</option>
-                            <option value="539">Monagas</option>
-                            <option value="540">Nueva Esparta</option>
-                            <option value="541">Portuguesa</option>
-                            <option value="542">Sucre</option>
-                            <option value="543">Táchira</option>
-                            <option value="544">Trujillo</option>
-                            <option value="545">Vargas</option>
-                            <option value="546">Yaracuy</option>
-                            <option value="547">Zulia</option>
+            <div class="col-lg-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="form-group mb-3">
+                            <label for="delegacion" class="form-label">Delegación:</label>
+                            <select class="form-control" id="delegacion" name="delegacion">
+                                <option></option>
+                                <option value="524">Amazonas</option>
+                                <option value="525">Anzoátegui</option>
+                                <option value="526">Apure</option>
+                                <option value="527">Aragua</option>
+                                <option value="528">Barinas</option>
+                                <option value="529">Bolívar</option>
+                                <option value="530">Carabobo</option>
+                                <option value="531">Cojedes</option>
+                                <option value="532">Delta Amacuro</option>
+                                <option value="533">Distrito Capital</option>
+                                <option value="534">Falcón</option>
+                                <option value="535">Guárico</option>
+                                <option value="536">Lara</option>
+                                <option value="537">Mérida</option>
+                                <option value="538">Miranda</option>
+                                <option value="539">Monagas</option>
+                                <option value="540">Nueva Esparta</option>
+                                <option value="541">Portuguesa</option>
+                                <option value="542">Sucre</option>
+                                <option value="543">Táchira</option>
+                                <option value="544">Trujillo</option>
+                                <option value="545">Vargas</option>
+                                <option value="546">Yaracuy</option>
+                                <option value="547">Zulia</option>
 
-                        </select>
+                            </select>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
         <?php
         } # MOSTRAR SI ES ADMIN
         ?>
