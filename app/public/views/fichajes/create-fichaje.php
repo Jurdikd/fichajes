@@ -218,7 +218,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         ATLETA
                         <span class="fas fa-star text-ficha-discipline"></span>
                     </h5>
-                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2" src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="" srcset="" width="300" height="300" loading="lazy">
+                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="" srcset="" width="300" height="300" loading="lazy">
                     <div class="container-fluid mt-3">
                         <div class="row">
                             <div class="col-7 ps-0">
