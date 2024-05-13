@@ -147,29 +147,29 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                     <select class="form-control" id="delegacion" name="delegacion">
                                         <option></option>
                                         <option value="524">Amazonas</option>
-                                        <option value="537">Mérida</option>
-                                        <option value="538">Miranda</option>
-                                        <option value="539">Monagas</option>
-                                        <option value="540">Nueva Esparta</option>
-                                        <option value="541">Portuguesa</option>
-                                        <option value="542">Sucre</option>
-                                        <option value="543">Táchira</option>
-                                        <option value="544">Trujillo</option>
-                                        <option value="545">Vargas</option>
-                                        <option value="546">Yaracuy</option>
-                                        <option value="536">Lara</option>
-                                        <option value="535">Guárico</option>
-                                        <option value="525">Anzoátegui</option>
-                                        <option value="526">Apure</option>
-                                        <option value="527">Aragua</option>
-                                        <option value="528">Barinas</option>
-                                        <option value="529">Bolívar</option>
-                                        <option value="530">Carabobo</option>
-                                        <option value="531">Cojedes</option>
-                                        <option value="532">Delta Amacuro</option>
-                                        <option value="533">Distrito Capital</option>
-                                        <option value="534">Falcón</option>
-                                        <option value="547">Zulia</option>
+                                            <option value="525">Anzoátegui</option>
+                                            <option value="526">Apure</option>
+                                            <option value="527">Aragua</option>
+                                            <option value="528">Barinas</option>
+                                            <option value="529">Bolívar</option>
+                                            <option value="530">Carabobo</option>
+                                            <option value="531">Cojedes</option>
+                                            <option value="532">Delta Amacuro</option>
+                                            <option value="533">Distrito Capital</option>
+                                            <option value="534">Falcón</option>
+                                            <option value="535">Guárico</option>
+                                            <option value="536">Lara</option>
+                                            <option value="537">Mérida</option>
+                                            <option value="538">Miranda</option>
+                                            <option value="539">Monagas</option>
+                                            <option value="540">Nueva Esparta</option>
+                                            <option value="541">Portuguesa</option>
+                                            <option value="542">Sucre</option>
+                                            <option value="543">Táchira</option>
+                                            <option value="544">Trujillo</option>
+                                            <option value="545">La Guaira</option>
+                                            <option value="546">Yaracuy</option>
+                                            <option value="547">Zulia</option>
                                     </select>
 
                                 </div>
@@ -227,7 +227,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                         ATLETA
                         <span class="fas fa-star text-ficha-discipline"></span>
                     </h5>
-                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2" src="<?php echo RUTA_IMG; ?>logo/mascota.fedeav-merida.png" alt="" srcset="" width="300" height="300" loading="lazy">
+                    <img id="preview" class="card-img-top card-img-cover rounded filterFichaje2" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="" srcset="" width="300" height="300" loading="lazy">
                     <div class="container-fluid mt-3">
                         <div class="row">
                             <div class="col-7 ps-0">
