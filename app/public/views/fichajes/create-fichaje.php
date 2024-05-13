@@ -139,18 +139,6 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                         <select class="form-control" id="delegacion" name="delegacion">
                                             <option></option>
                                             <option value="524">Amazonas</option>
-                                            <option value="537">Mérida</option>
-                                            <option value="538">Miranda</option>
-                                            <option value="539">Monagas</option>
-                                            <option value="540">Nueva Esparta</option>
-                                            <option value="541">Portuguesa</option>
-                                            <option value="542">Sucre</option>
-                                            <option value="543">Táchira</option>
-                                            <option value="544">Trujillo</option>
-                                            <option value="545">Vargas</option>
-                                            <option value="546">Yaracuy</option>
-                                            <option value="536">Lara</option>
-                                            <option value="535">Guárico</option>
                                             <option value="525">Anzoátegui</option>
                                             <option value="526">Apure</option>
                                             <option value="527">Aragua</option>
@@ -161,6 +149,18 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                             <option value="532">Delta Amacuro</option>
                                             <option value="533">Distrito Capital</option>
                                             <option value="534">Falcón</option>
+                                            <option value="535">Guárico</option>
+                                            <option value="536">Lara</option>
+                                            <option value="537">Mérida</option>
+                                            <option value="538">Miranda</option>
+                                            <option value="539">Monagas</option>
+                                            <option value="540">Nueva Esparta</option>
+                                            <option value="541">Portuguesa</option>
+                                            <option value="542">Sucre</option>
+                                            <option value="543">Táchira</option>
+                                            <option value="544">Trujillo</option>
+                                            <option value="545">Vargas</option>
+                                            <option value="546">Yaracuy</option>
                                             <option value="547">Zulia</option>
                                         </select>
                                     <?php   } else {
@@ -270,8 +270,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                             </div>
                             <hr class="__ficha-hr">
                             <div class="col-12">
-                                <p class="text-center text-ficha-discipline m-0"><b>XL JUEGOS DEPORTIVOS NACIONALES
-                                        INTERCOLEGIOS DE ABOGADOS DE VENEZUELA - MERIDA 2023</b>
+                                <p class="text-center text-ficha-discipline m-0"><b>XLI JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE ABOGADOS DE VENEZUELA - CARABOBO 2024</b>
                                 </p>
                             </div>
                         </div>
