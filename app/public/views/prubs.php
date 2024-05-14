@@ -33,6 +33,31 @@
 
 ## codificar aqui:
 
+$idDisciplina = "23"; // Valor de name_disciplina
+$nombreDisciplina = "Voz del Abogado"; // Valor de name_disciplina
+$nombreCortoDisciplina = "voz_del_abogado"; // Valor de name_short_disciplina
+
+try {
+
+    // Preparar la consulta SQL
+    $consulta = Conexion::obtener_conexion()->prepare("INSERT INTO disciplinas (id_disciplina, name_disciplina, name_short_disciplina) VALUES (?, ?, ?)");
+
+    // Vincular los valores a los marcadores de posición
+    $consulta->bindParam(1, $idDisciplina);
+    $consulta->bindParam(2, $nombreDisciplina);
+    $consulta->bindParam(3, $nombreCortoDisciplina);
+
+    // Ejecutar la consulta
+    $consulta->execute();
+
+    // Cerrar la conexión a la base de datos
+    Conexion::cerrar_conexion();
+
+    echo "Datos de la disciplina insertados correctamente.";
+} catch (PDOException $e) {
+    echo "Error al insertar datos: " . $e->getMessage();
+}
+
 
 ?>
 <!DOCTYPE html>
