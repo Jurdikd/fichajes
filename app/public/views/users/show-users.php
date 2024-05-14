@@ -226,6 +226,7 @@ include_once "app/view/templates/components/menu/menu.comp.php"; ?>
                                 <option value="padel">Pádel</option>
                                 <option value="futbol_campo_libre">Fútbol campo libre</option>
                                 <option value="futbol_campo_+50">Fútbol campo +50</option>
+                                <option value="voz_del_abogado">Voz del Abogado</option>
                             </select>
                         </div>
                         <button type="submit" id="btn-actualizar" data-id="" class="btn btn-warning">Actualizar</button>
