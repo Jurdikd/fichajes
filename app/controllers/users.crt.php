@@ -121,7 +121,8 @@ class UsersCrt
                     "beach_tenis",
                     "padel",
                     "futbol_campo_libre",
-                    "futbol_campo_+50"
+                    "futbol_campo_+50",
+                    "voz_del_abogado"
                 ];
 
                 $arrayACambiar = $userData["disciplinas"];
@@ -256,7 +257,8 @@ class UsersCrt
                     "beach_tenis",
                     "padel",
                     "futbol_campo_libre",
-                    "futbol_campo_+50"
+                    "futbol_campo_+50",
+                    "voz_del_abogado"
                 ];
 
                 $arrayACambiar = $userData["disciplinas"];
@@ -490,7 +492,8 @@ class UsersCrt
                 "beach_tenis",
                 "padel",
                 "futbol_campo_libre",
-                "futbol_campo_+50"
+                "futbol_campo_+50",
+                "voz_del_abogado"
             ];
 
             $arrayACambiar = $userData["disciplinas"];
@@ -619,7 +622,8 @@ class UsersCrt
                 "beach_tenis",
                 "padel",
                 "futbol_campo_libre",
-                "futbol_campo_+50"
+                "futbol_campo_+50",
+                "voz_del_abogado"
             ];
 
             $arrayACambiar = $userData["disciplinas"];
