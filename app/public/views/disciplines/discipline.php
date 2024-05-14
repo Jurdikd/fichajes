@@ -87,7 +87,7 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                 <option value="542">Sucre</option>
                                 <option value="543">Táchira</option>
                                 <option value="544">Trujillo</option>
-                                <option value="545">Vargas</option>
+                                <option value="545">La Guaira</option>
                                 <option value="546">Yaracuy</option>
                                 <option value="547">Zulia</option>
 
