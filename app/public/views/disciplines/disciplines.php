@@ -163,6 +163,10 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                             <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/futbol_campo_+50.svg" alt="futbol_campo_+50" width="30" class="img-fluid me-3" loading="lazy">
                             Fútbol campo +50
                         </li>
+                        <li class="d-flex align-items-center mb-3">
+                            <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/voz_del_abogado.svg" alt="voz_del_abogado" width="30" class="img-fluid me-3" loading="lazy">
+                            Voz del Abogado
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -523,6 +527,19 @@ include_once "app/view/templates/components/menu/menu.comp.php";
                                         <h5 class="card-title">Fútbol campo +50</h5>
                                         <p class="card-text">Variante para mayores de 50 años: Reglas similares al fútbol campo tradicional estilo Masters.</p>
                                         <a href="<?php echo RUTA_DISCIPLINA; ?>?d=futbol_campo_+50" class="btn btn-primary">Ver
+                                            más</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-3 col-md-3">
+                                <div class="card bg-dark text-white">
+                                    <a href="<?php echo RUTA_DISCIPLINA; ?>?d=voz_del_abogado">
+                                        <img src="<?php echo RUTA_IMG; ?>icons/icons-discipline-rounded-solid/voz_del_abogado.svg" class="card-img-top p-2" alt="voz_del_abogado" loading="lazy">
+                                    </a>
+                                    <div class="card-body hide-on-all">
+                                        <h5 class="card-title">Voz del Abogado</h5>
+                                        <p class="card-text">Actividad artístico musical, de carácter competitivo.</p>
+                                        <a href="<?php echo RUTA_DISCIPLINA; ?>?d=voz_del_abogado" class="btn btn-small btn-primary">Ver
                                             más</a>
                                     </div>
                                 </div>
