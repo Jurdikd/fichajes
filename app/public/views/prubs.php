@@ -33,30 +33,37 @@
 
 ## codificar aqui:
 
-$idDisciplina = "23"; // Valor de name_disciplina
-$nombreDisciplina = "Voz del Abogado"; // Valor de name_disciplina
-$nombreCortoDisciplina = "voz_del_abogado"; // Valor de name_short_disciplina
 
-try {
 
-    // Preparar la consulta SQL
-    $consulta = Conexion::obtener_conexion()->prepare("INSERT INTO disciplinas (id_disciplina, name_disciplina, name_short_disciplina) VALUES (?, ?, ?)");
+// Preparar la consulta SQL para obtener las disciplinas
+$consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
 
-    // Vincular los valores a los marcadores de posición
-    $consulta->bindParam(1, $idDisciplina);
-    $consulta->bindParam(2, $nombreDisciplina);
-    $consulta->bindParam(3, $nombreCortoDisciplina);
+// Ejecutar la consulta
+$consulta->execute();
 
-    // Ejecutar la consulta
-    $consulta->execute();
+// Obtener los resultados de la consulta
+$disciplinas = $consulta->fetchAll(PDO::FETCH_ASSOC);
 
-    // Cerrar la conexión a la base de datos
-    Conexion::cerrar_conexion();
-
-    echo "Datos de la disciplina insertados correctamente.";
-} catch (PDOException $e) {
-    echo "Error al insertar datos: " . $e->getMessage();
+// Si hay disciplinas, mostrarlas
+if ($disciplinas) {
+    echo "<h2>Listado de Disciplinas</h2>";
+    echo "<table border=1>";
+    echo "<tr><th>ID Disciplina</th><th>Nombre Disciplina</th><th>Nombre Corto</th></tr>";
+    foreach ($disciplinas as $disciplina) {
+        echo "<tr>";
+        echo "<td>" . $disciplina['id_disciplina'] . "</td>";
+        echo "<td>" . $disciplina['name_disciplina'] . "</td>";
+        echo "<td>" . $disciplina['name_short_disciplina'] . "</td>";
+        echo "</tr>";
+    }
+    echo "</table>";
+} else {
+    echo "No se encontraron disciplinas en la base de datos.";
 }
+
+// Cerrar la conexión a la base de datos
+Conexion::cerrar_conexion();
+
 
 
 ?>
