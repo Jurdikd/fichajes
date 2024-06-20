@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -49,8 +50,7 @@
                                     ATLETA
                                     <span class="fas fa-star text-ficha-discipline"></span>
                                 </h5>
-                                <img id="previewImg" class="card-img-top card-img-cover rounded filterFichaje2" src=""
-                                    alt="" srcset="" width="300" height="300" loading="lazy">
+                                <img id="previewImg" class="card-img-top card-img-cover rounded filterFichaje2" src="" alt="" srcset="" width="300" height="300" loading="lazy">
                                 <div class="container-fluid mt-3">
                                     <div class="row">
                                         <div class="col-7 ps-0">
@@ -85,9 +85,7 @@
                                         </div>
 
                                         <div class="col-2 mt-2 pe-0">
-                                            <img class="img-fluid rounded"
-                                                src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="Logo fedeav"
-                                                srcset="">
+                                            <img class="img-fluid rounded" src="<?php echo RUTA_IMG; ?>logo/logo-fedeav.JPG" alt="Logo fedeav" srcset="">
                                         </div>
                                         <div class="col-12 p-0">
                                             <div class="text-center collapse p-1 pt-0" id="collapseDiscipline">
@@ -96,9 +94,7 @@
                                         </div>
                                         <hr class="__ficha-hr">
                                         <div class="col-12">
-                                            <p class="text-center text-ficha-footer m-0"><b>XL JUEGOS DEPORTIVOS
-                                                    NACIONALES
-                                                    INTERCOLEGIOS DE ABOGADOS DE VENEZUELA - MERIDA 2023</b>
+                                            <p class="text-center text-ficha-footer m-0"><b>XLI JUEGOS DEPORTIVOS NACIONALES INTERCOLEGIOS DE ABOGADOS DE VENEZUELA CARABOBO 2024</b>
                                             </p>
                                         </div>
                                     </div>
