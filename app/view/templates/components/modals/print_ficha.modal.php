@@ -50,7 +50,7 @@
                                     ATLETA
                                     <span class="fas fa-star text-ficha-discipline"></span>
                                 </h5>
-                                <img id="previewImg" class="card-img-top card-img-cover rounded filterFichaje2" src="" alt="" srcset="" width="300" height="300" loading="lazy">
+                                <img id="previewImg" class="card-img-top card-img-cover rounded" src="" alt="" srcset="" width="300" height="300" loading="lazy">
                                 <div class="container-fluid mt-3">
                                     <div class="row">
                                         <div class="col-7 ps-0">
