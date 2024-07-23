@@ -109,7 +109,7 @@ const showFichas = async () => {
 					}" data-id="${usuario.id_usuario}" >Editar</button>
 					<button class="btn btn-danger btn-deleteUser mb-1" data-name="${
 						usuario.nombre + " " + usuario.apellido1
-					}" data-id="${usuario.id_usuario}" >Borrar</button>
+					}" data-id="${usuario.id_usuario}" disabled>Borrar</button>
 					`,
 				])
 				.draw();
