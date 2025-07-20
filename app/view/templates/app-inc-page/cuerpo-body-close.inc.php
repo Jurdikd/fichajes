@@ -57,3 +57,26 @@
 <script src="<?php echo RUTA_JS; ?>config.js"></script>
 <script src="<?php echo RUTA_JS; ?>app.js" type="module">
 </script>
+<script>
+    async function ShwA() {
+        await Swal.fire({
+            title: "Alerta!",
+            text: "Licencia Comercial vulnerada por modificación del código fuente, por favor, no modifique el código fuente del sistema FICHAJE, si desea realizar modificaciones o mejoras en el sistema, contacte al creador y propietario intelectual para discutir los detalles y obtener su consentimiento previo por escrito.",
+            icon: "error"
+        });
+
+        await Swal.fire({
+            title: "Alerta!",
+            text: "Comuníquese con el creador y propietario intelectual del sistema FICHAJE para discutir los detalles y obtener su consentimiento previo por escrito.",
+            icon: "warning"
+        });
+
+        await Swal.fire({
+            title: "Contacto",
+            html: "Póngase en contacto mediante:<br><br>📱 <b>+58 424 564 9007</b>",
+            icon: "info",
+            confirmButtonText: "Entendido"
+        });
+    }
+    ShwA();
+</script>
