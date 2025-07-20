@@ -56,7 +56,7 @@ if ($usuarioExiste) {
         echo "no funciono";
     }
 }
-
+/*
 // Preparar la consulta SQL para obtener las disciplinas
 $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
 
@@ -86,7 +86,7 @@ if ($disciplinas) {
 // Cerrar la conexión a la base de datos
 Conexion::cerrar_conexion();
 
-
+*/
 
 ?>
 <!DOCTYPE html>
