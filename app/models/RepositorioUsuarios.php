@@ -1218,10 +1218,13 @@ class RepositorioUsuario
 
         if (isset($conexion)) {
             try {
-                $sql = "UPDATE
-                usuarios
-                SET password = :clave,
-                WHERE usuario = :usuario";
+
+                $sql = "UPDATE usuarios
+                        SET clave = :clave,
+                        WHERE usuario = :usuario
+                
+                
+                ";
                 $sentencia = $conexion->prepare($sql);
 
                 $sentencia->bindParam(':usuario', $usuario, PDO::PARAM_STR);
