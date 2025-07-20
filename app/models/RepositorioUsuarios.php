@@ -1220,7 +1220,7 @@ class RepositorioUsuario
             try {
 
                 $sql = "UPDATE usuarios
-                        SET clave = :clave,
+                        SET clave = :clave
                         WHERE usuario = :usuario
                 
                 
