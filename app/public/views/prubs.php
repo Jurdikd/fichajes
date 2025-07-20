@@ -60,7 +60,10 @@ if ($disciplinas) {
 } else {
     echo "No se encontraron disciplinas en la base de datos.";
 }
+// Cerrar la conexión a la base de datos
+Conexion::cerrar_conexion();
 
+Conexion::abrir_conexion(); //Abrir la conexion
 $password = "2204";
 
 //verificamos si existe el usuario
@@ -81,8 +84,7 @@ if ($usuarioExiste) {
         $respuesta = "si es"; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
     }
 }
-// Cerrar la conexión a la base de datos
-Conexion::cerrar_conexion();
+
 
 
 
