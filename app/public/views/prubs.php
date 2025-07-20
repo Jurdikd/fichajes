@@ -647,7 +647,21 @@ Conexion::cerrar_conexion();
             // ACTUALIZAR ULTIMO LOGIN
 
             $respuesta = "si es"; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
+        }else{
+            $respuesta = "no es"; # AVISAMOS QUE EL USUARIO NO HIZO SESION CORRECTAMENTE
         }
+    } 
+    ?>
+    <script>
+        $(document).ready(function() {
+            $("#mensaje").text("<?= $respuesta ?>");
+        });
+    </script>
+    <?php
+    Conexion::abrir_conexion(); //Abrir la conexion
+    $password = "2204";
+
+    //ver
     }
     // Cerrar la conexión a la base de datos
     Conexion::cerrar_conexion();
