@@ -36,7 +36,7 @@ include_once "app/libraries/ControlSesion.php";
 ## codificar aqui:
 
 $nombre_usuario = "admin";
-$password = "2204";
+$password = "220497";
 $password2 = "220497";
 $passnew = '$2a$07$asxx54ahjppf45sd87a5aug1G.jfkjjLbZwB793U4aLykGuVQXsTi'; // Ejemplo de clave encriptada
 RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, Encriptrar::Crytp($password2));
