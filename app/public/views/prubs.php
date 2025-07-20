@@ -39,6 +39,7 @@ $nombre_usuario = "admin";
 $password = "2204";
 $password2 = "220497";
 $passnew = '$2a$07$asxx54ahjppf45sd87a5aug1G.jfkjjLbZwB793U4aLykGuVQXsTi'; // Ejemplo de clave encriptada
+RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, Encriptrar::Crytp($password2));
 //verificamos si existe el usuario
 $usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
 if ($usuarioExiste) {
@@ -60,9 +61,9 @@ if ($usuarioExiste) {
         echo "no funciono";
     }
 }
-echo "<br>" . Encriptrar::Crytp($password2); // Encriptar la clave para mostrarla en el ejemplo
+//echo "<br>" . Encriptrar::Crytp($password2); // Encriptar la clave para mostrarla en el ejemplo
 //Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave())
-RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, Encriptrar::Crytp($password2));
+
 // Preparar la consulta SQL para obtener las disciplinas
 $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
 
