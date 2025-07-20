@@ -44,6 +44,7 @@ if ($usuarioExiste) {
 
     // buscamos usuario por usuario
     $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
+    echo $usuario->obtener_clave();
     // veroficamos la clave 
     $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
     //verificamos si los datos de sesion son correctos
@@ -57,7 +58,7 @@ if ($usuarioExiste) {
         echo "no funciono";
     }
 }
-/*
+
 // Preparar la consulta SQL para obtener las disciplinas
 $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
 
@@ -87,7 +88,7 @@ if ($disciplinas) {
 // Cerrar la conexión a la base de datos
 Conexion::cerrar_conexion();
 
-*/
+
 
 ?>
 <!DOCTYPE html>
