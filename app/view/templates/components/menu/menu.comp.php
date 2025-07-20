@@ -191,7 +191,7 @@ $userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="badge bg-danger"><i class="fas fa-info"></i> <span>Info</span></span>
+                            <span class="badge bg-danger"><i class="fas fa-info"></i></span> <span>Info</span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">
