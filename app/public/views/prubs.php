@@ -35,7 +35,6 @@
 
 $nombre_usuario = "admin";
 $password = "2204";
-Conexion::abrir_conexion(); //Abrir la conexion
 //verificamos si existe el usuario
 $usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
 if ($usuarioExiste) {
