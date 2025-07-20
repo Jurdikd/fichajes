@@ -61,6 +61,26 @@ if ($disciplinas) {
     echo "No se encontraron disciplinas en la base de datos.";
 }
 
+$password = "2204";
+
+//verificamos si existe el usuario
+$usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), "admin");
+if ($usuarioExiste) {
+    # si usuario existe lo buscamos...
+
+    // buscamos usuario por usuario
+    $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
+    // veroficamos la clave 
+    $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
+    //verificamos si los datos de sesion son correctos
+    if ($clave) {
+        // DATOS DE SESION CORRECTOS SE INICIA SESION
+        ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
+        // ACTUALIZAR ULTIMO LOGIN
+
+        $respuesta = "si es"; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
+    }
+}
 // Cerrar la conexión a la base de datos
 Conexion::cerrar_conexion();
 
