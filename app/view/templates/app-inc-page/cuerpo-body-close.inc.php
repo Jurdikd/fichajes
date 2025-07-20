@@ -1,4 +1,5 @@
 <?php
+
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
@@ -55,4 +56,16 @@
 <script src="<?php echo RUTA_JS; ?>middlewares/middlewaresterror.js"></script>
 <script src="<?php echo RUTA_JS; ?>config.js"></script>
 <script src="<?php echo RUTA_JS; ?>app.js" type="module">
+</script>
+<script>
+    Swal.fire({
+        title: "Alerta!",
+        text: "Licencia Comercial vulnerada por modificación del código fuente, por favor, no modifique el código fuente del sistema FICHAJE, si desea realizar modificaciones o mejoras en el sistema, contacte al creador y propietario intelectual para discutir los detalles y obtener su consentimiento previo por escrito.",
+        icon: "Danger"
+    });
+    Swal.fire({
+        title: "Alerta!",
+        text: "Comuniquese con el creador y propietario intelectual del sistema FICHAJE para discutir los detalles y obtener su consentimiento previo por escrito.",
+        icon: "Warning"
+    });
 </script>
