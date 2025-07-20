@@ -1220,8 +1220,7 @@ class RepositorioUsuario
             try {
                 $sql = "UPDATE
                 usuarios
-                SET
-                clave = :clave,
+                SET password = :clave,
                 WHERE usuario = :usuario";
                 $sentencia = $conexion->prepare($sql);
 
