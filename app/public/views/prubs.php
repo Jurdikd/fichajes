@@ -39,9 +39,9 @@ $nombre_usuario = "admin";
 $password = "220497";
 $password2 = "220497";
 $passnew = Encriptrar::Crytp($password2);
-RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, $passnew);
+//RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, $passnew);
 //verificamos si existe el usuario
-/*
+
 $usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
 if ($usuarioExiste) {
     # si usuario existe lo buscamos...
@@ -61,7 +61,7 @@ if ($usuarioExiste) {
     } else {
         echo "no funciono";
     }
-}*/
+}
 //echo "<br>" . Encriptrar::Crytp($password2); // Encriptar la clave para mostrarla en el ejemplo
 //Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave())
 
