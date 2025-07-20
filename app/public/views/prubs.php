@@ -84,7 +84,8 @@ if ($usuarioExiste) {
         $respuesta = "si es"; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
     }
 }
-
+// Cerrar la conexión a la base de datos
+Conexion::cerrar_conexion();
 
 
 
