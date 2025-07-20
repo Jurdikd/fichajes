@@ -33,7 +33,29 @@
 
 ## codificar aqui:
 
+$nombre_usuario = "admin";
+$password = "2204";
+Conexion::abrir_conexion(); //Abrir la conexion
+//verificamos si existe el usuario
+$usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
+if ($usuarioExiste) {
+    # si usuario existe lo buscamos...
 
+    // buscamos usuario por usuario
+    $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
+    // veroficamos la clave 
+    $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
+    //verificamos si los datos de sesion son correctos
+    if ($clave) {
+        // DATOS DE SESION CORRECTOS SE INICIA SESION
+        ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
+        // ACTUALIZAR ULTIMO LOGIN
+
+        echo "funciono"; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
+    } else {
+        echo "no funciono";
+    }
+}
 
 // Preparar la consulta SQL para obtener las disciplinas
 $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
@@ -60,10 +82,9 @@ if ($disciplinas) {
 } else {
     echo "No se encontraron disciplinas en la base de datos.";
 }
+
 // Cerrar la conexión a la base de datos
 Conexion::cerrar_conexion();
-
-
 
 
 
@@ -627,45 +648,6 @@ Conexion::cerrar_conexion();
             });
         });
     </script>
-    <?php
-    Conexion::abrir_conexion(); //Abrir la conexion
-    $password = "2204";
-
-    //verificamos si existe el usuario
-    $usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), "admin");
-    if ($usuarioExiste) {
-        # si usuario existe lo buscamos...
-
-        // buscamos usuario por usuario
-        $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
-        // veroficamos la clave 
-        $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
-        //verificamos si los datos de sesion son correctos
-        if ($clave) {
-            // DATOS DE SESION CORRECTOS SE INICIA SESION
-            ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
-            // ACTUALIZAR ULTIMO LOGIN
-
-            $respuesta = "si es"; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
-        }else{
-            $respuesta = "no es"; # AVISAMOS QUE EL USUARIO NO HIZO SESION CORRECTAMENTE
-        }
-    } 
-    ?>
-    <script>
-        $(document).ready(function() {
-            $("#mensaje").text("<?= $respuesta ?>");
-        });
-    </script>
-    <?php
-    Conexion::abrir_conexion(); //Abrir la conexion
-    $password = "2204";
-
-    //ver
-    }
-    // Cerrar la conexión a la base de datos
-    Conexion::cerrar_conexion();
-    ?>
 </body>
 
 </html>
