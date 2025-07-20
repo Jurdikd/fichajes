@@ -205,8 +205,8 @@ $userData = UsersCrt::GetUserSimple(Conexion::obtener_conexion(), $userLogin["id
                                 </a>
                             </li>
                             <li><a class="dropdown-item" href="<?php echo RUTA_LICENCE; ?>">
-                                    <i class="fas fa-eye"></i>
-                                    <span class="badge bg-danger"><span>Ver Licencia</span></span>
+                                    <span class="badge bg-danger"><i class="fas fa-eye"></i>
+                                    </span><span>Ver Licencia</span>
                                 </a>
                             </li>
                         </ul>
