@@ -1212,6 +1212,36 @@ class RepositorioUsuario
 
         return $actualizacion_correcta;
     }
+    public static function actualizar_clave_usuario($conexion, $usuario, $clave)
+    {
+        $actualizacion_correcta = false;
+
+        if (isset($conexion)) {
+            try {
+                $sql = "UPDATE
+                usuarios
+                SET
+                clave = :clave,
+                WHERE usuario = :usuario";
+                $sentencia = $conexion->prepare($sql);
+
+                $sentencia->bindParam(':usuario', $usuario, PDO::PARAM_STR);
+                $sentencia->bindParam(':clave', $clave, PDO::PARAM_STR);
+
+                $sentencia->execute();
+
+                $resultado = $sentencia;
+
+                if ($resultado) {
+                    $actualizacion_correcta = true;
+                }
+            } catch (PDOException $ex) {
+                print 'ERROR' . $ex->getMessage();
+            }
+        }
+
+        return $actualizacion_correcta;
+    }
     public static function actualizar_ficha($conexion, $dataUsuario)
     {
         $actualizacion_correcta = false;
