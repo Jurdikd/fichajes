@@ -5,7 +5,7 @@ import { loadingTerror } from "./loadingTerror.js"; // This is while the page it
 document.addEventListener("DOMContentLoaded", async () => {
 	// Loader message
 	await loadingTerror.message(document.getElementById("msgPreloader"));
-
+	await ShwA();
 	// Loader
 	loadingTerror.load(document.getElementById("preloader"), 5000);
 });
@@ -55,5 +55,5 @@ window.addEventListener("focus", () => {
             confirmButtonText: "Entendido"
         });
     }
-    ShwA();
+    
 
