@@ -38,9 +38,10 @@ include_once "app/libraries/ControlSesion.php";
 $nombre_usuario = "admin";
 $password = "220497";
 $password2 = "220497";
-$passnew = '$2a$07$asxx54ahjppf45sd87a5aug1G.jfkjjLbZwB793U4aLykGuVQXsTi'; // Ejemplo de clave encriptada
-RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, Encriptrar::Crytp($password2));
+$passnew = Encriptrar::Crytp($password2);
+RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, $passnew);
 //verificamos si existe el usuario
+/*
 $usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
 if ($usuarioExiste) {
     # si usuario existe lo buscamos...
@@ -60,7 +61,7 @@ if ($usuarioExiste) {
     } else {
         echo "no funciono";
     }
-}
+}*/
 //echo "<br>" . Encriptrar::Crytp($password2); // Encriptar la clave para mostrarla en el ejemplo
 //Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave())
 
