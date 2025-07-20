@@ -35,35 +35,6 @@ include_once "app/libraries/ClaseCrypt.php";
 include_once "app/libraries/ControlSesion.php";
 ## codificar aqui:
 
-$nombre_usuario = "admin";
-$password = "220497";
-$password2 = "220497";
-$passnew = Encriptrar::Crytp($password2);
-//RepositorioUsuario::actualizar_clave_usuario(conexion::obtener_conexion(), $nombre_usuario, $passnew);
-//verificamos si existe el usuario
-
-$usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
-if ($usuarioExiste) {
-    # si usuario existe lo buscamos...
-
-    // buscamos usuario por usuario
-    $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
-    echo $usuario->obtener_clave() . "<br>";
-    // veroficamos la clave 
-    $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
-    //verificamos si los datos de sesion son correctos
-    if ($clave) {
-        // DATOS DE SESION CORRECTOS SE INICIA SESION
-        ControlSesion::iniciar_sesion($usuario->obtener_id_usuario(), $usuario->obtener_usuario());
-        // ACTUALIZAR ULTIMO LOGIN
-
-        echo "funciono"; # AVISAMOS QUE EL USUARIO HIZO SESION CORRECTAMENTE
-    } else {
-        echo "no funciono";
-    }
-}
-//echo "<br>" . Encriptrar::Crytp($password2); // Encriptar la clave para mostrarla en el ejemplo
-//Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave())
 
 // Preparar la consulta SQL para obtener las disciplinas
 $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
