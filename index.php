@@ -1,5 +1,4 @@
 <?php
-echo "9";
 /**
  *
  * # Commercial License Fichaje / Licencia Comercial Fichaje
