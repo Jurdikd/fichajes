@@ -37,6 +37,7 @@ include_once "app/libraries/ControlSesion.php";
 
 $nombre_usuario = "admin";
 $password = "2204";
+$password2 = "220497";
 //verificamos si existe el usuario
 $usuarioExiste = RepositorioUsuario::usuario_existe(Conexion::obtener_conexion(), $nombre_usuario);
 if ($usuarioExiste) {
@@ -44,7 +45,7 @@ if ($usuarioExiste) {
 
     // buscamos usuario por usuario
     $usuario = RepositorioUsuario::obtener_usuario_por_usuario(Conexion::obtener_conexion(), $nombre_usuario);
-    echo $usuario->obtener_clave();
+    echo $usuario->obtener_clave() . "<br>";
     // veroficamos la clave 
     $clave = Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave());
     //verificamos si los datos de sesion son correctos
@@ -58,6 +59,8 @@ if ($usuarioExiste) {
         echo "no funciono";
     }
 }
+echo Encriptrar::Crytp($password2); // Encriptar la clave para mostrarla en el ejemplo
+//Encriptrar::Verificar_Crytp($password, $usuario->obtener_clave())
 
 // Preparar la consulta SQL para obtener las disciplinas
 $consulta = Conexion::obtener_conexion()->prepare("SELECT * FROM disciplinas");
