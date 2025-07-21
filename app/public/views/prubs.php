@@ -29,7 +29,6 @@
  * 
  * By downloading, cloning, installing, purchasing, or selling the FICHAJE system, you indicate your acceptance of the terms and conditions set forth in this commercial license. / Al descargar, clonar, instalar, comprar o vender el sistema de FICHAJE, indicas tu aceptación de los términos y condiciones establecidos en esta licencia comercial.
  * 
- * 
  **/
 include_once 'app/libraries/classUsuario.php';
 include_once "app/libraries/ClaseCrypt.php";
